@@ -1,6 +1,6 @@
-# Projeto DOE
+# Plataforma DOE
 
-Este projeto foi desenvolvido como projeto final de conclusão de curso do MBA em Engenharia de Software da instituição Impacta.
+Esta plataforma foi desenvolvido como projeto final de conclusão de curso do MBA em Engenharia de Software da instituição Impacta.
 
 # Objetivo
 
