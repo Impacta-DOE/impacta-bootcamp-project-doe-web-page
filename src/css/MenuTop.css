@@ -1,15 +1,79 @@
 .menu-top-body {
-    width: 100%;
-    height: 4em;
     background-color: #4380BD;
+    height: 4.5em;
+    padding-left: 0.6em;
+    padding-right: 0.6em;
 }
 
 .btn-cadastrar {
-    border: 2px solid #00FFFF;
+    border: 3px solid #00FFFF;
+    color: #00FFFF;
+    width: 8em;
+    height: 2.2em;
+    font-weight: bold;
+    font-size: 14px;
+    border-radius: 12px;
+    background-color: rgba(0,0,0,0);
+    margin-right: 1em;
+}
+
+.btn-cadastrar:hover{
+    border: 3px solid #00FFFF;
+    background-color: #00FFFF;
+    color: rgba(0,0,0,0.4);
 }
 
 .btn-login {
     border: 2px solid white;
+    color: white;
+    height: 2.2em;
+    background-color: rgba(0,0,0,0);
+    width: 8em;
+    font-weight: bold;
+    font-size: 14px;
+    border-radius: 12px;
 }
 
-.btn-primary { background-color: red; }
+.btn-login:hover{
+    border: 2px solid white;
+    color: rgba(0,0,0,0.4);
+    background-color: white;
+}
+
+.logo {
+    width: 5.6em;
+    height: 2em;
+}
+
+.perfil {
+    width: 3em;
+    height: 3em;
+    border-radius: 15em;
+    background-color: #00FF7F;
+    border: 2px solid #55A5F4;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.campanha {
+    width: 2.2em;
+    height: 2.2em;
+    margin-right: 1.6em;
+    margin-top: .1em;
+}
+
+.campanha:hover {
+    cursor: pointer;
+}
+
+.menu-hamburguer {
+    width: 1.2em;
+    height: .8em;
+    margin-right: 1.3em;
+    margin-top: .5em;
+}
+
+.menu-hamburguer:hover {
+    cursor: pointer;
+}
