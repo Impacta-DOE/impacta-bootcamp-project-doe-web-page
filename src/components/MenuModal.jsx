@@ -48,7 +48,11 @@ class MenuModal extends Component {
                 </div>
             );
         }else{
-            return (null);
+            return (
+                <div>
+                    
+                </div>
+            );
         }
     }
 }

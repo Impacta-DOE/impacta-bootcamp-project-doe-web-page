@@ -5,7 +5,9 @@ import '../css/HomePage.css';
 class HomePage extends Component {
     render() {
         return (
-            <MenuTop />
+            <div className="homepage">
+                <MenuTop />
+            </div>
         );
     }
 }

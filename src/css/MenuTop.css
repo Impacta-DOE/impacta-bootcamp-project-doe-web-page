@@ -45,17 +45,6 @@
     height: 2em;
 }
 
-.perfil {
-    width: 3em;
-    height: 3em;
-    border-radius: 15em;
-    background-color: #00FF7F;
-    border: 2px solid #55A5F4;
-    color: white;
-    font-size: 14px;
-    font-weight: bold;
-}
-
 .campanha {
     width: 2.2em;
     height: 2.2em;

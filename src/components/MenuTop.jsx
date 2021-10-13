@@ -7,6 +7,7 @@ import '../css/MenuTop.css';
 import logo from '../images/logo.png';
 import campanha from '../images/campanha.png';
 import menu_hamburguer from '../images/hamburguer.png';
+import MenuPerfil from './MenuPerfil';
 
 
 class MenuTop extends React.Component {
@@ -17,11 +18,7 @@ class MenuTop extends React.Component {
     }
 
     showModalMenu(){
-        if(this.state.toogleMenu){
-            this.setState({toogleMenu: false});
-        }else {
-            this.setState({toogleMenu: true});
-        }
+        this.setState({toogleMenu: !this.state.toogleMenu});
     }
 
     render(){
@@ -37,7 +34,7 @@ class MenuTop extends React.Component {
                             </ReactBootstrap.Nav>
                             <ReactBootstrap.Nav>
                                 <img src={campanha} className="campanha"/>
-                                <input type="button" value="DC" className="perfil"/>
+                                <MenuPerfil />
                             </ReactBootstrap.Nav>
                         </ReactBootstrap.Container>
                     </ReactBootstrap.Navbar>
@@ -55,8 +52,7 @@ class MenuTop extends React.Component {
                                 <input type="button" value="login" className="btn-login"/>
                             </ReactBootstrap.Nav>
                         </ReactBootstrap.Container>
-                    </ReactBootstrap.Navbar>  
-                    <MenuModal />
+                    </ReactBootstrap.Navbar>
                 </div>
             );
         }
