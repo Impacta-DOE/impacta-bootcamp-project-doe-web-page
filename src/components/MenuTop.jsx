@@ -1,5 +1,6 @@
 import React from 'react';
 import * as ReactBootstrap from 'react-bootstrap';
+import { Redirect } from 'react-router';
 
 import MenuModal from './MenuModal';
 
@@ -14,14 +15,23 @@ class MenuTop extends React.Component {
 
     constructor(props){
         super(props);
-        this.state = {isLoggedIn: true, toogleMenu: false};
+        this.state = {isLoggedIn: this.props.isLoggedIn, toogleMenu: false, redirect: false};
     }
 
     showModalMenu(){
         this.setState({toogleMenu: !this.state.toogleMenu});
     }
 
+    chamaTelaCadastro(){
+        this.setState({
+            redirect: true
+        })
+    }
+
     render(){
+        if(this.state.redirect){
+            return <Redirect to="/cadastro" />
+        }
         const isLoggedIn = this.state.isLoggedIn;
         if(isLoggedIn){
             return (
@@ -48,7 +58,7 @@ class MenuTop extends React.Component {
                         <ReactBootstrap.Container fluid>
                             <img src={logo} className="logo"/>
                             <ReactBootstrap.Nav>
-                                <input type="button" value="cadastrar-se" className="btn-cadastrar"/>
+                                <input type="button" value="cadastrar-se" className="btn-cadastrar" onClick={() => this.chamaTelaCadastro()}/>
                                 <input type="button" value="login" className="btn-login"/>
                             </ReactBootstrap.Nav>
                         </ReactBootstrap.Container>

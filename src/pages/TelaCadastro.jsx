@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
+import FormCadastro from '../components/FormCadastro';
 import MenuTop from '../components/MenuTop';
-import '../css/HomePage.css';
 
-class HomePage extends Component {
+class TelaCadastro extends Component {
     render() {
         return (
-            <div className="homepage">
+            <div>
                 <MenuTop isLoggedIn={false}/>
-                <span>Homepage</span>
+                <FormCadastro />
             </div>
         );
     }
 }
 
-export default HomePage;
+export default TelaCadastro;

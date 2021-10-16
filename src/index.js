@@ -1,14 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import HomePage from './pages/HomePage';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
+
+import './index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+import HomePage from './pages/HomePage';
+import TelaCadastro from './pages/TelaCadastro';
+
+
 ReactDOM.render(
-  <React.StrictMode>
-    <HomePage />
-  </React.StrictMode>,
+  <Router>
+      <Switch>
+          <Route exact path="/" component={HomePage}/>
+          <Route path="/cadastro" component={TelaCadastro}/>
+      </Switch>
+  </Router>,
   document.getElementById('root')
 );
 

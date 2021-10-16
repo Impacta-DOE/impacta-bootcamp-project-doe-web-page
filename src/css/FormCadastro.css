@@ -1,0 +1,91 @@
+@font-face {
+    font-family: 'Roboto';
+    src: local('Roboto Regular'), url('./fonts/Roboto/Roboto-Regular.ttf') format('truetype');
+    font-style: normal;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'Roboto Bold';
+    src: local('Roboto Bold'), url('./fonts/Roboto/Roboto-Bold.ttf') format('truetype');
+    font-style: normal;
+    font-weight: normal;
+}
+
+.container {
+    width: 90em;
+    height: 43em;
+    background-color: red;
+    margin: auto;
+    padding: 0;
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+
+.container-logo {
+    width: 50%;
+    height: 100%;
+    background-color: #4380BD;
+    float: left;
+    padding-top: 7em;
+}
+
+.container-form {
+    width: 50%;
+    height: 100%;
+    background-color: yellow;
+    float: left;
+    padding: 1.5em;
+}
+
+.logo-container {
+    width: 17em;
+    height: 6em;
+    margin: 0 auto;
+}
+
+.span-1 {
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+    text-align: center;
+    font-family: 'Roboto';
+    
+}
+
+.span-2 {
+    color: white;
+    text-align: center;
+    font-size: 18;
+    font-weight: lighter;
+    display: inline-block;
+    width: 37%;
+    font-family: 'Roboto';
+    margin-top: 3em;
+}
+
+#col {
+    text-align: center;
+    margin-bottom: .5em;
+}
+
+.radio-button{
+    float: left;
+}
+
+.titulo-formulario {
+    float: left;
+}
+
+.titulo-formulario {
+    font-family: 'Roboto Bold';
+    font-size: 24px;
+    float:left;
+    margin-bottom: .3em;
+}
+
+.forms-area {
+    width: auto;
+    height: auto;
+    margin-top: 1em;
+}
