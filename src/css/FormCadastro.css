@@ -14,7 +14,7 @@
 
 .container {
     width: 90em;
-    height: 43em;
+    height: 47.91em;
     background-color: red;
     margin: auto;
     padding: 0;
@@ -33,7 +33,7 @@
 .container-form {
     width: 50%;
     height: 100%;
-    background-color: yellow;
+    background-color: white;
     float: left;
     padding: 1.5em;
 }
@@ -71,6 +71,8 @@
 
 .radio-button{
     float: left;
+    font-size: 14px;
+    font-family: 'Roboto';
 }
 
 .titulo-formulario {

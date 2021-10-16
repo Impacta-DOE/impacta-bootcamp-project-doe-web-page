@@ -1,112 +1,139 @@
 import React, { Component } from 'react';
-import { Row, Col, Form, DropdownButton, Dropdown } from 'react-bootstrap';
+import { Row, Col, Form, Button } from 'react-bootstrap';
 import '../css/FormPessoaFisica.css';
 
 class FormPessoaFisica extends Component {
+
+    constructor(props){
+        super(props);
+        this.state = {type : 'text'};
+    }
+
+    changeInputType(newType) {
+        this.setState({type : newType});
+    }
+
     render() {
         return (
             <div>
                 <Form>
                     <Form.Group className="mb-3" controlId="formInformacoesPessois">
-                        <Form.Control type="text" placeholder="Nome Completo" />
                         <Row>
-                            <Col sm="5" className="col-form">
-                                <input id="date" type="date" placeholder="Data de nascimento"></input>
-                            </Col>
-                            <Col sm="5" className="col-form">
-                                <DropdownButton id="dropdown-item-button" title="Sexo">
-                                    <Dropdown.Item eventKey="Feminino">Feminino</Dropdown.Item>
-                                    <Dropdown.Item eventKey="Masculino">Masculino</Dropdown.Item>
-                                    <Dropdown.Item eventKey="Outros">Outros</Dropdown.Item>
-                                    <Dropdown.Item eventKey="Não quero informar">Não quero informar</Dropdown.Item>
-                                </DropdownButton>
+                            <Col>
+                                <Form.Control type="text" placeholder="Nome Completo" id="input-nome-completo"/>
                             </Col>
                         </Row>
                         <Row>
                             <Col sm="5" className="col-form">
-                                <DropdownButton id="dropdown-item-button" title="Nacionalidade">
-                                    <Dropdown.Item eventKey="option-1">Nacionalidade 01</Dropdown.Item>
-                                    <Dropdown.Item eventKey="option-2">Nacionalidade 02</Dropdown.Item>
-                                    <Dropdown.Item eventKey="option-3">Nacionalidade 03</Dropdown.Item>
-                                    <Dropdown.Item eventKey="option-4">Nacionalidade 04</Dropdown.Item>
-                                </DropdownButton>
+                                <input 
+                                    id="date" 
+                                    type={this.state.type} 
+                                    placeholder="Data de nascimento" 
+                                    className="input-date" 
+                                    style={{width: '16em'}}
+                                    onFocus={() => this.changeInputType('date')}
+                                    onBlur={() => this.changeInputType('text')}
+                                ></input>
                             </Col>
                             <Col sm="5" className="col-form">
-                                <Form.Control type="text" placeholder="CPF / RNE" />
+                                <select name="sexo" id="sexo" id="selector-sexo" className="selector">
+                                    <option value="" disabled selected>Sexo</option>
+                                    <option value="Feminino">Feminino</option>
+                                    <option value="Masculino">Masculino</option>
+                                    <option value="Outros">Outros</option>
+                                    <option value="Não quero informar">Não quero informar</option>
+                                </select>
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col sm="5" className="col-form">
+                                <select name="nascionalidade" id="nascionalidade" id="input01" className="selector">
+                                    <option value="" disabled selected>Nacionalidade</option>
+                                    <option value="nasc01">Nascionalidade 01</option>
+                                    <option value="nasc02">Nascionalidade 02</option>
+                                    <option value="nasc03">Nascionalidade 03</option>
+                                    <option value="nasc04">Nascionalidade 04</option>
+                                </select>
+                            </Col>
+                            <Col sm="5" className="col-form">
+                                <Form.Control type="text" placeholder="CPF / RNE" id="input02"/>
                             </Col>
                         </Row>
                     </Form.Group>
                     <Form.Group as={Row} className="mb-3" controlId="formDadosContato">
-                        <Form.Label>
+                        <Form.Label id="titulo-group">
                             Dados de contato
                         </Form.Label>
-                        <hr />
+                        <hr className="separador"/>
                         <Row>
                             <Col sm="5" className="col-form">
-                                <Form.Control type="text" placeholder="E-mail" />
+                                <Form.Control type="text" placeholder="E-mail" id="input01"/>
                             </Col>
                             <Col sm="5" className="col-form">
-                                <Form.Control type="text" placeholder="Telefone" />
+                                <Form.Control type="text" placeholder="Telefone" id="input03"/>
                             </Col>
                         </Row>
                     </Form.Group>
                     <Form.Group as={Row} className="mb-3" controlId="formEndereco">
-                        <Form.Label>
+                        <Form.Label id="titulo-group">
                             Endereço
                         </Form.Label>
-                        <hr />
+                        <hr className="separador"/>
                         <Row>
                             <Col sm="5" className="col-form">
-                                <Form.Control type="text" placeholder="CEP" />
+                                <Form.Control type="text" placeholder="CEP" id="input01"/>
                             </Col>
                             <Col sm="5" className="col-form">
-                                <Form.Control type="text" placeholder="Rua" />
+                                <Form.Control type="text" placeholder="Rua" id="input03"/>
                             </Col>
                         </Row>
                         <Row>
                             <Col sm="2" className="col-form">
-                                <Form.Control type="text" placeholder="N°" />
+                                <Form.Control type="text" placeholder="N°" id="input-numero-casa"/>
                             </Col>
                             <Col sm="4" className="col-form">
-                                <Form.Control type="text" placeholder="Complemento" />
+                                <Form.Control type="text" placeholder="Complemento" id="input-complemento"/>
                             </Col>
                             <Col sm="4" className="col-form">
-                                <Form.Control type="text" placeholder="Bairro" />
+                                <Form.Control type="text" placeholder="Bairro" id="input-bairro"/>
                             </Col>
                         </Row>
                         <Row>
                             <Col sm="5" className="col-form">
-                                <DropdownButton id="dropdown-item-button" title="Estado">
-                                    <Dropdown.Item eventKey="option-1">Estado 01</Dropdown.Item>
-                                    <Dropdown.Item eventKey="option-2">Estado 02</Dropdown.Item>
-                                    <Dropdown.Item eventKey="option-3">Estado 03</Dropdown.Item>
-                                    <Dropdown.Item eventKey="option-4">Estado 04</Dropdown.Item>
-                                </DropdownButton>
+                                <select name="estado" id="estado" id="input01" className="selector">
+                                    <option value="" disabled selected>Estado</option>
+                                    <option value="estado01">Estado 01</option>
+                                    <option value="estado02">Estado 02</option>
+                                    <option value="estado03">Estado 03</option>
+                                    <option value="estado04">Estado 04</option>
+                                </select>
                             </Col>
                             <Col sm="5" className="col-form">
-                                <DropdownButton id="dropdown-item-button" title="Cidade">
-                                    <Dropdown.Item eventKey="option-1">Cidade 01</Dropdown.Item>
-                                    <Dropdown.Item eventKey="option-2">Cidade 02</Dropdown.Item>
-                                    <Dropdown.Item eventKey="option-3">Cidade 03</Dropdown.Item>
-                                    <Dropdown.Item eventKey="option-4">Cidade 04</Dropdown.Item>
-                                </DropdownButton>
+                                <select name="cidade" id="cidade" id="input03" className="selector">
+                                    <option value="" disabled selected>Cidade</option>
+                                    <option value="cidade01">Cidade 01</option>
+                                    <option value="cidade02">Cidade 02</option>
+                                    <option value="cidade03">Cidade 03</option>
+                                    <option value="cidade04">Cidade 04</option>
+                                </select>
                             </Col>
                         </Row>
                     </Form.Group>
                     <Form.Group as={Row} className="mb-3" controlId="formSenha">
-                        <Form.Label>
+                        <Form.Label id="titulo-group">
                             Senha
                         </Form.Label>
-                        <hr />
+                        <hr className="separador"/>
                         <Row>
                             <Col sm="5" className="col-form">
-                                <Form.Control type="password" placeholder="Senha" />
+                                <Form.Control type="password" placeholder="Senha" id="input01"/>
                             </Col>
                             <Col sm="5" className="col-form">
-                                <Form.Control type="password" placeholder="Confirmar Senha" />
+                                <Form.Control type="password" placeholder="Confirmar Senha" id="input03"/>
                             </Col>
                         </Row>
                     </Form.Group>
+                    <Button variant="success" id="btn-cadastrar">CADASTRAR</Button>
                 </Form>
             </div>
         );

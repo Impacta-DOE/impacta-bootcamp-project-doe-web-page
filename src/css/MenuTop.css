@@ -1,3 +1,17 @@
+@font-face {
+    font-family: 'Roboto';
+    src: local('Roboto Regular'), url('./fonts/Roboto/Roboto-Regular.ttf') format('truetype');
+    font-style: normal;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'Roboto Bold';
+    src: local('Roboto Bold'), url('./fonts/Roboto/Roboto-Bold.ttf') format('truetype');
+    font-style: normal;
+    font-weight: normal;
+}
+
 .menu-top-body {
     background-color: #4380BD;
     height: 4.5em;
@@ -10,8 +24,8 @@
     color: #00FFFF;
     width: 8em;
     height: 2.2em;
-    font-weight: bold;
     font-size: 14px;
+    font-family: 'Roboto';
     border-radius: 12px;
     background-color: rgba(0,0,0,0);
     margin-right: 1em;
@@ -29,8 +43,8 @@
     height: 2.2em;
     background-color: rgba(0,0,0,0);
     width: 8em;
-    font-weight: bold;
     font-size: 14px;
+    font-family: 'Roboto';
     border-radius: 12px;
 }
 

@@ -1,3 +1,17 @@
+@font-face {
+    font-family: 'Roboto';
+    src: local('Roboto Regular'), url('./fonts/Roboto/Roboto-Regular.ttf') format('truetype');
+    font-style: normal;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'Roboto Bold';
+    src: local('Roboto Bold'), url('./fonts/Roboto/Roboto-Bold.ttf') format('truetype');
+    font-style: normal;
+    font-weight: normal;
+}
+
 .perfil {
     width: 3em;
     height: 3em;
@@ -7,6 +21,7 @@
     color: white;
     font-size: 14px;
     font-weight: bold;
+    font-family: 'Roboto';
 }
 
 .perfil:hover{
@@ -33,6 +48,7 @@
     padding-top: 1em;
     color: #4380BD;
     font-size: 15px;
+    font-family: 'Roboto';
     border-top-left-radius: 3px;
     border-top-right-radius: 3px;
 }
@@ -51,6 +67,7 @@
     padding-top: 1em;
     color: #4380BD;
     font-size: 15px;
+    font-family: 'Roboto';
     border-bottom-left-radius: 3px;
     border-bottom-right-radius: 3px;
 }
