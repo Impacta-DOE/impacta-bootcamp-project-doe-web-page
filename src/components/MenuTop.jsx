@@ -15,22 +15,24 @@ class MenuTop extends React.Component {
 
     constructor(props){
         super(props);
-        this.state = {isLoggedIn: this.props.isLoggedIn, toogleMenu: false, redirect: false};
+        this.state = {isLoggedIn: this.props.isLoggedIn, toogleMenu: false, redirect: false, page: "/"};
     }
 
     showModalMenu(){
         this.setState({toogleMenu: !this.state.toogleMenu});
     }
 
-    chamaTelaCadastro(){
+    chamaProximaTela(tela){
         this.setState({
-            redirect: true
+            redirect: true,
+            page : tela
         })
     }
 
     render(){
         if(this.state.redirect){
-            return <Redirect to="/cadastro" />
+            this.setState({redirect : false});
+            return <Redirect to={this.state.page} />
         }
         const isLoggedIn = this.state.isLoggedIn;
         if(isLoggedIn){
@@ -40,7 +42,7 @@ class MenuTop extends React.Component {
                         <ReactBootstrap.Container fluid>
                             <ReactBootstrap.Nav>
                                 <img src={menu_hamburguer} className="menu-hamburguer" onClick={() => this.showModalMenu()}/>
-                                <img src={logo} className="logo"/>
+                                <img src={logo} className="logo" onClick={() => this.chamaProximaTela("/")}/>
                             </ReactBootstrap.Nav>
                             <ReactBootstrap.Nav>
                                 <img src={campanha} className="campanha"/>
@@ -56,10 +58,14 @@ class MenuTop extends React.Component {
                 <div>
                     <ReactBootstrap.Navbar collapseOnSelect expand="xxl" variant="default" className="menu-top-body">
                         <ReactBootstrap.Container fluid>
-                            <img src={logo} className="logo"/>
+                            <img src={logo} className="logo" onClick={() => this.chamaProximaTela("/")}/>
                             <ReactBootstrap.Nav>
-                                <input type="button" value="cadastrar-se" className="btn-cadastrar" onClick={() => this.chamaTelaCadastro()}/>
-                                <input type="button" value="login" className="btn-login"/>
+                                {
+                                    (this.props.showBtnCadastrar) ? <input type="button" value="cadastrar-se" className="btn-cadastrar" onClick={() => this.chamaProximaTela("/cadastro")}/> : null
+                                }
+                                {
+                                    (this.props.showBtnLogin) ? <input type="button" value="login" className="btn-login"/> : null
+                                }
                             </ReactBootstrap.Nav>
                         </ReactBootstrap.Container>
                     </ReactBootstrap.Navbar>

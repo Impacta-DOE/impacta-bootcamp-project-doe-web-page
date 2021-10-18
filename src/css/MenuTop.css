@@ -59,6 +59,10 @@
     height: 2em;
 }
 
+.logo:hover {
+    cursor: pointer;
+}
+
 .campanha {
     width: 2.2em;
     height: 2.2em;

@@ -6,7 +6,7 @@ class HomePage extends Component {
     render() {
         return (
             <div className="homepage">
-                <MenuTop isLoggedIn={false}/>
+                <MenuTop isLoggedIn={false} showBtnCadastrar showBtnLogin/>
                 <span>Homepage</span>
             </div>
         );
