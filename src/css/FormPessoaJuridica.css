@@ -19,6 +19,10 @@
     font-weight: normal;
 }
 
+#div-form {
+    margin-top: -.8em;
+}
+
 body {
     background-color: #DCDCDC;
 }
@@ -91,6 +95,57 @@ body {
     outline: none;
 }
 
+#input04 {
+    width: 11em;
+    height: 2.5em;
+    font-family: 'Roboto';
+    border: 2px solid #4380BD;
+    border-radius: 4px;
+}
+
+#input04:focus {
+    outline: none;
+}
+
+#input05 {
+    margin-left: 5.4em;
+    width: 26.2em;
+    height: 2.5em;
+    font-family: 'Roboto';
+    border: 2px solid #4380BD;
+    border-radius: 4px;
+}
+
+#input05:focus {
+    outline: none;
+}
+
+#input-agencia {
+    margin-left: 5.7em;
+    width: 26.2em;
+    height: 2.5em;
+    font-family: 'Roboto';
+    border: 2px solid #4380BD;
+    border-radius: 4px;
+}
+
+#input-agencia:focus {
+    outline: none;
+}
+
+#input-cod-banco {
+    margin-left: 5.7em;
+    width: 26.2em;
+    height: 2.5em;
+    font-family: 'Roboto';
+    border: 2px solid #4380BD;
+    border-radius: 4px;
+}
+
+#input-cod-banco:focus {
+    outline: none;
+}
+
 #input-nome-completo {
     height: 2.5em;
     font-family: 'Roboto';
@@ -137,15 +192,14 @@ body {
     color: #5c5b5b;
 }
 
-#btn-cadastrar {
+#btn-cadastrar-pessoa-juridica {
     font-size: 25px;
     font-weight: bold;
     font-family: 'Roboto';
     padding-top: .7em;
     padding-bottom: .7em;
     border-radius: 0;
-    margin-top: 2.86em;
+    margin-top: 1em;
     margin-left: -1em;
     width: 26.46em;
-    float: bottom;
 }

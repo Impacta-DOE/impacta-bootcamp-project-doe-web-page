@@ -3,8 +3,27 @@ import { Container, Row, Col, Form } from 'react-bootstrap';
 import '../css/FormCadastro.css';
 import logo from '../images/logo.png';
 import FormPessoaFisica from './FormPessoaFisica';
+import FormPessoaJuridica from './FormPessoaJuridica';
 
 class FormCadastro extends Component {
+
+    constructor(props){
+        super(props);
+        this.state = {tipoPessoa : "fisica"};
+    }
+
+    mudarTipoPessoa(novoTipoPessoa){
+        this.setState({tipoPessoa : novoTipoPessoa});
+    }
+
+    getFormTipoPessoa(){
+        if(this.state.tipoPessoa === "fisica"){
+            return <FormPessoaFisica />
+        } else {
+            return <FormPessoaJuridica />
+        }
+    }
+
     render() {
         return (
             <div>
@@ -46,26 +65,31 @@ class FormCadastro extends Component {
                         <Row>
                             <Col sm="4">
                                 <Form.Check
-                                    checked
+                                    checked={this.state.tipoPessoa === "fisica"}
                                     type={'radio'}
                                     label={'Sou pessoa física'}
                                     name='group-kind-person'
                                     id={'default-radio-01'}
                                     className="radio-button"
+                                    onChange={() => this.mudarTipoPessoa("fisica")}
                                 />
                             </Col>
                             <Col>
                                 <Form.Check
+                                    checked={this.state.tipoPessoa === "juridica"}
                                     type={'radio'}
                                     label={'Sou pessoa juridica'}
                                     name='group-kind-person'
                                     id={'default-radio-02'}
                                     className="radio-button"
+                                    onChange={() => this.mudarTipoPessoa("juridica")}
                                 />
                             </Col>
                         </Row>
                         <div className="forms-area">
-                            <FormPessoaFisica />
+                            {
+                                this.getFormTipoPessoa()
+                            }
                         </div>
                     </div>
                </div>
