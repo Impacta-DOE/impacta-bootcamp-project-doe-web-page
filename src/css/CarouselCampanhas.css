@@ -1,0 +1,116 @@
+@font-face {
+    font-family: 'Roboto';
+    src: local('Roboto Regular'), url('./fonts/Roboto/Roboto-Regular.ttf') format('truetype');
+    font-style: normal;
+    font-weight: normal;
+}
+
+#carousel {
+    width: 90.6em;
+    height: 23em;
+    background-color: red;
+}
+
+#container-carousel {
+    width: 100%;
+    height: 100%;
+    background-color: blue;
+}
+
+#item-content {
+    width: 90%;
+    height: 100%;
+    float: left;
+    background-color: orange;
+}
+
+.div-controls {
+    width: 5%;
+    height: 100%;
+    float: left;
+    background-color: black;
+}
+
+#titulo-carousel {
+    font-size: 36px;
+    font-family: 'Roboto';
+    color: white;
+}
+
+#nome-campanha {
+    font-size: 24px;
+    font-family: 'Roboto';
+    color: white;
+}
+
+#desc-campanha {
+    font-size: 18px;
+    font-family: 'Roboto';
+    color: white;
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+.btn-acessar {
+    border: 2px solid white;
+    color: white;
+    height: 3.3em;
+    background-color: rgba(0,0,0,0);
+    width: 14em;
+    font-size: 14px;
+    font-family: 'Roboto';
+    border-radius: 12px;
+    margin-top: 5em;
+    margin-left: 16.4em;
+}
+
+.btn-acessar:hover {
+    border: 2px solid white;
+    color: rgba(209, 118, 118, 0.4);
+    background-color: white;
+}
+
+#title-row {
+    height: 6em;
+    padding-top: 1.5em;
+    background-color: brown;
+}
+
+#content-row {
+    height: 14.5em;
+    background-color: aqua;
+}
+
+#indicators-row {
+    height: 2.5em;
+    background-color: bisque;
+}
+
+#indicators {
+    width: auto;
+    height: 100%;
+    background-color: blueviolet;
+    margin: 0 auto;
+}
+
+.indicator {
+    width: .8em;
+    height: .8em;
+    border: 2px solid rgba(255,255,255,0.63);
+    border-radius: 10em;
+    float: left;
+    margin-right: .2em;
+    margin-top: .7em;
+}
+
+.indicator:hover {
+    background-color: rgba(255,255,255,0.63);
+    cursor: pointer;
+}
+
+.arrows {
+    width: 2em;
+    height: 2.5em;
+    margin-left: 1em;
+    margin-top: 10em;
+}

@@ -3,3 +3,11 @@
     height: 100vh;
     background-color: #DCDCDC;
 }
+
+#container-itens-homepage {
+    width: 93%;
+    height: auto;
+    margin: 0 auto;
+    margin-top: 1.2em;
+    background-color: green;
+}

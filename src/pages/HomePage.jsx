@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import CarouselCampanhas from '../components/CarouselCampanhas';
 import MenuTop from '../components/MenuTop';
 import '../css/HomePage.css';
 
@@ -7,7 +8,9 @@ class HomePage extends Component {
         return (
             <div className="homepage">
                 <MenuTop isLoggedIn={false} showBtnCadastrar showBtnLogin/>
-                <span>Homepage</span>
+                <div id="container-itens-homepage">
+                    <CarouselCampanhas />
+                </div>
             </div>
         );
     }
