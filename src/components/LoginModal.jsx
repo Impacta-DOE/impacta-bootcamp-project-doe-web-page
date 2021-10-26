@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Row, Col, Form, Button, Modal } from 'react-bootstrap';
 
 import '../css/LoginModal.css';
+import crossButton from '../images/cross.png';
 
 
 class LoginModal extends Component { 
@@ -13,12 +14,15 @@ class LoginModal extends Component {
     render() {
         if(this.props.show){
             return ( 
-                <div id="modal" onClick={() => {this.props.toogleLogin()}}>
+                <div id="modal">
                     <Modal
                         show={this.props.show} animation={false}
                         aria-labelledby="contained-modal-title-vcenter"
                         centered
                         >
+                        <div style={{"width" : "100%", "height" : "auto", "paddingRight" : ".5em", "paddingTop" : ".4em"}}>
+                            <img src={crossButton} id="crossButton" onClick={() => {this.props.toogleLogin()}}/>
+                        </div>
                         <div className="login-content m-5">
                             <div className="title">Login</div>
                             <Form>

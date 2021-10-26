@@ -50,3 +50,13 @@
     background: #216ab3;
     border: 2px solid #4380BD;
 }
+
+#crossButton {
+    width: .8em;
+    height: .8em;
+    float: right;
+}
+
+#crossButton:hover {
+    cursor: pointer;
+}
