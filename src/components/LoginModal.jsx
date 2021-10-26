@@ -14,7 +14,6 @@ class LoginModal extends Component {
         if(this.props.show){
             return ( 
                 <div id="modal">
-                    
                     <Modal
                         show={this.props.show} animation={false}
                         aria-labelledby="contained-modal-title-vcenter"
@@ -47,10 +46,8 @@ class LoginModal extends Component {
                                     </Row>
                                 </Form.Group>
                             </Form>
-
                         </div>
                     </Modal>
-
                 </div>
             );
             
