@@ -17,6 +17,7 @@ class MenuTop extends React.Component {
     constructor(props){
         super(props);
         this.state = {isLoggedIn: this.props.isLoggedIn, toogleMenu: false, toogleLogin : false, redirect: false, page: "/"};
+        this.showModalLogin = this.showModalLogin.bind(this);
     }
 
     showModalMenu(){
@@ -76,7 +77,7 @@ class MenuTop extends React.Component {
                             </ReactBootstrap.Nav>
                         </ReactBootstrap.Container>
                     </ReactBootstrap.Navbar>
-                    <LoginModal show={this.state.toogleLogin}/>
+                    <LoginModal show={this.state.toogleLogin} toogleLogin={this.showModalLogin}/>
                 </div>
             );
         }

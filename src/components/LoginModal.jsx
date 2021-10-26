@@ -13,7 +13,7 @@ class LoginModal extends Component {
     render() {
         if(this.props.show){
             return ( 
-                <div id="modal">
+                <div id="modal" onClick={() => {this.props.toogleLogin()}}>
                     <Modal
                         show={this.props.show} animation={false}
                         aria-labelledby="contained-modal-title-vcenter"
