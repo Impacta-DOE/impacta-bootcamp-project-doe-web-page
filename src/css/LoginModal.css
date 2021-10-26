@@ -1,0 +1,52 @@
+#modal {
+    width: 100%;
+    font-family: 'Roboto';
+    height: 120.5vh;
+    background-color: rgba(0, 0, 0, .52);
+    position: absolute;
+    z-index: 10;
+}
+
+.login-content {
+    padding: 30px;
+    margin: 0 auto;
+}
+
+.title {
+    
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 28px;
+}
+
+.input {
+    
+    height: 2.5em;
+    border: 2px solid #4380BD;
+    border-radius: 4px;
+
+}
+
+.input:focus {
+    outline: none;
+}
+
+.btn-esqueceu-senha{
+    font-size: 16px;
+    padding: 0px;
+    line-height: 21px;
+    color: #4380BD;
+    text-decoration: none;
+}
+
+.btn-entrar{
+    width: 100%;
+    background: #4380BD;
+    border: 2px solid #4380BD;
+}
+
+.btn-entrar:hover, .btn-entrar:focus{
+    background: #216ab3;
+    border: 2px solid #4380BD;
+}

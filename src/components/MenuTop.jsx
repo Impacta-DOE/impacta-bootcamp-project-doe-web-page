@@ -3,6 +3,7 @@ import * as ReactBootstrap from 'react-bootstrap';
 import { Redirect } from 'react-router';
 
 import MenuModal from './MenuModal';
+import LoginModal from './LoginModal';
 
 import '../css/MenuTop.css';
 import logo from '../images/logo.png';
@@ -15,11 +16,15 @@ class MenuTop extends React.Component {
 
     constructor(props){
         super(props);
-        this.state = {isLoggedIn: this.props.isLoggedIn, toogleMenu: false, redirect: false, page: "/"};
+        this.state = {isLoggedIn: this.props.isLoggedIn, toogleMenu: false, toogleLogin : false, redirect: false, page: "/"};
     }
 
     showModalMenu(){
         this.setState({toogleMenu: !this.state.toogleMenu});
+    }
+
+    showModalLogin(){
+        this.setState({toogleLogin : !this.state.toogleLogin});
     }
 
     chamaProximaTela(tela){
@@ -28,6 +33,8 @@ class MenuTop extends React.Component {
             page : tela
         })
     }
+
+    
 
     render(){
         if(this.state.redirect){
@@ -64,11 +71,12 @@ class MenuTop extends React.Component {
                                     (this.props.showBtnCadastrar) ? <input type="button" value="cadastrar-se" className="btn-cadastrar" onClick={() => this.chamaProximaTela("/cadastro")}/> : null
                                 }
                                 {
-                                    (this.props.showBtnLogin) ? <input type="button" value="login" className="btn-login"/> : null
+                                    (this.props.showBtnLogin) ? <input type="button" value="login" className="btn-login" onClick={() => this.showModalLogin()}/> : null
                                 }
                             </ReactBootstrap.Nav>
                         </ReactBootstrap.Container>
                     </ReactBootstrap.Navbar>
+                    <LoginModal show={this.state.toogleLogin}/>
                 </div>
             );
         }
