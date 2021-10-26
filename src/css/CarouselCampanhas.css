@@ -6,8 +6,9 @@
 }
 
 #carousel {
-    width: 90.6em;
+    width: 90.8em;
     height: 23em;
+    background-color: rgba(85, 165, 244, 1);
 }
 
 #container-carousel {
@@ -25,7 +26,13 @@
     width: 5%;
     height: 100%;
     float: left;
-    background-color: rgba(85, 165, 244, 1);
+    position: relative;
+    z-index: 3;
+}
+
+.div-controls:hover {
+    cursor: pointer;
+    background-image: linear-gradient(to right, rgba(85, 165, 244, 0), rgba(85, 165, 244, 1));
 }
 
 #titulo-carousel {
@@ -116,7 +123,7 @@
 }
 
 #item-image-background {
-    width: 100%;
+    width: 105.5%;
     height: 100%;
     background-color: rgba(85, 165, 244, 1);
     position: relative;
