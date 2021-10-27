@@ -3,24 +3,35 @@ import { Container, Row, Col } from 'react-bootstrap';
 
 import arrow_right from '../images/arrow_right.png';
 import arrow_left from '../images/arrow_left.png';
-import exemplo_imagem_background from '../images/doacao_exemplo.png';
 
 import '../css/CarouselCampanhas.css';
-import { ItemCarousel } from '../entities/ItemCarousel';
 import ItemCarouselService from '../services/ItemCarouselService';
 
 class CarouselCampanhas extends Component {
 
     constructor(props){
         super(props);
-        this.state = {items_list: new ItemCarouselService().getAll(), selected_item: null, actual_index: 0, max_itens: 5};
+        this.state = {
+            items_list: new ItemCarouselService().getAll(), 
+            selected_item: null, 
+            actual_index: 0, 
+            max_itens: 5,
+            indicator_01: "indicator_01",
+            indicator_02: "indicator_02",
+            indicator_03: "indicator_03",
+            indicator_04: "indicator_04",
+            indicator_05: "indicator_05"
+        };
+        this.timer = 0;
     }
     
     componentWillMount(){
         this.setSelectedItemByIndex(0);
+        this.timer = setInterval(() => {this.setSelectedItem(1)}, 5000);
     }
 
     setSelectedItem(direction){
+        console.log("teste 01");
         let nextIndex = (this.state.actual_index + direction);
 
         if(nextIndex < 0){
@@ -32,12 +43,53 @@ class CarouselCampanhas extends Component {
 
         this.setState({selected_item : this.state.items_list[nextIndex]});
         this.setState({actual_index : nextIndex});
-
+        this.setCSSIndicators(nextIndex);
     }
 
     setSelectedItemByIndex(index){
         this.setState({selected_item : this.state.items_list[index]});
         this.setState({actual_index : index});
+        this.setCSSIndicators(index);
+    }
+
+    setCSSIndicators(selectedIndicator) {
+        switch(selectedIndicator){
+            case 0:
+                this.setState({indicator_01 : "indicator_01_selected"});
+                this.setState({indicator_02 : "indicator_02"});
+                this.setState({indicator_03 : "indicator_03"});
+                this.setState({indicator_04 : "indicator_04"});
+                this.setState({indicator_05 : "indicator_05"});
+                break;
+            case 1:
+                this.setState({indicator_01 : "indicator_01"});
+                this.setState({indicator_02 : "indicator_02_selected"});
+                this.setState({indicator_03 : "indicator_03"});
+                this.setState({indicator_04 : "indicator_04"});
+                this.setState({indicator_05 : "indicator_05"});
+                break;
+            case 2:
+                this.setState({indicator_01 : "indicator_01"});
+                this.setState({indicator_02 : "indicator_02"});
+                this.setState({indicator_03 : "indicator_03_selected"});
+                this.setState({indicator_04 : "indicator_04"});
+                this.setState({indicator_05 : "indicator_05"});
+                break;
+            case 3:
+                this.setState({indicator_01 : "indicator_01"});
+                this.setState({indicator_02 : "indicator_02"});
+                this.setState({indicator_03 : "indicator_03"});
+                this.setState({indicator_04 : "indicator_04_selected"});
+                this.setState({indicator_05 : "indicator_05"});
+                break;
+            case 4:
+                this.setState({indicator_01 : "indicator_01"});
+                this.setState({indicator_02 : "indicator_02"});
+                this.setState({indicator_03 : "indicator_03"});
+                this.setState({indicator_04 : "indicator_04"});
+                this.setState({indicator_05 : "indicator_05_selected"});
+                break;
+        }
     }
 
     render() {
@@ -65,11 +117,11 @@ class CarouselCampanhas extends Component {
                                 </Row>
                                 <Row id="indicators-row">
                                     <div id="indicators">
-                                        <div className="indicator" onClick={() => this.setSelectedItemByIndex(0)}></div>
-                                        <div className="indicator" onClick={() => this.setSelectedItemByIndex(1)}></div>
-                                        <div className="indicator" onClick={() => this.setSelectedItemByIndex(2)}></div>
-                                        <div className="indicator" onClick={() => this.setSelectedItemByIndex(3)}></div>
-                                        <div className="indicator" onClick={() => this.setSelectedItemByIndex(4)}></div>
+                                        <div className="indicator" id={this.state.indicator_01} onClick={() => this.setSelectedItemByIndex(0)}></div>
+                                        <div className="indicator" id={this.state.indicator_02} onClick={() => this.setSelectedItemByIndex(1)}></div>
+                                        <div className="indicator" id={this.state.indicator_03} onClick={() => this.setSelectedItemByIndex(2)}></div>
+                                        <div className="indicator" id={this.state.indicator_04} onClick={() => this.setSelectedItemByIndex(3)}></div>
+                                        <div className="indicator" id={this.state.indicator_05} onClick={() => this.setSelectedItemByIndex(4)}></div>
                                     </div>
                                 </Row>
                             </Container>

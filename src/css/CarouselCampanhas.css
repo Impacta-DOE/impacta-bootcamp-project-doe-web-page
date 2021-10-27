@@ -108,6 +108,111 @@
     cursor: pointer;
 }
 
+#indicator_01 {
+    width: .8em;
+    height: .8em;
+    border: 2px solid rgba(255,255,255,0.63);
+    border-radius: 10em;
+    float: left;
+    margin-right: .2em;
+    margin-top: .7em;
+}
+
+#indicator_01_selected {
+    width: .8em;
+    height: .8em;
+    border: 2px solid rgba(255,255,255,0.63);
+    background-color: rgba(255,255,255,0.63);
+    border-radius: 10em;
+    float: left;
+    margin-right: .2em;
+    margin-top: .7em;
+}
+
+#indicator_02 {
+    width: .8em;
+    height: .8em;
+    border: 2px solid rgba(255,255,255,0.63);
+    border-radius: 10em;
+    float: left;
+    margin-right: .2em;
+    margin-top: .7em;
+}
+
+#indicator_02_selected {
+    width: .8em;
+    height: .8em;
+    border: 2px solid rgba(255,255,255,0.63);
+    background-color: rgba(255,255,255,0.63);
+    border-radius: 10em;
+    float: left;
+    margin-right: .2em;
+    margin-top: .7em;
+}
+
+#indicator_03 {
+    width: .8em;
+    height: .8em;
+    border: 2px solid rgba(255,255,255,0.63);
+    border-radius: 10em;
+    float: left;
+    margin-right: .2em;
+    margin-top: .7em;
+}
+
+#indicator_03_selected {
+    width: .8em;
+    height: .8em;
+    border: 2px solid rgba(255,255,255,0.63);
+    background-color: rgba(255,255,255,0.63);
+    border-radius: 10em;
+    float: left;
+    margin-right: .2em;
+    margin-top: .7em;
+}
+
+#indicator_04 {
+    width: .8em;
+    height: .8em;
+    border: 2px solid rgba(255,255,255,0.63);
+    border-radius: 10em;
+    float: left;
+    margin-right: .2em;
+    margin-top: .7em;
+}
+
+#indicator_04_selected {
+    width: .8em;
+    height: .8em;
+    border: 2px solid rgba(255,255,255,0.63);
+    background-color: rgba(255,255,255,0.63);
+    border-radius: 10em;
+    float: left;
+    margin-right: .2em;
+    margin-top: .7em;
+}
+
+#indicator_05 {
+    width: .8em;
+    height: .8em;
+    border: 2px solid rgba(255,255,255,0.63);
+    border-radius: 10em;
+    float: left;
+    margin-right: .2em;
+    margin-top: .7em;
+}
+
+#indicator_05_selected {
+    width: .8em;
+    height: .8em;
+    border: 2px solid rgba(255,255,255,0.63);
+    background-color: rgba(255,255,255,0.63);
+    border-radius: 10em;
+    float: left;
+    margin-right: .2em;
+    margin-top: .7em;
+}
+
 .arrows {
     width: 2em;
     height: 2.5em;
