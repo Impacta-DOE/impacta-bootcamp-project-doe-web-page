@@ -8,6 +8,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import HomePage from './pages/HomePage';
 import TelaCadastro from './pages/TelaCadastro';
+import EditarPerfil from './pages/EditarPerfil';
 
 
 ReactDOM.render(
@@ -15,6 +16,7 @@ ReactDOM.render(
       <Switch>
           <Route exact path="/" component={HomePage}/>
           <Route path="/cadastro" component={TelaCadastro}/>
+          <Route path="/editar-perfil" component={EditarPerfil}/>
       </Switch>
   </Router>,
   document.getElementById('root')
