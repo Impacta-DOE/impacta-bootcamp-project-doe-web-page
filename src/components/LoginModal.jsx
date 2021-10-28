@@ -3,12 +3,19 @@ import { Row, Col, Form, Button, Modal } from 'react-bootstrap';
 
 import '../css/LoginModal.css';
 import crossButton from '../images/cross.png';
+import EsqueciSenhaModal from './EsqueceuSenhaModal';
 
 
 class LoginModal extends Component { 
 
     constructor(props){
         super(props);
+        this.state = {toogleEsqueceuSenha : false};
+        this.showModalEsqueceuSenha = this.showModalEsqueceuSenha.bind(this);
+    }
+
+    showModalEsqueceuSenha(){
+        this.setState({toogleEsqueceuSenha : !this.state.toogleEsqueceuSenha});
     }
 
     render() {
@@ -17,7 +24,7 @@ class LoginModal extends Component {
                 <div id="modal">
                     <Modal
                         show={this.props.show} animation={false}
-                        aria-labelledby="contained-modal-title-vcenter"
+                        aria-labelledby="m-login"
                         centered
                         >
                         <div style={{"width" : "100%", "height" : "auto", "paddingRight" : ".5em", "paddingTop" : ".4em"}}>
@@ -40,7 +47,7 @@ class LoginModal extends Component {
                                     </Row>
                                     <Row>
                                         <Col>
-                                            <Button variant="link" className='btn-esqueceu-senha mt-2'>Esqueceu a senha?</Button>
+                                            <Button variant="link" className='btn-esqueceu-senha mt-2' onClick={() => this.showModalEsqueceuSenha()}>Esqueceu a senha?</Button>
                                         </Col>
                                     </Row>
                                     <Row>
@@ -52,6 +59,7 @@ class LoginModal extends Component {
                             </Form>
                         </div>
                     </Modal>
+                    <EsqueciSenhaModal show={this.state.toogleEsqueceuSenha} toogleEsqueceuSenha={this.showModalEsqueceuSenha}/>
                 </div>
             );
             

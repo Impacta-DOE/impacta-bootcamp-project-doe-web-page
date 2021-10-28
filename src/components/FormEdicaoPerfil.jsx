@@ -10,7 +10,7 @@ class FormEdicaoPerfil extends Component {
         super(props);
     }
 
-    getFormTipoPessoa(){
+    getFormTipoPessoaEdicaoPerfil(){
         if(this.props.tipoPessoa === "fisica"){
             return <FormEdicaoPessoaFisica />
         } else {

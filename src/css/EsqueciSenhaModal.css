@@ -1,0 +1,42 @@
+#password-modal {
+    width: 100%;
+    font-family: 'Roboto';
+    height: 90.5vh;
+    position: absolute;
+    z-index: 12;
+}
+
+.password-modal .modal-content {
+    background-color: rgb(231, 231, 231);
+  }
+
+.pass-description{
+    font-family: 'Roboto';
+}
+
+.btn-sms, .btn-email{
+    width: 100%;
+    background: #4380BD;
+    border: 2px solid #4380BD;
+}
+
+.btn-sms:hover, .btn-sms:focus, .btn-email:hover, .btn-email:focus{
+    background: #216ab3;
+    border: 2px solid #4380BD;
+}
+
+.text-sms{
+    font-family: 'Roboto';
+}
+
+.input-email {
+    width: 18.6em;
+    height: 2.5em;
+    font-family: 'Roboto';
+    border: 2px solid #4380BD;
+    border-radius: 4px;
+}
+
+.input-email:focus {
+    outline: none;
+}
