@@ -8,10 +8,11 @@ class FormEdicaoPerfil extends Component {
 
     constructor(props){
         super(props);
+        this.state = {tipoPessoa : "fisica"};
     }
 
     getFormTipoPessoaEdicaoPerfil(){
-        if(this.props.tipoPessoa === "fisica"){
+        if(this.state.tipoPessoa === "fisica"){
             return <FormEdicaoPessoaFisica />
         } else {
             return <FormEdicaoPessoaJuridica />
@@ -21,9 +22,11 @@ class FormEdicaoPerfil extends Component {
     render(){
         return (
             <div>
-                
+                {
+                    this.getFormTipoPessoaEdicaoPerfil()
+                }
             </div>
-
+    
         );
     }
 
