@@ -8,11 +8,11 @@ class CarouselCardsCampanhas extends Component {
     render() {
         return (
             <div id="carousel-card">
-                <Row style={{"width" : "100%", "height" : "3em", "margin-left" : ".001em"}}>
-                    <Col style={{"backgroundColor" : "orange", "padding" : "0", "height" : "100%"}}>
+                <Row style={{"width" : "100%", "height" : "3em", "margin-left" : ".001em", "margin-bottom" : "1em"}}>
+                    <Col style={{"padding" : "0", "height" : "100%"}}>
                         <p id="titulo">Campanhas e ações recentes</p>
                     </Col>
-                    <Col style={{"backgroundColor" : "green", "padding" : "0", "height" : "100%"}}>
+                    <Col style={{"padding" : "0", "height" : "100%"}}>
                         <input type="button" value="mais" className="btn-mais"/>
                     </Col>
                 </Row>

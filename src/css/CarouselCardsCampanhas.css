@@ -20,14 +20,13 @@
 
 .btn-mais:hover {
     border: 3px solid #4380BD;
-    color: rgba(209, 118, 118, 0.4);
+    color: white;
     background-color: #4380BD;
 }
 
 #carousel-card {
     width: 101%;
-    height: 25em;
-    background-color: yellow;
+    height: 26em;
     margin-top: 5em;
 }
 
@@ -41,14 +40,13 @@
     width: 100%;
     height: auto;
     margin-left: .001em;
-    background-color: yellow;
     overflow-x: hidden;
     overflow-y: hidden;
 }
 
 #div-cards {
     height: 21em;
-    width: 220%;
+    width: 230%;
     margin-left: -.7em;
 }
 
