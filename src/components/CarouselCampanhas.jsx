@@ -31,7 +31,6 @@ class CarouselCampanhas extends Component {
     }
 
     setSelectedItem(direction){
-        console.log("teste 01");
         let nextIndex = (this.state.actual_index + direction);
 
         if(nextIndex < 0){

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import CarouselCampanhas from '../components/CarouselCampanhas';
+import CarouselCardsCampanhas from '../components/CarouselCardsCampanhas';
 import MenuTop from '../components/MenuTop';
 import '../css/HomePage.css';
 
@@ -10,6 +11,7 @@ class HomePage extends Component {
                 <MenuTop isLoggedIn={false} showBtnCadastrar showBtnLogin/>
                 <div id="container-itens-homepage">
                     <CarouselCampanhas />
+                    <CarouselCardsCampanhas />
                 </div>
             </div>
         );

@@ -1,0 +1,61 @@
+@font-face {
+    font-family: 'Roboto Bold';
+    src: local('Roboto Bold'), url('./fonts/Roboto/Roboto-Bold.ttf') format('truetype');
+    font-style: normal;
+    font-weight: normal;
+}
+
+.btn-mais {
+    border: 3px solid #4380BD;
+    color: #4380BD;
+    height: 2.7em;
+    background-color: rgba(0,0,0,0);
+    width: 11em;
+    font-size: 14px;
+    font-family: 'Roboto Bold';
+    border-radius: 12px;
+    float: right;
+    margin-top: .5em;
+}
+
+.btn-mais:hover {
+    border: 3px solid #4380BD;
+    color: rgba(209, 118, 118, 0.4);
+    background-color: #4380BD;
+}
+
+#carousel-card {
+    width: 101%;
+    height: 25em;
+    background-color: yellow;
+    margin-top: 5em;
+}
+
+#titulo {
+    color: white;
+    font-size: 36px;
+    font-family: 'Roboto Bold';
+}
+
+#cards {
+    width: 100%;
+    height: auto;
+    margin-left: .001em;
+    background-color: yellow;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+#div-cards {
+    height: 21em;
+    width: 220%;
+    margin-left: -.7em;
+}
+
+#card-campanha-body {
+    width: 17em;
+    height: 19em;
+    background-color: white;
+    margin-right: 2em;
+    float: left;
+}
