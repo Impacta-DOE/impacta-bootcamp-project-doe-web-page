@@ -2,9 +2,16 @@ import React, { Component } from 'react';
 import { Row, Col, Container } from 'react-bootstrap';
 
 import '../css/CarouselCardsCampanhas.css';
+import ItemCarouselService from '../services/ItemCarouselService';
 import CardCampanha from './CardCampanha';
 
 class CarouselCardsCampanhas extends Component {
+
+    constructor(props){
+        super(props);
+        this.state = {items_list: new ItemCarouselService().getAll()};
+    }
+
     render() {
         return (
             <div id="carousel-card">
@@ -19,16 +26,16 @@ class CarouselCardsCampanhas extends Component {
                 <Row id="cards">
                     <Col style={{"height" : "100%", "width" : "100%"}}>
                         <div id="div-cards">
-                            <CardCampanha />
-                            <CardCampanha />
-                            <CardCampanha />
-                            <CardCampanha />
-                            <CardCampanha />
-                            <CardCampanha />
-                            <CardCampanha />
-                            <CardCampanha />
-                            <CardCampanha />
-                            <CardCampanha />
+                            <CardCampanha campanha={this.state.items_list[0]}/>
+                            <CardCampanha campanha={this.state.items_list[1]}/>
+                            <CardCampanha campanha={this.state.items_list[2]}/>
+                            <CardCampanha campanha={this.state.items_list[3]}/>
+                            <CardCampanha campanha={this.state.items_list[4]}/>
+                            <CardCampanha campanha={this.state.items_list[5]}/>
+                            <CardCampanha campanha={this.state.items_list[6]}/>
+                            <CardCampanha campanha={this.state.items_list[7]}/>
+                            <CardCampanha campanha={this.state.items_list[8]}/>
+                            <CardCampanha campanha={this.state.items_list[9]}/>
                         </div>
                     </Col>
                 </Row>

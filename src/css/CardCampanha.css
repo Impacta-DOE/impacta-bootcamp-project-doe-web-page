@@ -73,22 +73,11 @@
     z-index: 1;
 }
 
-#slider-card::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
+#load-slider {
     width: 50%;
     height: 2.5em;
     background-image: linear-gradient(to left, rgb(31, 212, 1), rgb(25, 177, 0));
-    cursor: pointer;
-    float: left;
-}
-
-#slider-card::-moz-range-thumb {
-    width: 50%;
-    height: 2.5em;
-    background-image: linear-gradient(to left, rgb(31, 212, 1), rgb(25, 177, 0));
-    cursor: pointer;
-    float: left;
+    float: right;
 }
 
 #slider-arrecadados {
