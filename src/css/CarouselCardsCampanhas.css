@@ -57,3 +57,16 @@
     margin-right: 2em;
     float: left;
 }
+
+.div-controls {
+    width: 5%;
+    height: 100%;
+    float: left;
+    position: relative;
+    z-index: 3;
+}
+
+.div-controls:hover {
+    cursor: pointer;
+    background-image: linear-gradient(to right, rgba(85, 165, 244, 0), rgba(85, 165, 244, 1));
+}
