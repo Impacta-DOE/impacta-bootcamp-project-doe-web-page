@@ -20,9 +20,6 @@ class CarouselCardsCampanhas extends Component {
     render() {
         return (
             <div id="carousel-card">
-                <div className="div-controls" onClick={() => this.setSelectedItem(-1)}>
-                    <img src={arrow_left} className="arrows"/>
-                </div>
                 <Row style={{"width" : "100%", "height" : "3em", "margin-left" : ".001em", "margin-bottom" : "1em"}}>
                     <Col style={{"padding" : "0", "height" : "100%"}}>
                         <p id="titulo">Campanhas e ações recentes</p>
@@ -47,8 +44,13 @@ class CarouselCardsCampanhas extends Component {
                         </div>
                     </Col>
                 </Row>
-                <div className="div-controls" onClick={() => this.setSelectedItem(1)}>
-                    <img src={arrow_right} className="arrows"/>
+                <div id="controls">
+                    <div className="div-controls-card-left" style={{"display" : "none"}}>
+                        <img src={arrow_left} className="arrows"/>
+                    </div>
+                    <div className="div-controls-card-right" style={{"display" : "inline"}}>
+                        <img src={arrow_right} className="arrows"/>
+                    </div>
                 </div>
             </div>
         );
