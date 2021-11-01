@@ -27,6 +27,14 @@ class CarouselCampanhas extends Component {
     
     componentWillMount(){
         this.setSelectedItemByIndex(0);
+        this.startSlide();
+    }
+
+    stopSlide(){
+        clearInterval(this.timer);
+    }
+
+    startSlide(){
         this.timer = setInterval(() => {this.setSelectedItem(1)}, 5000);
     }
 
@@ -95,7 +103,7 @@ class CarouselCampanhas extends Component {
 
         return (
             <div>
-                <div id="carousel">
+                <div id="carousel" onMouseOver={() => this.stopSlide()} onMouseOut={() => this.startSlide()}>
                     <div id="container-carousel">
                         <div className="div-controls" onClick={() => this.setSelectedItem(-1)}>
                             <img src={arrow_left} className="arrows"/>
