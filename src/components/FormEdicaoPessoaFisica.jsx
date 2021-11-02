@@ -10,8 +10,8 @@ class FormEdicaoPessoaFisica extends Component {
 
     render() {
         return (
-            <div>
-                Pessoa Fisica
+            <div className=''>
+                
             </div>
         );
     }

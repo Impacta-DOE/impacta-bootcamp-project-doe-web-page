@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
-import { Container, Row, Col, Form } from 'react-bootstrap';
+import { Container, Row, Col, Form, Button } from 'react-bootstrap';
+import camera_icon from '../images/camera.png';
+
 import FormEdicaoPessoaFisica from './FormEdicaoPessoaFisica';
 import FormEdicaoPessoaJuridica from './FormEdicaoPessoaJuridica';
+
+import '../css/FormEdicaoPerfil.css';
 
 
 class FormEdicaoPerfil extends Component {
@@ -21,7 +25,12 @@ class FormEdicaoPerfil extends Component {
 
     render(){
         return (
-            <div>
+            <div className='container-editar-perfil'>
+                <div className='container-bg-photo'>
+                    <Button className='btn-ft-capa' variant="secondary"><img src={camera_icon} className="camera-icon"/> Adicionar foto de capa</Button>
+                </div>
+
+
                 {
                     this.getFormTipoPessoaEdicaoPerfil()
                 }
