@@ -51,17 +51,19 @@ class EsqueciSenhaModal extends Component {
 
                             <div className='title mb-3'>Esqueci minha senha</div>
                             
-                            <Form.Group className="mb-3" controlId="formBasicEmail">
-                                <Form.Label>Digite seu e-mail</Form.Label>
-                                <Form.Control type="text" placeholder="E-mail" id="input-email" required/>
-                            </Form.Group>
-                            <Form.Group className="mb-3" controlId="formBasicEmail">
-                                <div className="pass-description mb-3 mt-3">Como deseja recuperar sua senha?</div>
-                            
-                                <Button variant="primary" className='btn-sms mb-4' onClick={() => this.envioSenha("sms")}>SMS</Button>
-                                <Button variant="primary" className='btn-email' onClick={() => this.envioSenha("email")}>E-MAIL</Button>
-                            
-                            </Form.Group>
+                            <Form>
+                                <Form.Group className="mb-3" controlId="formBasicEmail">
+                                    <Form.Label>Digite seu CPF/CNPJ</Form.Label>
+                                    <Form.Control type="text" placeholder="CPF/CNPJ" id="input-cnpj-cpf" required maxlength="20" />
+                                </Form.Group>
+                                <Form.Group className="mb-3" controlId="formBasicEmail">
+                                    <div className="pass-description mb-3 mt-3">Como deseja recuperar sua senha?</div>
+                                
+                                    <Button variant="primary" className='btn-sms mb-4' onClick={() => this.envioSenha("sms")}>SMS</Button>
+                                    <Button variant="primary" className='btn-email' onClick={() => this.envioSenha("email")}>E-MAIL</Button>
+                                
+                                </Form.Group>
+                            </Form>
                             <Row>
                                 {
                                     this.getFormaEnvioSenha()
