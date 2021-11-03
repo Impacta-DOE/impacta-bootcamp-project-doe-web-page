@@ -28,7 +28,7 @@ class CardCampanha extends Component {
                 <div id="painel-card">
                     <div id="text-area">
                         <p id="titulo-card">{this.props.campanha.nome_campanha}</p>
-                        <p id="desc-card">Curabitur at ultricies felis. Lorem ipsum dolor sit amet, consectetur adipiscing</p>
+                        <p id="desc-card">{this.props.campanha.resumirDescricao(70)}</p>
                     </div>
                     <div id="slider-arrecadados">
                         <p id="text-slider">{this.apresentarValores()}</p>

@@ -75,7 +75,7 @@ class CarouselCardsCampanhas extends Component {
                             <CardCampanha campanha={this.state.items_list[7]}/>
                             <CardCampanha campanha={this.state.items_list[8]}/>
                             <CardCampanha campanha={this.state.items_list[9]}/>
-                            <div id="end" style={{float : "left", position : "relative", marginLeft: "-2.4em"}}>
+                            <div id="end" style={{float : "left", position : "relative", marginLeft: "-1.8em"}}>
                             </div>
                         </div>
                     </Col>

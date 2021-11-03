@@ -116,7 +116,7 @@ class CarouselCampanhas extends Component {
                                 <Row id="content-row">
                                     <Col>
                                         <p id="nome-campanha">{this.state.selected_item.nome_campanha}</p>
-                                        <p id="desc-campanha">{this.state.selected_item.desc_campanha}</p>
+                                        <p id="desc-campanha">{this.state.selected_item.resumirDescricao(277)}</p>
                                     </Col>
                                     <Col>
                                         <input type="button" value="Quero saber mais" className="btn-acessar"/>

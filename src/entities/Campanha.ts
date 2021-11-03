@@ -20,4 +20,14 @@ export class Campanha {
         this.doacao = doacao;
     }
 
+    public resumirDescricao(qntdLetras : number) : string{
+        let descricao_resumida : string = "";
+        if(qntdLetras < this.desc_campanha.length && qntdLetras > 0){
+            for(var i = 0; i < qntdLetras; i++){
+                descricao_resumida += this.desc_campanha.charAt(i);
+            }
+        }
+        return descricao_resumida + "...";
+    }
+
 }
