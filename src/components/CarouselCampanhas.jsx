@@ -5,7 +5,7 @@ import arrow_right from '../images/arrow_right.png';
 import arrow_left from '../images/arrow_left.png';
 
 import '../css/CarouselCampanhas.css';
-import ItemCarouselService from '../services/ItemCarouselService';
+import ItemCarouselService from '../services/CampanhaService';
 
 class CarouselCampanhas extends Component {
 

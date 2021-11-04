@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Campanha, ItemCarousel } from '../entities/Campanha';
+import { Campanha } from '../entities/Campanha';
 
 import exemplo_imagem_background from '../images/doacao_exemplo.png';
 import exemplo_imagem_background_01 from '../images/doacao_exemplo_01.jpg';
@@ -16,7 +16,7 @@ import exemplo_imagem_background_card_05 from '../images/comida.jpg';
 
 import { Doacao } from '../entities/Doacao';
 
-class ItemCarouselService extends Component {
+class CampanhaService extends Component {
     
     constructor(props) {
 
@@ -152,4 +152,4 @@ class ItemCarouselService extends Component {
 
 }
 
-export default ItemCarouselService;
+export default CampanhaService;

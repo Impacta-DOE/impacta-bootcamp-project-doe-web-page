@@ -6,7 +6,7 @@ import '../css/CarouselCardsCampanhas.css';
 import arrow_right from '../images/arrow_right.png';
 import arrow_left from '../images/arrow_left.png';
 
-import ItemCarouselService from '../services/ItemCarouselService';
+import ItemCarouselService from '../services/CampanhaService';
 import CardCampanha from './CardCampanha';
 
 class CarouselCardsCampanhas extends Component {
@@ -19,24 +19,24 @@ class CarouselCardsCampanhas extends Component {
     scrollTo(direction){
         if(direction == 1){
             if(this.state.positionCarousel === "begin"){
-                document.getElementById('middle1').scrollIntoView({ behavior: "smooth" });
+                document.getElementById('middle1').scrollIntoView({ behavior: "smooth", block: 'nearest' });
                 this.setState({positionCarousel : "middle"});
                 this.setState({displayLeftControl : "inline"});
                 this.setState({displayRightControl : "inline"});
             }else{
-                document.getElementById('end').scrollIntoView({ behavior: "smooth" });
+                document.getElementById('end').scrollIntoView({ behavior: "smooth", block: 'nearest' });
                 this.setState({positionCarousel : "end"});
                 this.setState({displayLeftControl : "inline"});
                 this.setState({displayRightControl : "none"});
             }
         }else{
             if(this.state.positionCarousel === "end"){
-                document.getElementById('middle2').scrollIntoView({ behavior: "smooth" });
+                document.getElementById('middle2').scrollIntoView({ behavior: "smooth", block: 'nearest' });
                 this.setState({positionCarousel : "middle"});
                 this.setState({displayLeftControl : "inline"});
                 this.setState({displayRightControl : "inline"});
             }else{
-                document.getElementById('begin').scrollIntoView({ behavior: "smooth" });
+                document.getElementById('begin').scrollIntoView({ behavior: "smooth", block: 'nearest' });
                 this.setState({positionCarousel : "begin"});
                 this.setState({displayLeftControl : "none"});
                 this.setState({displayRightControl : "inline"});
