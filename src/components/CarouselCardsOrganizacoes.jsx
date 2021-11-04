@@ -7,12 +7,13 @@ import arrow_right from '../images/arrow_right.png';
 import arrow_left from '../images/arrow_left.png';
 
 import CardOrganizacao from './CardOrganizacao';
+import OrganizacaoService from '../services/OrganizacaoService';
 
 class CarouselCardsOrganizacoes extends Component {
 
     constructor(props){
         super(props);
-        this.state = {items_list: null, displayLeftControl : "none", displayRightControl : "inline", positionCarousel : "begin"};
+        this.state = {items_list: new OrganizacaoService().getAll(), displayLeftControl : "none", displayRightControl : "inline", positionCarousel : "begin"};
     }
 
     scrollTo(direction){
@@ -60,20 +61,20 @@ class CarouselCardsOrganizacoes extends Component {
                         <div id="div-cards-org">
                             <div id="begin-org" style={{float : "left", position : "relative", marginRight: "-2.4em"}}>
                             </div>
-                            <CardOrganizacao />
-                            <CardOrganizacao />
-                            <CardOrganizacao />
+                            <CardOrganizacao organizacao={this.state.items_list[0]} />
+                            <CardOrganizacao organizacao={this.state.items_list[1]}/>
+                            <CardOrganizacao organizacao={this.state.items_list[2]}/>
                             <div id="middle2-org" style={{float : "left", position : "relative"}}>
                             </div>
-                            <CardOrganizacao />
-                            <CardOrganizacao />
-                            <CardOrganizacao />
-                            <CardOrganizacao />
+                            <CardOrganizacao organizacao={this.state.items_list[3]}/>
+                            <CardOrganizacao organizacao={this.state.items_list[4]}/>
+                            <CardOrganizacao organizacao={this.state.items_list[5]}/>
+                            <CardOrganizacao organizacao={this.state.items_list[6]}/>
                             <div id="middle1-org" style={{float : "left", position : "relative", marginLeft: "-2.4em"}}>
                             </div>
-                            <CardOrganizacao />
-                            <CardOrganizacao />
-                            <CardOrganizacao />
+                            <CardOrganizacao organizacao={this.state.items_list[7]}/>
+                            <CardOrganizacao organizacao={this.state.items_list[8]}/>
+                            <CardOrganizacao organizacao={this.state.items_list[9]}/>
                             <div id="end-org" style={{float : "left", position : "relative", marginLeft: "-1.8em"}}>
                             </div>
                         </div>

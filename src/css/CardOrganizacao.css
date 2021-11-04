@@ -20,6 +20,11 @@
     float: left;
 }
 
+#card-organizacao-body:hover {
+    cursor: pointer;
+    opacity: .9;
+}
+
 #img-background-org {
     width: 100%;
     height: 80%;
@@ -36,21 +41,21 @@
 
 #desc-org{
     width: 100%;
-    height: 70%;
+    height: 73%;
     background-color: white;
     text-align: center;
 }
 
 #infos-org{
     width: 100%;
-    height: 30%;
+    height: 31%;
     background-color: #55A5F4;
 }
 
 #logo-org{
-    width: 5em;
-    height: 5em;
-    border: 2px solid #4380BD;
+    width: 5.5em;
+    height: 5.5em;
+    border: 3px solid #4380BD;
     border-radius: 5em;
     margin: 0 auto;
     display: block;
@@ -61,32 +66,42 @@
 #nome-org {
     font-size: 17px;
     font-family: 'Roboto Bold';
+    margin-bottom: -.05em;
 }
 
 #subtitulo-org {
     font-size: 13px;
     font-family: 'Roboto Bold';
     color: #BABABA;
-    margin-top: -1em;
+    width: 80%;
+    margin: 0 auto;
 }
 
 #campanhas {
-    width: 33.33%;
+    width: 32.8%;
     height: 100%;
-    background-color: red;
     float: left;
+    padding-top: .3em;
 }
 
 #voluntarios {
-    width: 33.33%;
+    width: 32.8%;
     height: 100%;
-    background-color: yellow;
     float: left;
+    padding-top: .3em;
 }
 
 #acoes {
-    width: 33.33%;
+    width: 32.8%;
     height: 100%;
-    background-color: green;
     float: left;
+    padding-top: .3em;
+}
+
+.vertical-line {
+    border-right: 1px solid white;
+    height: 60%;
+    width: .05px;
+    float: left;
+    margin-top: .3em;
 }
