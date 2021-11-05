@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import '../css/CardOrganizacao.css';
 
-import logo_exemplo from '../images/logo_anhcr.png';
+import background_card from '../images/background-card-org.png';
 
 class CardOrganizacao extends Component {
 
@@ -13,7 +13,7 @@ class CardOrganizacao extends Component {
     render() {
         return (
             <div id="card-organizacao-body">
-                <img id="img-background-org"/>
+                <img src={background_card} id="img-background-org"/>
                 <div id="content-org">
                     <div id="desc-org">
                         <div style={{position : 'absolute', zIndex : '3', marginTop : '-3.1em', width : '100%', height : 'auto'}}>

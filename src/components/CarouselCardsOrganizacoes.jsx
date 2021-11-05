@@ -19,24 +19,24 @@ class CarouselCardsOrganizacoes extends Component {
     scrollTo(direction){
         if(direction == 1){
             if(this.state.positionCarousel === "begin"){
-                document.getElementById('middle1-org').scrollIntoView({ behavior: "smooth", block: 'nearest' });
+                document.getElementById('middle1-org').scrollIntoView({ behavior: "smooth", block: 'nearest', inline : 'nearest' });
                 this.setState({positionCarousel : "middle"});
                 this.setState({displayLeftControl : "inline"});
                 this.setState({displayRightControl : "inline"});
             }else{
-                document.getElementById('end-org').scrollIntoView({ behavior: "smooth", block: 'nearest' });
+                document.getElementById('end-org').scrollIntoView({ behavior: "smooth", block: 'nearest', inline : 'nearest' });
                 this.setState({positionCarousel : "end"});
                 this.setState({displayLeftControl : "inline"});
                 this.setState({displayRightControl : "none"});
             }
         }else{
             if(this.state.positionCarousel === "end"){
-                document.getElementById('middle2-org').scrollIntoView({ behavior: "smooth", block: 'nearest' });
+                document.getElementById('middle2-org').scrollIntoView({ behavior: "smooth", block: 'nearest', inline : 'nearest' });
                 this.setState({positionCarousel : "middle"});
                 this.setState({displayLeftControl : "inline"});
                 this.setState({displayRightControl : "inline"});
             }else{
-                document.getElementById('begin-org').scrollIntoView({ behavior: "smooth", block: 'nearest' });
+                document.getElementById('begin-org').scrollIntoView({ behavior: "smooth", block: 'nearest', inline : 'nearest' });
                 this.setState({positionCarousel : "begin"});
                 this.setState({displayLeftControl : "none"});
                 this.setState({displayRightControl : "inline"});

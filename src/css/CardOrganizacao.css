@@ -28,6 +28,7 @@
 #img-background-org {
     width: 100%;
     height: 80%;
+    opacity: .3;
 }
 
 #content-org{
