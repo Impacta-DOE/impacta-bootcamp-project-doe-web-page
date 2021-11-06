@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Col, Row } from 'react-bootstrap';
+import { Redirect } from 'react-router';
 
 import '../css/CarouselCardsOrganizacoes.css';
 
@@ -13,7 +14,14 @@ class CarouselCardsOrganizacoes extends Component {
 
     constructor(props){
         super(props);
-        this.state = {items_list: new OrganizacaoService().getAll(), displayLeftControl : "none", displayRightControl : "inline", positionCarousel : "begin"};
+        this.state = {items_list: new OrganizacaoService().getAll(), displayLeftControl : "none", displayRightControl : "inline", positionCarousel : "begin", redirect: false, page: "/"};
+    }
+
+    chamaProximaTela(tela){
+        this.setState({
+            redirect: true,
+            page : tela
+        })
     }
 
     scrollTo(direction){
@@ -46,6 +54,10 @@ class CarouselCardsOrganizacoes extends Component {
     }
 
     render() {
+        if(this.state.redirect){
+            this.setState({redirect : false});
+            return <Redirect to={this.state.page} />
+        }
         return (
             <div id="carousel-card-org">
                 <Row style={{"width" : "100%", "height" : "3em", "margin-left" : ".001em", "margin-bottom" : "1em"}}>
@@ -53,7 +65,7 @@ class CarouselCardsOrganizacoes extends Component {
                         <p id="titulo">Organizações em destaque</p>
                     </Col>
                     <Col style={{"padding" : "0", "height" : "100%"}}>
-                        <input type="button" value="mais" className="btn-mais"/>
+                        <input type="button" value="mais" className="btn-mais" onClick={() => this.chamaProximaTela("/buscar")}/>
                     </Col>
                 </Row>
                 <Row id="cards-org">
