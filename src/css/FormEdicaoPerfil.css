@@ -1,6 +1,13 @@
+@font-face {
+    font-family: 'Roboto';
+    src: local('Roboto Regular'), url('./fonts/Roboto/Roboto-Regular.ttf') format('truetype');
+    font-style: normal;
+    font-weight: normal;
+}
+
 .container-editar-perfil {
     width: 50em;
-    height: 70em;
+    height: 80em;
     background-color: white;
     border-radius: 1em;
     margin: auto;
@@ -33,4 +40,52 @@
 
 .camera-icon {
     margin-top: -3px;
+}
+
+.camera-icon-g{
+    width: 30px;
+
+    position: relative;
+    top: 25px;
+    left: 42px;
+}
+
+.container-profile-picture {
+    height: 60px;
+    width: 100%;
+    box-shadow: 0px 4px 4px rgba(85, 165, 244, 0.17);
+    cursor:pointer;
+}
+
+.logo-organizacao{
+    width: 120px;
+    height: 120px;
+    border-radius: 60px;
+
+    position: relative;
+    top: -30px;
+    left: 25px;
+
+    background: #A7A7A7;
+    border: 2px solid #4380BD;
+    box-sizing: border-box;
+}
+
+.txt-alterar-foto{
+    font-family: Roboto;
+    font-size: 14px;
+    line-height: 14px;
+    text-align: center;
+
+    position: relative;
+    top: 30px;
+
+    color: #FEFEFE;
+}
+
+.container-dados-perfil{
+    margin: auto;
+    margin-top: 70px;
+    width: 40em;
+    height: 50em;
 }
