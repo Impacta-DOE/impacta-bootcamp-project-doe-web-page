@@ -13,7 +13,7 @@ class FormEdicaoPerfil extends Component {
 
     constructor(props){
         super(props);
-        this.state = {tipoPessoa : "fisica"};
+        this.state = {tipoPessoa : "juridica"};
     }
 
     getFormTipoPessoaEdicaoPerfil(){
