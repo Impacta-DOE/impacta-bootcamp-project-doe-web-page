@@ -33,7 +33,7 @@
 
 #filtro-busca {
     width: 101%;
-    height: 3.5em;
+    height: 3.6em;
     background-color: #55A5F4;
     margin-top: 1em;
     padding-top: .5em;
@@ -46,8 +46,64 @@
     font-family: 'Roboto';
     border: 2px solid #4380BD;
     border-radius: 4px;
+    float: left;
 }
 
 #combobox:focus {
     outline: none;
+}
+
+#input-search {
+    width: 48.5em;
+    height: 2.5em;
+    font-family: 'Roboto';
+    border: 2px solid #4380BD;
+    border-radius: 4px;
+    margin-left: .5em;
+    padding-left: .5em;
+    float: left;
+}
+
+#btn-style {
+    height: 2.5em;
+    width: 12em;
+    font-family: 'Roboto';
+    font-size: 14px;
+    border: 2px solid #4380BD;
+    color: white;
+    border-radius: 3px;
+    margin-left: .5em;
+    padding-top: .5em;
+    padding-bottom: 1.98em;
+    float: left;
+}
+
+#btn-style:hover {
+    cursor: pointer;
+    background-color: #326699;
+    border-color: #326699;
+}
+
+#div-filtro-avancado{
+    width: 42em;
+    height: 15em;
+    background-color: #4380BD;
+    float: right;
+    margin-top: .6em;
+    z-index: 5;
+}
+
+#input-registry {
+    width: 18.6em;
+    height: 2.5em;
+    font-family: 'Roboto';
+    border: 2px solid #4380BD;
+    border-radius: 4px;
+    padding-left: .5em;
+}
+
+.checkbox {
+    color: white;
+    font-family : 'Roboto';
+    font-size : 14px;
 }
