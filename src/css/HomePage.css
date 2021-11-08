@@ -9,11 +9,11 @@ body {
 
 .homepage {
     width: 100%;
-    height: 100vh;
+    height: auto;
 }
 
 #container-itens-homepage {
-    width: 93.18%;
+    width: 95%;
     height: auto;
     margin: 0 auto;
     margin-top: 1.2em;

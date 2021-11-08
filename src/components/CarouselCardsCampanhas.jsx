@@ -7,14 +7,14 @@ import '../css/CarouselCardsCampanhas.css';
 import arrow_right from '../images/arrow_right.png';
 import arrow_left from '../images/arrow_left.png';
 
-import ItemCarouselService from '../services/CampanhaService';
+import CampanhaService from '../services/CampanhaService';
 import CardCampanha from './CardCampanha';
 
 class CarouselCardsCampanhas extends Component {
 
     constructor(props){
         super(props);
-        this.state = {items_list: new ItemCarouselService().getAll(), displayLeftControl : "none", displayRightControl : "inline", positionCarousel : "begin", redirect: false, page: "/"};
+        this.state = {items_list: new CampanhaService().getAll(), displayLeftControl : "none", displayRightControl : "inline", positionCarousel : "begin", redirect: false, page: "/"};
     }
 
     chamaProximaTela(tela){

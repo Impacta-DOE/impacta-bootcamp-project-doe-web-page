@@ -12,7 +12,7 @@ class CardOrganizacao extends Component {
 
     render() {
         return (
-            <div id="card-organizacao-body">
+            <div id="card-organizacao-body" style={{marginRight : this.props.marginRight, marginBottom : this.props.marginBottom}}>
                 <img src={background_card} id="img-background-org"/>
                 <div id="content-org">
                     <div id="desc-org">

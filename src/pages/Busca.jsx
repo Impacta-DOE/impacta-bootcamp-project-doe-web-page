@@ -1,16 +1,31 @@
 import React, { Component } from 'react';
 import { Col, Form, Row } from 'react-bootstrap';
+import CardCampanha from '../components/CardCampanha';
 import CarouselCampanhas from '../components/CarouselCampanhas';
 import Footer from '../components/Footer';
 import MenuTop from '../components/MenuTop';
 
+import CampanhaService from '../services/CampanhaService';
+
 import '../css/Busca.css';
+import OrganizacaoService from '../services/OrganizacaoService';
+import CardOrganizacao from '../components/CardOrganizacao';
 
 class Busca extends Component {
 
     constructor(props){
         super(props);
-        this.state = {displayAvancFilter : "none", toggleButtonColor : "#4380BD", toggleButtonStatus : false, getEstadoAtual : false, getCidadeAtual : false};
+        this.state = {
+                        items_organizacao_list: new OrganizacaoService().getAll(), 
+                        items_campanha_list: new CampanhaService().getAll(), 
+                        displayAvancFilter : "none", 
+                        toggleButtonColor : "#4380BD", 
+                        toggleButtonStatus : false, 
+                        getEstadoAtual : false, 
+                        getCidadeAtual : false,
+                        resultado_list : [],
+                        posicao_lista : 0
+                    };
     }
 
     showAvancFilter() {
@@ -44,6 +59,58 @@ class Busca extends Component {
         }
     }
 
+    showSearchCampanhasResult(){
+        let result = [];
+        let count = 0;
+        for(let i=0; i<this.state.items_campanha_list.length; i++){
+            if(count == 4){
+                result.push(<CardCampanha campanha={this.state.items_campanha_list[i]} marginRight="0em" marginBottom=".9em"/>);
+                count = -1;
+            }else{
+                result.push(<CardCampanha campanha={this.state.items_campanha_list[i]} marginRight=".64em" marginBottom=".9em"/>);
+            }
+            count++;
+        }
+        return result;
+    }
+
+    showSearchOrganizacaoResult(){
+        let result = [];
+        let count = 0;
+        for(let i=0; i<this.state.items_organizacao_list.length; i++){
+            if(count == 4){
+                result.push(<CardOrganizacao organizacao={this.state.items_organizacao_list[i]} marginRight="0em" marginBottom="1.2em"/>);
+                count = -1;
+            }else{
+                result.push(<CardOrganizacao organizacao={this.state.items_organizacao_list[i]} marginRight=".64em" marginBottom="1.2em"/>);
+            }
+            count++;
+        }
+        return result;
+    }
+
+    showSearchResult(){
+        let result = [];
+        let resultOrg = [];
+        let resultCamp = [];
+        
+        resultCamp = this.showSearchCampanhasResult();
+        for(let i=0; i < resultCamp.length; i++){
+            this.state.resultado_list.push(resultCamp[i]);
+        }
+
+        resultOrg = this.showSearchOrganizacaoResult();
+        for(let i=0; i < resultOrg.length; i++){
+            this.state.resultado_list.push(resultOrg[i]);
+        }
+
+        for(let i=0; i < ((this.state.resultado_list.length >= 10) ? 10 : this.state.resultado_list.length); i++){
+            result.push(this.state.resultado_list[i]);
+        }
+
+        return(result);
+    }
+
     render() {
         return (
             <div className="search-page">
@@ -54,8 +121,7 @@ class Busca extends Component {
                         <Form>
                             <select name="filtro" id="filtro" id="combobox" className="selector">
                                 <option value="" disabled selected>Filtrar por</option>
-                                <option value="campanha">Campanha</option>
-                                <option value="acao">Ação</option>
+                                <option value="campanha">Campanha / Ação</option>
                                 <option value="organizacao">Organização</option>
                                 <option value="todos">Todos</option>
                             </select>
@@ -118,8 +184,11 @@ class Busca extends Component {
                             </div>
                         </Form>
                     </div>
+                    <div id="container-resultados">
+                        {this.showSearchResult()}
+                    </div>
                 </div>
-                <Footer />
+                
             </div>
         );
     }

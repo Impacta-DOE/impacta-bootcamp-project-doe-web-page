@@ -23,7 +23,7 @@ class CardCampanha extends Component {
 
     render() {
         return (
-            <div id="card-campanha-body">
+            <div id="card-campanha-body" style={{marginRight : this.props.marginRight, marginBottom : this.props.marginBottom}}>
                 <img src={this.props.campanha.img_background_card} id="background-img-card"/>
                 <div id="painel-card">
                     <div id="text-area">
