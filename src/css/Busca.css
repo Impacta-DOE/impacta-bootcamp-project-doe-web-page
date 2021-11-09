@@ -113,6 +113,31 @@
     width: 101%;
     height: auto;
     margin: 0 auto;
-    background-color: red;
     margin-top: 2em;
+
+}
+
+#container-button-mais {
+    width: 101%;
+    height: auto;
+    float: left;
+    margin-top: 4em;
+    margin-bottom: 4em;
+}
+
+.btn-mostrar {
+    border: 3px solid #4380BD;
+    color: #4380BD;
+    height: 3em;
+    background-color: rgba(0,0,0,0);
+    width: 14em;
+    font-size: 18px;
+    font-family: 'Roboto Bold';
+    border-radius: 6px;
+}
+
+.btn-mostrar:hover {
+    border: 3px solid #4380BD;
+    color: white;
+    background-color: #4380BD;
 }

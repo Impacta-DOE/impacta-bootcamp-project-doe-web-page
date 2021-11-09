@@ -38,7 +38,7 @@
 
 #cards {
     width: 100%;
-    height: auto;
+    height: 22em;
     margin-left: .001em;
     overflow-x: hidden;
     overflow-y: hidden;
@@ -69,12 +69,13 @@
 
 .div-controls-card-left {
     width: 5%;
-    height: 100%;
+    height: 102%;
     float: left;
     position: relative;
     z-index: 3;
     background-image: linear-gradient(to left, rgba(85, 165, 244, 0), rgba(220, 220, 220, 1));
     pointer-events: all;
+    margin-top: -.6em;
 }
 
 .div-controls-card-left:hover {
@@ -83,12 +84,13 @@
 
 .div-controls-card-right {
     width: 5%;
-    height: 100%;
+    height: 102%;
     float: right;
     position: relative;
     z-index: 3;
     background-image: linear-gradient(to right, rgba(85, 165, 244, 0), rgba(220, 220, 220, 1));
     pointer-events: all;
+    margin-top: -.6em;
 }
 
 .div-controls-card-right:hover {

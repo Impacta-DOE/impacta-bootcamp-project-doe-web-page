@@ -24,8 +24,13 @@ class Busca extends Component {
                         getEstadoAtual : false, 
                         getCidadeAtual : false,
                         resultado_list : [],
+                        resultado_list_apresentado : [],
                         posicao_lista : 0
                     };
+    }
+
+    componentWillMount(){
+        this.showSearchResult();
     }
 
     showAvancFilter() {
@@ -90,25 +95,35 @@ class Busca extends Component {
     }
 
     showSearchResult(){
-        let result = [];
         let resultOrg = [];
         let resultCamp = [];
         
-        resultCamp = this.showSearchCampanhasResult();
-        for(let i=0; i < resultCamp.length; i++){
-            this.state.resultado_list.push(resultCamp[i]);
-        }
-
         resultOrg = this.showSearchOrganizacaoResult();
         for(let i=0; i < resultOrg.length; i++){
             this.state.resultado_list.push(resultOrg[i]);
         }
 
-        for(let i=0; i < ((this.state.resultado_list.length >= 10) ? 10 : this.state.resultado_list.length); i++){
-            result.push(this.state.resultado_list[i]);
+        resultCamp = this.showSearchCampanhasResult();
+        for(let i=0; i < resultCamp.length; i++){
+            this.state.resultado_list.push(resultCamp[i]);
         }
 
-        return(result);
+        for(let i=0; i < ((this.state.resultado_list.length >= 10) ? 10 : this.state.resultado_list.length); i++){
+            this.state.resultado_list_apresentado.push(this.state.resultado_list[i]);
+        }
+
+        this.setState({posicao_lista : (this.state.resultado_list_apresentado.length - 1)});
+    }
+
+    mostrarMais(){
+        if(this.state.posicao_lista < this.state.resultado_list.length - 1){
+            let i = this.state.posicao_lista;
+            let final_pos = (((this.state.resultado_list.length-1)-i) > 10) ? i + 10 : this.state.resultado_list.length;
+            for(let i=this.state.posicao_lista + 1; i < final_pos; i++){
+                this.state.resultado_list_apresentado.push(this.state.resultado_list[i]);
+            }
+            this.setState({posicao_lista : (this.state.resultado_list_apresentado.length - 1)});
+        }
     }
 
     render() {
@@ -185,10 +200,14 @@ class Busca extends Component {
                         </Form>
                     </div>
                     <div id="container-resultados">
-                        {this.showSearchResult()}
+                        {this.state.resultado_list_apresentado}
                     </div>
-                </div>
-                
+                    <div id="container-button-mais">
+                        <div style={{width : "14em", height : "3.3em", margin : "0 auto"}}>
+                            <input type="button" value="Mostrar mais" className="btn-mostrar" onClick={() => this.mostrarMais()}/>
+                        </div>
+                    </div>
+                </div>            
             </div>
         );
     }
