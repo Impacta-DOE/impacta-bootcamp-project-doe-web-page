@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import Footer from '../components/Footer';
 import MenuTop from '../components/MenuTop';
-import '../css/OngPage.css';
+import '../css/OrgPage.css';
 
-class OngPage extends Component {
+import logo from '../images/logo_anhcr.png';
+import capa from '../images/banner-capa-org.png';
+
+class OrgPage extends Component {
 
     constructor(props){
         super(props);
@@ -27,10 +30,16 @@ class OngPage extends Component {
         return (
             <div>
                 {this.renderMenuTop()}
-                <div id="container-ong">
-                    <div id='capa-ong'></div>
-                    <div className="container-ong-picture">
-                        <div className='logo-organizacao'>
+                <div id="container-org">
+                    <div id='borda-capa-org'>
+                        <img className="banner-organizacao-page"src={capa} />
+                    </div>
+                    <div className="container-org-info">
+                        <div className='borda-logo-organizacao'>
+                            <img className="logo-organizacao-page"src={logo} />
+                        </div>
+                        <div className="container-titulo-org">
+                            <h1 id='titulo-org'>ACNUR</h1>
                         </div>
                     </div>
                 </div>
@@ -40,4 +49,4 @@ class OngPage extends Component {
     }
 }
 
-export default OngPage;
+export default OrgPage;

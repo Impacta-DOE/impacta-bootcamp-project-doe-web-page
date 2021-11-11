@@ -10,7 +10,7 @@ import HomePage from './pages/HomePage';
 import TelaCadastro from './pages/TelaCadastro';
 import EditarPerfil from './pages/EditarPerfil';
 import Busca from './pages/Busca';
-import OngPage from './pages/OngPage';
+import OrgPage from './pages/OrgPage';
 
 
 ReactDOM.render(
@@ -20,7 +20,7 @@ ReactDOM.render(
           <Route path="/cadastro" component={TelaCadastro}/>
           <Route path="/editar-perfil" component={EditarPerfil}/>
           <Route path="/buscar" component={Busca}/>
-          <Route path="/ong/:urlAmigavel" component={OngPage}/>
+          <Route path="/org/:urlAmigavel" component={OrgPage}/>
       </Switch>
   </Router>,
   document.getElementById('root')
