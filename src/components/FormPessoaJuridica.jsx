@@ -2,8 +2,40 @@ import React, { Component } from 'react';
 import { Row, Col, Form, Button } from 'react-bootstrap';
 
 import '../css/FormPessoaJuridica.css';
+import LocalizacaoService from '../services/LocalizacaoService';
 
 class FormPessoaJuridica extends Component {
+
+    constructor(props){
+        super(props);
+        this.state = {
+                        localizacaoService : new LocalizacaoService(),
+                        estados : [],
+                        cidades : []
+                    };
+        this.handleChange = this.handleChange.bind(this);
+    }
+
+    componentDidMount(){
+        this.state.localizacaoService.getEstados().then(estados => {           
+            this.setState({estados});
+        });
+    }
+
+    changeCidades(uf){
+        this.state.localizacaoService.getCidadesByUF(uf).then(cidades => {
+            this.setState({cidades});
+        })
+    }
+
+    handleChange(event){
+        switch (event.target.name) {
+            case "estado":
+                this.changeCidades(event.target.value);
+                break;   
+        }
+    }
+
     render() {
         return (
             <div id="div-form">
@@ -86,21 +118,15 @@ class FormPessoaJuridica extends Component {
                         </Row>
                         <Row>
                             <Col sm="5" className="col-form">
-                                <select name="estado" id="estado" id="input01" className="selector">
+                                <select name="estado" id="estado" id="input01" className="selector" onChange={this.handleChange}>
                                     <option value="" disabled selected>Estado</option>
-                                    <option value="estado01">Estado 01</option>
-                                    <option value="estado02">Estado 02</option>
-                                    <option value="estado03">Estado 03</option>
-                                    <option value="estado04">Estado 04</option>
+                                    {this.state.estados.map(estado => <option value={estado.id}>{estado.nome}</option>)}
                                 </select>
                             </Col>
                             <Col sm="5" className="col-form">
                                 <select name="cidade" id="cidade" id="input03" className="selector">
                                     <option value="" disabled selected>Cidade</option>
-                                    <option value="cidade01">Cidade 01</option>
-                                    <option value="cidade02">Cidade 02</option>
-                                    <option value="cidade03">Cidade 03</option>
-                                    <option value="cidade04">Cidade 04</option>
+                                    {this.state.cidades.map(cidade => <option value={cidade.id}>{cidade.nome}</option>)}
                                 </select>
                             </Col>
                         </Row>

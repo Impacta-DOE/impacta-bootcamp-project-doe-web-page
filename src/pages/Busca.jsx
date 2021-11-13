@@ -10,6 +10,7 @@ import '../css/Busca.css';
 
 import OrganizacaoService from '../services/OrganizacaoService';
 import CampanhaService from '../services/CampanhaService';
+import LocalizacaoService from '../services/LocalizacaoService';
 import {Filtro} from '../entities/Filtro';
 import SearchService from '../services/SearchService';
 
@@ -20,6 +21,7 @@ class Busca extends Component {
         this.state = {
                         items_campanha_list: new CampanhaService().getAll(), 
                         searchService : new SearchService(),
+                        localizacaoService : new LocalizacaoService(),
                         displayAvancFilter : "none", 
                         toggleButtonColor : "#4380BD", 
                         toggleButtonStatus : false, 
@@ -28,14 +30,28 @@ class Busca extends Component {
                         resultado_list : [],
                         resultado_list_apresentado : [],
                         posicao_lista : 0,
-                        filtro : new Filtro("teste", "", "", "", "", "", false, false, false)
+                        filtro : new Filtro("teste", "", "", "", "", "", false, false, false),
+                        estados : [],
+                        cidades : []
+                        //items_cidades : []
                     };
         this.handleChange = this.handleChange.bind(this);
+        //this.changeCidades = this.changeCidades.bind(this);
     }
     
 
     componentWillMount(){
         this.showSearchResult(this.state.items_campanha_list);
+    }
+
+    componentDidMount(){
+        
+        this.state.localizacaoService.getEstados().then(estados => {
+            this.setState({estados});
+        });
+        
+        //this.showCidadesResult();
+        
     }
 
     showAvancFilter() {
@@ -109,6 +125,14 @@ class Busca extends Component {
         }
     }
 
+    changeCidades(uf){
+
+        this.state.localizacaoService.getCidadesByUF(uf).then(cidades => {
+            this.setState({cidades});
+        })
+           
+    }
+
     handleChange(event){
         switch (event.target.name) {
             case "filtro":
@@ -119,6 +143,7 @@ class Busca extends Component {
                 break;
             case "estado":
                 this.state.filtro.estado = event.target.value;
+                this.changeCidades(event.target.value);
                 break;
             case "cidade":
                 this.state.filtro.cidade = event.target.value;
@@ -178,11 +203,11 @@ class Busca extends Component {
                                     <Col style={{width : "40%", height : "100%"}}>
                                         <select name="estado" id="estado" id="combobox" className="selector" style={{marginTop : ".8em"}} disabled={this.state.getEstadoAtual} onChange={this.handleChange}>
                                             <option value="" disabled selected>Estado</option>
-                                            <option value="estado">Estado</option>
+                                            {this.state.estados.map(estado => <option value={estado.id}>{estado.nome}</option>)}
                                         </select>
                                         <select name="cidade" id="cidade" id="combobox" className="selector" style={{marginTop : ".8em"}} disabled={this.state.getCidadeAtual} onChange={this.handleChange}>
                                             <option value="" disabled selected>Cidade</option>
-                                            <option value="cidade">Cidade</option>
+                                            {this.state.cidades.map(cidade => <option value={cidade.id}>{cidade.nome}</option>)}
                                         </select>
                                         <select name="tipoDoacao" id="tipoDoacao" id="combobox" className="selector" style={{marginTop : ".8em", marginBottom : ".8em"}} onChange={this.handleChange}>
                                             <option value="" disabled selected>Tipo de Doação</option>
