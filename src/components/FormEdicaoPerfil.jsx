@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Row, Col, Form, Button } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 import camera_icon from '../images/camera.png';
 import camera_white_icon from '../images/camera-white.png';
 

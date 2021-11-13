@@ -109,7 +109,7 @@
 
 .sobre-content{
     text-align: justify;
-    
+
     font-family: 'Roboto';
     font-style: normal;
     font-weight: normal;
@@ -119,6 +119,12 @@
 .separador-org-page{
     color: #4380BD;
     
+}
+
+.container-carousel-campanhas{
+    width: 88.8%;
+    margin: 0 auto;
+    margin-top: -3em;
 }
 
 
