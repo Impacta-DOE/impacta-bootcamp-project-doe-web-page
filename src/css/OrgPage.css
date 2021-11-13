@@ -1,3 +1,10 @@
+@font-face {
+    font-family: 'Roboto';
+    src: local('Roboto Regular'), url('./fonts/Roboto/Roboto-Regular.ttf') format('truetype');
+    font-style: normal;
+    font-weight: normal;
+}
+
 #borda-capa-org{
     background-color: #C4C4C4;
     width: 100%;
@@ -5,8 +12,14 @@
     margin: auto 0;
 }
 
+.row-org{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
 .banner-organizacao-page{
-    height: 100%;
+    width: 100%;
     max-height: 20em;
 
     display: block;
@@ -15,14 +28,12 @@
     box-shadow: 12px 29px 81px 0px #A7A7A7;
 }
 
-.borda-logo-organizacao{
+.container-logo-organizacao{
     width: 120px;
     height: 120px;
     border-radius: 60px;
 
-    position: relative;
-    top: -15px;
-    left: 25px;
+    margin-left: 25px;
 
     background: #A7A7A7;
     border: 2px solid #4380BD;
@@ -36,6 +47,11 @@
 }
 
 .container-org-info{
+    display: flex;
+    flex-wrap: inherit;
+    align-items: center;
+    justify-content: space-between;
+
     position: relative;
     height: 90px;
     width: 100%;
@@ -44,15 +60,65 @@
 }
 
 .container-titulo-org{
-    position: relative;
-    top: -5.4em;
-    left: 10.3em;
+    margin-left: 1.2em;
 }
 
 #titulo-org{
     font-size: 23px;
     font-family: 'Roboto';
     margin-bottom: -0.05em;
+}
+
+.container-button-volutario{
+    margin-right: 25px;
+}
+
+#btn-voluntario{
+    font-family: 'Roboto';
+    font-size: 14px;
+
+    background: #F4A100;
+    border-color: #F4A100;
+    border-radius: 3px;
+    padding: 0.7em 2em ;
+}
+
+#btn-voluntario:hover, #btn-voluntario:focus{
+    background-color: #f0c70f;
+    border-color: #f0c70f;
+}
+
+.container-sobre{
+    margin: 3em auto;
+    padding: 2em;
+    border-radius: 5px;
+    
+    width: 90%;
+    background-color: #FEFEFE;    
+}
+
+.sobre-titulo{
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 28px;
+
+    color: #4380BD;
+}
+
+.sobre-content{
+    text-align: justify;
+    
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+}
+
+.separador-org-page{
+    color: #4380BD;
+    
 }
 
 
