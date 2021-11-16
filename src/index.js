@@ -11,6 +11,7 @@ import TelaCadastro from './pages/TelaCadastro';
 import EditarPerfil from './pages/EditarPerfil';
 import Busca from './pages/Busca';
 import OrgPage from './pages/OrgPage';
+import TelaCampanha from './pages/TelaCampanha';
 
 
 ReactDOM.render(
@@ -21,6 +22,7 @@ ReactDOM.render(
           <Route path="/editar-perfil" component={EditarPerfil}/>
           <Route path="/buscar" component={Busca}/>
           <Route path="/org/:urlAmigavel" component={OrgPage}/>
+          <Route path="/campanha" component={TelaCampanha}/>
       </Switch>
   </Router>,
   document.getElementById('root')

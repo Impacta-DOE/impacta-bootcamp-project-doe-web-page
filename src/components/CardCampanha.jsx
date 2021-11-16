@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router';
 
 import '../css/CardCampanha.css';
 
@@ -6,6 +7,7 @@ class CardCampanha extends Component {
 
     constructor(props){
         super(props);
+        this.state = {redirect: false, page: "/campanha"};
     }
 
     calculaPorcentagem(){
@@ -21,9 +23,17 @@ class CardCampanha extends Component {
         }
     }
 
+    abrirPaginaCampanha() {
+        this.setState({redirect : true});
+    }
+
     render() {
+        if(this.state.redirect){
+            this.setState({redirect : false});
+            return <Redirect to={{pathname: this.state.page, state: { campanha : this.props.campanha }}} />
+        }
         return (
-            <div id="card-campanha-body" style={{marginRight : this.props.marginRight, marginBottom : this.props.marginBottom}}>
+            <div id="card-campanha-body" style={{marginRight : this.props.marginRight, marginBottom : this.props.marginBottom}} onClick={() => this.abrirPaginaCampanha()}>
                 <img src={this.props.campanha.img_background_card} id="background-img-card"/>
                 <div id="painel-card">
                     <div id="text-area">

@@ -1,8 +1,10 @@
 import { Doacao } from "./Doacao";
+import { Organizacao } from "./Organizacao";
 
 export class Campanha {
     
-    titulo : string;
+    organizacao : Organizacao;
+    //titulo : string; //nome organização
     nome_campanha : string;
     desc_campanha : string;
     id_campanha : number;
@@ -10,8 +12,9 @@ export class Campanha {
     img_background_card : object;
     doacao : Doacao;
 
-    constructor (titulo : string, nome_campanha : string, desc_campanha : string, id_campanha : number, img_background : object, img_background_card : object, doacao : Doacao ){
-        this.titulo = titulo;
+    constructor (organizacao : Organizacao, nome_campanha : string, desc_campanha : string, id_campanha : number, img_background : object, img_background_card : object, doacao : Doacao ){
+        this.organizacao = organizacao;
+        //this.titulo = titulo;
         this.nome_campanha = nome_campanha;
         this.desc_campanha = desc_campanha;
         this.id_campanha = id_campanha;

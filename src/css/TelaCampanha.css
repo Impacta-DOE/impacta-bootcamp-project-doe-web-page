@@ -1,0 +1,80 @@
+@font-face {
+    font-family: 'Roboto';
+    src: local('Roboto Regular'), url('./fonts/Roboto/Roboto-Regular.ttf') format('truetype');
+    font-style: normal;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'Roboto Bold';
+    src: local('Roboto Bold'), url('./fonts/Roboto/Roboto-Bold.ttf') format('truetype');
+    font-style: normal;
+    font-weight: normal;
+}
+
+#content-campanha {
+    width: 100%;
+    height: 100%;
+}
+
+#div-titulo {
+    width: 100%;
+    height: 25em;
+    background-color: #C4C4C4;
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; /* Resize the background image to cover the entire container */
+    background-attachment: fixed;
+    text-align: center;    
+}
+
+#titulo-campanha {
+    color: white;
+    font-size: 64px;
+    font-family: 'Roboto Bold';
+}
+
+#div-info-org {
+    width: 100%;
+    height: 5.5em;
+    background-color: white;
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+    padding-top: 1.5em;
+    position: relative;
+    z-index: 1;
+}
+
+#logo-organizacao {
+    width: 10em;
+    height: 10em;
+    background-color: red;
+    float: left;
+    border-radius: 10em;
+    border: 2px solid #4380BD;
+    margin-top: -3.5em;
+}
+
+#nome-organizacao {
+    font-size: 20px;
+    font-family: 'Roboto';
+    float: left;
+    margin-left: 1.5em;
+    margin-top: .2em;
+}
+
+#btn-voluntariar {
+    width: 11em;
+    height: 3em;
+    background-color: #F4A100;
+    border: none;
+    color: white;
+    border-radius: 4px;
+    float: right;
+    font-size: 14px;
+    font-family: 'Roboto';
+}
+
+#btn-voluntariar:hover {
+    background-color: #e29702;
+}

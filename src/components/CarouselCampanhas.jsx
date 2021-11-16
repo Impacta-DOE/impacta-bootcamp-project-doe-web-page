@@ -111,7 +111,7 @@ class CarouselCampanhas extends Component {
                         <div id="item-content">
                             <Container fluid="md" id="item-container">
                                 <Row id="title-row">
-                                    <p id="titulo-carousel">{this.state.selected_item.titulo}</p>
+                                    <p id="titulo-carousel">{this.state.selected_item.organizacao.nomeOrganizacao}</p>
                                 </Row>
                                 <Row id="content-row">
                                     <Col>
