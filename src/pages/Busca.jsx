@@ -267,7 +267,8 @@ class Busca extends Component {
                             <input type="button" value="Mostrar mais" className="btn-mostrar" onClick={() => this.mostrarMais()}/>
                         </div>
                     </div>
-                </div>            
+                </div>   
+                <Footer />         
             </div>
         );
     }
