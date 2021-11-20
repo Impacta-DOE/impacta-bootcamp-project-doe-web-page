@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router';
 import { Container, Row, Col } from 'react-bootstrap';
 
 import arrow_right from '../images/arrow_right.png';
@@ -20,7 +21,9 @@ class CarouselCampanhas extends Component {
             indicator_02: "indicator_02",
             indicator_03: "indicator_03",
             indicator_04: "indicator_04",
-            indicator_05: "indicator_05"
+            indicator_05: "indicator_05",
+            redirect: false, 
+            page: "/campanha"
         };
         this.timer = 0;
     }
@@ -99,8 +102,15 @@ class CarouselCampanhas extends Component {
         }
     }
 
-    render() {
+    abrirPaginaCampanha(){
+        this.setState({redirect : true});
+    }
 
+    render() {
+        if(this.state.redirect){
+            this.setState({redirect : false});
+            return <Redirect to={{pathname: this.state.page, state: { campanha : this.state.selected_item }}} />
+        }
         return (
             <div>
                 <div id="carousel" onMouseOver={() => this.stopSlide()} onMouseOut={() => this.startSlide()}>
@@ -119,7 +129,7 @@ class CarouselCampanhas extends Component {
                                         <p id="desc-campanha">{this.state.selected_item.resumirDescricao(277)}</p>
                                     </Col>
                                     <Col>
-                                        <input type="button" value="Quero saber mais" className="btn-acessar"/>
+                                        <input type="button" value="Quero saber mais" onClick={() => this.abrirPaginaCampanha()} className="btn-acessar"/>
                                     </Col>
                                 </Row>
                                 <Row id="indicators-row">
