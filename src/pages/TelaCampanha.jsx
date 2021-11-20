@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Comentario from '../components/Comentario';
 import Footer from '../components/Footer';
 import MenuTop from '../components/MenuTop';
+import RegistroDoacao from '../components/RegistroDoacao';
 
 import '../css/TelaCampanha.css';
 
@@ -9,6 +10,44 @@ class TelaCampanha extends Component {
 
     constructor(props){
         super(props);        
+        this.state = {doacoes : []};
+    }
+
+    componentWillMount(){
+        if(this.props.location.state.campanha.doacao.tipoArrecadacao === "dinheiro"){
+            this.apresentarDoacoes();
+        }
+    }
+
+    apresentarValores(){
+        if(this.props.location.state.campanha.doacao.tipoArrecadacao === 'dinheiro'){
+            return this.props.location.state.campanha.doacao.unidadeMedida + ' ' + 
+            this.props.location.state.campanha.doacao.valorAtual.toFixed(2).replace('.', ',') + ' / ' + 
+            this.props.location.state.campanha.doacao.unidadeMedida + ' ' +
+            this.props.location.state.campanha.doacao.valorTotal.toFixed(2).replace('.', ',');
+        }else{
+            return this.props.location.state.campanha.doacao.valorAtual + ' ' + 
+            this.props.location.state.campanha.doacao.unidadeMedida + ' / ' + 
+            this.props.location.state.campanha.doacao.valorTotal + ' ' + 
+            this.props.location.state.campanha.doacao.unidadeMedida;
+        }
+    }
+
+    apresentarDoacoes() {
+        let doacoes = [];
+        for(let i=0; i < this.props.location.state.campanha.doacao.historicoDoacoes.length; i++){
+            doacoes.push(<RegistroDoacao 
+                            tipoArrecadacao={this.props.location.state.campanha.doacao.tipoArrecadacao} 
+                            unidadeMedida={this.props.location.state.campanha.doacao.unidadeMedida} 
+                            doacao={this.props.location.state.campanha.doacao.historicoDoacoes[i]}
+                        />);
+        }
+        this.setState({doacoes});
+    }
+
+    calculaPorcentagem(){
+        if(this.props.location.state.campanha.doacao.valorAtual > this.props.location.state.campanha.doacao.valorTotal) return 100;
+        return ((this.props.location.state.campanha.doacao.valorAtual * 100) / this.props.location.state.campanha.doacao.valorTotal);
     }
 
     render() {
@@ -53,10 +92,21 @@ class TelaCampanha extends Component {
                     </div>
                     <div id="div-doacao">
                         <div id="slider-arrecadados-tela-campanha">
-                            <p id="text-slider-tela-campanha">R$ 5.765,00 / R$ 8.000,00</p>
+                            <p id="text-slider-tela-campanha">{this.apresentarValores()}</p>
                             <div id="slider-tela-campanha">
-                                <div id="load-slider-tela-campanha" style={{"width" : "90%"}}/>
+                                <div id="load-slider-tela-campanha" style={{"width" : this.calculaPorcentagem() + "%"}}/>
                             </div>
+                        </div>
+                        <div style={{"width" : "100%", "height" : "auto", "padding" : "1em"}}>
+                            {
+                                (this.props.location.state.campanha.doacao.tipoArrecadacao === "dinheiro") ? 
+                                    <div>
+                                        <p className="titulo-desc-campanha">Doações realizadas</p>
+                                        <hr className="hr-titulo-desc-campanha"></hr>
+                                        <div id="div-doacoes">{this.state.doacoes}</div>
+                                    </div> : null
+                            }
+                            <input type="button" value="Doar" id="btn-doar-campanha"/>
                         </div>
                     </div>
                 </div>

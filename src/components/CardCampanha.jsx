@@ -17,7 +17,7 @@ class CardCampanha extends Component {
 
     apresentarValores(){
         if(this.props.campanha.doacao.tipoArrecadacao === 'dinheiro'){
-            return this.props.campanha.doacao.unidadeMedida + ' ' + this.props.campanha.doacao.valorAtual + ' / ' + this.props.campanha.doacao.unidadeMedida + ' ' + this.props.campanha.doacao.valorTotal;
+            return this.props.campanha.doacao.unidadeMedida + ' ' + this.props.campanha.doacao.valorAtual.toFixed(2).replace('.', ',') + ' / ' + this.props.campanha.doacao.unidadeMedida + ' ' + this.props.campanha.doacao.valorTotal.toFixed(2).replace('.', ',');
         }else{
             return this.props.campanha.doacao.valorAtual + ' ' + this.props.campanha.doacao.unidadeMedida + ' / ' + this.props.campanha.doacao.valorTotal + ' ' + this.props.campanha.doacao.unidadeMedida;
         }

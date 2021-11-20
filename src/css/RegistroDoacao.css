@@ -1,0 +1,43 @@
+@font-face {
+    font-family: 'Roboto';
+    src: local('Roboto Regular'), url('./fonts/Roboto/Roboto-Regular.ttf') format('truetype');
+    font-style: normal;
+    font-weight: normal;
+}
+
+#container-registro-doacao {
+    width: 100%;
+    height: 3em;
+    background-color: #C4C4C4;
+    margin-bottom: .1em;
+    text-align: center;
+    padding-top: .6em;
+}
+
+.vertical-line-registro-doacao {
+    border-right: 1px solid white;
+    height: 70%;
+    width: .05px;
+    float: left;
+}
+
+#valor-doacao {
+    width: 30%;
+    font-size: 18px;
+    font-family: 'Roboto';
+    float: left;
+}
+
+#doador {
+    width: 39%;
+    font-size: 18px;
+    font-family: 'Roboto';
+    float: left;
+}
+
+#data-doacao {
+    width: 30%;
+    font-size: 18px;
+    font-family: 'Roboto';
+    float: left;
+}

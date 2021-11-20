@@ -12,9 +12,16 @@ export class Doacao {
         this.tipoArrecadacao = tipoArrecadacao;
         this.unidadeMedida = unidadeMedida;
         this.valorTotal = valorTotal;
-        this.valorAtual = valorAtual;
         this.historicoDoacoes = historicoDoacoes;
+        this.valorAtual = (this.historicoDoacoes != null) ? this.calcularTotalArrecadado() : valorAtual;
     }
-    
+
+    calcularTotalArrecadado(){
+        let novoValorAtual = 0;
+        for(let i=0; i<this.historicoDoacoes.length; i++){
+            novoValorAtual += this.historicoDoacoes[i].valorDoado;
+        }
+        return novoValorAtual;
+    }
 
 }
