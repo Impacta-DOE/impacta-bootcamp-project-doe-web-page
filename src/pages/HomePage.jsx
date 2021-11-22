@@ -10,7 +10,7 @@ class HomePage extends Component {
     render() {
         return (
             <div className="homepage">
-                <MenuTop isLoggedIn={false} showBtnCadastrar showBtnLogin/>
+                <MenuTop showBtnCadastrar showBtnLogin/>
                 <div id="container-itens-homepage">
                     <CarouselCampanhas />
                     <CarouselCardsCampanhas />

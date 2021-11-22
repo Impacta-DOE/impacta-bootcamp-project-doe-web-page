@@ -6,7 +6,7 @@ class TelaCadastro extends Component {
     render() {
         return (
             <div>
-                <MenuTop isLoggedIn={false} showBtnCadastrar={false} showBtnLogin/>
+                <MenuTop showBtnCadastrar={false} showBtnLogin/>
                 <FormCadastro />
             </div>
         );

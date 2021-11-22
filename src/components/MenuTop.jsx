@@ -16,7 +16,7 @@ class MenuTop extends React.Component {
 
     constructor(props){
         super(props);
-        this.state = {isLoggedIn: this.props.isLoggedIn, toogleMenu: false, toogleLogin : false, redirect: false, page: "/"};
+        this.state = {isLoggedIn: localStorage.getItem("isLoggedIn"), toogleMenu: false, toogleLogin : false, redirect: false, page: "/"};
         this.showModalLogin = this.showModalLogin.bind(this);
     }
 
@@ -42,8 +42,7 @@ class MenuTop extends React.Component {
             this.setState({redirect : false});
             return <Redirect to={this.state.page} />
         }
-        const isLoggedIn = this.state.isLoggedIn;
-        if(isLoggedIn){
+        if(this.state.isLoggedIn){
             return (
                 <div>
                     <ReactBootstrap.Navbar collapseOnSelect expand="xxl" variant="default" className="menu-top-body">

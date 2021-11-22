@@ -36,7 +36,7 @@
     top: 4em;
     right: 1.5em;
     border-radius: 3px;
-    z-index: 2;
+    z-index: 10;
 }
 
 .menu-perfil-opcao {

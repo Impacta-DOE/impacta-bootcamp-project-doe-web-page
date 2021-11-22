@@ -178,7 +178,7 @@ class Busca extends Component {
     render() {
         return (
             <div className="search-page">
-                <MenuTop isLoggedIn={false} showBtnCadastrar showBtnLogin/>
+                <MenuTop showBtnCadastrar showBtnLogin/>
                 <div id="container-itens-search-page">
                     <CarouselCampanhas />
                     <div id="filtro-busca">

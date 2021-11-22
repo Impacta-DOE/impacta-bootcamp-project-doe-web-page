@@ -53,7 +53,7 @@ class TelaCampanha extends Component {
     render() {
         return (
             <div id="content-campanha">
-                <MenuTop isLoggedIn={true}/>
+                <MenuTop showBtnCadastrar showBtnLogin/>
                 <div id="div-titulo" style={{backgroundImage : "url(" + this.props.location.state.campanha.img_background + ")"}}>
                     <div style={{
                                     width: "100%", 

@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { Row, Col, Form, Button, Modal } from 'react-bootstrap';
+import { Row, Col, Form, Button, Modal, Spinner } from 'react-bootstrap';
 
 import '../css/LoginModal.css';
 import crossButton from '../images/cross.png';
+import AuthenticationService from '../services/AuthenticationService';
 import EsqueciSenhaModal from './EsqueceuSenhaModal';
 
 
@@ -10,12 +11,39 @@ class LoginModal extends Component {
 
     constructor(props){
         super(props);
-        this.state = {toogleEsqueceuSenha : false};
+        this.state = {toogleEsqueceuSenha : false, authService : new AuthenticationService(), username : '', password : '', loading : false};
         this.showModalEsqueceuSenha = this.showModalEsqueceuSenha.bind(this);
+        this.handleChange = this.handleChange.bind(this);
     }
 
     showModalEsqueceuSenha(){
         this.setState({toogleEsqueceuSenha : !this.state.toogleEsqueceuSenha});
+    }
+
+    handleChange(event){
+        switch (event.target.name) {
+            case "email":
+                this.setState({username: event.target.value});
+                break;
+            case "password":
+                this.setState({password: event.target.value});
+                break;      
+        }
+    }
+
+    async login(){
+        this.setState({loading : true});
+        await this.state.authService.login(this.state.username, this.state.password)
+                                    .then(() => {
+                                        this.setState({loading : false})
+                                        this.props.toogleLogin();
+                                        localStorage.setItem("isLoggedIn", true);
+                                        window.location.reload();
+                                    }).catch(() => {
+                                        this.setState({loading : false})
+                                        alert("Usuário não encontrado");
+                                        localStorage.setItem("isLoggedIn", false);
+                                    });
     }
 
     render() {
@@ -37,12 +65,12 @@ class LoginModal extends Component {
                                     
                                     <Row>
                                         <Col className="col-form">
-                                            <Form.Control type="text" placeholder="E-mail" className="input mt-2" name="email"/>
+                                            <Form.Control type="text" placeholder="E-mail" className="input mt-2" name="email" onChange={this.handleChange} disabled={this.state.loading}/>
                                         </Col>
                                     </Row>
                                     <Row>
                                         <Col className="col-form">
-                                            <Form.Control type="password" placeholder="Senha" className="input mt-2" name="password"/>
+                                            <Form.Control type="password" placeholder="Senha" className="input mt-2" name="password" onChange={this.handleChange} disabled={this.state.loading}/>
                                         </Col>
                                     </Row>
                                     <Row>
@@ -52,7 +80,22 @@ class LoginModal extends Component {
                                     </Row>
                                     <Row>
                                         <Col>
-                                            <Button variant="primary" className='btn-entrar mt-2'>ENTRAR</Button>
+                                            <Button 
+                                                variant="primary" 
+                                                className='btn-entrar mt-2' 
+                                                onClick={() => this.login()} 
+                                                disabled={this.state.loading}
+                                                style={{'display' : ((this.state.loading) ? 'none' : 'block')}}
+                                            >ENTRAR</Button>
+                                            <Spinner 
+                                                animation="border" 
+                                                variant="primary"
+                                                style={{
+                                                        'margin' : '0 auto',
+                                                        'marginTop' : '2em',
+                                                        'marginBottom' : '-2em',
+                                                        'display' : ((!this.state.loading) ? 'none' : 'block')}} 
+                                            />
                                         </Col>
                                     </Row>
                                 </Form.Group>

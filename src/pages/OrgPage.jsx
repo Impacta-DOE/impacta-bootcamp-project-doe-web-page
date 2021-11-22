@@ -24,11 +24,12 @@ class OrgPage extends Component {
     }
 
     renderMenuTop(){
-        if(this.state.loggedIn){
+        /*if(this.state.loggedIn){
             return <MenuTop isLoggedIn={true} />;
         }else{
             return <MenuTop isLoggedIn={false} showBtnCadastrar showBtnLogin/>;
-        }
+        }*/
+        <MenuTop />;
     }
 
     render() {

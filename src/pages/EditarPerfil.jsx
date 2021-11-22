@@ -6,7 +6,7 @@ class EditarPerfil extends Component {
     render() {
         return (
             <div className="homepage">
-               <MenuTop isLoggedIn={true} />
+               <MenuTop />
                <FormEdicaoPerfil tipoPessoa="fisica" />
             </div>
         );

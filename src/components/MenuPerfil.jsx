@@ -20,6 +20,11 @@ class MenuPerfil extends Component {
         })
     }
 
+    logout(){
+        localStorage.clear();
+        window.location.reload();
+    }
+
     render() {
         if(this.state.redirect){
             this.setState({redirect : false});
@@ -33,7 +38,7 @@ class MenuPerfil extends Component {
                             <div className="menu-perfil-opcao" onClick={() => this.chamaProximaTela("/editar-perfil")}> 
                                 <span>editar dados do perfil</span>
                             </div>
-                            <div className="menu-perfil-opcao-end"> 
+                            <div className="menu-perfil-opcao-end"onClick={() => this.logout()}> 
                                 <span>logout</span>
                             </div>
                         </div>
