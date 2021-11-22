@@ -89,7 +89,7 @@
 }
 
 .container-sobre{
-    margin: 3em auto;
+    margin: 4em auto;
     padding: 2em;
     border-radius: 5px;
     
@@ -125,6 +125,11 @@
     width: 88.8%;
     margin: 0 auto;
     margin-top: -3em;
+}
+
+.container-carousel-planos{
+    width: 88.8%;
+    margin: 2em auto;
 }
 
 
