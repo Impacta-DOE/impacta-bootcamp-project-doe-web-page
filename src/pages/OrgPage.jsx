@@ -36,25 +36,13 @@ class OrgPage extends Component {
             <div>
                 {this.renderMenuTop()}
                 <div id="container-org">
-                    <div id='borda-capa-org'>
-                        <img className="banner-organizacao-page"src={capa} />
+                    <div id="div-titulo" style={{backgroundImage : "url(" + capa + ")"}}>
+                        
                     </div>
-                    <div className="container-org-info">
-                        
-                        <div className='row-org'>
-                           
-                            <div className='container-logo-organizacao'>
-                                <img className="logo-organizacao-page"src={logo} />
-                            </div>
-                            <div className="container-titulo-org">
-                                <h1 id='titulo-org'>ACNUR</h1>
-                            </div>
-
-                        </div>
-                        <div className='container-button-volutario'>
-                            <Button id='btn-voluntario' variant="primary">Voluntariar-se</Button>
-                        </div>
-                        
+                    <div id="div-info-org">
+                        <img src={logo} id="logo-organizacao"/>
+                        <p id="nome-organizacao">ACNUR</p>
+                        <input type="button" value="Voluntariar-se" id="btn-voluntariar"/>
                     </div>
 
                     <div className='container-sobre'>
