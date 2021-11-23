@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router';
 
 import '../css/CardOrganizacao.css';
 
@@ -8,11 +9,26 @@ class CardOrganizacao extends Component {
 
     constructor(props){
         super(props);
+        this.state = {redirect: false, page: "/org/" + this.props.organizacao.nomeOrganizacao};
+    }
+
+    abrirPaginaOrganizacao() {
+        this.setState({redirect : true});
     }
 
     render() {
+        if(this.state.redirect){
+            this.setState({redirect : false});
+            return <Redirect to={{pathname: this.state.page, state: { organizacao : this.props.organizacao }}} />
+        }
         return (
-            <div id="card-organizacao-body" style={{marginRight : this.props.marginRight, marginBottom : this.props.marginBottom}}>
+            <div id="card-organizacao-body" 
+                    style={{
+                            marginRight : this.props.marginRight, 
+                            marginBottom : this.props.marginBottom
+                    }} 
+                    onClick={() => this.abrirPaginaOrganizacao()}
+            >
                 <img src={background_card} id="img-background-org"/>
                 <div id="content-org">
                     <div id="desc-org">

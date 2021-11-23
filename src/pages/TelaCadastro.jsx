@@ -3,6 +3,11 @@ import FormCadastro from '../components/FormCadastro';
 import MenuTop from '../components/MenuTop';
 
 class TelaCadastro extends Component {
+
+    componentDidMount(){
+        document.title = "Cadastre-se";
+    }
+
     render() {
         return (
             <div>

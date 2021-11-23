@@ -62,12 +62,20 @@
     margin-top: -3.5em;
 }
 
+#logo-organizacao:hover {
+    cursor: pointer;
+}
+
 #nome-organizacao {
     font-size: 20px;
     font-family: 'Roboto';
     float: left;
     margin-left: 1.5em;
     margin-top: .2em;
+}
+
+#nome-organizacao:hover {
+    cursor: pointer;
 }
 
 #btn-voluntariar {

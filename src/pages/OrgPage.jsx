@@ -15,12 +15,17 @@ class OrgPage extends Component {
 
     constructor(props){
         super(props);
-        const urlAmigavel = this.props.match.params.urlAmigavel;
+        //const urlAmigavel = this.props.match.params.urlAmigavel;
 
         //Buscar dados da Ong no Backend
 
         //Verificar se o usuario está logado ou não 
         this.state = {loggedIn : false};
+    }
+
+    componentDidMount(){
+        window.scrollTo(0, 0);
+        document.title = this.props.location.state.organizacao.nomeOrganizacao;
     }
 
     renderMenuTop(){
@@ -35,14 +40,15 @@ class OrgPage extends Component {
     render() {
         return (
             <div>
-                {this.renderMenuTop()}
+                {/*this.renderMenuTop()*/}
+                <MenuTop showBtnCadastrar showBtnLogin/>
                 <div id="container-org">
-                    <div id="div-titulo" style={{backgroundImage : "url(" + capa + ")"}}>
+                    <div id="div-titulo" style={{backgroundImage : "url(" + this.props.location.state.organizacao.backgroundPaginaOrg + ")"}}>
                         
                     </div>
                     <div id="div-info-org">
-                        <img src={logo} id="logo-organizacao"/>
-                        <p id="nome-organizacao">ACNUR</p>
+                        <img src={this.props.location.state.organizacao.logo} id="logo-organizacao"/>
+                        <p id="nome-organizacao">{this.props.location.state.organizacao.nomeOrganizacao}</p>
                         <input type="button" value="Voluntariar-se" id="btn-voluntariar"/>
                     </div>
 
@@ -50,8 +56,7 @@ class OrgPage extends Component {
                         <div className='sobre-titulo'>Sobre a organização</div>
                         <hr className='separador-org-page'/>
                         <div className='sobre-content'>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse tempor hendrerit viverra. Nulla mauris dolor, vehicula quis pulvinar pretium, facilisis ut lacus. Mauris vel nisl tincidunt, dictum metus at, pharetra lacus. Proin pharetra enim nunc, in consectetur lectus malesuada in. Etiam pulvinar massa sit amet est laoreet, at sollicitudin nunc lacinia. Nunc ac mattis risus, eget fringilla dolor. Duis congue quam et molestie volutpat. Aenean porta a velit eget facilisis. Etiam dolor diam, tempor ut odio a, semper fringilla velit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Vestibulum elementum tincidunt tortor, id gravida enim. In tincidunt massa et ullamcorper tristique. Curabitur quis est dui.</p>
-                            <p>Ut tincidunt magna id ex interdum iaculis. Maecenas quis tortor ac purus dignissim ornare. Maecenas iaculis, ante eleifend bibendum consequat, erat mi eleifend mauris, in pharetra tortor mauris sed purus. Mauris in laoreet metus. Mauris tristique risus ut sagittis tincidunt. Curabitur placerat sem iaculis lacus tincidunt ullamcorper. Proin elit justo, mattis ut massa ac, congue posuere sem. Proin at facilisis eros. Vivamus pellentesque vulputate hendrerit. Ut quam risus, imperdiet sit amet finibus eu, consequat vitae tortor. Duis non nisi sit amet ipsum tincidunt congue.</p>
+                            {this.props.location.state.organizacao.descricaoOrganizacao}
                         </div>
                     </div>
 

@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
+import { CookiesProvider } from "react-cookie";
 
 import './index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -15,16 +16,18 @@ import TelaCampanha from './pages/TelaCampanha';
 
 
 ReactDOM.render(
-  <Router>
-      <Switch>
-          <Route exact path="/" component={HomePage}/>
-          <Route path="/cadastro" component={TelaCadastro}/>
-          <Route path="/editar-perfil" component={EditarPerfil}/>
-          <Route path="/buscar" component={Busca}/>
-          <Route path="/org/:urlAmigavel" component={OrgPage}/>
-          <Route path="/campanha" component={TelaCampanha}/>
-      </Switch>
-  </Router>,
+  <CookiesProvider>
+    <Router>
+        <Switch>
+            <Route exact path="/" component={HomePage}/>
+            <Route path="/cadastro" component={TelaCadastro}/>
+            <Route path="/editar-perfil" component={EditarPerfil}/>
+            <Route path="/buscar" component={Busca}/>
+            <Route path="/org/:urlAmigavel" component={OrgPage}/>
+            <Route path="/campanha" component={TelaCampanha}/>
+        </Switch>
+    </Router>
+  </CookiesProvider>,
   document.getElementById('root')
 );
 

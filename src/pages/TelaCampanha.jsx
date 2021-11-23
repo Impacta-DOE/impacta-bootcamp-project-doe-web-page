@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router';
 import Comentario from '../components/Comentario';
 import Footer from '../components/Footer';
 import MenuTop from '../components/MenuTop';
@@ -10,10 +11,16 @@ class TelaCampanha extends Component {
 
     constructor(props){
         super(props);        
-        this.state = {doacoes : []};
+        this.state = {doacoes : [], redirect: false, page: "/org/" + this.props.location.state.campanha.organizacao.nomeOrganizacao};
+    }
+
+    componentDidMount(){
+        window.scrollTo(0, 0);
+        document.title = this.props.location.state.campanha.nome_campanha;
     }
 
     componentWillMount(){
+        
         if(this.props.location.state.campanha.doacao.tipoArrecadacao === "dinheiro"){
             this.apresentarDoacoes();
         }
@@ -50,7 +57,15 @@ class TelaCampanha extends Component {
         return ((this.props.location.state.campanha.doacao.valorAtual * 100) / this.props.location.state.campanha.doacao.valorTotal);
     }
 
+    abrirPaginaOrganizacao() {
+        this.setState({redirect : true});
+    }
+
     render() {
+        if(this.state.redirect){
+            this.setState({redirect : false});
+            return <Redirect to={{pathname: this.state.page, state: { organizacao : this.props.location.state.campanha.organizacao }}} />
+        }
         return (
             <div id="content-campanha">
                 <MenuTop showBtnCadastrar showBtnLogin/>
@@ -67,8 +82,8 @@ class TelaCampanha extends Component {
                     </div>
                 </div>
                 <div id="div-info-org">
-                    <img src={this.props.location.state.campanha.organizacao.logo} id="logo-organizacao"/>
-                    <p id="nome-organizacao">{this.props.location.state.campanha.organizacao.nomeOrganizacao}</p>
+                    <img src={this.props.location.state.campanha.organizacao.logo} id="logo-organizacao" onClick={() => this.abrirPaginaOrganizacao()}/>
+                    <p id="nome-organizacao" onClick={() => this.abrirPaginaOrganizacao()}>{this.props.location.state.campanha.organizacao.nomeOrganizacao}</p>
                     <input type="button" value="Voluntariar-se" id="btn-voluntariar"/>
                 </div>
                 <div id="infos-campanha">

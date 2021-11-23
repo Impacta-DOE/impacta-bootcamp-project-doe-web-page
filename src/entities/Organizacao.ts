@@ -11,6 +11,7 @@ export class Organizacao {
     campanhas : Campanha[];
     voluntarios : Voluntario[];
     acoes : Acao[];
+    backgroundPaginaOrg : object;
 
     constructor(
         nomeOrganizacao : string,
@@ -19,7 +20,8 @@ export class Organizacao {
         descricaoOrganizacao : string,
         campanhas : Campanha[],
         voluntarios : Voluntario[],
-        acoes : Acao[]
+        acoes : Acao[],
+        backgroundPaginaOrg : object
     ){
         this.nomeOrganizacao = nomeOrganizacao;
         this.subtituloOrganizacao = subtituloOrganizacao;
@@ -28,6 +30,7 @@ export class Organizacao {
         this.campanhas = campanhas;
         this.voluntarios = voluntarios;
         this.acoes = acoes;
+        backgroundPaginaOrg = backgroundPaginaOrg;
     }
 
     public getQntdCampanhas(){

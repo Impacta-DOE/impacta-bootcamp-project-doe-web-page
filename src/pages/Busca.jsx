@@ -45,7 +45,7 @@ class Busca extends Component {
     }
 
     componentDidMount(){
-        
+        document.title = "Buscar";
         this.state.localizacaoService.getEstados().then(estados => {
             this.setState({estados});
         });

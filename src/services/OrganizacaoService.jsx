@@ -163,7 +163,8 @@ class OrganizacaoService extends Component {
                     new Acao(),
                     new Acao(),
                     new Acao(),
-                ]
+                ],
+                null
             ),
             new Organizacao(
                 "Cáritas Brasileira",
@@ -273,7 +274,8 @@ class OrganizacaoService extends Component {
                     new Acao(),
                     new Acao(),
                     new Acao(),
-                ]
+                ],
+                null
             ),
             new Organizacao(
                 "ADUS",
@@ -370,7 +372,8 @@ class OrganizacaoService extends Component {
                     new Acao(),
                     new Acao(),
                     new Acao(),
-                ]
+                ],
+                null
             ),
             new Organizacao(
                 "Cedeca",
@@ -456,7 +459,8 @@ class OrganizacaoService extends Component {
                     new Acao(),
                     new Acao(),
                     new Acao(),
-                ]
+                ],
+                null
             ),
             new Organizacao(
                 "CRAMI",
@@ -530,7 +534,8 @@ class OrganizacaoService extends Component {
                     new Acao(),
                     new Acao(),
                     new Acao(),
-                ]
+                ],
+                null
             ),
             new Organizacao(
                 "ACNUR",
@@ -592,7 +597,8 @@ class OrganizacaoService extends Component {
                     new Acao(),
                     new Acao(),
                     new Acao(),
-                ]
+                ],
+                null
             ),
             new Organizacao(
                 "ACNUR",
@@ -642,7 +648,8 @@ class OrganizacaoService extends Component {
                     new Acao(),
                     new Acao(),
                     new Acao(),
-                ]
+                ],
+                null
             ),
             new Organizacao(
                 "ACNUR",
@@ -680,7 +687,8 @@ class OrganizacaoService extends Component {
                     new Acao(),
                     new Acao(),
                     new Acao(),
-                ]
+                ],
+                null
             ),
             new Organizacao(
                 "ACNUR",
@@ -718,7 +726,8 @@ class OrganizacaoService extends Component {
                     new Acao(),
                     new Acao(),
                     new Acao(),
-                ]
+                ],
+                null
             ),
             new Organizacao(
                 "ACNUR",
@@ -756,7 +765,8 @@ class OrganizacaoService extends Component {
                     new Acao(),
                     new Acao(),
                     new Acao(),
-                ]
+                ],
+                null
             )
 
         ];

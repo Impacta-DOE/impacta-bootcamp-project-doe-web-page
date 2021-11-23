@@ -7,6 +7,11 @@ import MenuTop from '../components/MenuTop';
 import '../css/HomePage.css';
 
 class HomePage extends Component {
+
+    componentDidMount(){
+        document.title = "Bem-Vindo ao DOE";
+    }
+
     render() {
         return (
             <div className="homepage">
