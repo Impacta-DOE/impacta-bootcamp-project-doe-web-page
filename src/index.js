@@ -16,18 +16,16 @@ import TelaCampanha from './pages/TelaCampanha';
 
 
 ReactDOM.render(
-  <CookiesProvider>
-    <Router>
-        <Switch>
-            <Route exact path="/" component={HomePage}/>
-            <Route path="/cadastro" component={TelaCadastro}/>
-            <Route path="/editar-perfil" component={EditarPerfil}/>
-            <Route path="/buscar" component={Busca}/>
-            <Route path="/org/:urlAmigavel" component={OrgPage}/>
-            <Route path="/campanha" component={TelaCampanha}/>
-        </Switch>
-    </Router>
-  </CookiesProvider>,
+  <Router>
+      <Switch>
+          <Route exact path="/" component={HomePage}/>
+          <Route path="/cadastro" component={TelaCadastro}/>
+          <Route path="/editar-perfil" component={EditarPerfil}/>
+          <Route path="/buscar" component={Busca}/>
+          <Route path="/org/:urlAmigavel" component={OrgPage}/>
+          <Route path="/campanha" component={TelaCampanha}/>
+      </Switch>
+  </Router>,
   document.getElementById('root')
 );
 

@@ -1,18 +1,17 @@
 import { Component } from 'react';
-import { useCookies } from "react-cookie";
 import axios from 'axios';
+
 
 class AuthenticationService extends Component {
 
     constructor(props){
         super(props);
         this.state = {URL : 'https://impacta-doe-auth.herokuapp.com/auth/'};
-        
     }
 
     async login(user, password){
 
-        //let [cookies, setCookie] = useCookies(["user"]);
+        
         await axios({
             method: 'post',
             url: this.state.URL + 'login',
@@ -28,14 +27,14 @@ class AuthenticationService extends Component {
         });
     }
 
-    async authorize(token){
+    async authorize(){
         await axios({
             method: 'post',
             url: this.state.URL + 'authorize',
             data: {
-              token: token
+              token: (localStorage.getItem('token')==null) ? '' : localStorage.getItem('token')
             }
-        }).then(result => console.log(result));
+        });
     }
 
 }

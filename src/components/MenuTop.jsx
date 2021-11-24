@@ -22,10 +22,12 @@ class MenuTop extends React.Component {
 
     showModalMenu(){
         this.setState({toogleMenu: !this.state.toogleMenu});
+        document.body.style.overflow = (this.state.toogleMenu) ? "auto" : "hidden";
     }
 
     showModalLogin(){
         this.setState({toogleLogin : !this.state.toogleLogin});
+        document.body.style.overflow = (this.state.toogleMenu) ? "auto" : "hidden";
     }
 
     chamaProximaTela(tela){
