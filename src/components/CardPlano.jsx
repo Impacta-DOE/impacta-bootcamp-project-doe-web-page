@@ -10,8 +10,11 @@ class CardPlano extends Component {
 
     render() {
         return (
-            <div id="card-plano-body">
-               
+            <div className="card-plano-body">
+                <div style={{"float" : "unset"}}>
+                    <p className="title-card-plano">Bronze</p>
+                </div>
+                <hr className="separador-org-page"></hr>
             </div>
         );
     }

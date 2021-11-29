@@ -22,7 +22,7 @@ class CarouselCardsPlanos extends Component {
                 <Row className='box-subtitle-planos'>
                     <p id='subtitle-planos'>Para colaborar com a instituição mensalmente, temos as seguintes opções de planos mensais</p>
                 </Row>
-                <Row id="cards">
+                <Row id="cards-planos">
                     <Col style={{"height" : "100%", "width" : "100%"}}>
                         <div id="div-cards">
                             <div id="begin" style={{float : "left", position : "relative", marginRight: "-2.4em"}}>
