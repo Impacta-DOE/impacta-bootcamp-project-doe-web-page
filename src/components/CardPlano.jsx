@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import '../css/CardPlano.css';
+import BeneficioPlano from './BeneficioPlano';
 
 class CardPlano extends Component {
 
@@ -11,10 +12,12 @@ class CardPlano extends Component {
     render() {
         return (
             <div className="card-plano-body">
-                <div style={{"float" : "unset"}}>
-                    <p className="title-card-plano">Bronze</p>
-                </div>
-                <hr className="separador-org-page"></hr>
+                <h2 className="title-card-plano">[Titulo Plano]</h2>
+                <hr className="separador-org-page"/>
+                <p className="valor-plano">[Valor do Plano]</p>
+                <p className="recorrencia-plano">[Recorrencia]</p>
+                <h3 className="titulo-beneficios">Benefícios</h3>
+                <BeneficioPlano/>
             </div>
         );
     }
