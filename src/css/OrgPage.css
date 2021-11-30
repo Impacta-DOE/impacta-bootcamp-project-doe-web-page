@@ -93,7 +93,7 @@
     padding: 2em;
     border-radius: 5px;
     
-    width: 96%;
+    width: 97%;
     background-color: #FEFEFE;    
 }
 
@@ -122,16 +122,15 @@
 }
 
 .container-carousel-campanhas{
-    width: 95%;
+    width: 97%;
     height: auto;
     margin: 0 auto;
     margin-top: -2em;
     margin-bottom: 3em;
-    margin-left: 1.88em;
 }
 
 .container-carousel-planos{
-    width: 96%;
+    width: 97%;
     margin: 2em auto;
 }
 

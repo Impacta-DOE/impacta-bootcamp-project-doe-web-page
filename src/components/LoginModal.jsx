@@ -45,6 +45,11 @@ class LoginModal extends Component {
                                         localStorage.setItem("isLoggedIn", false);
                                     });
     }
+    
+    closeModal(){
+        this.props.toogleLogin();
+        window.location.reload();
+    }
 
     render() {
         if(this.props.show){
@@ -54,9 +59,10 @@ class LoginModal extends Component {
                         show={this.props.show} animation={false}
                         aria-labelledby="m-login"
                         centered
+                        style={{"height" : "100vh", "width" : "100%"}}
                         >
                         <div style={{"width" : "100%", "height" : "auto", "paddingRight" : ".5em", "paddingTop" : ".4em"}}>
-                            <img src={crossButton} id="crossButton" onClick={() => {this.props.toogleLogin()}}/>
+                            <img src={crossButton} id="crossButton" onClick={() => {this.closeModal()}}/>
                         </div>
                         <div className="login-content m-5">
                             <div className="title">Login</div>

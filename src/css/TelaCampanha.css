@@ -55,7 +55,7 @@
 #logo-organizacao {
     width: 10em;
     height: 10em;
-    background-color: red;
+    background-color: #DCDCDC;
     float: left;
     border-radius: 10em;
     border: 2px solid #4380BD;
@@ -96,13 +96,13 @@
 
 #infos-campanha {
     width: 97%;
-    height: auto;
+    height: 30em;
     margin: 0 auto;
     margin-top: 5em;
 }
 
 #div-desc {
-    width: 60em;
+    width: 61.7%;
     height: auto;
     background-color: white;
     border-radius: 8px;
@@ -112,12 +112,12 @@
 }
 
 #div-doacao {
-    width: 32.4em;
+    width: 37%;
     height: auto;
     background-color: white;
     border-radius: 8px;
     float: left;
-    margin-left: 1.1em;
+    margin-left: 1.21em;
     overflow-x: hidden;
     overflow-y: hidden;
 }
@@ -181,7 +181,7 @@
     font-size: 18px;
     padding-top: 1.5em;
     font-family: 'Roboto Light';
-    width: 28.8em;
+    width: 35.9%;
     height: 4.5em;
 }
 

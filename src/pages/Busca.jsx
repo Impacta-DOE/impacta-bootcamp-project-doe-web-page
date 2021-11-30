@@ -20,6 +20,7 @@ class Busca extends Component {
         super(props);
         this.state = {
                         items_campanha_list: new CampanhaService().getAll(), 
+                        items_organizacao_list: new OrganizacaoService().getAll(), 
                         searchService : new SearchService(),
                         localizacaoService : new LocalizacaoService(),
                         displayAvancFilter : "none", 
@@ -41,7 +42,8 @@ class Busca extends Component {
     
 
     componentWillMount(){
-        this.showSearchResult(this.state.items_campanha_list);
+        window.scrollTo(0, 0);
+        this.showInitialResult();
     }
 
     componentDidMount(){
@@ -52,6 +54,16 @@ class Busca extends Component {
         
         //this.showCidadesResult();
         
+    }
+
+    showInitialResult(){
+        if(this.props.location.state != undefined){
+            this.showSearchResult(
+                (this.props.location.state.tipoPesquisa === "organizacao") 
+                    ? this.state.items_organizacao_list : this.state.items_campanha_list);
+        } else {
+            this.showSearchResult(this.state.items_campanha_list);
+        }
     }
 
     showAvancFilter() {
@@ -91,17 +103,17 @@ class Busca extends Component {
         for(let i=0; i < result.length; i++){
             if(result[0].nomeOrganizacao == undefined){
                 if(count == 4){
-                    this.state.resultado_list.push(<CardCampanha campanha={result[i]} marginRight="0em" marginBottom=".8em"/>);
+                    this.state.resultado_list.push(<CardCampanha campanha={result[i]} marginRight="0em" marginBottom="1.2em" newWidth="19.22%"/>);
                     count = -1;
                 }else{
-                    this.state.resultado_list.push(<CardCampanha campanha={result[i]} marginRight=".64em" marginBottom=".8em"/>);
+                    this.state.resultado_list.push(<CardCampanha campanha={result[i]} marginRight=".96%" marginBottom="1.2em" newWidth="19.22%"/>);
                 }
             } else {
                 if(count == 4){
-                    this.state.resultado_list.push(<CardOrganizacao organizacao={result[i]} marginRight="0em" marginBottom="1.2em"/>);
+                    this.state.resultado_list.push(<CardOrganizacao organizacao={result[i]} marginRight="0em" marginBottom="1.6em" newWidth="19.22%"/>);
                     count = -1;
                 }else{
-                    this.state.resultado_list.push(<CardOrganizacao organizacao={result[i]} marginRight=".64em" marginBottom="1.2em"/>);
+                    this.state.resultado_list.push(<CardOrganizacao organizacao={result[i]} marginRight=".96%" marginBottom="1.6em" newWidth="19.22%"/>);
                 }
             }
             count++;
@@ -201,15 +213,15 @@ class Busca extends Component {
                             <div id="div-filtro-avancado" style={{display : this.state.displayAvancFilter}}>
                                 <Row style={{width : "100%", height : "100%", margin : "auto"}}>
                                     <Col style={{width : "40%", height : "100%"}}>
-                                        <select name="estado" id="estado" id="combobox" className="selector" style={{marginTop : ".8em"}} disabled={this.state.getEstadoAtual} onChange={this.handleChange}>
+                                        <select name="estado" id="estado" id="combobox-filtro-avancado" className="selector" style={{marginTop : ".8em"}} disabled={this.state.getEstadoAtual} onChange={this.handleChange}>
                                             <option value="" disabled selected>Estado</option>
                                             {this.state.estados.map(estado => <option value={estado.id}>{estado.nome}</option>)}
                                         </select>
-                                        <select name="cidade" id="cidade" id="combobox" className="selector" style={{marginTop : ".8em"}} disabled={this.state.getCidadeAtual} onChange={this.handleChange}>
+                                        <select name="cidade" id="cidade" id="combobox-filtro-avancado" className="selector" style={{marginTop : ".8em"}} disabled={this.state.getCidadeAtual} onChange={this.handleChange}>
                                             <option value="" disabled selected>Cidade</option>
                                             {this.state.cidades.map(cidade => <option value={cidade.id}>{cidade.nome}</option>)}
                                         </select>
-                                        <select name="tipoDoacao" id="tipoDoacao" id="combobox" className="selector" style={{marginTop : ".8em", marginBottom : ".8em"}} onChange={this.handleChange}>
+                                        <select name="tipoDoacao" id="tipoDoacao" id="combobox-filtro-avancado" className="selector" style={{marginTop : ".8em", marginBottom : ".8em"}} onChange={this.handleChange}>
                                             <option value="" disabled selected>Tipo de Doação</option>
                                             <option value="dinheiro">Dinheiro</option>
                                             <option value="alimento">Alimento</option>

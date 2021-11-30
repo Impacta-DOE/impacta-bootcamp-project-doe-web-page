@@ -25,7 +25,8 @@ class CardOrganizacao extends Component {
             <div id="card-organizacao-body" 
                     style={{
                             marginRight : this.props.marginRight, 
-                            marginBottom : this.props.marginBottom
+                            marginBottom : this.props.marginBottom, 
+                            width : this.props.newWidth
                     }} 
                     onClick={() => this.abrirPaginaOrganizacao()}
             >

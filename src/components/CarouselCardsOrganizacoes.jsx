@@ -56,7 +56,7 @@ class CarouselCardsOrganizacoes extends Component {
     render() {
         if(this.state.redirect){
             this.setState({redirect : false});
-            return <Redirect to={this.state.page} />
+            return <Redirect to={{pathname: this.state.page, state: { tipoPesquisa : "organizacao" }}} />
         }
         return (
             <div id="carousel-card-org">

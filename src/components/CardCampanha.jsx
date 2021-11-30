@@ -33,7 +33,14 @@ class CardCampanha extends Component {
             return <Redirect to={{pathname: this.state.page, state: { campanha : this.props.campanha }}} />
         }
         return (
-            <div id="card-campanha-body" style={{marginRight : this.props.marginRight, marginBottom : this.props.marginBottom}} onClick={() => this.abrirPaginaCampanha()}>
+            <div id="card-campanha-body" 
+                style={{
+                    marginRight : this.props.marginRight,
+                    marginBottom : this.props.marginBottom, 
+                    width : this.props.newWidth
+                }} 
+                onClick={() => this.abrirPaginaCampanha()}
+            >
                 <img src={this.props.campanha.img_background_card} id="background-img-card"/>
                 <div id="painel-card">
                     <div id="text-area">

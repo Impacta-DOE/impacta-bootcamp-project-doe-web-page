@@ -27,7 +27,7 @@ class MenuTop extends React.Component {
 
     showModalLogin(){
         this.setState({toogleLogin : !this.state.toogleLogin});
-        document.body.style.overflow = (this.state.toogleMenu) ? "auto" : "hidden";
+        document.body.style.overflow = (this.state.toogleLogin) ? "auto" : "hidden";
     }
 
     chamaProximaTela(tela){
@@ -36,8 +36,6 @@ class MenuTop extends React.Component {
             page : tela
         })
     }
-
-    
 
     render(){
         if(this.state.redirect){
