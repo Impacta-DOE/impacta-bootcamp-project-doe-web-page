@@ -17,7 +17,17 @@ class CardPlano extends Component {
                 <p className="valor-plano">[Valor do Plano]</p>
                 <p className="recorrencia-plano">[Recorrencia]</p>
                 <h3 className="titulo-beneficios">Benefícios</h3>
-                <BeneficioPlano/>
+                <div className='div-beneficios'>
+                    <BeneficioPlano/>
+                    <BeneficioPlano/>
+                    <BeneficioPlano/>
+                    <BeneficioPlano/>
+                </div>
+                <div className='div-button-assinar-plano'>
+                    <input type="button" value="Assinar Plano" id="btn-assinar-plano"/>
+                </div>
+                
+                
             </div>
         );
     }

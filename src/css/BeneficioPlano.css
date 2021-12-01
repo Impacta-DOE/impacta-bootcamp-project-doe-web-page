@@ -1,11 +1,15 @@
 .div-beneficio-item{
-    width: 80%;
+    width: 85%;
     margin: 0 auto;
 }
 
 .icon-beneficio-item{
-    width: 1.5em;
-    float: left;
+    width: 1.4em;
     margin-right: 0.5em;
+}
+
+.text-beneficio-item{
+    color: #848383;
+    font-size: 16px;
 }
 
