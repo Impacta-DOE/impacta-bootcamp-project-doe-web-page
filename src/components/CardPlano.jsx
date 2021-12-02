@@ -26,8 +26,6 @@ class CardPlano extends Component {
                 <div className='div-button-assinar-plano'>
                     <input type="button" value="Assinar Plano" id="btn-assinar-plano"/>
                 </div>
-                
-                
             </div>
         );
     }
