@@ -31,3 +31,49 @@
     font-size: 24px;
     margin-top: 0.8em;
 }
+
+
+.div-controls-card-left-planos {
+    width: 5%;
+    height: 45em;
+    float: left;
+    position: relative;
+    z-index: 3;
+    background-image: linear-gradient(to left, rgba(85, 165, 244, 0), rgba(220, 220, 220, 1));
+    pointer-events: all;
+    margin-top: -48em;
+}
+
+.div-controls-card-left-planos:hover {
+    cursor: pointer;
+}
+
+.div-controls-card-right-planos {
+    width: 5%;
+    height: 45em;
+    float: right;
+    position: relative;
+    z-index: 3;
+    background-image: linear-gradient(to right, rgba(85, 165, 244, 0), rgba(220, 220, 220, 1));
+    pointer-events: all;
+    margin-top: -48em;
+}
+
+.div-controls-card-right-planos:hover {
+    cursor: pointer;
+}
+
+.arrows-planos {
+    width: 3em;
+    height: 3em;
+    margin-left: 1em;
+    margin-top: 20em;
+}
+
+.arrows-planos:hover {
+    cursor: pointer;
+    width: 3.2em;
+    height: 3.2em;
+    margin-top: 19.9em;
+    margin-left: 0.9em;
+}
