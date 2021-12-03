@@ -120,6 +120,7 @@
     margin-left: 1.21em;
     overflow-x: hidden;
     overflow-y: hidden;
+    margin-bottom: 3em;
 }
 
 .titulo-desc-campanha {
@@ -207,4 +208,10 @@
 
 #btn-doar-campanha:hover {
     background-color: #4686c7;
+}
+
+#msg-comentario-inexistente {
+    font-size: 16px;
+    font-family: 'Roboto Light';
+    margin-bottom: -.05em;
 }

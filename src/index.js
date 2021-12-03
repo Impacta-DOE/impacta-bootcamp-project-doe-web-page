@@ -23,7 +23,7 @@ ReactDOM.render(
           <Route path="/editar-perfil" component={EditarPerfil}/>
           <Route path="/buscar" component={Busca}/>
           <Route path="/org/:urlAmigavel" component={OrgPage}/>
-          <Route path="/campanha" component={TelaCampanha}/>
+          <Route path="/campanha/:urlAmigavel" component={TelaCampanha}/>
       </Switch>
   </Router>,
   document.getElementById('root')

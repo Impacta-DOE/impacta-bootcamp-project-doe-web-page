@@ -14,6 +14,8 @@ import exemplo_imagem_background_card_03 from '../images/gato.jpg';
 import exemplo_imagem_background_card_04 from '../images/cadeira.jpg';
 import exemplo_imagem_background_card_05 from '../images/comida.jpg';
 
+import exemplo_avatar_user from '../images/exemplo_user.png';
+
 import logo_acnur from '../images/logo_anhcr.png';
 import logo_catarias from '../images/logo_catarias.jpg';
 import logo_adus from '../images/logo_adus.png';
@@ -23,6 +25,7 @@ import logo_crami from '../images/logo_crami.png';
 import { Doacao } from '../entities/Doacao';
 import { Organizacao } from '../entities/Organizacao';
 import { HistoricoDoacao } from '../entities/HistoricoDoacao';
+import Comentario from '../entities/Comentario';
 
 class CampanhaService extends Component {
     
@@ -60,7 +63,7 @@ class CampanhaService extends Component {
                                 new HistoricoDoacao(false, 10.0, false, "Jorgin", "20/11/2021"),
                                 new HistoricoDoacao(true, 55.0, true, "Julio", "20/11/2021"),
                                 new HistoricoDoacao(true, 200.0, true, "Jackson", "20/11/2021"),
-                            ]))
+                            ]),[])
     
                     ],[],[]
                 ),
@@ -80,8 +83,16 @@ class CampanhaService extends Component {
                     new HistoricoDoacao(false, 10.0, false, "Jorgin", "20/11/2021"),
                     new HistoricoDoacao(true, 5.0, true, "Julio", "20/11/2021"),
                     new HistoricoDoacao(true, 20.0, true, "Jackson", "20/11/2021"),
-                ])),
-
+                ]), [
+                    new Comentario("Jonas Benavides Cardoso", exemplo_avatar_user, "Muito bom a ideia da campanha, espero que de tudo certo :)", true),
+                    new Comentario("Cleber", exemplo_avatar_user, "Espero que tenha conseguido ajudar de alguma forma", true),
+                    new Comentario("Ricardo", exemplo_avatar_user, "Show!!!", false),
+                    new Comentario("Rafaella", exemplo_avatar_user, "As pessoas dessa organização são muito boas. Saudades :)", true),
+                    new Comentario("Jorgin", exemplo_avatar_user, "Fui ajudado antes e agora posso ajudar, obrigado.", false),
+                    new Comentario("Julio", exemplo_avatar_user, "Feito :)", true),
+                    new Comentario("Jackson", exemplo_avatar_user, "Boa sorte!!!", true)
+                ]
+            ),
             new Campanha(
                 new Organizacao(
                     "Cáritas Brasileira",
@@ -218,8 +229,8 @@ class CampanhaService extends Component {
                 0,
                 exemplo_imagem_background_01,
                 exemplo_imagem_background_card_01,
-                new Doacao('item', 'peças', 100.0, 50.0, null)),
-
+                new Doacao('item', 'peças', 100.0, 50.0, null)
+            ),
             new Campanha(
                 new Organizacao(
                     "ADUS",
@@ -367,8 +378,8 @@ class CampanhaService extends Component {
                     new HistoricoDoacao(false, 10.0, false, "Jorgin", "20/11/2021"),
                     new HistoricoDoacao(true, 55.0, true, "Julio", "20/11/2021"),
                     new HistoricoDoacao(true, 200.0, true, "Jackson", "20/11/2021"),
-                ])),
-
+                ])
+            ),
             new Campanha(
                 new Organizacao(
                     "Cedeca",
@@ -465,8 +476,8 @@ class CampanhaService extends Component {
                 0,
                 exemplo_imagem_background_03,
                 exemplo_imagem_background_card_03,
-                new Doacao('item', 'KG', 300.0, 400.0, null)),
-
+                new Doacao('item', 'KG', 300.0, 400.0, null)
+            ),
             new Campanha(
                 new Organizacao(
                     "CRAMI",
@@ -551,8 +562,8 @@ class CampanhaService extends Component {
                     new HistoricoDoacao(false, 10.0, false, "Jorgin", "20/11/2021"),
                     new HistoricoDoacao(true, 55.0, true, "Julio", "20/11/2021"),
                     new HistoricoDoacao(true, 200.0, true, "Jackson", "20/11/2021"),
-                ])),
-            
+                ])
+            ),
             new Campanha(
                 new Organizacao(
                     "ACNUR",
@@ -625,8 +636,8 @@ class CampanhaService extends Component {
                     new HistoricoDoacao(false, 10.0, false, "Jorgin", "20/11/2021"),
                     new HistoricoDoacao(true, 55.0, true, "Julio", "20/11/2021"),
                     new HistoricoDoacao(true, 200.0, true, "Jackson", "20/11/2021"),
-                ])),
-
+                ])
+            ),
             new Campanha(
                 new Organizacao(
                     "ACNUR",
@@ -687,8 +698,8 @@ class CampanhaService extends Component {
                     new HistoricoDoacao(false, 10.0, false, "Jorgin", "20/11/2021"),
                     new HistoricoDoacao(true, 55.0, true, "Julio", "20/11/2021"),
                     new HistoricoDoacao(true, 200.0, true, "Jackson", "20/11/2021"),
-                ])),
-
+                ])
+            ),
             new Campanha(
                 new Organizacao(
                     "ACNUR",
@@ -737,8 +748,8 @@ class CampanhaService extends Component {
                     new HistoricoDoacao(false, 10.0, false, "Jorgin", "20/11/2021"),
                     new HistoricoDoacao(true, 55.0, true, "Julio", "20/11/2021"),
                     new HistoricoDoacao(true, 200.0, true, "Jackson", "20/11/2021"),
-                ])),
-
+                ])
+            ),
             new Campanha(
                 new Organizacao(
                     "ACNUR",
@@ -787,8 +798,8 @@ class CampanhaService extends Component {
                     new HistoricoDoacao(false, 10.0, false, "Jorgin", "20/11/2021"),
                     new HistoricoDoacao(true, 55.0, true, "Julio", "20/11/2021"),
                     new HistoricoDoacao(true, 200.0, true, "Jackson", "20/11/2021"),
-                ])),
-
+                ])
+            ),
             new Campanha(
                 new Organizacao(
                     "ACNUR",
@@ -837,7 +848,8 @@ class CampanhaService extends Component {
                     new HistoricoDoacao(false, 10.0, false, "Jorgin", "20/11/2021"),
                     new HistoricoDoacao(true, 55.0, true, "Julio", "20/11/2021"),
                     new HistoricoDoacao(true, 200.0, true, "Jackson", "20/11/2021"),
-                ]))
+                ])
+            )
         ];
     }
 

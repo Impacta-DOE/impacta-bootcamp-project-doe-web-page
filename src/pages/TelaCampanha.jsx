@@ -11,7 +11,7 @@ class TelaCampanha extends Component {
 
     constructor(props){
         super(props);        
-        this.state = {doacoes : [], redirect: false, page: "/org/" + this.props.location.state.campanha.organizacao.nomeOrganizacao};
+        this.state = {doacoes : [], comentarios : [], redirect: false, page: "/org/" + this.props.location.state.campanha.organizacao.nomeOrganizacao};
     }
 
     componentDidMount(){
@@ -20,9 +20,11 @@ class TelaCampanha extends Component {
     }
 
     componentWillMount(){
-        
         if(this.props.location.state.campanha.doacao.tipoArrecadacao === "dinheiro"){
             this.apresentarDoacoes();
+        }
+        if(this.props.location.state.campanha.comentarios != null){
+            this.apresentarComentarios();
         }
     }
 
@@ -50,6 +52,16 @@ class TelaCampanha extends Component {
                         />);
         }
         this.setState({doacoes});
+    }
+
+    apresentarComentarios(){
+        let comentarios = [];
+        for(let i=0; i < this.props.location.state.campanha.comentarios.length; i++){
+            comentarios.push(<Comentario  
+                                comentario={this.props.location.state.campanha.comentarios[i]}
+                            />);
+        }
+        this.setState({comentarios});
     }
 
     calculaPorcentagem(){
@@ -93,17 +105,15 @@ class TelaCampanha extends Component {
                         <p id="texto-desc">{this.props.location.state.campanha.desc_campanha}</p>
                         <p className="titulo-desc-campanha">Comentários</p>
                         <hr className="hr-titulo-desc-campanha"></hr>
-                        <div id="div-comentarios">
-                            <Comentario />
-                            <Comentario />
-                            <Comentario />
-                            <Comentario />
-                            <Comentario />
-                            <Comentario />
-                            <Comentario />
-                            <Comentario />
-                            <Comentario />
-                        </div>
+                        {
+                            (this.state.comentarios == 0) ?
+                                <p id="msg-comentario-inexistente">Esta campanha não possui nenhum comentario</p>
+                            :
+                                <div id="div-comentarios">
+                                    {this.state.comentarios}
+                                </div> 
+
+                        }
                     </div>
                     <div id="div-doacao">
                         <div id="slider-arrecadados-tela-campanha">

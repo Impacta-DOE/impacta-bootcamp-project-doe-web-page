@@ -6,14 +6,14 @@ import arrow_right from '../images/arrow_right.png';
 import arrow_left from '../images/arrow_left.png';
 
 import '../css/CarouselCampanhas.css';
-import ItemCarouselService from '../services/CampanhaService';
+import CarouselService from '../services/CampanhaService';
 
 class CarouselCampanhas extends Component {
 
     constructor(props){
         super(props);
         this.state = {
-            items_list: new ItemCarouselService().getAll(), 
+            items_list: new CarouselService().getAll(), 
             selected_item: null, 
             actual_index: 0, 
             max_itens: 5,

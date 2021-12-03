@@ -31,13 +31,15 @@
     height: 3em;
     border-radius: 15em;
     background-color: #00FF7F;
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; /* Resize the background image to cover the entire container */
     border: 2px solid #55A5F4;
     color: white;
     font-size: 14px;
     font-weight: bold;
     font-family: 'Roboto';
     text-align: center;
-    padding-top: .65em;
 }
 
 #div-comentario {

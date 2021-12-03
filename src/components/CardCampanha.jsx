@@ -7,7 +7,7 @@ class CardCampanha extends Component {
 
     constructor(props){
         super(props);
-        this.state = {redirect: false, page: "/campanha"};
+        this.state = {redirect: false, page: "/campanha/" + this.props.campanha.organizacao.nomeOrganizacao + "/" + this.props.campanha.nome_campanha};
     }
 
     calculaPorcentagem(){

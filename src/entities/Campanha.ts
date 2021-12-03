@@ -1,5 +1,4 @@
-
-import { Comentario } from "./Comentario";
+import Comentario from "./Comentario";
 import { Doacao } from "./Doacao";
 import { Organizacao } from "./Organizacao";
 
@@ -13,9 +12,9 @@ export class Campanha {
     img_background : object;
     img_background_card : object;
     doacao : Doacao;
-    comentarios : Comentario;
+    comentarios : Comentario[];
 
-    constructor (organizacao : Organizacao, nome_campanha : string, desc_campanha : string, id_campanha : number, img_background : object, img_background_card : object, doacao : Doacao ){
+    constructor (organizacao : Organizacao, nome_campanha : string, desc_campanha : string, id_campanha : number, img_background : object, img_background_card : object, doacao : Doacao, comentarios : Comentario[] ){
         this.organizacao = organizacao;
         //this.titulo = titulo;
         this.nome_campanha = nome_campanha;
@@ -24,6 +23,7 @@ export class Campanha {
         this.img_background = img_background;
         this.img_background_card = img_background_card;
         this.doacao = doacao;
+        this.comentarios = comentarios;
     }
 
     public resumirDescricao(qntdLetras : number) : string{
