@@ -147,7 +147,7 @@ class TelaCampanha extends Component {
                         </div>
                     </div>
                 </div>
-                <DoacaoModal showModal={this.state.showModal} setShowModal={this.setShowModal}/>
+                <DoacaoModal showModal={this.state.showModal} setShowModal={this.setShowModal} habilitarComentario habilitarSalvamentoCartao/>
                 <Footer />
             </div>
         );

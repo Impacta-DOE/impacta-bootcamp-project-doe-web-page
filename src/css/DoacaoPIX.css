@@ -27,6 +27,53 @@
     margin-top: .8em;
 }
 
-#btn-proximo:hover {
+.qrc-img {
+    width: 15em;
+    height: 15em;
+    margin-top: 1em;
+}
 
+#msg-finalizar-pagamento {
+    font-size: 24px;
+    color: #F89705;
+    font-family: 'Roboto';
+    margin-top: .5em;
+}
+
+#qrc-link {
+    width: 100%;
+    height: 8em;
+    margin-top: 2em;
+    border: 2px solid #4380BD;
+    border-radius: 5px;
+}
+
+#btn-finalizar-doacao {
+    width: 100%;
+    height: 3em;
+    color: white;
+    background-color: #55A5F4;
+    border: none;
+    border-radius: 4px;
+    font-size: 24px;
+    font-family: 'Roboto Bold';
+    margin-top: 1.5em;
+}
+
+#btn-finalizar-doacao:hover {
+    background-color: #4686c7;
+}
+
+#textarea-comentario {
+    width: 100%;
+    height: 3em;
+    border: 2px solid #4380BD;
+    border-radius: 6px;
+    float: left;
+    margin-top: -1em;
+    padding: .5em;
+}
+
+#textarea-comentario:focus {
+    outline: none;
 }
