@@ -4,5 +4,6 @@ export class PessoaJuridica extends Pessoa{
 
     cnpj: string;
     razaoSocial: string;
+    subtituloOrganizacao : string;
 
 }

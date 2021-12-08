@@ -1,0 +1,104 @@
+#input-ncartao {
+    width: 19.5em;
+    height: 2.5em;
+    font-family: 'Roboto';
+    border: 2px solid #4380BD;
+    border-radius: 4px;
+    margin-left: 3em;
+}
+
+#input-ncartao:focus {
+    outline: none;
+}
+
+#input-nome {
+    width: 19.5em;
+    height: 2.5em;
+    font-family: 'Roboto';
+    border: 2px solid #4380BD;
+    border-radius: 4px;
+}
+
+#input-nome:focus {
+    outline: none;
+}
+
+#selector-bandeira-cartao {
+    width: 100%;
+    height: 2.5em;
+    font-family: 'Roboto';
+    padding-left: .5em;
+    color: #5c5b5b;
+    border: 2px solid #4380BD;
+    border-radius: 4px;
+    margin: 0 auto;
+    margin-top: .5em;
+
+}
+
+#selector-bandeira-cartao:focus {
+    outline: none;
+}
+
+#input-dt-validade {
+    width: 24.8em;
+    height: 2.5em;
+    font-family: 'Roboto';
+    border: 2px solid #4380BD;
+    border-radius: 4px;
+}
+
+#input-dt-validade:focus {
+    outline: none;
+}
+
+#input-cvv {
+    width: 14.1em;
+    height: 2.5em;
+    font-family: 'Roboto';
+    border: 2px solid #4380BD;
+    border-radius: 4px;
+    margin-left: 5em;
+}
+
+#input-cvv:focus {
+    outline: none;
+}
+
+.checkbox-doacao {
+    color: black;
+    font-family : 'Roboto Bold';
+    font-size : 14px;
+}
+
+#input-valor-doado {
+    width: 100%;
+    height: 2.5em;
+    font-family: 'Roboto';
+    border: 2px solid #4380BD;
+    border-radius: 4px;
+    margin-top: .5em;
+}
+
+.titulo-comentario-doacao {
+    font-size: 17px;
+    font-family: 'Roboto';
+    color: #4380BD;
+    margin-top: .8em;
+}
+
+#btn-realizar-doacao {
+    width: 85%;
+    height: 3em;
+    color: white;
+    background-color: #55A5F4;
+    border: none;
+    border-radius: 4px;
+    font-size: 24px;
+    font-family: 'Roboto Bold';
+    margin-top: .8em;
+}
+
+#btn-realizar-doacao:hover {
+    background-color: #4686c7;
+}

@@ -103,7 +103,7 @@ class CarouselCampanhas extends Component {
     }
 
     abrirPaginaCampanha(){
-        this.setState({redirect : true});
+        this.setState({redirect : true, page: "/campanha/" + this.state.selected_item.organizacao.nomeOrganizacao + "/" + this.state.selected_item.nome_campanha});
     }
 
     render() {

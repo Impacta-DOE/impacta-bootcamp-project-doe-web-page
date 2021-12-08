@@ -54,62 +54,60 @@ class LoginModal extends Component {
     render() {
         if(this.props.show){
             return ( 
-                <div id="modal">
-                    <Modal
-                        show={this.props.show} animation={false}
-                        aria-labelledby="m-login"
-                        centered
-                        style={{"height" : "100vh", "width" : "100%"}}
-                        >
-                        <div style={{"width" : "100%", "height" : "auto", "paddingRight" : ".5em", "paddingTop" : ".4em"}}>
-                            <img src={crossButton} id="crossButton" onClick={() => {this.closeModal()}}/>
-                        </div>
-                        <div className="login-content m-5">
-                            <div className="title">Login</div>
-                            <Form>
-                                <Form.Group controlId="formLogin">
-                                    
-                                    <Row>
-                                        <Col className="col-form">
-                                            <Form.Control type="text" placeholder="E-mail" className="input mt-2" name="email" onChange={this.handleChange} disabled={this.state.loading}/>
-                                        </Col>
-                                    </Row>
-                                    <Row>
-                                        <Col className="col-form">
-                                            <Form.Control type="password" placeholder="Senha" className="input mt-2" name="password" onChange={this.handleChange} disabled={this.state.loading}/>
-                                        </Col>
-                                    </Row>
-                                    <Row>
-                                        <Col>
-                                            <Button variant="link" className='btn-esqueceu-senha mt-2' onClick={() => this.showModalEsqueceuSenha()}>Esqueceu a senha?</Button>
-                                        </Col>
-                                    </Row>
-                                    <Row>
-                                        <Col>
-                                            <Button 
-                                                variant="primary" 
-                                                className='btn-entrar mt-2' 
-                                                onClick={() => this.login()} 
-                                                disabled={this.state.loading}
-                                                style={{'display' : ((this.state.loading) ? 'none' : 'block')}}
-                                            >ENTRAR</Button>
-                                            <Spinner 
-                                                animation="border" 
-                                                variant="primary"
-                                                style={{
-                                                        'margin' : '0 auto',
-                                                        'marginTop' : '2em',
-                                                        'marginBottom' : '-2em',
-                                                        'display' : ((!this.state.loading) ? 'none' : 'block')}} 
-                                            />
-                                        </Col>
-                                    </Row>
-                                </Form.Group>
-                            </Form>
-                        </div>
-                    </Modal>
+                <Modal
+                    show={this.props.show} animation={false}
+                    aria-labelledby="m-login"
+                    centered
+                    style={{"height" : "100vh", "width" : "100%"}}
+                    >
+                    <div style={{"width" : "100%", "height" : "auto", "paddingRight" : ".5em", "paddingTop" : ".4em"}}>
+                        <img src={crossButton} id="crossButton" onClick={() => {this.closeModal()}}/>
+                    </div>
+                    <div className="login-content m-5">
+                        <div className="title">Login</div>
+                        <Form>
+                            <Form.Group controlId="formLogin">
+                                
+                                <Row>
+                                    <Col className="col-form">
+                                        <Form.Control type="text" placeholder="E-mail" className="input mt-2" name="email" onChange={this.handleChange} disabled={this.state.loading}/>
+                                    </Col>
+                                </Row>
+                                <Row>
+                                    <Col className="col-form">
+                                        <Form.Control type="password" placeholder="Senha" className="input mt-2" name="password" onChange={this.handleChange} disabled={this.state.loading}/>
+                                    </Col>
+                                </Row>
+                                <Row>
+                                    <Col>
+                                        <Button variant="link" className='btn-esqueceu-senha mt-2' onClick={() => this.showModalEsqueceuSenha()}>Esqueceu a senha?</Button>
+                                    </Col>
+                                </Row>
+                                <Row>
+                                    <Col>
+                                        <Button 
+                                            variant="primary" 
+                                            className='btn-entrar mt-2' 
+                                            onClick={() => this.login()} 
+                                            disabled={this.state.loading}
+                                            style={{'display' : ((this.state.loading) ? 'none' : 'block')}}
+                                        >ENTRAR</Button>
+                                        <Spinner 
+                                            animation="border" 
+                                            variant="primary"
+                                            style={{
+                                                    'margin' : '0 auto',
+                                                    'marginTop' : '2em',
+                                                    'marginBottom' : '-2em',
+                                                    'display' : ((!this.state.loading) ? 'none' : 'block')}} 
+                                        />
+                                    </Col>
+                                </Row>
+                            </Form.Group>
+                        </Form>
+                    </div>
                     <EsqueciSenhaModal show={this.state.toogleEsqueceuSenha} toogleEsqueceuSenha={this.showModalEsqueceuSenha}/>
-                </div>
+                </Modal>
             );
             
         }else{

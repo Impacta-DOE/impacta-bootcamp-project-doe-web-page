@@ -1,0 +1,35 @@
+.modal-doacao {
+    min-width: 45%;
+}
+
+#modal-doacao-body {
+    padding-left: 2em;
+    padding-right: 2em;
+    margin-bottom: .5em;
+}
+
+#crossButton {
+    width: .8em;
+    height: .8em;
+    float: right;
+}
+
+#crossButton:hover {
+    cursor: pointer;
+}
+
+#selector-tipo-pagamento {
+    width: 100%;
+    height: 2.5em;
+    font-family: 'Roboto';
+    padding-left: .5em;
+    color: #5c5b5b;
+    border: 2px solid #4380BD;
+    border-radius: 4px;
+    margin-top: .5em;
+    margin-bottom: .7em;
+}
+
+#selector-tipo-pagamento:focus {
+    outline: none;
+}

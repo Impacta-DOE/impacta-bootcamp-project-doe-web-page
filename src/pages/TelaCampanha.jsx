@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router';
 import Comentario from '../components/Comentario';
+import DoacaoModal from '../components/DoacaoModal';
 import Footer from '../components/Footer';
 import MenuTop from '../components/MenuTop';
 import RegistroDoacao from '../components/RegistroDoacao';
@@ -11,7 +12,14 @@ class TelaCampanha extends Component {
 
     constructor(props){
         super(props);        
-        this.state = {doacoes : [], comentarios : [], redirect: false, page: "/org/" + this.props.location.state.campanha.organizacao.nomeOrganizacao};
+        this.state = {
+                        doacoes : [],
+                        comentarios : [], 
+                        redirect: false, 
+                        page: "/org/" + this.props.location.state.campanha.organizacao.nomeOrganizacao,
+                        showModal: false
+                    };
+        this.setShowModal = this.setShowModal.bind(this);
     }
 
     componentDidMount(){
@@ -73,13 +81,17 @@ class TelaCampanha extends Component {
         this.setState({redirect : true});
     }
 
+    setShowModal() {
+        this.setState({showModal : !this.state.showModal});
+    }
+
     render() {
         if(this.state.redirect){
             this.setState({redirect : false});
             return <Redirect to={{pathname: this.state.page, state: { organizacao : this.props.location.state.campanha.organizacao }}} />
         }
         return (
-            <div id="content-campanha">
+            <div id="content-campanha" style={{position: "relative"}}>
                 <MenuTop showBtnCadastrar showBtnLogin/>
                 <div id="div-titulo" style={{backgroundImage : "url(" + this.props.location.state.campanha.img_background + ")"}}>
                     <div style={{
@@ -131,10 +143,11 @@ class TelaCampanha extends Component {
                                         <div id="div-doacoes">{this.state.doacoes}</div>
                                     </div> : null
                             }
-                            <input type="button" value="Doar" id="btn-doar-campanha"/>
+                            <input type="button" value="Doar" id="btn-doar-campanha" onClick={() => this.setShowModal()}/>
                         </div>
                     </div>
                 </div>
+                <DoacaoModal showModal={this.state.showModal} setShowModal={this.setShowModal}/>
                 <Footer />
             </div>
         );
