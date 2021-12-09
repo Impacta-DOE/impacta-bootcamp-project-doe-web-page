@@ -147,7 +147,14 @@ class TelaCampanha extends Component {
                         </div>
                     </div>
                 </div>
-                <DoacaoModal showModal={this.state.showModal} setShowModal={this.setShowModal} habilitarComentario habilitarSalvamentoCartao/>
+                <DoacaoModal 
+                        showModal={this.state.showModal} 
+                        setShowModal={this.setShowModal} 
+                        habilitarComentario 
+                        habilitarSalvamentoCartao
+                        isLogged={localStorage.getItem("isLoggedIn")}
+                        tipoArrecadacao={this.props.location.state.campanha.doacao.tipoArrecadacao}
+                />
                 <Footer />
             </div>
         );

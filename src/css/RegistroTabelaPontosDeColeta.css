@@ -1,0 +1,22 @@
+#registry {
+    width: 100em;
+    height: 3em;
+    background-color: #DCDCDC;
+    color: black;
+    margin-top: .1em;
+    padding-top: .6em;
+}
+
+.column-registry {
+    float: left;
+    text-align: center;
+    font-size: 17px;
+    font-family: 'Roboto';
+}
+
+.vertical-line-registry {
+    border-right: 1px solid black;
+    height: 70%;
+    width: .05px;
+    float: left;
+}

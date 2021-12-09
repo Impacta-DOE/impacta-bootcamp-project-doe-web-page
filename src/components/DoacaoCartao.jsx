@@ -12,10 +12,10 @@ class DoacaoCartao extends Component {
                 <Form>
                     <Form.Group style={{marginBottom : "1.5em"}}>
                         <Row >
-                            <Col sm="5" className="col-form">
+                            <Col sm="6" className="col-form">
                                 <Form.Control type="text" placeholder="Nome completo" id="input-nome"/>
                             </Col>
-                            <Col sm="5" className="col-form">
+                            <Col sm="6" className="col-form">
                                 <Form.Control type="text" placeholder=" N° Cartão xxxx.xxxx.xxxx.xxxx" id="input-ncartao"/>
                             </Col>
                         </Row>
@@ -23,13 +23,16 @@ class DoacaoCartao extends Component {
                             <Col>
                                 <select name="bandeira-cartao" id="bandeiraCartao" id="selector-bandeira-cartao">
                                     <option value="" disabled selected>Bandeira Cartão</option>
-                                    <option value="ctCredito">Cartão de crédito</option>
-                                    <option value="pix">PIX</option>
+                                    <option value="mastercard">Mastercard</option>
+                                    <option value="visa">Visa</option>
+                                    <option value="american-express">American Express</option>
+                                    <option value="hipercard">Hipercard</option>
+                                    <option value="elo">Elo</option>
                                 </select>
                             </Col>
                         </Row>
                         <Row >
-                            <Col sm="6" className="col-form">
+                            <Col sm="8" className="col-form">
                                 <Form.Control type="text" placeholder="Data de validade" id="input-dt-validade"/>
                             </Col>
                             <Col sm="4" className="col-form">
