@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import * as ReactBootstrap from 'react-bootstrap';
+import { Redirect } from 'react-router';
 
 import '../css/MenuModal.css';
 
@@ -7,9 +8,22 @@ class MenuModal extends Component {
 
     constructor(props){
         super(props);
+        this.state = {redirect: false, page: "/"};
+    }
+
+    chamaProximaTela(tela){
+        this.props.showModalMenu();
+        this.setState({
+            redirect: true,
+            page : tela
+        })
     }
 
     render() {
+        if(this.state.redirect){
+            this.setState({redirect : false});
+            return <Redirect to={this.state.page} />
+        }
         if(this.props.show){
             return (
                 <div id="modal">
@@ -35,7 +49,7 @@ class MenuModal extends Component {
                                     <div className="menu-modal-opcao"> 
                                         <span>Gerenciamento de planos mensais</span>
                                     </div>
-                                    <div className="menu-modal-opcao"> 
+                                    <div className="menu-modal-opcao" onClick={() => this.chamaProximaTela("/campanhas")}> 
                                         <span>Campanhas e ações</span>
                                     </div>
                                     <div className="menu-modal-opcao"> 

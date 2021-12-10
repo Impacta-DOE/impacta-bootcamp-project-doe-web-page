@@ -5,8 +5,6 @@ import '../css/DoacaoModal.css';
 
 import crossButton from '../images/cross.png';
 
-import LoginModal from './LoginModal';
-
 import DoacaoCartao from './DoacaoCartao';
 import DoacaoPIX from './DoacaoPIX';
 import DoacaoPontosDeColeta from './DoacaoPontosDeColeta';
@@ -42,48 +40,42 @@ class DoacaoModal extends Component {
     }
 
     render() {
-        if(this.props.isLogged){
-            return (
-                <Modal
-                    show={this.props.showModal} animation={false}
-                    aria-labelledby="m-doacao"
-                    centered
-                    dialogClassName="modal-doacao"
-                    aria-labelledby="example-custom-modal-styling-title"
-                    >
-                    <div style={{"width" : "100%", "height" : "auto", "paddingRight" : ".5em", "paddingTop" : ".4em"}}>
-                        <img src={crossButton} id="crossButton" onClick={() => {this.closeModal()}}/>
-                    </div>
-                    <Modal.Body id="modal-doacao-body">
-                        <p className="titulo-desc-campanha">Área de doação</p>
-                        <hr className="hr-titulo-desc-campanha"></hr>
-                        {
-                            (this.props.tipoArrecadacao === "item") ?
-                                <DoacaoPontosDeColeta />
-                            :                             
-                                <>
-                                    <select 
-                                        name="tipo-pagamento" 
-                                        id="tpPagamento" 
-                                        id="selector-tipo-pagamento" 
-                                        style={{display: this.state.displayComboTpPagamento}} 
-                                        onChange={this.handleChange}
-                                    >
-                                        <option value="" disabled selected>Forma de pagamento</option>
-                                        <option value="ctCredito">Cartão de crédito</option>
-                                        <option value="pix">PIX</option>
-                                    </select>
-                                    {this.state.formSelecionado}
-                                </>
-                        }
-                    </Modal.Body>
-                </Modal>
-            );
-        } else {
-            return (
-                <LoginModal />
-            );
-        }
+        return (
+            <Modal
+                show={this.props.showModal} animation={false}
+                aria-labelledby="m-doacao"
+                centered
+                dialogClassName="modal-doacao"
+                aria-labelledby="example-custom-modal-styling-title"
+                >
+                <div style={{"width" : "100%", "height" : "auto", "paddingRight" : ".5em", "paddingTop" : ".4em"}}>
+                    <img src={crossButton} id="crossButton" onClick={() => {this.closeModal()}}/>
+                </div>
+                <Modal.Body id="modal-doacao-body">
+                    <p className="titulo-desc-campanha">Área de doação</p>
+                    <hr className="hr-titulo-desc-campanha"></hr>
+                    {
+                        (this.props.tipoArrecadacao === "item") ?
+                            <DoacaoPontosDeColeta />
+                        :                             
+                            <>
+                                <select 
+                                    name="tipo-pagamento" 
+                                    id="tpPagamento" 
+                                    id="selector-tipo-pagamento" 
+                                    style={{display: this.state.displayComboTpPagamento}} 
+                                    onChange={this.handleChange}
+                                >
+                                    <option value="" disabled selected>Forma de pagamento</option>
+                                    <option value="ctCredito">Cartão de crédito</option>
+                                    <option value="pix">PIX</option>
+                                </select>
+                                {this.state.formSelecionado}
+                            </>
+                    }
+                </Modal.Body>
+            </Modal>
+        );
     }
 }
 

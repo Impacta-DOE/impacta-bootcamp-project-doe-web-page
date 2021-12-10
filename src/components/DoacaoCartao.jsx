@@ -116,7 +116,7 @@ class DoacaoCartao extends Component {
                                                 </div>
                                             </div>
                                         </div>
-                                        <div id="div-comentario" style={{width: "92%", float: "right"}}>
+                                        <div id="div-comentario" style={{width: "94%", float: "right"}}>
                                             <p id="comentario-nome-usuario">Nome usuario</p>
                                             <textarea id="textarea-comentario" name="comentario" cols="50" placeholder="Escrever um comentario...">
                                             </textarea>

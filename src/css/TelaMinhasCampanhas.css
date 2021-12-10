@@ -1,0 +1,44 @@
+#div-content {
+    width: 94%;
+    height: auto;
+    background-color: white;
+    margin: 0 auto;
+    margin-top: 5em;
+    margin-bottom: 5em;
+    border-radius: 7px;
+    padding: 1.5em 2em;
+}
+
+#btn-criar-campanha {
+    float: right;
+    border-radius: 3px;
+    background-color: #03A654;
+    border: none;
+    color: white;
+    font-family: 'Roboto';
+    font-size: 14px;
+    padding: .6em .9em;
+}
+
+#btn-criar-campanha:hover {
+    background-color: #048846;
+}
+
+.titulo-minhas-campanhas {
+    color: #4380BD;
+    font-size: 24px;
+    font-family: 'Roboto';
+    float: left;
+    margin-top: .6em;
+}
+
+.hr-titulo-minhas-campanhas {
+    background-color: #4380BD;
+    border: .1px solid #4380BD;
+    margin-top: -1em;
+}
+
+.checkbox-apresentar-campanha-inativa {
+    font-size: 15px;
+    font-family: 'Roboto';
+}
