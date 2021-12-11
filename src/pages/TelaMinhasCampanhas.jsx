@@ -1,11 +1,23 @@
 import React, { Component } from 'react';
 import { Col, Form, Row } from 'react-bootstrap';
+import ManterCampanhaModal from '../components/ManterCampanhaModal';
 import MenuTop from '../components/MenuTop';
 import TabelaMinhasCampanhas from '../components/TabelaMinhasCampanhas';
 
 import '../css/TelaMinhasCampanhas.css';
 
 class TelaMinhasCampanhas extends Component {
+
+    constructor(props){
+        super(props);
+        this.state = {showModal: false};
+        this.showModal = this.showModal.bind(this);
+    }
+
+    showModal(){
+        this.setState({showModal: !this.state.showModal});
+    }
+
     render() {
         return (
             <div>
@@ -14,7 +26,7 @@ class TelaMinhasCampanhas extends Component {
                     <Row>
                         <Col>
                             <p className="titulo-minhas-campanhas">Minhas campanhas/ações</p>
-                            <input type="button" value="Criar campanha/ação" id="btn-criar-campanha"/>
+                            <input type="button" value="Criar campanha/ação" id="btn-criar-campanha" onClick={() => this.showModal()}/>
                         </Col>
                     </Row>
                     <Row>
@@ -43,6 +55,7 @@ class TelaMinhasCampanhas extends Component {
                         </Col>
                     </Row>
                 </div>
+                <ManterCampanhaModal showModal={this.state.showModal} setShowModal={this.showModal}/>
             </div>
         );
     }
