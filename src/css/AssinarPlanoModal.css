@@ -1,0 +1,59 @@
+@font-face {
+    font-family: 'Roboto';
+    src: local('Roboto Regular'), url('./fonts/Roboto/Roboto-Regular.ttf') format('truetype');
+    font-style: normal;
+    font-weight: normal;
+}
+
+.titulo-desc-assinar-plano {
+    color: #4380BD;
+    font-size: 22px;
+    font-family: 'Roboto';
+}
+
+.hr-titulo-desc-assinar-plano {
+    background-color: #4380BD;
+    border: .1px solid #4380BD;
+    margin-top: -1em;
+}
+
+.checkbox-assinar-plano {
+    padding-top: 1em;
+    color: black;
+    font-family : 'Roboto';
+    font-size : 12px;
+}
+
+.div-button-efetuar-pagamento-plano {
+    display: flex;
+}
+
+#btn-efetuar-pagamento-plano{
+    
+    margin: 0 auto;
+    padding: 0.8em 7em;
+
+    font-size: 16px;
+    font-family: 'Roboto';
+    background: #03A654;
+    border-radius: 3px;
+    border: #03A654;
+    color: #FFFFFF;
+    
+}
+
+
+.txt-assinatura-sucesso{
+    font-size: 22px;
+    font-family: 'Roboto';
+    color: #03A654;
+    text-align: center;
+}
+
+
+.txt-click-aqui{
+    font-size: 18px;
+    font-family: 'Roboto';
+    color: #000000;
+    text-align: center;
+}
