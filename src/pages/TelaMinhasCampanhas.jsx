@@ -14,6 +14,10 @@ class TelaMinhasCampanhas extends Component {
         this.showModal = this.showModal.bind(this);
     }
 
+    componentDidMount(){
+        document.title = "Minhas Campanhas e Ações";
+    }
+
     showModal(){
         this.setState({showModal: !this.state.showModal});
     }

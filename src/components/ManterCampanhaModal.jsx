@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Col, Form, Modal, Row } from 'react-bootstrap';
+import { Button, Col, Form, Modal, Row } from 'react-bootstrap';
 
 import '../css/ManterCampanhaModal.css';
 
@@ -9,9 +9,10 @@ class ManterCampanhaModal extends Component {
 
     constructor(props){
         super(props);
-        this.state = { type : 'text', precisaVoluntario : false, tipoDoacao : "", tipoDoacaoInputs : null};
+        this.state = { type : 'text', precisaVoluntario : false, tipoDoacao : "", tipoDoacaoInputs : null, image: null};
         this.setPrecisaVoluntario = this.setPrecisaVoluntario.bind(this);
         this.setTipoDoacao = this.setTipoDoacao.bind(this);
+        this.onImageChange = this.onImageChange.bind(this);
     }
 
     changeInputType(newType) {
@@ -34,11 +35,40 @@ class ManterCampanhaModal extends Component {
             this.setState({tipoDoacaoInputs: inputDoacaoFinanceira});
         } else if(this.state.tipoDoacao === "arrecadacao") {
             let inputDoacaoArrecadacao = (
-                                            <div style={{width: "100%", backgroundColor: "yellow"}}>
-
+                                            <div style={{width: "100%"}}>
+                                                <select name="tipo-arrecadacao" id="tipoArrecadacao" className="selector-tipo-arrecadacao">
+                                                    <option value="" disabled selected>Tipo arrecadação</option>
+                                                    <option value="sangue" >Doação de sangue</option>
+                                                    <option value="brinquedo" >Doação de brinquedo</option>
+                                                    <option value="roupas" >Doação de roupas</option>
+                                                    <option value="alimentos" >Doação de alimentos</option>
+                                                    <option value="mobilia" >Doação de mobilias</option>
+                                                    <option value="eletronicos" >Doação de eletroeletronicos</option>
+                                                    <option value="outros" >Outros</option>
+                                                </select>
+                                                <Form.Control type="text" placeholder="Meta de arrecadação (Opcional)" id="input-meta-arrecadacao"/>
+                                                <select name="unidade-medida" id="tipoUnidadeMedida" className="selector-unidade-medida">
+                                                    <option value="" disabled selected>Unidade de medida</option>
+                                                    <option value="kilo" >Kilogramas</option>
+                                                    <option value="unidades" >Unidades</option>
+                                                    <option value="litros" >Litros</option>
+                                                    <option value="bolsas" >Bolsas</option>
+                                                    <option value="peças" >Peças</option>
+                                                    <option value="quantidades" >Quantidades</option>
+                                                </select>
+                                                <Button variant="success" id="btn-gerenciar-pontos">Gerenciar pontos de coleta</Button>
                                             </div>
                                         );
             this.setState({tipoDoacaoInputs: inputDoacaoArrecadacao});
+        }
+    }
+
+    onImageChange(event){
+        if (event.target.files && event.target.files[0]) {
+            let img = event.target.files[0];
+            this.setState({
+              image: URL.createObjectURL(img)
+            });
         }
     }
 
@@ -51,12 +81,15 @@ class ManterCampanhaModal extends Component {
                 dialogClassName="modal-campanha"
                 aria-labelledby="example-custom-modal-styling-title"
             >
-                <div id="container-img-background">
+                <div id="container-img-background" style={{backgroundImage: "url(" + this.state.image + ")"}}>
                     <div style={{width : "100%", height : "auto", paddingRight : ".5em", paddingTop : ".4em"}}>
                         <img src={crossButton} id="crossButton" onClick={() => {this.props.setShowModal()}}/>
                     </div>
                     <div style={{width : "100%", height : "auto", position : "absolute", bottom: "0"}}>
-                        <input type="button" value="Adicionar foto de capa" id="btn-mudar-foto-capa"/>
+                        <div id="teste">
+                            <label for="arquivo" id="btn-mudar-foto-capa">Adicionar foto de capa</label>
+                            <input type="file" name="capa" id="arquivo" onChange={this.onImageChange}/>
+                        </div>
                     </div>
                 </div>
                 <Modal.Body style={{height: "auto", position: "relative", padding: "2em"}}>
