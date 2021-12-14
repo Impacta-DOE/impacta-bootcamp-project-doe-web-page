@@ -3,6 +3,9 @@ import { Row, Col, Form, Button } from 'react-bootstrap';
 import '../css/FormPessoaFisica.css';
 import LocalizacaoService from '../services/LocalizacaoService';
 import Select from 'react-select';
+import { PessoaFisica } from '../entities/PessoaFisica';
+import PessoaFisicaService from '../services/PessoaFisicaService';
+import { DadosContato } from '../entities/DadosContato';
 
 class FormPessoaFisica extends Component {
 
@@ -11,8 +14,11 @@ class FormPessoaFisica extends Component {
         this.state = {
                         type : 'text', 
                         localizacaoService : new LocalizacaoService(),
+                        pessoaFisicaService : new PessoaFisicaService(),
                         estados : [],
-                        cidades : []
+                        cidades : [],
+                        pessoaFisica : new PessoaFisica(),
+                        passwordCheck : ""
                     };
         this.handleChange = this.handleChange.bind(this);
     }
@@ -35,10 +41,62 @@ class FormPessoaFisica extends Component {
 
     handleChange(event){
         switch (event.target.name) {
+            case "nome-completo":
+                this.state.pessoaFisica.nomeCompleto = event.target.value;
+                break; 
+            case "data-nascimento":
+                this.state.pessoaFisica.dataNasc = event.target.value;
+                break;
+            case "sexo":
+                this.state.pessoaFisica.sexo = event.target.value;
+                break;
+            case "nacionalidade":
+                this.state.pessoaFisica.nacionalidade = event.target.value;
+                break;
+            case "registro":
+                this.state.pessoaFisica.registro = event.target.value;
+                break;
+            case "email":
+                this.state.pessoaFisica.dadosContato.email = event.target.value;
+                break;
+            case "telefone":
+                this.state.pessoaFisica.dadosContato.telefone = event.target.value;
+                break;
+            case "cep":
+                this.state.pessoaFisica.endereco.cep = event.target.value;
+                break;
+            case "rua":
+                this.state.pessoaFisica.endereco.rua = event.target.value;
+                break;
+            case "numero":
+                this.state.pessoaFisica.endereco.numero = event.target.value;
+                break;
+            case "complemento":
+                this.state.pessoaFisica.endereco.complemento = event.target.value;
+                break;
+            case "bairro":
+                this.state.pessoaFisica.endereco.bairro = event.target.value;
+                break;
             case "estado":
                 this.changeCidades(event.target.value);
-                break;   
+                this.state.pessoaFisica.endereco.idEstado = event.target.value;
+                break;
+            case "cidade":
+                this.state.pessoaFisica.endereco.idCidade = event.target.value;
+                break;
+            case "password":
+                this.state.pessoaFisica.senha = event.target.value;
+                break;
+            case "password-check":
+                this.setState({passwordCheck: event.target.value});
+                break;
         }
+    }
+
+    save() {
+        this.state.pessoaFisicaService.save(this.state.pessoaFisica)
+                                        .then(() => alert("Cadastro realizado"))
+                                        .catch((err) => alert("Erro: " + err));
     }
 
     render() {
@@ -48,23 +106,31 @@ class FormPessoaFisica extends Component {
                     <Form.Group className="mb-3" controlId="formInformacoesPessois">
                         <Row>
                             <Col>
-                                <Form.Control type="text" placeholder="Nome Completo" id="input-nome-completo"/>
+                                <Form.Control 
+                                    type="text" 
+                                    name="nome-completo" 
+                                    placeholder="Nome Completo" 
+                                    id="input-nome-completo" 
+                                    onChange={this.handleChange}
+                                />
                             </Col>
                         </Row>
                         <Row>
                             <Col sm="5" className="col-form">
                                 <input 
                                     id="date" 
+                                    name="data-nascimento"
                                     type={this.state.type} 
                                     placeholder="Data de nascimento" 
                                     className="input-date" 
                                     style={{width: '16em'}}
                                     onFocus={() => this.changeInputType('date')}
                                     onBlur={() => this.changeInputType('text')}
+                                    onChange={this.handleChange}
                                 ></input>
                             </Col>
                             <Col sm="5" className="col-form">
-                                <select name="sexo" id="sexo" id="selector-sexo" className="selector">
+                                <select name="sexo" id="sexo" id="selector-sexo" className="selector" onChange={this.handleChange}>
                                     <option value="" disabled selected>Sexo</option>
                                     <option value="Feminino">Feminino</option>
                                     <option value="Masculino">Masculino</option>
@@ -75,7 +141,7 @@ class FormPessoaFisica extends Component {
                         </Row>
                         <Row>
                             <Col sm="5" className="col-form">
-                                <select name="nascionalidade" id="nascionalidade" id="input01" className="selector">
+                                <select name="nacionalidade" id="nascionalidade" id="input01" className="selector" onChange={this.handleChange}>
                                     <option value="" disabled selected>Nacionalidade</option>
                                     <option value="nasc01">Nascionalidade 01</option>
                                     <option value="nasc02">Nascionalidade 02</option>
@@ -84,7 +150,7 @@ class FormPessoaFisica extends Component {
                                 </select>
                             </Col>
                             <Col sm="5" className="col-form">
-                                <Form.Control type="text" placeholder="CPF / RNE" id="input02"/>
+                                <Form.Control type="text" name="registro" placeholder="CPF / RNE" id="input02" onChange={this.handleChange}/>
                             </Col>
                         </Row>
                     </Form.Group>
@@ -95,10 +161,10 @@ class FormPessoaFisica extends Component {
                         <hr className="separador"/>
                         <Row>
                             <Col sm="5" className="col-form">
-                                <Form.Control type="text" placeholder="E-mail" id="input01"/>
+                                <Form.Control type="text" name="email" placeholder="E-mail" id="input01" onChange={this.handleChange}/>
                             </Col>
                             <Col sm="5" className="col-form">
-                                <Form.Control type="text" placeholder="Telefone" id="input03"/>
+                                <Form.Control type="text" name="telefone" placeholder="Telefone" id="input03" onChange={this.handleChange}/>
                             </Col>
                         </Row>
                     </Form.Group>
@@ -109,21 +175,21 @@ class FormPessoaFisica extends Component {
                         <hr className="separador"/>
                         <Row>
                             <Col sm="5" className="col-form">
-                                <Form.Control type="text" placeholder="CEP" id="input01"/>
+                                <Form.Control type="text" name="cep" placeholder="CEP" id="input01" onChange={this.handleChange}/>
                             </Col>
                             <Col sm="5" className="col-form">
-                                <Form.Control type="text" placeholder="Rua" id="input03"/>
+                                <Form.Control type="text" name="rua" placeholder="Rua" id="input03" onChange={this.handleChange}/>
                             </Col>
                         </Row>
                         <Row>
                             <Col sm="2" className="col-form">
-                                <Form.Control type="text" placeholder="N°" id="input-numero-casa"/>
+                                <Form.Control type="text" name="numero" placeholder="N°" id="input-numero-casa" onChange={this.handleChange}/>
                             </Col>
                             <Col sm="4" className="col-form">
-                                <Form.Control type="text" placeholder="Complemento" id="input-complemento"/>
+                                <Form.Control type="text" name="complemento" placeholder="Complemento" id="input-complemento" onChange={this.handleChange}/>
                             </Col>
                             <Col sm="4" className="col-form">
-                                <Form.Control type="text" placeholder="Bairro" id="input-bairro"/>
+                                <Form.Control type="text" name="bairro" placeholder="Bairro" id="input-bairro" onChange={this.handleChange}/>
                             </Col>
                         </Row>
                         <Row>
@@ -134,7 +200,7 @@ class FormPessoaFisica extends Component {
                                 </select>
                             </Col>
                             <Col sm="5" className="col-form">
-                                <select name="cidade" id="cidade" id="input03" className="selector">
+                                <select name="cidade" id="cidade" id="input03" className="selector" onChange={this.handleChange}>
                                     <option value="" disabled selected>Cidade</option>
                                     {this.state.cidades.map(cidade => <option value={cidade.id}>{cidade.nome}</option>)}
                                 </select>
@@ -148,14 +214,14 @@ class FormPessoaFisica extends Component {
                         <hr className="separador"/>
                         <Row>
                             <Col sm="5" className="col-form">
-                                <Form.Control type="password" placeholder="Senha" id="input01"/>
+                                <Form.Control name="password" type="password" placeholder="Senha" id="input01" onChange={this.handleChange}/>
                             </Col>
                             <Col sm="5" className="col-form">
-                                <Form.Control type="password" placeholder="Confirmar Senha" id="input03"/>
+                                <Form.Control name="password-check" type="password" placeholder="Confirmar Senha" id="input03" onChange={this.handleChange}/>
                             </Col>
                         </Row>
                     </Form.Group>
-                    <Button variant="success" id="btn-cadastrar">CADASTRAR</Button>
+                    <Button variant="success" id="btn-cadastrar" onClick={() => this.save()}>CADASTRAR</Button>
                 </Form>
             </div>
         );

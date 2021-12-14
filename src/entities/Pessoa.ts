@@ -11,4 +11,10 @@ export class Pessoa {
     img_avatar: object;
     img_background: object;
 
+    constructor(){
+        this.dadosContato = new DadosContato();
+        this.dadosBancario = new DadosBancario();
+        this.endereco = new Endereco();
+    }
+
 }
