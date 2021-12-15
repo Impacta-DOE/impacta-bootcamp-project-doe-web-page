@@ -6,6 +6,8 @@ import crossButton from '../images/cross.png';
 import '../css/GerenciarPontosDeColetaModal.css';
 import LocalizacaoService from '../services/LocalizacaoService';
 import TabelaPontosDeColeta from './TabelaPontosDeColeta';
+import PontosColetaServices from '../services/PontosColetaServices';
+import RegistroTabelaPontosDeColeta from './RegistroTabelaPontosDeColeta';
 
 class GerenciarPontosDeColetaModal extends Component {
 
@@ -13,6 +15,8 @@ class GerenciarPontosDeColetaModal extends Component {
         super(props);
         this.state = {
                         localizacaoService : new LocalizacaoService(), 
+                        pontosColetaService: new PontosColetaServices(),
+                        pontosColeta: [],
                         getEstadoAtual : false, 
                         getCidadeAtual : false, 
                         estados : [], 
@@ -116,6 +120,11 @@ class GerenciarPontosDeColetaModal extends Component {
                         <Row>
                             <Col>
                                 <TabelaPontosDeColeta selectMode/>
+                            </Col>
+                        </Row>
+                        <Row style={{marginBottom: ".6em"}}>
+                            <Col style={{display: "flex", justifyContent: "center", alignItems: "center"}}>
+                                <input type="button" value="Confirmar Pontos de coleta" id="btn-confirmar-pontos-coleta" align="center"/>
                             </Col>
                         </Row>
                     </Form>

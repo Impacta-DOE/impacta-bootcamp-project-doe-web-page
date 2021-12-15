@@ -9,6 +9,7 @@ export class PontosColeta {
     idEstado: number;
     idCidade: number;
     responsavel: string;
+    pontoSelecionado : boolean;
 
     constructor(
         cep: string, 
@@ -18,7 +19,8 @@ export class PontosColeta {
         bairro: string, 
         idEstado: number, 
         idCidade: number, 
-        responsavel: string
+        responsavel: string,
+        pontoSelecionado: boolean
     ){
 
         this.cep = cep;
@@ -29,7 +31,7 @@ export class PontosColeta {
         this.idEstado = idEstado;
         this.idCidade = idCidade;
         this.responsavel = responsavel;
-
+        this.pontoSelecionado = pontoSelecionado;
     }
 
 }

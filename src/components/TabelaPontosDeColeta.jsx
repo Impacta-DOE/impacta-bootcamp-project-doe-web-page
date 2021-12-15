@@ -1,9 +1,37 @@
 import React, { Component } from 'react';
 
 import '../css/TabelaPontosDeColeta.css';
+import PontosColetaServices from '../services/PontosColetaServices';
 import RegistroTabelaPontosDeColeta from './RegistroTabelaPontosDeColeta';
 
 class TabelaPontosDeColeta extends Component {
+
+    constructor(props){
+        super(props);
+        this.state = {
+                        pontosColetaService: new PontosColetaServices(),
+                        pontosColeta: []
+                    };
+    }
+
+    componentWillMount(){
+        this.getPontosColeta();
+    }
+
+    getPontosColeta(){
+        let pontosColeta = this.state.pontosColetaService.getPontosColeta();
+        let pontosColetaTag = [];
+        for(var i=0; i<pontosColeta.length; i++){
+            pontosColetaTag.push(
+                                    <RegistroTabelaPontosDeColeta 
+                                        selectMode={this.props.selectMode} 
+                                        pontoColeta={pontosColeta[i]}
+                                    />
+                                );
+        }
+        this.setState({pontosColeta: pontosColetaTag});
+    }
+
     render() {
         return (
             <div id="tabela-pontos-coleta">
@@ -29,15 +57,7 @@ class TabelaPontosDeColeta extends Component {
                     <div className="vertical-line-header"></div>
                     <p className="column" style={{width: "16%", marginLeft: "3%"}}>Responsavel</p>
                 </div>
-                <RegistroTabelaPontosDeColeta selectMode={this.props.selectMode}/>
-                <RegistroTabelaPontosDeColeta selectMode={this.props.selectMode}/>
-                <RegistroTabelaPontosDeColeta selectMode={this.props.selectMode}/>
-                <RegistroTabelaPontosDeColeta selectMode={this.props.selectMode}/>
-                <RegistroTabelaPontosDeColeta selectMode={this.props.selectMode}/>
-                <RegistroTabelaPontosDeColeta selectMode={this.props.selectMode}/>
-                <RegistroTabelaPontosDeColeta selectMode={this.props.selectMode}/>
-                <RegistroTabelaPontosDeColeta selectMode={this.props.selectMode}/>
-                
+                {this.state.pontosColeta}
             </div>
         );
     }

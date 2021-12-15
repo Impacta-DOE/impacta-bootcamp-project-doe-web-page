@@ -95,7 +95,7 @@ class FormPessoaFisica extends Component {
 
     save() {
         this.state.pessoaFisicaService.save(this.state.pessoaFisica)
-                                        .then(() => alert("Cadastro realizado"))
+                                        .then(() => alert("Cadastro realizado!!!"))
                                         .catch((err) => alert("Erro: " + err));
     }
 

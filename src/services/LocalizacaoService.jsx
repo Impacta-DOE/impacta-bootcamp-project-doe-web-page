@@ -19,6 +19,17 @@ class LocalizacaoService extends Component {
         return resultados;
     }
 
+    async getEstadoById(id){
+      let resultados;
+        
+      await axios.get(this.state.URL + 'estados/' + id)
+      .then(res => {
+        resultados = res.data;
+      });
+
+      return resultados;
+    }
+
     async getCidades(){
         let resultados;
         
@@ -29,6 +40,17 @@ class LocalizacaoService extends Component {
 
         return resultados;
     }
+
+    async getCidadeById(id){
+      let resultados;
+      
+      await axios.get(this.state.URL + 'municipios/' + id)
+      .then(res => {
+        resultados = res.data;
+      });
+
+      return resultados;
+  }
 
     async getCidadesByUF(uf){
         let resultados;

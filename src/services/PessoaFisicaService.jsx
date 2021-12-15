@@ -30,21 +30,21 @@ class PessoaFisicaService extends Component {
                 telefone: pessoaFisica.dadosContato.telefone
               },
               dataNascimento: pessoaFisica.dataNasc,
+              descricao: pessoaFisica.descricao,
               endereco: {
                 bairro: pessoaFisica.endereco.bairro,
                 cep: pessoaFisica.endereco.cep,
-                cidade: pessoaFisica.endereco.cidade,
                 complemento: pessoaFisica.endereco.complemento,
                 id: 0,
+                idDaCidade: pessoaFisica.endereco.idCidade,
+                idDoEstado: pessoaFisica.endereco.idEstado,
                 logradouro: pessoaFisica.endereco.rua,
                 numero: pessoaFisica.endereco.numero,
                 uf: pessoaFisica.endereco.idEstado
               },
               id: 0,
-              img_avatar_base64: {img_avatar_base64},
-              img_avatar_url: "string",
-              img_background_base64: {img_background_base64},
-              img_background_url: "string",
+              img_avatar_url: null,
+              img_background_url: null,
               nacionalidade: {
                 descricao: pessoaFisica.nacionalidade.descricao,
                 id: 0

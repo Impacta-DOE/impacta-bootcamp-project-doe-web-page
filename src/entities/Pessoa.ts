@@ -10,6 +10,7 @@ export class Pessoa {
     senha: string;
     img_avatar: object;
     img_background: object;
+    descricao: string;
 
     constructor(){
         this.dadosContato = new DadosContato();

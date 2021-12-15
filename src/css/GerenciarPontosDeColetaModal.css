@@ -52,7 +52,7 @@
     height: 2.5em;
     font-family: 'Roboto';
     border: 2px solid #4380BD;
-    border-radius: 4%;
+    border-radius: 4px;
     float: left;
 }
 
@@ -65,7 +65,7 @@
     height: 2.5em;
     font-family: 'Roboto';
     border: 2px solid #4380BD;
-    border-radius: 4%;
+    border-radius: 4px;
     float: left;
 }
 
@@ -120,4 +120,20 @@
 
 #btn-pesquisa:hover {
     background-color: #4686c5;
+}
+
+#btn-confirmar-pontos-coleta {
+    width: 80%;
+    height: 2.5em;
+    color: white;
+    background-color: #55A5F4;
+    border: none;
+    border-radius: 4px;
+    font-size: 24px;
+    font-family: 'Roboto Bold';
+    margin-top: .8em;
+}
+
+#btn-confirmar-pontos-coleta:hover {
+    background-color: #4686c7;
 }
