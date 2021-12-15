@@ -1,0 +1,123 @@
+.modal-pontos-coleta {
+    min-width: 40%;
+}
+
+#input-cep {
+    height: 2.5em;
+    width: 107%;
+    font-family: 'Roboto';
+    border: 2px solid #4380BD;
+    border-radius: 4px;
+    float: left;
+}
+
+#input-rua {
+    height: 2.52em;
+    width: 100%;
+    font-family: 'Roboto';
+    border: 2px solid #4380BD;
+    border-radius: 4px;
+    float: left;
+}
+
+#input-numero {
+    height: 2.5em;
+    width: 116%;
+    font-family: 'Roboto';
+    border: 2px solid #4380BD;
+    border-radius: 4px;
+    float: left;
+}
+
+#input-complemento {
+    height: 2.5em;
+    width: 112%;
+    font-family: 'Roboto';
+    border: 2px solid #4380BD;
+    border-radius: 4px;
+    float: left;
+}
+
+#input-responsavel {
+    height: 2.5em;
+    width: 100%;
+    font-family: 'Roboto';
+    border: 2px solid #4380BD;
+    border-radius: 4px;
+    float: left;
+}
+
+#combobox-pontos-estados {
+    width: 100%;
+    height: 2.5em;
+    font-family: 'Roboto';
+    border: 2px solid #4380BD;
+    border-radius: 4%;
+    float: left;
+}
+
+#combobox-pontos-estados:focus {
+    outline: none;
+}
+
+#combobox-pontos-cidades {
+    width: 104.1%;
+    height: 2.5em;
+    font-family: 'Roboto';
+    border: 2px solid #4380BD;
+    border-radius: 4%;
+    float: left;
+}
+
+#combobox-pontos-cidades:focus {
+    outline: none;
+}
+
+.titulo-pontos-coleta {
+    color: #4380BD;
+    font-size: 18px;
+    font-family: 'Roboto';
+    float: left;
+    margin-top: 2em;
+}
+
+.hr-titulo-pontos-coleta {
+    background-color: #4380BD;
+    border: .1px solid #4380BD;
+    margin-top: -1em;
+}
+
+#btn-add-ponto-coleta {
+    float: right;
+    width: 13em;
+    border-radius: 3px;
+    background-color: #03A654;
+    border: none;
+    color: white;
+    font-family: 'Roboto';
+    font-size: 12px;
+    padding: .6em .9em;
+    margin-top: 2em;
+}
+
+#btn-add-ponto-coleta:hover {
+    background-color: #048846;
+}
+
+#btn-pesquisa {
+    float: right;
+    width: 13em;
+    border-radius: 3px;
+    background-color: #55A5F4;
+    border: none;
+    color: white;
+    font-family: 'Roboto';
+    font-size: 12px;
+    padding: .6em .9em;
+    margin-top: 2em;
+    margin-left: .5em;
+}
+
+#btn-pesquisa:hover {
+    background-color: #4686c5;
+}
