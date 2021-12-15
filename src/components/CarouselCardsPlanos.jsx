@@ -52,7 +52,7 @@ class CarouselCardsPlanos extends Component {
             <div>
                 <Row style={{"width" : "100%", "height" : "3em", "margin-left" : ".001em", "margin-bottom" : "1em"}}>
                     <Col style={{"padding" : "0", "height" : "100%"}}>
-                        <p id="titulo">Planos de Assinaturas Disponíveis</p>
+                        <p id="titulo">Planos de assinatura disponíveis</p>
                     </Col>
                 </Row>
                 <Row className='box-subtitle-planos'>
