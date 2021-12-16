@@ -17,12 +17,14 @@ class GerenciarPontosDeColetaModal extends Component {
                         localizacaoService : new LocalizacaoService(), 
                         pontosColetaService: new PontosColetaServices(),
                         pontosColeta: [],
+                        pontosColetaAtivos: [],
                         getEstadoAtual : false, 
                         getCidadeAtual : false, 
                         estados : [], 
                         cidades : []
                     };
         this.handleChange = this.handleChange.bind(this);
+        this.setPontosColetaAtivos = this.setPontosColetaAtivos.bind(this);
     }
 
     componentDidMount(){
@@ -46,6 +48,15 @@ class GerenciarPontosDeColetaModal extends Component {
                 break;   
         }
         
+    }
+
+    setPontosColetaAtivos(pontosColetaAtivos){
+        this.setState({pontosColetaAtivos});
+    }
+
+    confirmarPontosColeta(){
+        this.props.atualizarPontosColeta(this.state.pontosColetaAtivos);
+        this.props.setShowModalPontosColeta();
     }
 
     render() {
@@ -108,7 +119,7 @@ class GerenciarPontosDeColetaModal extends Component {
                         <Row>
                             <Col>
                                 <p className="titulo-pontos-coleta">Pontos de coleta</p>
-                                <input type="button" value="Pesquisa" id="btn-pesquisa" onClick={() => this.showModal()}/>
+                                <input type="button" value="Pesquisa" id="btn-pesquisa"/>
                                 <input type="button" value="Adicionar ponto de coleta" id="btn-add-ponto-coleta" onClick={() => this.showModal()}/>
                             </Col>
                         </Row>
@@ -119,12 +130,12 @@ class GerenciarPontosDeColetaModal extends Component {
                         </Row>
                         <Row>
                             <Col>
-                                <TabelaPontosDeColeta selectMode/>
+                                <TabelaPontosDeColeta selectMode pontosColetaCampanha={this.props.pontosColetaCampanha} setPontosColetaAtivos={this.setPontosColetaAtivos}/>
                             </Col>
                         </Row>
                         <Row style={{marginBottom: ".6em"}}>
                             <Col style={{display: "flex", justifyContent: "center", alignItems: "center"}}>
-                                <input type="button" value="Confirmar Pontos de coleta" id="btn-confirmar-pontos-coleta" align="center"/>
+                                <input type="button" value="Confirmar Pontos de coleta" id="btn-confirmar-pontos-coleta" align="center" onClick={() => this.confirmarPontosColeta()}/>
                             </Col>
                         </Row>
                     </Form>

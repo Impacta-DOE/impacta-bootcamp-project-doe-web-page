@@ -24,6 +24,7 @@ class ManterCampanhaModal extends Component {
         this.setTipoDoacao = this.setTipoDoacao.bind(this);
         this.onImageChange = this.onImageChange.bind(this);
         this.setShowModalPontosColeta = this.setShowModalPontosColeta.bind(this);
+        this.atualizarPontosColeta = this.atualizarPontosColeta.bind(this);
     }
 
     changeInputType(newType) {
@@ -86,6 +87,10 @@ class ManterCampanhaModal extends Component {
               image: URL.createObjectURL(img)
             });
         }
+    }
+
+    atualizarPontosColeta(pontosColetaAtivos){
+        this.setState({pontosColeta: pontosColetaAtivos});
     }
 
     render() {
@@ -201,7 +206,12 @@ class ManterCampanhaModal extends Component {
                         </Form>
                     </Modal.Body>
                 </Modal>
-                <GerenciarPontosDeColetaModal showModal={this.state.showModalPontosColeta} pontosColeta={this.state.pontosColeta} setShowModalPontosColeta={() => this.setShowModalPontosColeta()}/>
+                <GerenciarPontosDeColetaModal 
+                    showModal={this.state.showModalPontosColeta} 
+                    pontosColetaCampanha={this.state.pontosColeta} 
+                    setShowModalPontosColeta={() => this.setShowModalPontosColeta()}
+                    atualizarPontosColeta={this.atualizarPontosColeta}
+                />
             </>
         );
     }

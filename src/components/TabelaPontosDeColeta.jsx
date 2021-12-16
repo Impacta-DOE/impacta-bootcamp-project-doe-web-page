@@ -10,26 +10,66 @@ class TabelaPontosDeColeta extends Component {
         super(props);
         this.state = {
                         pontosColetaService: new PontosColetaServices(),
-                        pontosColeta: []
+                        pontosColeta: [],
+                        pontosColetaAtivos: []
                     };
+        this.setPontoColetaSelecionado = this.setPontoColetaSelecionado.bind(this);
     }
 
     componentWillMount(){
-        this.getPontosColeta();
+        if(this.props.selectMode) {
+            this.selecionarPontosColeta();
+        } else {
+            this.getPontosColeta(this.state.pontosColetaService.getPontosColeta());
+        }
     }
 
-    getPontosColeta(){
+    setPontoColetaSelecionado(id, checked){
         let pontosColeta = this.state.pontosColetaService.getPontosColeta();
+        if(checked){
+            for(let i=0; i<pontosColeta.length; i++){
+                if(pontosColeta[i].id === id){
+                    pontosColeta[i].pontoSelecionado = true;
+                    this.state.pontosColetaAtivos.push(pontosColeta[i]);
+                }
+            }   
+        } else {
+            for(let i=0; i<this.state.pontosColetaAtivos.length; i++){
+                if(this.state.pontosColetaAtivos[i].id === id){
+                    this.state.pontosColetaAtivos.splice(this.state.pontosColetaAtivos.indexOf(this.state.pontosColetaAtivos[i]), 1);
+                }
+            } 
+        }
+        this.props.setPontosColetaAtivos(this.state.pontosColetaAtivos);
+    }
+
+    getPontosColeta(pontosColeta){
         let pontosColetaTag = [];
         for(var i=0; i<pontosColeta.length; i++){
             pontosColetaTag.push(
                                     <RegistroTabelaPontosDeColeta 
                                         selectMode={this.props.selectMode} 
                                         pontoColeta={pontosColeta[i]}
+                                        setPontoColetaSelecionado={this.setPontoColetaSelecionado}
                                     />
                                 );
         }
         this.setState({pontosColeta: pontosColetaTag});
+    }
+
+    selecionarPontosColeta(){
+        let pontosColeta = this.state.pontosColetaService.getPontosColeta();
+        let pontosColetaCampanha = this.props.pontosColetaCampanha;
+        for(var i=0; i<pontosColetaCampanha.length; i++){
+            for(var j=0; j<pontosColeta.length; j++){
+                if(pontosColetaCampanha[i].id === pontosColeta[j].id){
+                    pontosColeta[j].pontoSelecionado = true;
+                    this.state.pontosColetaAtivos.push(pontosColeta[j]);
+                    break;
+                }
+            }
+        }
+        this.getPontosColeta(pontosColeta);
     }
 
     render() {

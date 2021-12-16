@@ -9,15 +9,20 @@ class RegistroTabelaPontosDeColeta extends Component {
     constructor(props){
         super(props);
         this.state = { localizacaoService : new LocalizacaoService() , cidade : "", estado : ""};
+        this.handleOnChange = this.handleOnChange.bind(this);
     }
 
     componentDidMount(){
-        this.state.localizacaoService.getEstadoById().then(estado => {
-            this.setState({estado});
+        this.state.localizacaoService.getEstadoById(this.props.pontoColeta.idEstado).then(estado => {
+            this.setState({estado: estado.nome});
         });
-        this.state.localizacaoService.getCidadeById().then(cidade => {
-            this.setState({cidade});
+        this.state.localizacaoService.getCidadeById(this.props.pontoColeta.idCidade).then(cidade => {
+            this.setState({cidade: cidade.nome});
         });
+    }
+
+    handleOnChange(event){
+        this.props.setPontoColetaSelecionado(this.props.pontoColeta.id, event.target.checked);
     }
 
     render() {
@@ -29,7 +34,9 @@ class RegistroTabelaPontosDeColeta extends Component {
                         <Form.Check
                             active
                             type={'checkbox'}
-                            checked={this.props.pontoColeta.pontoSelecionado}
+                            id={'selecionado'}
+                            defaultChecked={this.props.pontoColeta.pontoSelecionado}
+                            onChange={this.handleOnChange}
                         />
                     </div>
                     <div className="vertical-line-registry"></div>
@@ -42,9 +49,9 @@ class RegistroTabelaPontosDeColeta extends Component {
             <div className="vertical-line-registry"></div>
             <p className="column-registry" style={{width: "9%"}}>{this.props.pontoColeta.complemento}</p>
             <div className="vertical-line-registry"></div>
-            <p className="column-registry" style={{width: (this.props.selectMode) ? "12%" : "16%"}}>Cidade</p>
+            <p className="column-registry" style={{width: (this.props.selectMode) ? "12%" : "16%"}}>{this.state.cidade}</p>
             <div className="vertical-line-registry"></div>
-            <p className="column-registry" style={{width: (this.props.selectMode) ? "12%" : "16%"}}>Estado</p>
+            <p className="column-registry" style={{width: (this.props.selectMode) ? "12%" : "16%"}}>{this.state.estado}</p>
             <div className="vertical-line-registry"></div>
             <p className="column-registry" style={{width: "7%"}}>{this.props.pontoColeta.cep}</p>
             <div className="vertical-line-registry"></div>
