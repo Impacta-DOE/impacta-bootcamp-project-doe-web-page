@@ -5,6 +5,8 @@ import '../css/ManterCampanhaModal.css';
 import { PontosColeta } from '../entities/PontosColeta';
 
 import crossButton from '../images/cross.png';
+import sample_card from '../images/sample_card_03.png';
+
 import GerenciarPontosDeColetaModal from './GerenciarPontosDeColetaModal';
 import CardCampanha from './CardCampanha';
 import { Campanha } from '../entities/Campanha';
@@ -22,7 +24,7 @@ class ManterCampanhaModal extends Component {
                         tipoDoacao : "", 
                         tipoDoacaoInputs : null, 
                         image: null, 
-                        imageCard: null,
+                        imageCard: sample_card,
                         pontosColeta : [],
                         showModalPontosColeta : false,
                         item_campanha: new Campanha(
@@ -44,9 +46,7 @@ class ManterCampanhaModal extends Component {
                             new Doacao('dinheiro', 'R$', 0, 0, [
                                 new HistoricoDoacao(true, 0.0001, true, "", "00/00/0000")
                             ]), []
-                        ),
-                        showCardExample: true,
-                        displayCardExample: "none"
+                        )
                     };
         this.setPrecisaVoluntario = this.setPrecisaVoluntario.bind(this);
         this.setTipoDoacao = this.setTipoDoacao.bind(this);
@@ -54,7 +54,6 @@ class ManterCampanhaModal extends Component {
         this.onImageCardChange = this.onImageCardChange.bind(this);
         this.setShowModalPontosColeta = this.setShowModalPontosColeta.bind(this);
         this.atualizarPontosColeta = this.atualizarPontosColeta.bind(this);
-        this.showCardExample = this.showCardExample.bind(this);
     }
 
     changeInputType(newType) {
@@ -68,12 +67,6 @@ class ManterCampanhaModal extends Component {
     setShowModalPontosColeta(){
         this.setState({showModalPontosColeta : !this.state.showModalPontosColeta});
         this.props.setShowModal();
-    }
-
-    showCardExample(){
-        this.setState({showCardExample: !this.state.showCardExample});
-        this.setState({displayCardExample: (this.state.showCardExample) ? "block" : "none"});
-        
     }
 
     setTipoDoacao(event){
@@ -152,8 +145,8 @@ class ManterCampanhaModal extends Component {
                         <div style={{width : "100%", height : "auto", paddingRight : ".5em", paddingTop : ".4em",  position: "absolute", zIndex: "5"}}>
                             <img src={crossButton} id="crossButton" onClick={() => {this.props.setShowModal()}}/>
                         </div>
-                        <div style={{width: "100%", height: "100%", position: "absolute", backgroundColor: "rgba(0, 0, 0, .6)", zIndex: "4", display: this.state.displayCardExample}}>
-                            <div style={{pointerEvents: "none", marginLeft: "3em", marginTop: "1em"}}>
+                        <div style={{width: "100%", height: "100%", position: "absolute", zIndex: "4"}}>
+                            <div style={{pointerEvents: "none", marginLeft: "2.3%", marginTop: "2%"}}>
                                 <CardCampanha campanha={this.state.item_campanha} img_background_card={this.state.imageCard}/>
                             </div>
                         </div>
@@ -162,7 +155,7 @@ class ManterCampanhaModal extends Component {
                                 <label for="arquivo" id="btn-mudar-foto-capa">Adicionar foto de capa</label>
                                 <input type="file" name="capa" id="arquivo" onChange={this.onImageChange}/>
                             </div>
-                            <div id="btn-foto-card" onMouseEnter={this.showCardExample} onMouseOut={this.showCardExample}>
+                            <div id="btn-foto-card">
                                 <label for="arquivo-card" id="btn-mudar-foto-card">Adicionar foto do card</label>
                                 <input type="file" name="card" id="arquivo-card" onChange={this.onImageCardChange} />
                             </div>
