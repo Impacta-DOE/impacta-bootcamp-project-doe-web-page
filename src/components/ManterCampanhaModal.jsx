@@ -6,6 +6,11 @@ import { PontosColeta } from '../entities/PontosColeta';
 
 import crossButton from '../images/cross.png';
 import GerenciarPontosDeColetaModal from './GerenciarPontosDeColetaModal';
+import CardCampanha from './CardCampanha';
+import { Campanha } from '../entities/Campanha';
+import { Organizacao } from '../entities/Organizacao';
+import { Doacao } from '../entities/Doacao';
+import { HistoricoDoacao } from '../entities/HistoricoDoacao';
 
 class ManterCampanhaModal extends Component {
 
@@ -17,14 +22,39 @@ class ManterCampanhaModal extends Component {
                         tipoDoacao : "", 
                         tipoDoacaoInputs : null, 
                         image: null, 
+                        imageCard: null,
                         pontosColeta : [],
-                        showModalPontosColeta : false
+                        showModalPontosColeta : false,
+                        item_campanha: new Campanha(
+                            new Organizacao(
+                                "Exemplo Card",
+                                "Este é um exemplo de como ficara o card",
+                                null,
+                                "",
+                                [],[],[]
+                            ),
+                            "Exemplo Card",
+                            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. " +
+                            "Aenean pellentesque dolor ante, at convallis turpis euismod a. Sed finibus nisl " +
+                            "eros, vitae cursus nunc pellentesque a. Integer tempor turpis et dui feugiat, " +
+                            "vitae gravida nisi maximus. Integer mollis finibus condimentum...",
+                            0,
+                            null,
+                            null,
+                            new Doacao('dinheiro', 'R$', 0, 0, [
+                                new HistoricoDoacao(true, 0.0001, true, "", "00/00/0000")
+                            ]), []
+                        ),
+                        showCardExample: true,
+                        displayCardExample: "none"
                     };
         this.setPrecisaVoluntario = this.setPrecisaVoluntario.bind(this);
         this.setTipoDoacao = this.setTipoDoacao.bind(this);
         this.onImageChange = this.onImageChange.bind(this);
+        this.onImageCardChange = this.onImageCardChange.bind(this);
         this.setShowModalPontosColeta = this.setShowModalPontosColeta.bind(this);
         this.atualizarPontosColeta = this.atualizarPontosColeta.bind(this);
+        this.showCardExample = this.showCardExample.bind(this);
     }
 
     changeInputType(newType) {
@@ -38,6 +68,12 @@ class ManterCampanhaModal extends Component {
     setShowModalPontosColeta(){
         this.setState({showModalPontosColeta : !this.state.showModalPontosColeta});
         this.props.setShowModal();
+    }
+
+    showCardExample(){
+        this.setState({showCardExample: !this.state.showCardExample});
+        this.setState({displayCardExample: (this.state.showCardExample) ? "block" : "none"});
+        
     }
 
     setTipoDoacao(event){
@@ -89,6 +125,15 @@ class ManterCampanhaModal extends Component {
         }
     }
 
+    onImageCardChange(event){
+        if (event.target.files && event.target.files[0]) {
+            let img = event.target.files[0];
+            this.setState({
+              imageCard: URL.createObjectURL(img)
+            });
+        }
+    }
+
     atualizarPontosColeta(pontosColetaAtivos){
         this.setState({pontosColeta: pontosColetaAtivos});
     }
@@ -104,13 +149,22 @@ class ManterCampanhaModal extends Component {
                     aria-labelledby="example-custom-modal-styling-title"
                 >
                     <div id="container-img-background" style={{backgroundImage: "url(" + this.state.image + ")"}}>
-                        <div style={{width : "100%", height : "auto", paddingRight : ".5em", paddingTop : ".4em"}}>
+                        <div style={{width : "100%", height : "auto", paddingRight : ".5em", paddingTop : ".4em",  position: "absolute", zIndex: "5"}}>
                             <img src={crossButton} id="crossButton" onClick={() => {this.props.setShowModal()}}/>
                         </div>
-                        <div style={{width : "100%", height : "auto", position : "absolute", bottom: "0"}}>
-                            <div id="teste">
+                        <div style={{width: "100%", height: "100%", position: "absolute", backgroundColor: "rgba(0, 0, 0, .6)", zIndex: "4", display: this.state.displayCardExample}}>
+                            <div style={{pointerEvents: "none", marginLeft: "3em", marginTop: "1em"}}>
+                                <CardCampanha campanha={this.state.item_campanha} img_background_card={this.state.imageCard}/>
+                            </div>
+                        </div>
+                        <div style={{width : "100%", height : "auto", position : "absolute", bottom: "0",  zIndex: "5"}}>
+                            <div id="btn-foto-capa">
                                 <label for="arquivo" id="btn-mudar-foto-capa">Adicionar foto de capa</label>
                                 <input type="file" name="capa" id="arquivo" onChange={this.onImageChange}/>
+                            </div>
+                            <div id="btn-foto-card" onMouseEnter={this.showCardExample} onMouseOut={this.showCardExample}>
+                                <label for="arquivo-card" id="btn-mudar-foto-card">Adicionar foto do card</label>
+                                <input type="file" name="card" id="arquivo-card" onChange={this.onImageCardChange} />
                             </div>
                         </div>
                     </div>

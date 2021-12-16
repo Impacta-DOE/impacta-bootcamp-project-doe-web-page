@@ -41,7 +41,7 @@ class CardCampanha extends Component {
                 }} 
                 onClick={() => this.abrirPaginaCampanha()}
             >
-                <img src={this.props.campanha.img_background_card} id="background-img-card"/>
+                <img src={(this.props.campanha.img_background_card !== null) ? this.props.campanha.img_background_card : this.props.img_background_card} id="background-img-card"/>
                 <div id="painel-card">
                     <div id="text-area">
                         <p id="titulo-card">{this.props.campanha.nome_campanha}</p>

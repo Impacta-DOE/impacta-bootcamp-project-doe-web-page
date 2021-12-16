@@ -34,6 +34,27 @@
     background-color: #9e9d9d;
 }
 
+#btn-mudar-foto-card {
+    background-color: #EDEDED;
+    float: right;
+    border: none;
+    border-radius: 3px;
+    padding: .5em 1em;
+    margin-bottom: .8em;
+    margin-right: .8em;
+    background-image: url("../images/icon_card.png");
+    background-repeat: no-repeat;
+    background-position: 10px;
+    background-size: 21px 20px;
+    padding-left: 40px;
+    font-size: 14px;
+    font-family: 'Roboto';
+}
+
+#btn-mudar-foto-card:hover {
+    background-color: #9e9d9d;
+}
+
 .selector-tipo-campanha {
     padding-left: .5em;
     color: #5c5b5b;
@@ -215,7 +236,7 @@ input[type="file"] {
     display: none;
 }
 
-#teste label {
+#btn-foto-capa label {
     text-align: center;
     display: block;
     cursor: pointer;
@@ -230,6 +251,26 @@ input[type="file"] {
     background-repeat: no-repeat;
     background-position: 10px;
     background-size: 21px 17px;
+    padding-left: 40px;
+    font-size: 14px;
+    font-family: 'Roboto';
+}
+
+#btn-foto-card label {
+    text-align: center;
+    display: block;
+    cursor: pointer;
+    background-color: #EDEDED;
+    float: right;
+    border: none;
+    border-radius: 3px;
+    padding: .5em 1em;
+    margin-bottom: .8em;
+    margin-right: .8em;
+    background-image: url("../images/icon_card.png");
+    background-repeat: no-repeat;
+    background-position: 10px;
+    background-size: 21px 20px;
     padding-left: 40px;
     font-size: 14px;
     font-family: 'Roboto';
