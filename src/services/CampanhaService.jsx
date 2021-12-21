@@ -26,6 +26,7 @@ import { Doacao } from '../entities/Doacao';
 import { Organizacao } from '../entities/Organizacao';
 import { HistoricoDoacao } from '../entities/HistoricoDoacao';
 import Comentario from '../entities/Comentario';
+import { PontosColeta } from '../entities/PontosColeta';
 
 class CampanhaService extends Component {
     
@@ -36,6 +37,9 @@ class CampanhaService extends Component {
         this.itensCarousel = [
 
             new Campanha(
+                true, 
+                "campanha", 
+                "2021-12-17", 
                 new Organizacao(
                     "ACNUR",
                     "Agência da ONU para Refugiados",
@@ -63,7 +67,7 @@ class CampanhaService extends Component {
                                 new HistoricoDoacao(false, 10.0, false, "Jorgin", "20/11/2021"),
                                 new HistoricoDoacao(true, 55.0, true, "Julio", "20/11/2021"),
                                 new HistoricoDoacao(true, 200.0, true, "Jackson", "20/11/2021"),
-                            ]),[])
+                            ], null, null),[])
     
                     ],[],[]
                 ),
@@ -83,7 +87,8 @@ class CampanhaService extends Component {
                     new HistoricoDoacao(false, 10.0, false, "Jorgin", "20/11/2021"),
                     new HistoricoDoacao(true, 5.0, true, "Julio", "20/11/2021"),
                     new HistoricoDoacao(true, 20.0, true, "Jackson", "20/11/2021"),
-                ]), [
+                ], null, null), 
+                [
                     new Comentario("Jonas Benavides Cardoso", exemplo_avatar_user, "Muito bom a ideia da campanha, espero que de tudo certo :)", true),
                     new Comentario("Cleber", exemplo_avatar_user, "Espero que tenha conseguido ajudar de alguma forma", true),
                     new Comentario("Ricardo", exemplo_avatar_user, "Show!!!", false),
@@ -94,6 +99,9 @@ class CampanhaService extends Component {
                 ]
             ),
             new Campanha(
+                true, 
+                "campanha", 
+                "2021-12-17", 
                 new Organizacao(
                     "Cáritas Brasileira",
                     "Organização sem fins lucrativos",
@@ -229,9 +237,16 @@ class CampanhaService extends Component {
                 0,
                 exemplo_imagem_background_01,
                 exemplo_imagem_background_card_01,
-                new Doacao('item', 'peças', 100.0, 50.0, null)
+                new Doacao('item', 'peças', 100.0, 50.0, null, "roupas", [
+                    new PontosColeta(1, "08370190", "Rua de exemplo 01", 20, "A", "Bairro de exemplo 01", 35, 3500105, "Roberto", false),
+                    new PontosColeta(2, "08370190", "Rua de exemplo 02", 20, "A", "Bairro de exemplo 02", 35, 3500105, "Julio", false),
+                    new PontosColeta(4, "08370190", "Rua de exemplo 04", 20, "A", "Bairro de exemplo 04", 35, 3500105, "Alberto", false)
+                ])
             ),
             new Campanha(
+                true, 
+                "campanha", 
+                "2021-12-17", 
                 new Organizacao(
                     "ADUS",
                     "Instituto de Reintegração do Refugiado",
@@ -378,9 +393,16 @@ class CampanhaService extends Component {
                     new HistoricoDoacao(false, 10.0, false, "Jorgin", "20/11/2021"),
                     new HistoricoDoacao(true, 55.0, true, "Julio", "20/11/2021"),
                     new HistoricoDoacao(true, 200.0, true, "Jackson", "20/11/2021"),
+                ], "brinquedos", [
+                    new PontosColeta(1, "08370190", "Rua de exemplo 01", 20, "A", "Bairro de exemplo 01", 35, 3500105, "Roberto", false),
+                    new PontosColeta(2, "08370190", "Rua de exemplo 02", 20, "A", "Bairro de exemplo 02", 35, 3500105, "Julio", false),
+                    new PontosColeta(4, "08370190", "Rua de exemplo 04", 20, "A", "Bairro de exemplo 04", 35, 3500105, "Alberto", false)
                 ])
             ),
             new Campanha(
+                true, 
+                "campanha", 
+                "2021-12-17", 
                 new Organizacao(
                     "Cedeca",
                     "Centro de Defesa da Criança e do Adolescente",
@@ -476,9 +498,16 @@ class CampanhaService extends Component {
                 0,
                 exemplo_imagem_background_03,
                 exemplo_imagem_background_card_03,
-                new Doacao('item', 'KG', 300.0, 400.0, null)
+                new Doacao('item', 'KG', 300.0, 400.0, null, "alimentos", [
+                    new PontosColeta(1, "08370190", "Rua de exemplo 01", 20, "A", "Bairro de exemplo 01", 35, 3500105, "Roberto", false),
+                    new PontosColeta(2, "08370190", "Rua de exemplo 02", 20, "A", "Bairro de exemplo 02", 35, 3500105, "Julio", false),
+                    new PontosColeta(4, "08370190", "Rua de exemplo 04", 20, "A", "Bairro de exemplo 04", 35, 3500105, "Alberto", false)
+                ])
             ),
             new Campanha(
+                true, 
+                "campanha", 
+                "2021-12-17", 
                 new Organizacao(
                     "CRAMI",
                     "Centro Regional de Atenção aos Maus Tratos na Infância",
@@ -562,9 +591,12 @@ class CampanhaService extends Component {
                     new HistoricoDoacao(false, 10.0, false, "Jorgin", "20/11/2021"),
                     new HistoricoDoacao(true, 55.0, true, "Julio", "20/11/2021"),
                     new HistoricoDoacao(true, 200.0, true, "Jackson", "20/11/2021"),
-                ])
+                ], null, null)
             ),
             new Campanha(
+                true, 
+                "campanha", 
+                "2021-12-17", 
                 new Organizacao(
                     "ACNUR",
                     "Agência da ONU para Refugiados",
@@ -636,9 +668,12 @@ class CampanhaService extends Component {
                     new HistoricoDoacao(false, 10.0, false, "Jorgin", "20/11/2021"),
                     new HistoricoDoacao(true, 55.0, true, "Julio", "20/11/2021"),
                     new HistoricoDoacao(true, 200.0, true, "Jackson", "20/11/2021"),
-                ])
+                ], null, null)
             ),
             new Campanha(
+                true, 
+                "campanha", 
+                "2021-12-17", 
                 new Organizacao(
                     "ACNUR",
                     "Agência da ONU para Refugiados",
@@ -698,9 +733,12 @@ class CampanhaService extends Component {
                     new HistoricoDoacao(false, 10.0, false, "Jorgin", "20/11/2021"),
                     new HistoricoDoacao(true, 55.0, true, "Julio", "20/11/2021"),
                     new HistoricoDoacao(true, 200.0, true, "Jackson", "20/11/2021"),
-                ])
+                ], null, null)
             ),
             new Campanha(
+                true, 
+                "campanha", 
+                "2021-12-17", 
                 new Organizacao(
                     "ACNUR",
                     "Agência da ONU para Refugiados",
@@ -748,9 +786,12 @@ class CampanhaService extends Component {
                     new HistoricoDoacao(false, 10.0, false, "Jorgin", "20/11/2021"),
                     new HistoricoDoacao(true, 55.0, true, "Julio", "20/11/2021"),
                     new HistoricoDoacao(true, 200.0, true, "Jackson", "20/11/2021"),
-                ])
+                ], null, null)
             ),
             new Campanha(
+                true, 
+                "campanha", 
+                "2021-12-17", 
                 new Organizacao(
                     "ACNUR",
                     "Agência da ONU para Refugiados",
@@ -798,9 +839,12 @@ class CampanhaService extends Component {
                     new HistoricoDoacao(false, 10.0, false, "Jorgin", "20/11/2021"),
                     new HistoricoDoacao(true, 55.0, true, "Julio", "20/11/2021"),
                     new HistoricoDoacao(true, 200.0, true, "Jackson", "20/11/2021"),
-                ])
+                ], null, null)
             ),
             new Campanha(
+                true, 
+                "acao", 
+                "2021-12-20", 
                 new Organizacao(
                     "ACNUR",
                     "Agência da ONU para Refugiados",
@@ -828,7 +872,8 @@ class CampanhaService extends Component {
                                 new HistoricoDoacao(false, 10.0, false, "Jorgin", "20/11/2021"),
                                 new HistoricoDoacao(true, 55.0, true, "Julio", "20/11/2021"),
                                 new HistoricoDoacao(true, 200.0, true, "Jackson", "20/11/2021"),
-                            ])),
+                            ], null, null)
+                        ),
     
                     ],[],[]
                 ),
@@ -848,7 +893,7 @@ class CampanhaService extends Component {
                     new HistoricoDoacao(false, 10.0, false, "Jorgin", "20/11/2021"),
                     new HistoricoDoacao(true, 55.0, true, "Julio", "20/11/2021"),
                     new HistoricoDoacao(true, 200.0, true, "Jackson", "20/11/2021"),
-                ])
+                ], null, null)
             )
         ];
     }

@@ -4,6 +4,9 @@ import { Organizacao } from "./Organizacao";
 
 export class Campanha {
     
+    status : boolean;
+    tipoCampanha : string;
+    dataLimite : string;
     organizacao : Organizacao;
     //titulo : string; //nome organização
     nome_campanha : string;
@@ -14,7 +17,22 @@ export class Campanha {
     doacao : Doacao;
     comentarios : Comentario[];
 
-    constructor (organizacao : Organizacao, nome_campanha : string, desc_campanha : string, id_campanha : number, img_background : object, img_background_card : object, doacao : Doacao, comentarios : Comentario[] ){
+    constructor (
+            status : boolean, 
+            tipoCampanha : string, 
+            dataLimite : string, 
+            organizacao : Organizacao, 
+            nome_campanha : string, 
+            desc_campanha : string, 
+            id_campanha : number, 
+            img_background : object, 
+            img_background_card : object, 
+            doacao : Doacao, 
+            comentarios : Comentario[] 
+        ){
+        this.status = status; 
+        this.tipoCampanha = tipoCampanha ;
+        this.dataLimite = dataLimite;
         this.organizacao = organizacao;
         //this.titulo = titulo;
         this.nome_campanha = nome_campanha;

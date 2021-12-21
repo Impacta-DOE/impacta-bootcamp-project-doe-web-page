@@ -28,7 +28,7 @@ class TelaCampanha extends Component {
     }
 
     componentWillMount(){
-        if(this.props.location.state.campanha.doacao.tipoArrecadacao === "dinheiro"){
+        if(this.props.location.state.campanha.doacao.tipoDoacao === "dinheiro"){
             this.apresentarDoacoes();
         }
         if(this.props.location.state.campanha.comentarios != null){
@@ -37,7 +37,7 @@ class TelaCampanha extends Component {
     }
 
     apresentarValores(){
-        if(this.props.location.state.campanha.doacao.tipoArrecadacao === 'dinheiro'){
+        if(this.props.location.state.campanha.doacao.tipoDoacao === 'dinheiro'){
             return this.props.location.state.campanha.doacao.unidadeMedida + ' ' + 
             this.props.location.state.campanha.doacao.valorAtual.toFixed(2).replace('.', ',') + ' / ' + 
             this.props.location.state.campanha.doacao.unidadeMedida + ' ' +
@@ -54,7 +54,7 @@ class TelaCampanha extends Component {
         let doacoes = [];
         for(let i=0; i < this.props.location.state.campanha.doacao.historicoDoacoes.length; i++){
             doacoes.push(<RegistroDoacao 
-                            tipoArrecadacao={this.props.location.state.campanha.doacao.tipoArrecadacao} 
+                            tipoDoacao={this.props.location.state.campanha.doacao.tipoDoacao} 
                             unidadeMedida={this.props.location.state.campanha.doacao.unidadeMedida} 
                             doacao={this.props.location.state.campanha.doacao.historicoDoacoes[i]}
                         />);
@@ -136,7 +136,7 @@ class TelaCampanha extends Component {
                         </div>
                         <div style={{"width" : "100%", "height" : "auto", "padding" : "1em"}}>
                             {
-                                (this.props.location.state.campanha.doacao.tipoArrecadacao === "dinheiro") ? 
+                                (this.props.location.state.campanha.doacao.tipoDoacao === "dinheiro") ? 
                                     <div>
                                         <p className="titulo-desc-campanha">Doações realizadas</p>
                                         <hr className="hr-titulo-desc-campanha"></hr>

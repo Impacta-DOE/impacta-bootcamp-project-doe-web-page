@@ -10,7 +10,7 @@ class RegistroDoacao extends Component {
 
     apresentarValorDoado(){
         if(this.props.doacao.exibirValorDoado){
-            if(this.props.tipoArrecadacao === 'dinheiro'){
+            if(this.props.tipoDoacao === 'dinheiro'){
                 return this.props.unidadeMedida + ' ' + 
                 this.props.doacao.valorDoado.toFixed(2).replace('.', ',');
             }else{

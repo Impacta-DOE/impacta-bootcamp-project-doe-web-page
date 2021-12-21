@@ -5,13 +5,15 @@ import MenuTop from '../components/MenuTop';
 import TabelaMinhasCampanhas from '../components/TabelaMinhasCampanhas';
 
 import '../css/TelaMinhasCampanhas.css';
+import { Campanha } from '../entities/Campanha';
 
 class TelaMinhasCampanhas extends Component {
 
     constructor(props){
         super(props);
-        this.state = {showModal: false};
+        this.state = {showModal: false, modoTelaCampanha: "cadastro", campanha: null};
         this.showModal = this.showModal.bind(this);
+        this.abrirTelaAlteraçãoCampanha = this.abrirTelaAlteraçãoCampanha.bind(this);
     }
 
     componentDidMount(){
@@ -22,6 +24,19 @@ class TelaMinhasCampanhas extends Component {
         this.setState({showModal: !this.state.showModal});
     }
 
+    abrirTelaCadastroCampanha(){
+        this.setState({campanha: null});
+        this.setState({modoTelaCampanha: "cadastro"});
+        this.showModal();
+    }
+
+    abrirTelaAlteraçãoCampanha(campanha){
+        //this.setState({campanha: null});
+        this.setState({modoTelaCampanha: "alteracao"});
+        this.setState({campanha});
+        this.showModal();
+    }
+
     render() {
         return (
             <div>
@@ -30,7 +45,7 @@ class TelaMinhasCampanhas extends Component {
                     <Row>
                         <Col>
                             <p className="titulo-minhas-campanhas">Minhas campanhas/ações</p>
-                            <input type="button" value="Criar campanha/ação" id="btn-criar-campanha" onClick={() => this.showModal()}/>
+                            <input type="button" value="Criar campanha/ação" id="btn-criar-campanha" onClick={() => this.abrirTelaCadastroCampanha()}/>
                         </Col>
                     </Row>
                     <Row>
@@ -40,7 +55,7 @@ class TelaMinhasCampanhas extends Component {
                     </Row>
                     <Row>
                         <Col>
-                            <TabelaMinhasCampanhas />
+                            <TabelaMinhasCampanhas abrirTelaAlteraçãoCampanha={this.abrirTelaAlteraçãoCampanha}/>
                         </Col>
                     </Row>
                     <Row>
@@ -59,7 +74,7 @@ class TelaMinhasCampanhas extends Component {
                         </Col>
                     </Row>
                 </div>
-                <ManterCampanhaModal showModal={this.state.showModal} setShowModal={this.showModal}/>
+                <ManterCampanhaModal campanha={this.state.campanha} modoTelaCampanha={this.state.modoTelaCampanha} showModal={this.state.showModal} setShowModal={this.showModal}/>
             </div>
         );
     }

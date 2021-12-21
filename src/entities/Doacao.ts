@@ -1,19 +1,33 @@
 import { HistoricoDoacao } from "./HistoricoDoacao";
+import { PontosColeta } from "./PontosColeta";
 
 export class Doacao { 
 
-    tipoArrecadacao : string; //dinheiro ou item (comida, roupa, sangue)
+    tipoDoacao : string; //dinheiro ou item (comida, roupa, sangue)
     unidadeMedida : string; // KG, UNIDADES, R$
     valorTotal : number;
     valorAtual : number;
     historicoDoacoes : HistoricoDoacao[];
+    tipoArrecadacao : string;
+    pontosColeta : PontosColeta[];
 
-    constructor(tipoArrecadacao : string, unidadeMedida : string, valorTotal : number, valorAtual : number, historicoDoacoes : HistoricoDoacao[]) {
-        this.tipoArrecadacao = tipoArrecadacao;
+    constructor(
+            tipoDoacao : string, 
+            unidadeMedida : string, 
+            valorTotal : number, 
+            valorAtual : number, 
+            historicoDoacoes : HistoricoDoacao[],
+            tipoArrecadacao : string,
+            pontosColeta : PontosColeta[]
+
+        ) {
+        this.tipoDoacao = tipoDoacao;
         this.unidadeMedida = unidadeMedida;
         this.valorTotal = valorTotal;
         this.historicoDoacoes = historicoDoacoes;
         this.valorAtual = (this.historicoDoacoes != null) ? this.calcularTotalArrecadado() : valorAtual;
+        this.tipoArrecadacao = tipoArrecadacao;
+        this.pontosColeta = pontosColeta;
     }
 
     calcularTotalArrecadado(){

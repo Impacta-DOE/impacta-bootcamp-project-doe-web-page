@@ -1,9 +1,32 @@
 import React, { Component } from 'react';
 
 import '../css/TabelaMinhasCampanhas.css';
+import CampanhaService from '../services/CampanhaService';
 import RegistroTabelaMinhasCampanhas from './RegistroTabelaMinhasCampanhas';
 
 class TabelaMinhasCampanhas extends Component {
+
+    constructor(props){
+        super(props);
+        this.state = {
+            campanhaService: new CampanhaService(),
+            minhasCampanhas: []
+        };
+    }
+
+    componentWillMount(){
+        this.getMinhasCampanhas();
+    }
+
+    getMinhasCampanhas(){
+        let campanhas = this.state.campanhaService.getAll();
+        let minhasCampanhas = [];
+        for(let i=0; i<campanhas.length; i++){
+            minhasCampanhas.push(<RegistroTabelaMinhasCampanhas campanha={campanhas[i]} abrirTelaAlteraçãoCampanha={this.props.abrirTelaAlteraçãoCampanha} />);
+        }
+        this.setState({minhasCampanhas});
+    }
+
     render() {
         return (
             <div id="tabela-minhas-campanha">
@@ -20,12 +43,7 @@ class TabelaMinhasCampanhas extends Component {
                     <div className="vertical-line-header-minhas-campanhas"></div>
                     <p className="column-minhas-campanhas" style={{width: "20%"}}>Inativar campanha/ação</p>
                 </div>
-                <RegistroTabelaMinhasCampanhas />
-                <RegistroTabelaMinhasCampanhas />
-                <RegistroTabelaMinhasCampanhas />
-                <RegistroTabelaMinhasCampanhas />
-                <RegistroTabelaMinhasCampanhas />
-                <RegistroTabelaMinhasCampanhas />
+                {this.state.minhasCampanhas}
             </div>
         );
     }
