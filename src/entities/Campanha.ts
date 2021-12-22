@@ -1,6 +1,7 @@
 import Comentario from "./Comentario";
 import { Doacao } from "./Doacao";
 import { Organizacao } from "./Organizacao";
+import { SolicitacaoVoluntario } from "./SolicitacaoVoluntario";
 
 export class Campanha {
     
@@ -16,6 +17,7 @@ export class Campanha {
     img_background_card : object;
     doacao : Doacao;
     comentarios : Comentario[];
+    solicitacaoVoluntario : SolicitacaoVoluntario;
 
     constructor (
             status : boolean, 
@@ -28,7 +30,8 @@ export class Campanha {
             img_background : object, 
             img_background_card : object, 
             doacao : Doacao, 
-            comentarios : Comentario[] 
+            comentarios : Comentario[],
+            solicitacaoVoluntario : SolicitacaoVoluntario
         ){
         this.status = status; 
         this.tipoCampanha = tipoCampanha ;
@@ -42,6 +45,7 @@ export class Campanha {
         this.img_background_card = img_background_card;
         this.doacao = doacao;
         this.comentarios = comentarios;
+        this.solicitacaoVoluntario = solicitacaoVoluntario;
     }
 
     public resumirDescricao(qntdLetras : number) : string{

@@ -13,6 +13,7 @@ import { Campanha } from '../entities/Campanha';
 import { Organizacao } from '../entities/Organizacao';
 import { Doacao } from '../entities/Doacao';
 import { HistoricoDoacao } from '../entities/HistoricoDoacao';
+import { SolicitacaoVoluntario } from '../entities/SolicitacaoVoluntario';
 
 class ManterCampanhaModal extends Component {
 
@@ -20,11 +21,8 @@ class ManterCampanhaModal extends Component {
         super(props);
         this.state = { 
                         type : 'text', 
-                        precisaVoluntario : false,
+                        //precisaVoluntario : false,
                         tipoDoacaoInputs : null, 
-                        image: null, 
-                        imageCard: sample_card,
-                        pontosColeta : [],
                         showModalPontosColeta : false,
                         item_campanha: new Campanha(
                             true, 
@@ -59,10 +57,14 @@ class ManterCampanhaModal extends Component {
                         metaDoacao: "",
                         tipoUnidadeMedida: "",
                         descVoluntario: "",
+                        image: null, 
+                        imageCard: sample_card,
+                        pontosColeta : [],
+                        mostrarDescricaoVoluntario: "none",
+                        solicitacaoVoluntario: new SolicitacaoVoluntario(false, ""),
                         inicializeFields: true
                     };
-        this.setPrecisaVoluntario = this.setPrecisaVoluntario.bind(this);
-        //this.setTipoDoacao = this.setTipoDoacao.bind(this);
+        //this.setPrecisaVoluntario = this.setPrecisaVoluntario.bind(this);
         this.onImageChange = this.onImageChange.bind(this);
         this.onImageCardChange = this.onImageCardChange.bind(this);
         this.setShowModalPontosColeta = this.setShowModalPontosColeta.bind(this);
@@ -74,9 +76,10 @@ class ManterCampanhaModal extends Component {
         this.setState({type : newType});
     }
 
-    setPrecisaVoluntario(event) {
-        this.setState({precisaVoluntario : event.target.checked});
-    }
+    /*setPrecisaVoluntario(event) {
+        this.state.precisaVoluntario.status = event.target.checked 
+        //this.setState({precisaVoluntario : event.target.checked});
+    }*/
 
     setShowModalPontosColeta(){
         this.setState({showModalPontosColeta : !this.state.showModalPontosColeta});
@@ -115,53 +118,12 @@ class ManterCampanhaModal extends Component {
             case "textarea-desc-voluntario":
                 this.setState({descVoluntario : event.target.value});
                 break;
+            case "precisase-voluntario-check":
+                this.state.solicitacaoVoluntario.status = event.target.checked;
+                this.setState({mostrarDescricaoVoluntario: (this.state.solicitacaoVoluntario.status) ? "block" : "none"});
+                break;
         }
     }
-
-    /*setTipoDoacao(tipoDoacao){
-        if(tipoDoacao === "dinheiro"){
-            let inputDoacaoFinanceira = (
-                <div style={{width: "100%", paddingTop: "1.8%"}}>
-                    <p style={{float: "left", fontSize: "18px", fontFamily: "Roboto Bold", marginTop: ".7%"}}>R$</p>
-                    <Form.Control 
-                        type="text" 
-                        placeholder="Meta de doações (Opcional)" 
-                        value={this.state.metaDoacao} 
-                        id="input-meta-doacao"
-                        onChange={this.onInputChange}
-                    />
-                </div>
-            );
-            this.setState({tipoDoacaoInputs: inputDoacaoFinanceira});
-        } else if(tipoDoacao === "item") {
-            let inputDoacaoArrecadacao = (
-                <div style={{width: "100%"}}>
-                    <select name="tipo-arrecadacao" value={this.state.tipoArrecadacao} id="tipoArrecadacao" className="selector-tipo-arrecadacao" onChange={this.onInputChange}>
-                        <option value="" disabled selected>Tipo arrecadação</option>
-                        <option value="sangue" >Doação de sangue</option>
-                        <option value="brinquedo" >Doação de brinquedo</option>
-                        <option value="roupas" >Doação de roupas</option>
-                        <option value="alimentos" >Doação de alimentos</option>
-                        <option value="mobilia" >Doação de mobilias</option>
-                        <option value="eletronicos" >Doação de eletroeletronicos</option>
-                        <option value="outros" >Outros</option>
-                    </select>
-                    <Form.Control type="text" placeholder="Meta de arrecadação (Opcional)" value={this.state.metaArrecadacao} id="input-meta-arrecadacao" onChange={this.onInputChange}/>
-                    <select name="unidade-medida" id="tipoUnidadeMedida" value={this.state.tipoUnidadeMedida} className="selector-unidade-medida" onChange={this.onInputChange}>
-                        <option value="" disabled selected>Unidade de medida</option>
-                        <option value="kilo" >Kilogramas</option>
-                        <option value="unidades" >Unidades</option>
-                        <option value="litros" >Litros</option>
-                        <option value="bolsas" >Bolsas</option>
-                        <option value="peças" >Peças</option>
-                        <option value="quantidades" >Quantidades</option>
-                    </select>
-                    <Button variant="success" id="btn-gerenciar-pontos" onClick={() => this.setShowModalPontosColeta()}>Gerenciar pontos de coleta</Button>
-                </div>
-            );
-            this.setState({tipoDoacaoInputs: inputDoacaoArrecadacao});
-        }
-    }*/
 
     onImageChange(event){
         if (event.target.files && event.target.files[0]) {
@@ -195,8 +157,12 @@ class ManterCampanhaModal extends Component {
         this.setState({metaDoacao : this.props.campanha.doacao.valorTotal});
         this.setState({metaArrecadacao : this.props.campanha.doacao.valorTotal});
         this.setState({tipoUnidadeMedida : this.props.campanha.doacao.unidadeMedida});
-        this.setState({descVoluntario : this.props.campanha.desc_campanha});
-        //this.setTipoDoacao(this.props.campanha.doacao.tipoDoacao);
+        this.setState({descVoluntario : this.props.campanha.solicitacaoVoluntario.descricaoVaga});
+        this.setState({image : this.props.campanha.img_background});
+        this.setState({imageCard : this.props.campanha.img_background_card});
+        this.setState({pontosColeta : (this.props.campanha.doacao.pontosColeta != null) ? this.props.campanha.doacao.pontosColeta : []});
+        this.setState({solicitacaoVoluntario : this.props.campanha.solicitacaoVoluntario});
+        this.setState({mostrarDescricaoVoluntario: (this.props.campanha.solicitacaoVoluntario.status) ? "block" : "none"});
     }
 
     clearFields(){
@@ -209,6 +175,11 @@ class ManterCampanhaModal extends Component {
         this.setState({metaArrecadacao : ""});
         this.setState({tipoUnidadeMedida : ""});
         this.setState({descVoluntario : ""});
+        this.setState({image : null});
+        this.setState({imageCard : sample_card});
+        this.setState({pontosColeta : []});
+        this.setState({solicitacaoVoluntario : new SolicitacaoVoluntario(false, "")});
+        this.setState({mostrarDescricaoVoluntario: (this.state.solicitacaoVoluntario.status) ? "block" : "none"});
     }
 
     closeModal(){
@@ -232,7 +203,7 @@ class ManterCampanhaModal extends Component {
                     dialogClassName="modal-campanha"
                     aria-labelledby="example-custom-modal-styling-title"
                 >
-                    <div id="container-img-background" style={{backgroundImage: "url(" + ((this.props.campanha != null) ? this.props.campanha.img_background : null) + ")"}}>
+                    <div id="container-img-background" style={{backgroundImage: "url(" + this.state.image + ")"}}>
                         <div style={{width : "100%", height : "auto", paddingRight : ".5em", paddingTop : ".4em",  position: "absolute", zIndex: "5"}}>
                             <img src={crossButton} id="crossButton" onClick={() => {this.closeModal()}}/>
                         </div>
@@ -241,8 +212,6 @@ class ManterCampanhaModal extends Component {
                                 <CardCampanha 
                                     campanha={this.state.item_campanha} 
                                     img_background_card={
-                                        (this.props.campanha != null) ? 
-                                        this.props.campanha.img_background_card : 
                                         this.state.imageCard
                                     }
                                 />
@@ -342,7 +311,8 @@ class ManterCampanhaModal extends Component {
                                     <div style={{width: "100%", paddingTop: "1.8%", display: (this.state.tipoDoacao === "dinheiro") ? "block" : "none"}}>
                                         <p style={{float: "left", fontSize: "18px", fontFamily: "Roboto Bold", marginTop: ".7%"}}>R$</p>
                                         <Form.Control 
-                                            type="text" 
+                                            type="number" 
+                                            step=".01"
                                             placeholder="Meta de doações (Opcional)" 
                                             value={this.state.metaDoacao} 
                                             id="input-meta-doacao"
@@ -360,7 +330,7 @@ class ManterCampanhaModal extends Component {
                                             <option value="eletronicos" >Doação de eletroeletronicos</option>
                                             <option value="outros" >Outros</option>
                                         </select>
-                                        <Form.Control type="text" placeholder="Meta de arrecadação (Opcional)" value={this.state.metaArrecadacao} id="input-meta-arrecadacao" onChange={this.onInputChange}/>
+                                        <Form.Control type="number" step=".01" placeholder="Meta de arrecadação (Opcional)" value={this.state.metaArrecadacao} id="input-meta-arrecadacao" onChange={this.onInputChange}/>
                                         <select name="unidade-medida" id="tipoUnidadeMedida" value={this.state.tipoUnidadeMedida} className="selector-unidade-medida" onChange={this.onInputChange}>
                                             <option value="" disabled selected>Unidade de medida</option>
                                             <option value="kilo" >Kilogramas</option>
@@ -378,12 +348,13 @@ class ManterCampanhaModal extends Component {
                                 <Col>
                                     <Form.Check
                                         active
+                                        checked={this.state.solicitacaoVoluntario.status}
                                         type={'checkbox'}
                                         label={'Precisa-se de voluntarios'}
                                         id={'precisase-voluntario-check'}
                                         className="checkbox-precisase-voluntario"
                                         style={{marginTop : ".1em"}}
-                                        onChange={this.setPrecisaVoluntario}
+                                        onChange={this.onInputChange}
                                         name="checkbox-precisase-voluntario"
                                         value="precisase-voluntario"
                                     />
@@ -397,7 +368,7 @@ class ManterCampanhaModal extends Component {
                                         cols="50" 
                                         value={this.state.descVoluntario}
                                         placeholder="Insira aqui uma descrição e os requisitos que devem ser atendidos pelos voluntarios para serem aceitos..."
-                                        style={{display: (this.state.precisaVoluntario) ? "block" : "none"}}
+                                        style={{display: this.state.mostrarDescricaoVoluntario}}
                                     >
                                     </textarea>
                                 </Col>

@@ -27,6 +27,7 @@ import { Organizacao } from '../entities/Organizacao';
 import { HistoricoDoacao } from '../entities/HistoricoDoacao';
 import Comentario from '../entities/Comentario';
 import { PontosColeta } from '../entities/PontosColeta';
+import { SolicitacaoVoluntario } from '../entities/SolicitacaoVoluntario';
 
 class CampanhaService extends Component {
     
@@ -96,7 +97,10 @@ class CampanhaService extends Component {
                     new Comentario("Jorgin", exemplo_avatar_user, "Fui ajudado antes e agora posso ajudar, obrigado.", false),
                     new Comentario("Julio", exemplo_avatar_user, "Feito :)", true),
                     new Comentario("Jackson", exemplo_avatar_user, "Boa sorte!!!", true)
-                ]
+                ],
+                new SolicitacaoVoluntario(true, "Lorem ipsum dolor sit amet, consectetur adipiscing elit. " +
+                "Aenean pellentesque dolor ante, at convallis turpis euismod a. Sed finibus nisl " +
+                "eros, vitae cursus nunc pellentesque a. Integer tempor turpis et dui feugiat")
             ),
             new Campanha(
                 true, 
@@ -239,9 +243,11 @@ class CampanhaService extends Component {
                 exemplo_imagem_background_card_01,
                 new Doacao('item', 'peças', 100.0, 50.0, null, "roupas", [
                     new PontosColeta(1, "08370190", "Rua de exemplo 01", 20, "A", "Bairro de exemplo 01", 35, 3500105, "Roberto", false),
-                    new PontosColeta(2, "08370190", "Rua de exemplo 02", 20, "A", "Bairro de exemplo 02", 35, 3500105, "Julio", false),
-                    new PontosColeta(4, "08370190", "Rua de exemplo 04", 20, "A", "Bairro de exemplo 04", 35, 3500105, "Alberto", false)
-                ])
+                    new PontosColeta(3, "08370190", "Rua de exemplo 03", 20, "A", "Bairro de exemplo 03", 35, 3500105, "Carla", false),
+                    new PontosColeta(6, "08370190", "Rua de exemplo 06", 20, "A", "Bairro de exemplo 06", 35, 3500105, "Gabriel", false)
+                ]),
+                [],
+                new SolicitacaoVoluntario(false, "")
             ),
             new Campanha(
                 true, 
@@ -397,7 +403,11 @@ class CampanhaService extends Component {
                     new PontosColeta(1, "08370190", "Rua de exemplo 01", 20, "A", "Bairro de exemplo 01", 35, 3500105, "Roberto", false),
                     new PontosColeta(2, "08370190", "Rua de exemplo 02", 20, "A", "Bairro de exemplo 02", 35, 3500105, "Julio", false),
                     new PontosColeta(4, "08370190", "Rua de exemplo 04", 20, "A", "Bairro de exemplo 04", 35, 3500105, "Alberto", false)
-                ])
+                ]),
+                [],
+                new SolicitacaoVoluntario(true, "Lorem ipsum dolor sit amet, consectetur adipiscing elit. " +
+                "Aenean pellentesque dolor ante, at convallis turpis euismod a. Sed finibus nisl " +
+                "eros, vitae cursus nunc pellentesque a. Integer tempor turpis et dui feugiat")
             ),
             new Campanha(
                 true, 
@@ -502,7 +512,9 @@ class CampanhaService extends Component {
                     new PontosColeta(1, "08370190", "Rua de exemplo 01", 20, "A", "Bairro de exemplo 01", 35, 3500105, "Roberto", false),
                     new PontosColeta(2, "08370190", "Rua de exemplo 02", 20, "A", "Bairro de exemplo 02", 35, 3500105, "Julio", false),
                     new PontosColeta(4, "08370190", "Rua de exemplo 04", 20, "A", "Bairro de exemplo 04", 35, 3500105, "Alberto", false)
-                ])
+                ]),
+                [],
+                new SolicitacaoVoluntario(false, "")
             ),
             new Campanha(
                 true, 
@@ -591,7 +603,9 @@ class CampanhaService extends Component {
                     new HistoricoDoacao(false, 10.0, false, "Jorgin", "20/11/2021"),
                     new HistoricoDoacao(true, 55.0, true, "Julio", "20/11/2021"),
                     new HistoricoDoacao(true, 200.0, true, "Jackson", "20/11/2021"),
-                ], null, null)
+                ], null, null),
+                [],
+                new SolicitacaoVoluntario(false, "")
             ),
             new Campanha(
                 true, 
@@ -668,7 +682,9 @@ class CampanhaService extends Component {
                     new HistoricoDoacao(false, 10.0, false, "Jorgin", "20/11/2021"),
                     new HistoricoDoacao(true, 55.0, true, "Julio", "20/11/2021"),
                     new HistoricoDoacao(true, 200.0, true, "Jackson", "20/11/2021"),
-                ], null, null)
+                ], null, null),
+                [],
+                new SolicitacaoVoluntario(false, "")
             ),
             new Campanha(
                 true, 
@@ -733,7 +749,9 @@ class CampanhaService extends Component {
                     new HistoricoDoacao(false, 10.0, false, "Jorgin", "20/11/2021"),
                     new HistoricoDoacao(true, 55.0, true, "Julio", "20/11/2021"),
                     new HistoricoDoacao(true, 200.0, true, "Jackson", "20/11/2021"),
-                ], null, null)
+                ], null, null),
+                [],
+                new SolicitacaoVoluntario(false, "")
             ),
             new Campanha(
                 true, 
@@ -786,7 +804,9 @@ class CampanhaService extends Component {
                     new HistoricoDoacao(false, 10.0, false, "Jorgin", "20/11/2021"),
                     new HistoricoDoacao(true, 55.0, true, "Julio", "20/11/2021"),
                     new HistoricoDoacao(true, 200.0, true, "Jackson", "20/11/2021"),
-                ], null, null)
+                ], null, null),
+                [],
+                new SolicitacaoVoluntario(false, "")
             ),
             new Campanha(
                 true, 
@@ -839,7 +859,9 @@ class CampanhaService extends Component {
                     new HistoricoDoacao(false, 10.0, false, "Jorgin", "20/11/2021"),
                     new HistoricoDoacao(true, 55.0, true, "Julio", "20/11/2021"),
                     new HistoricoDoacao(true, 200.0, true, "Jackson", "20/11/2021"),
-                ], null, null)
+                ], null, null),
+                [],
+                new SolicitacaoVoluntario(false, "")
             ),
             new Campanha(
                 true, 
@@ -893,7 +915,9 @@ class CampanhaService extends Component {
                     new HistoricoDoacao(false, 10.0, false, "Jorgin", "20/11/2021"),
                     new HistoricoDoacao(true, 55.0, true, "Julio", "20/11/2021"),
                     new HistoricoDoacao(true, 200.0, true, "Jackson", "20/11/2021"),
-                ], null, null)
+                ], null, null),
+                [],
+                new SolicitacaoVoluntario(false, "")
             )
         ];
     }
