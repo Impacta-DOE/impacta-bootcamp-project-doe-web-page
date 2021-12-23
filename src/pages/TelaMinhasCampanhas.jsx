@@ -11,9 +11,11 @@ class TelaMinhasCampanhas extends Component {
 
     constructor(props){
         super(props);
-        this.state = {showModal: false, modoTelaCampanha: "cadastro", campanha: null};
+        this.state = {showModal: false, modoTelaCampanha: "cadastro", campanha: null, atualizarTabela: false, showCampanhasInativas: false};
         this.showModal = this.showModal.bind(this);
         this.abrirTelaAlteraçãoCampanha = this.abrirTelaAlteraçãoCampanha.bind(this);
+        this.handleChange = this.handleChange.bind(this);
+        this.setAtualizarTabela = this.setAtualizarTabela.bind(this);
     }
 
     componentDidMount(){
@@ -37,6 +39,19 @@ class TelaMinhasCampanhas extends Component {
         this.showModal();
     }
 
+    handleChange(event){
+        switch (event.target.id) {
+            case "apresentar-campanha-inativa-check":
+                this.setState({showCampanhasInativas : !this.state.showCampanhasInativas});
+                this.setState({atualizarTabela : true});
+                break;
+        }
+    }
+
+    setAtualizarTabela(status){
+        this.setState({atualizarTabela: status});
+    }
+
     render() {
         return (
             <div>
@@ -55,7 +70,12 @@ class TelaMinhasCampanhas extends Component {
                     </Row>
                     <Row>
                         <Col>
-                            <TabelaMinhasCampanhas abrirTelaAlteraçãoCampanha={this.abrirTelaAlteraçãoCampanha}/>
+                            <TabelaMinhasCampanhas 
+                                showCampanhasInativas={this.state.showCampanhasInativas} 
+                                atualizarTabela={this.state.atualizarTabela} 
+                                setAtualizarTabela={this.setAtualizarTabela}
+                                abrirTelaAlteraçãoCampanha={this.abrirTelaAlteraçãoCampanha}
+                            />
                         </Col>
                     </Row>
                     <Row>

@@ -10,24 +10,32 @@ class TabelaMinhasCampanhas extends Component {
         super(props);
         this.state = {
             campanhaService: new CampanhaService(),
-            minhasCampanhas: []
+            minhasCampanhas: [],
+            listaObjetosCampanha: []
         };
     }
 
     componentWillMount(){
-        this.getMinhasCampanhas();
+        this.getMinhasCampanhas(false);
     }
 
-    getMinhasCampanhas(){
+    getMinhasCampanhas(showCampanhasInativas){
         let campanhas = this.state.campanhaService.getAll();
         let minhasCampanhas = [];
         for(let i=0; i<campanhas.length; i++){
-            minhasCampanhas.push(<RegistroTabelaMinhasCampanhas campanha={campanhas[i]} abrirTelaAlteraçãoCampanha={this.props.abrirTelaAlteraçãoCampanha} />);
+            if(campanhas[i].status || (campanhas[i].status === false && showCampanhasInativas)){
+                minhasCampanhas.push(<RegistroTabelaMinhasCampanhas campanha={campanhas[i]} abrirTelaAlteraçãoCampanha={this.props.abrirTelaAlteraçãoCampanha} />);
+            }
         }
         this.setState({minhasCampanhas});
     }
 
     render() {
+        if(this.props.atualizarTabela){
+            this.setState({minhasCampanhas: []});
+            this.getMinhasCampanhas(this.props.showCampanhasInativas);
+            this.props.setAtualizarTabela(false);
+        }
         return (
             <div id="tabela-minhas-campanha">
                 <div id="header-minhas-campanhas">

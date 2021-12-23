@@ -368,6 +368,7 @@ class ManterCampanhaModal extends Component {
                                         cols="50" 
                                         value={this.state.descVoluntario}
                                         placeholder="Insira aqui uma descrição e os requisitos que devem ser atendidos pelos voluntarios para serem aceitos..."
+                                        onChange={this.onInputChange}
                                         style={{display: this.state.mostrarDescricaoVoluntario}}
                                     >
                                     </textarea>

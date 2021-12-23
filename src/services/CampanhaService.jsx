@@ -517,7 +517,7 @@ class CampanhaService extends Component {
                 new SolicitacaoVoluntario(false, "")
             ),
             new Campanha(
-                true, 
+                false, 
                 "campanha", 
                 "2021-12-17", 
                 new Organizacao(
@@ -687,7 +687,7 @@ class CampanhaService extends Component {
                 new SolicitacaoVoluntario(false, "")
             ),
             new Campanha(
-                true, 
+                false, 
                 "campanha", 
                 "2021-12-17", 
                 new Organizacao(
