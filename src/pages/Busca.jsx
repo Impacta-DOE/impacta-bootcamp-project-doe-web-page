@@ -103,17 +103,17 @@ class Busca extends Component {
         for(let i=0; i < result.length; i++){
             if(result[0].nomeOrganizacao == undefined){
                 if(count == 4){
-                    this.state.resultado_list.push(<CardCampanha campanha={result[i]} marginRight="0em" marginBottom="1.2em" newWidth="19.22%"/>);
+                    this.state.resultado_list.push(<CardCampanha campanha={result[i]} marginRight="0em" marginBottom="1.2em" newWidth="19.22%" descFontSize="82%"/>);
                     count = -1;
                 }else{
-                    this.state.resultado_list.push(<CardCampanha campanha={result[i]} marginRight=".96%" marginBottom="1.2em" newWidth="19.22%"/>);
+                    this.state.resultado_list.push(<CardCampanha campanha={result[i]} marginRight=".96%" marginBottom="1.2em" newWidth="19.22%" descFontSize="82%"/>);
                 }
             } else {
                 if(count == 4){
-                    this.state.resultado_list.push(<CardOrganizacao organizacao={result[i]} marginRight="0em" marginBottom="1.6em" newWidth="19.22%"/>);
+                    this.state.resultado_list.push(<CardOrganizacao organizacao={result[i]} marginRight="0em" marginBottom="1.6em" newWidth="19.22%" descFontSize="82%"/>);
                     count = -1;
                 }else{
-                    this.state.resultado_list.push(<CardOrganizacao organizacao={result[i]} marginRight=".96%" marginBottom="1.6em" newWidth="19.22%"/>);
+                    this.state.resultado_list.push(<CardOrganizacao organizacao={result[i]} marginRight=".96%" marginBottom="1.6em" newWidth="19.22%" descFontSize="82%"/>);
                 }
             }
             count++;

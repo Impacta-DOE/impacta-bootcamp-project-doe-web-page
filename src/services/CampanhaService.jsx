@@ -60,15 +60,7 @@ class CampanhaService extends Component {
                             0,
                             null,
                             null,
-                            new Doacao('dinheiro', 'R$', 100.0, 50.0, [
-                                new HistoricoDoacao(true, 10.0, true, "Jorgin", "20/11/2021"),
-                                new HistoricoDoacao(false, 20.0, true, "Cleber", "20/11/2021"),
-                                new HistoricoDoacao(true, 30.0, false, "Ricardo", "20/11/2021"),
-                                new HistoricoDoacao(true, 100.0, true, "Rafaella", "20/11/2021"),
-                                new HistoricoDoacao(false, 10.0, false, "Jorgin", "20/11/2021"),
-                                new HistoricoDoacao(true, 55.0, true, "Julio", "20/11/2021"),
-                                new HistoricoDoacao(true, 200.0, true, "Jackson", "20/11/2021"),
-                            ], null, null),[])
+                            new Doacao('dinheiro', 'R$', 100.0, 50.0, [], null, null),[])
     
                     ],[],[]
                 ),
@@ -81,13 +73,13 @@ class CampanhaService extends Component {
                 exemplo_imagem_background,
                 exemplo_imagem_background_card,
                 new Doacao('dinheiro', 'R$', 100.0, 0, [
-                    new HistoricoDoacao(true, 10.0, true, "Jonas Benavides Cardoso", "20/11/2021"),
-                    new HistoricoDoacao(false, 20.0, true, "Cleber", "20/11/2021"),
-                    new HistoricoDoacao(true, 20.0, false, "Ricardo", "20/11/2021"),
-                    new HistoricoDoacao(true, 10.0, true, "Rafaella", "20/11/2021"),
-                    new HistoricoDoacao(false, 10.0, false, "Jorgin", "20/11/2021"),
-                    new HistoricoDoacao(true, 5.0, true, "Julio", "20/11/2021"),
-                    new HistoricoDoacao(true, 20.0, true, "Jackson", "20/11/2021"),
+                    new HistoricoDoacao(true, 10.0, true, "Jonas Benavides Cardoso", "20/11/2021", null),
+                    new HistoricoDoacao(false, 20.0, true, "Cleber", "20/11/2021", null),
+                    new HistoricoDoacao(true, 20.0, false, "Ricardo", "20/11/2021", null),
+                    new HistoricoDoacao(true, 10.0, true, "Rafaella", "20/11/2021", null),
+                    new HistoricoDoacao(false, 10.0, false, "Jorgin", "20/11/2021", null),
+                    new HistoricoDoacao(true, 5.0, true, "Julio", "20/11/2021", null),
+                    new HistoricoDoacao(true, 20.0, true, "Jackson", "20/11/2021", null),
                 ], null, null), 
                 [
                     new Comentario("Jonas Benavides Cardoso", exemplo_avatar_user, "Muito bom a ideia da campanha, espero que de tudo certo :)", true),
@@ -125,15 +117,7 @@ class CampanhaService extends Component {
                             0,
                             null,
                             null,
-                            new Doacao('dinheiro', 'R$', 100.0, 50.0, [
-                                new HistoricoDoacao(true, 10.0, true, "Jorgin", "20/11/2021"),
-                                new HistoricoDoacao(false, 20.0, true, "Cleber", "20/11/2021"),
-                                new HistoricoDoacao(true, 30.0, false, "Ricardo", "20/11/2021"),
-                                new HistoricoDoacao(true, 100.0, true, "Rafaella", "20/11/2021"),
-                                new HistoricoDoacao(false, 10.0, false, "Jorgin", "20/11/2021"),
-                                new HistoricoDoacao(true, 55.0, true, "Julio", "20/11/2021"),
-                                new HistoricoDoacao(true, 200.0, true, "Jackson", "20/11/2021"),
-                            ])),
+                            new Doacao('dinheiro', 'R$', 100.0, 50.0, [])),
             
                         new Campanha(
                             "Organização amigos do bem 02",
@@ -181,15 +165,7 @@ class CampanhaService extends Component {
                             0,
                             null,
                             null,
-                            new Doacao('dinheiro', 'R$', 160.0, 130.0, [
-                                new HistoricoDoacao(true, 10.0, true, "Jorgin", "20/11/2021"),
-                                new HistoricoDoacao(false, 20.0, true, "Cleber", "20/11/2021"),
-                                new HistoricoDoacao(true, 30.0, false, "Ricardo", "20/11/2021"),
-                                new HistoricoDoacao(true, 100.0, true, "Rafaella", "20/11/2021"),
-                                new HistoricoDoacao(false, 10.0, false, "Jorgin", "20/11/2021"),
-                                new HistoricoDoacao(true, 55.0, true, "Julio", "20/11/2021"),
-                                new HistoricoDoacao(true, 200.0, true, "Jackson", "20/11/2021"),
-                            ])),
+                            new Doacao('dinheiro', 'R$', 160.0, 130.0, [])),
                         
                         new Campanha(
                             "Organização amigos do bem 06",
@@ -201,15 +177,7 @@ class CampanhaService extends Component {
                             0,
                             null,
                             null,
-                            new Doacao('dinheiro', 'R$', 100.0, 50.0, [
-                                new HistoricoDoacao(true, 10.0, true, "Jorgin", "20/11/2021"),
-                                new HistoricoDoacao(false, 20.0, true, "Cleber", "20/11/2021"),
-                                new HistoricoDoacao(true, 30.0, false, "Ricardo", "20/11/2021"),
-                                new HistoricoDoacao(true, 100.0, true, "Rafaella", "20/11/2021"),
-                                new HistoricoDoacao(false, 10.0, false, "Jorgin", "20/11/2021"),
-                                new HistoricoDoacao(true, 55.0, true, "Julio", "20/11/2021"),
-                                new HistoricoDoacao(true, 200.0, true, "Jackson", "20/11/2021"),
-                            ])),
+                            new Doacao('dinheiro', 'R$', 100.0, 50.0, [])),
             
                         new Campanha(
                             "Organização amigos do bem 07",
@@ -221,15 +189,7 @@ class CampanhaService extends Component {
                             0,
                             null,
                             null,
-                            new Doacao('dinheiro', 'R$', 100.0, 50.0, [
-                                new HistoricoDoacao(true, 10.0, true, "Jorgin", "20/11/2021"),
-                                new HistoricoDoacao(false, 20.0, true, "Cleber", "20/11/2021"),
-                                new HistoricoDoacao(true, 30.0, false, "Ricardo", "20/11/2021"),
-                                new HistoricoDoacao(true, 100.0, true, "Rafaella", "20/11/2021"),
-                                new HistoricoDoacao(false, 10.0, false, "Jorgin", "20/11/2021"),
-                                new HistoricoDoacao(true, 55.0, true, "Julio", "20/11/2021"),
-                                new HistoricoDoacao(true, 200.0, true, "Jackson", "20/11/2021"),
-                            ])),
+                            new Doacao('dinheiro', 'R$', 100.0, 50.0, [])),
             
                     ],[],[]
                 ),
@@ -272,15 +232,7 @@ class CampanhaService extends Component {
                             0,
                             null,
                             null,
-                            new Doacao('dinheiro', 'R$', 100.0, 50.0, [
-                                new HistoricoDoacao(true, 10.0, true, "Jorgin", "20/11/2021"),
-                                new HistoricoDoacao(false, 20.0, true, "Cleber", "20/11/2021"),
-                                new HistoricoDoacao(true, 30.0, false, "Ricardo", "20/11/2021"),
-                                new HistoricoDoacao(true, 100.0, true, "Rafaella", "20/11/2021"),
-                                new HistoricoDoacao(false, 10.0, false, "Jorgin", "20/11/2021"),
-                                new HistoricoDoacao(true, 55.0, true, "Julio", "20/11/2021"),
-                                new HistoricoDoacao(true, 200.0, true, "Jackson", "20/11/2021"),
-                            ])),
+                            new Doacao('dinheiro', 'R$', 100.0, 50.0, [])),
             
                         new Campanha(
                             "Organização amigos do bem 02",
@@ -292,15 +244,7 @@ class CampanhaService extends Component {
                             0,
                             null,
                             null,
-                            new Doacao('item', 'peças', 100.0, 50.0, [
-                                new HistoricoDoacao(true, 10.0, true, "Jorgin", "20/11/2021"),
-                                new HistoricoDoacao(false, 20.0, true, "Cleber", "20/11/2021"),
-                                new HistoricoDoacao(true, 30.0, false, "Ricardo", "20/11/2021"),
-                                new HistoricoDoacao(true, 100.0, true, "Rafaella", "20/11/2021"),
-                                new HistoricoDoacao(false, 10.0, false, "Jorgin", "20/11/2021"),
-                                new HistoricoDoacao(true, 55.0, true, "Julio", "20/11/2021"),
-                                new HistoricoDoacao(true, 200.0, true, "Jackson", "20/11/2021"),
-                            ])),
+                            new Doacao('item', 'peças', 100.0, 50.0, [])),
             
                         new Campanha(
                             "Organização amigos do bem 03",
@@ -312,15 +256,7 @@ class CampanhaService extends Component {
                             0,
                             null,
                             null,
-                            new Doacao('item', 'unidades', 200.0, 100.0, [
-                                new HistoricoDoacao(true, 10.0, true, "Jorgin", "20/11/2021"),
-                                new HistoricoDoacao(false, 20.0, true, "Cleber", "20/11/2021"),
-                                new HistoricoDoacao(true, 30.0, false, "Ricardo", "20/11/2021"),
-                                new HistoricoDoacao(true, 100.0, true, "Rafaella", "20/11/2021"),
-                                new HistoricoDoacao(false, 10.0, false, "Jorgin", "20/11/2021"),
-                                new HistoricoDoacao(true, 55.0, true, "Julio", "20/11/2021"),
-                                new HistoricoDoacao(true, 200.0, true, "Jackson", "20/11/2021"),
-                            ])),
+                            new Doacao('item', 'unidades', 200.0, 100.0, [])),
             
                         new Campanha(
                             "Organização amigos do bem 04",
@@ -332,15 +268,7 @@ class CampanhaService extends Component {
                             0,
                             null,
                             null,
-                            new Doacao('item', 'KG', 300.0, 400.0, [
-                                new HistoricoDoacao(true, 10.0, true, "Jorgin", "20/11/2021"),
-                                new HistoricoDoacao(false, 20.0, true, "Cleber", "20/11/2021"),
-                                new HistoricoDoacao(true, 30.0, false, "Ricardo", "20/11/2021"),
-                                new HistoricoDoacao(true, 100.0, true, "Rafaella", "20/11/2021"),
-                                new HistoricoDoacao(false, 10.0, false, "Jorgin", "20/11/2021"),
-                                new HistoricoDoacao(true, 55.0, true, "Julio", "20/11/2021"),
-                                new HistoricoDoacao(true, 200.0, true, "Jackson", "20/11/2021"),
-                            ])),
+                            new Doacao('item', 'KG', 300.0, 400.0, [])),
             
                         new Campanha(
                             "Organização amigos do bem 05",
@@ -352,15 +280,7 @@ class CampanhaService extends Component {
                             0,
                             null,
                             null,
-                            new Doacao('dinheiro', 'R$', 160.0, 130.0, [
-                                new HistoricoDoacao(true, 10.0, true, "Jorgin", "20/11/2021"),
-                                new HistoricoDoacao(false, 20.0, true, "Cleber", "20/11/2021"),
-                                new HistoricoDoacao(true, 30.0, false, "Ricardo", "20/11/2021"),
-                                new HistoricoDoacao(true, 100.0, true, "Rafaella", "20/11/2021"),
-                                new HistoricoDoacao(false, 10.0, false, "Jorgin", "20/11/2021"),
-                                new HistoricoDoacao(true, 55.0, true, "Julio", "20/11/2021"),
-                                new HistoricoDoacao(true, 200.0, true, "Jackson", "20/11/2021"),
-                            ])),
+                            new Doacao('dinheiro', 'R$', 160.0, 130.0, [])),
                         
                         new Campanha(
                             "Organização amigos do bem 06",
@@ -372,15 +292,7 @@ class CampanhaService extends Component {
                             0,
                             null,
                             null,
-                            new Doacao('dinheiro', 'R$', 100.0, 50.0, [
-                                new HistoricoDoacao(true, 10.0, true, "Jorgin", "20/11/2021"),
-                                new HistoricoDoacao(false, 20.0, true, "Cleber", "20/11/2021"),
-                                new HistoricoDoacao(true, 30.0, false, "Ricardo", "20/11/2021"),
-                                new HistoricoDoacao(true, 100.0, true, "Rafaella", "20/11/2021"),
-                                new HistoricoDoacao(false, 10.0, false, "Jorgin", "20/11/2021"),
-                                new HistoricoDoacao(true, 55.0, true, "Julio", "20/11/2021"),
-                                new HistoricoDoacao(true, 200.0, true, "Jackson", "20/11/2021"),
-                            ])),
+                            new Doacao('dinheiro', 'R$', 100.0, 50.0, [])),
                     ],[],[]
                 ),
                 "Campanha do agasalho 03",
@@ -391,15 +303,9 @@ class CampanhaService extends Component {
                 0,
                 exemplo_imagem_background_02,
                 exemplo_imagem_background_card_02,
-                new Doacao('item', 'unidades', 200.0, 100.0, [
-                    new HistoricoDoacao(true, 10.0, true, "Jorgin", "20/11/2021"),
-                    new HistoricoDoacao(false, 20.0, true, "Cleber", "20/11/2021"),
-                    new HistoricoDoacao(true, 30.0, false, "Ricardo", "20/11/2021"),
-                    new HistoricoDoacao(true, 100.0, true, "Rafaella", "20/11/2021"),
-                    new HistoricoDoacao(false, 10.0, false, "Jorgin", "20/11/2021"),
-                    new HistoricoDoacao(true, 55.0, true, "Julio", "20/11/2021"),
-                    new HistoricoDoacao(true, 200.0, true, "Jackson", "20/11/2021"),
-                ], "brinquedos", [
+                new Doacao('item', 'unidades', 200.0, 100.0, [], 
+                "brinquedos",
+                [
                     new PontosColeta(1, "08370190", "Rua de exemplo 01", 20, "A", "Bairro de exemplo 01", 35, 3500105, "Roberto", false),
                     new PontosColeta(2, "08370190", "Rua de exemplo 02", 20, "A", "Bairro de exemplo 02", 35, 3500105, "Julio", false),
                     new PontosColeta(4, "08370190", "Rua de exemplo 04", 20, "A", "Bairro de exemplo 04", 35, 3500105, "Alberto", false)
@@ -432,15 +338,7 @@ class CampanhaService extends Component {
                             0,
                             null,
                             null,
-                            new Doacao('dinheiro', 'R$', 100.0, 50.0, [
-                                new HistoricoDoacao(true, 10.0, true, "Jorgin", "20/11/2021"),
-                                new HistoricoDoacao(false, 20.0, true, "Cleber", "20/11/2021"),
-                                new HistoricoDoacao(true, 30.0, false, "Ricardo", "20/11/2021"),
-                                new HistoricoDoacao(true, 100.0, true, "Rafaella", "20/11/2021"),
-                                new HistoricoDoacao(false, 10.0, false, "Jorgin", "20/11/2021"),
-                                new HistoricoDoacao(true, 55.0, true, "Julio", "20/11/2021"),
-                                new HistoricoDoacao(true, 200.0, true, "Jackson", "20/11/2021"),
-                            ])),
+                            new Doacao('dinheiro', 'R$', 100.0, 50.0, [])),
             
                         new Campanha(
                             "Organização amigos do bem 02",
@@ -488,15 +386,7 @@ class CampanhaService extends Component {
                             0,
                             null,
                             null,
-                            new Doacao('dinheiro', 'R$', 160.0, 130.0, [
-                                new HistoricoDoacao(true, 10.0, true, "Jorgin", "20/11/2021"),
-                                new HistoricoDoacao(false, 20.0, true, "Cleber", "20/11/2021"),
-                                new HistoricoDoacao(true, 30.0, false, "Ricardo", "20/11/2021"),
-                                new HistoricoDoacao(true, 100.0, true, "Rafaella", "20/11/2021"),
-                                new HistoricoDoacao(false, 10.0, false, "Jorgin", "20/11/2021"),
-                                new HistoricoDoacao(true, 55.0, true, "Julio", "20/11/2021"),
-                                new HistoricoDoacao(true, 200.0, true, "Jackson", "20/11/2021"),
-                            ])),
+                            new Doacao('dinheiro', 'R$', 160.0, 130.0, [])),
     
                     ],[],[]
                 ),
@@ -539,15 +429,7 @@ class CampanhaService extends Component {
                             0,
                             null,
                             null,
-                            new Doacao('dinheiro', 'R$', 100.0, 50.0, [
-                                new HistoricoDoacao(true, 10.0, true, "Jorgin", "20/11/2021"),
-                                new HistoricoDoacao(false, 20.0, true, "Cleber", "20/11/2021"),
-                                new HistoricoDoacao(true, 30.0, false, "Ricardo", "20/11/2021"),
-                                new HistoricoDoacao(true, 100.0, true, "Rafaella", "20/11/2021"),
-                                new HistoricoDoacao(false, 10.0, false, "Jorgin", "20/11/2021"),
-                                new HistoricoDoacao(true, 55.0, true, "Julio", "20/11/2021"),
-                                new HistoricoDoacao(true, 200.0, true, "Jackson", "20/11/2021"),
-                            ])),
+                            new Doacao('dinheiro', 'R$', 100.0, 50.0, [])),
             
                         new Campanha(
                             "Organização amigos do bem 02",
@@ -596,13 +478,13 @@ class CampanhaService extends Component {
                 exemplo_imagem_background_04,
                 exemplo_imagem_background_card_04,
                 new Doacao('dinheiro', 'R$', 160.0, 130.0, [
-                    new HistoricoDoacao(true, 10.0, true, "Jorgin", "20/11/2021"),
-                    new HistoricoDoacao(false, 20.0, true, "Cleber", "20/11/2021"),
-                    new HistoricoDoacao(true, 30.0, false, "Ricardo", "20/11/2021"),
-                    new HistoricoDoacao(true, 100.0, true, "Rafaella", "20/11/2021"),
-                    new HistoricoDoacao(false, 10.0, false, "Jorgin", "20/11/2021"),
-                    new HistoricoDoacao(true, 55.0, true, "Julio", "20/11/2021"),
-                    new HistoricoDoacao(true, 200.0, true, "Jackson", "20/11/2021"),
+                    new HistoricoDoacao(true, 10.0, true, "Jorgin", "20/11/2021", null),
+                    new HistoricoDoacao(false, 20.0, true, "Cleber", "20/11/2021", null),
+                    new HistoricoDoacao(true, 30.0, false, "Ricardo", "20/11/2021", null),
+                    new HistoricoDoacao(true, 100.0, true, "Rafaella", "20/11/2021", null),
+                    new HistoricoDoacao(false, 10.0, false, "Jorgin", "20/11/2021", null),
+                    new HistoricoDoacao(true, 55.0, true, "Julio", "20/11/2021", null),
+                    new HistoricoDoacao(true, 200.0, true, "Jackson", "20/11/2021", null),
                 ], null, null),
                 [],
                 new SolicitacaoVoluntario(false, "")
@@ -630,15 +512,7 @@ class CampanhaService extends Component {
                             0,
                             null,
                             null,
-                            new Doacao('dinheiro', 'R$', 100.0, 50.0, [
-                                new HistoricoDoacao(true, 10.0, true, "Jorgin", "20/11/2021"),
-                                new HistoricoDoacao(false, 20.0, true, "Cleber", "20/11/2021"),
-                                new HistoricoDoacao(true, 30.0, false, "Ricardo", "20/11/2021"),
-                                new HistoricoDoacao(true, 100.0, true, "Rafaella", "20/11/2021"),
-                                new HistoricoDoacao(false, 10.0, false, "Jorgin", "20/11/2021"),
-                                new HistoricoDoacao(true, 55.0, true, "Julio", "20/11/2021"),
-                                new HistoricoDoacao(true, 200.0, true, "Jackson", "20/11/2021"),
-                            ])),
+                            new Doacao('dinheiro', 'R$', 100.0, 50.0, [])),
             
                         new Campanha(
                             "Organização amigos do bem 02",
@@ -675,13 +549,13 @@ class CampanhaService extends Component {
                 exemplo_imagem_background,
                 exemplo_imagem_background_card_05,
                 new Doacao('dinheiro', 'R$', 100.0, 50.0, [
-                    new HistoricoDoacao(true, 10.0, true, "Jorgin", "20/11/2021"),
-                    new HistoricoDoacao(false, 20.0, true, "Cleber", "20/11/2021"),
-                    new HistoricoDoacao(true, 30.0, false, "Ricardo", "20/11/2021"),
-                    new HistoricoDoacao(true, 100.0, true, "Rafaella", "20/11/2021"),
-                    new HistoricoDoacao(false, 10.0, false, "Jorgin", "20/11/2021"),
-                    new HistoricoDoacao(true, 55.0, true, "Julio", "20/11/2021"),
-                    new HistoricoDoacao(true, 200.0, true, "Jackson", "20/11/2021"),
+                    new HistoricoDoacao(true, 10.0, true, "Jorgin", "20/11/2021", null),
+                    new HistoricoDoacao(false, 20.0, true, "Cleber", "20/11/2021", null),
+                    new HistoricoDoacao(true, 30.0, false, "Ricardo", "20/11/2021", null),
+                    new HistoricoDoacao(true, 100.0, true, "Rafaella", "20/11/2021", null),
+                    new HistoricoDoacao(false, 10.0, false, "Jorgin", "20/11/2021", null),
+                    new HistoricoDoacao(true, 55.0, true, "Julio", "20/11/2021", null),
+                    new HistoricoDoacao(true, 200.0, true, "Jackson", "20/11/2021", null),
                 ], null, null),
                 [],
                 new SolicitacaoVoluntario(false, "")
@@ -709,15 +583,7 @@ class CampanhaService extends Component {
                             0,
                             null,
                             null,
-                            new Doacao('dinheiro', 'R$', 100.0, 50.0, [
-                                new HistoricoDoacao(true, 10.0, true, "Jorgin", "20/11/2021"),
-                                new HistoricoDoacao(false, 20.0, true, "Cleber", "20/11/2021"),
-                                new HistoricoDoacao(true, 30.0, false, "Ricardo", "20/11/2021"),
-                                new HistoricoDoacao(true, 100.0, true, "Rafaella", "20/11/2021"),
-                                new HistoricoDoacao(false, 10.0, false, "Jorgin", "20/11/2021"),
-                                new HistoricoDoacao(true, 55.0, true, "Julio", "20/11/2021"),
-                                new HistoricoDoacao(true, 200.0, true, "Jackson", "20/11/2021"),
-                            ])),
+                            new Doacao('dinheiro', 'R$', 100.0, 50.0, [])),
             
                         new Campanha(
                             "Organização amigos do bem 02",
@@ -742,13 +608,13 @@ class CampanhaService extends Component {
                 exemplo_imagem_background_01,
                 exemplo_imagem_background_card,
                 new Doacao('dinheiro', 'R$', 100.0, 50.0, [
-                    new HistoricoDoacao(true, 10.0, true, "Jorgin", "20/11/2021"),
-                    new HistoricoDoacao(false, 20.0, true, "Cleber", "20/11/2021"),
-                    new HistoricoDoacao(true, 30.0, false, "Ricardo", "20/11/2021"),
-                    new HistoricoDoacao(true, 100.0, true, "Rafaella", "20/11/2021"),
-                    new HistoricoDoacao(false, 10.0, false, "Jorgin", "20/11/2021"),
-                    new HistoricoDoacao(true, 55.0, true, "Julio", "20/11/2021"),
-                    new HistoricoDoacao(true, 200.0, true, "Jackson", "20/11/2021"),
+                    new HistoricoDoacao(true, 10.0, true, "Jorgin", "20/11/2021", null),
+                    new HistoricoDoacao(false, 20.0, true, "Cleber", "20/11/2021", null),
+                    new HistoricoDoacao(true, 30.0, false, "Ricardo", "20/11/2021", null),
+                    new HistoricoDoacao(true, 100.0, true, "Rafaella", "20/11/2021", null),
+                    new HistoricoDoacao(false, 10.0, false, "Jorgin", "20/11/2021", null),
+                    new HistoricoDoacao(true, 55.0, true, "Julio", "20/11/2021", null),
+                    new HistoricoDoacao(true, 200.0, true, "Jackson", "20/11/2021", null),
                 ], null, null),
                 [],
                 new SolicitacaoVoluntario(false, "")
@@ -776,15 +642,7 @@ class CampanhaService extends Component {
                             0,
                             null,
                             null,
-                            new Doacao('dinheiro', 'R$', 100.0, 50.0, [
-                                new HistoricoDoacao(true, 10.0, true, "Jorgin", "20/11/2021"),
-                                new HistoricoDoacao(false, 20.0, true, "Cleber", "20/11/2021"),
-                                new HistoricoDoacao(true, 30.0, false, "Ricardo", "20/11/2021"),
-                                new HistoricoDoacao(true, 100.0, true, "Rafaella", "20/11/2021"),
-                                new HistoricoDoacao(false, 10.0, false, "Jorgin", "20/11/2021"),
-                                new HistoricoDoacao(true, 55.0, true, "Julio", "20/11/2021"),
-                                new HistoricoDoacao(true, 200.0, true, "Jackson", "20/11/2021"),
-                            ])),
+                            new Doacao('dinheiro', 'R$', 100.0, 50.0, [])),
     
                     ],[],[]
                 ),
@@ -797,13 +655,13 @@ class CampanhaService extends Component {
                 exemplo_imagem_background_02,
                 exemplo_imagem_background_card,
                 new Doacao('dinheiro', 'R$', 200.0, 100.0, [
-                    new HistoricoDoacao(true, 10.0, true, "Jorgin", "20/11/2021"),
-                    new HistoricoDoacao(false, 20.0, true, "Cleber", "20/11/2021"),
-                    new HistoricoDoacao(true, 30.0, false, "Ricardo", "20/11/2021"),
-                    new HistoricoDoacao(true, 100.0, true, "Rafaella", "20/11/2021"),
-                    new HistoricoDoacao(false, 10.0, false, "Jorgin", "20/11/2021"),
-                    new HistoricoDoacao(true, 55.0, true, "Julio", "20/11/2021"),
-                    new HistoricoDoacao(true, 200.0, true, "Jackson", "20/11/2021"),
+                    new HistoricoDoacao(true, 10.0, true, "Jorgin", "20/11/2021", null),
+                    new HistoricoDoacao(false, 20.0, true, "Cleber", "20/11/2021", null),
+                    new HistoricoDoacao(true, 30.0, false, "Ricardo", "20/11/2021", null),
+                    new HistoricoDoacao(true, 100.0, true, "Rafaella", "20/11/2021", null),
+                    new HistoricoDoacao(false, 10.0, false, "Jorgin", "20/11/2021", null),
+                    new HistoricoDoacao(true, 55.0, true, "Julio", "20/11/2021", null),
+                    new HistoricoDoacao(true, 200.0, true, "Jackson", "20/11/2021", null),
                 ], null, null),
                 [],
                 new SolicitacaoVoluntario(false, "")
@@ -831,15 +689,7 @@ class CampanhaService extends Component {
                             0,
                             null,
                             null,
-                            new Doacao('dinheiro', 'R$', 100.0, 50.0, [
-                                new HistoricoDoacao(true, 10.0, true, "Jorgin", "20/11/2021"),
-                                new HistoricoDoacao(false, 20.0, true, "Cleber", "20/11/2021"),
-                                new HistoricoDoacao(true, 30.0, false, "Ricardo", "20/11/2021"),
-                                new HistoricoDoacao(true, 100.0, true, "Rafaella", "20/11/2021"),
-                                new HistoricoDoacao(false, 10.0, false, "Jorgin", "20/11/2021"),
-                                new HistoricoDoacao(true, 55.0, true, "Julio", "20/11/2021"),
-                                new HistoricoDoacao(true, 200.0, true, "Jackson", "20/11/2021"),
-                            ])),
+                            new Doacao('dinheiro', 'R$', 100.0, 50.0, [])),
     
                     ],[],[]
                 ),
@@ -852,13 +702,13 @@ class CampanhaService extends Component {
                 exemplo_imagem_background_03,
                 exemplo_imagem_background_card,
                 new Doacao('dinheiro', 'R$', 300.0, 150.0, [
-                    new HistoricoDoacao(true, 10.0, true, "Jorgin", "20/11/2021"),
-                    new HistoricoDoacao(false, 20.0, true, "Cleber", "20/11/2021"),
-                    new HistoricoDoacao(true, 30.0, false, "Ricardo", "20/11/2021"),
-                    new HistoricoDoacao(true, 100.0, true, "Rafaella", "20/11/2021"),
-                    new HistoricoDoacao(false, 10.0, false, "Jorgin", "20/11/2021"),
-                    new HistoricoDoacao(true, 55.0, true, "Julio", "20/11/2021"),
-                    new HistoricoDoacao(true, 200.0, true, "Jackson", "20/11/2021"),
+                    new HistoricoDoacao(true, 10.0, true, "Jorgin", "20/11/2021", null),
+                    new HistoricoDoacao(false, 20.0, true, "Cleber", "20/11/2021", null),
+                    new HistoricoDoacao(true, 30.0, false, "Ricardo", "20/11/2021", null),
+                    new HistoricoDoacao(true, 100.0, true, "Rafaella", "20/11/2021", null),
+                    new HistoricoDoacao(false, 10.0, false, "Jorgin", "20/11/2021", null),
+                    new HistoricoDoacao(true, 55.0, true, "Julio", "20/11/2021", null),
+                    new HistoricoDoacao(true, 200.0, true, "Jackson", "20/11/2021", null),
                 ], null, null),
                 [],
                 new SolicitacaoVoluntario(false, "")
@@ -886,15 +736,7 @@ class CampanhaService extends Component {
                             0,
                             null,
                             null,
-                            new Doacao('dinheiro', 'R$', 100.0, 50.0, [
-                                new HistoricoDoacao(true, 10.0, true, "Jorgin", "20/11/2021"),
-                                new HistoricoDoacao(false, 20.0, true, "Cleber", "20/11/2021"),
-                                new HistoricoDoacao(true, 30.0, false, "Ricardo", "20/11/2021"),
-                                new HistoricoDoacao(true, 100.0, true, "Rafaella", "20/11/2021"),
-                                new HistoricoDoacao(false, 10.0, false, "Jorgin", "20/11/2021"),
-                                new HistoricoDoacao(true, 55.0, true, "Julio", "20/11/2021"),
-                                new HistoricoDoacao(true, 200.0, true, "Jackson", "20/11/2021"),
-                            ], null, null)
+                            new Doacao('dinheiro', 'R$', 100.0, 50.0, [], null, null)
                         ),
     
                     ],[],[]
@@ -908,13 +750,13 @@ class CampanhaService extends Component {
                 exemplo_imagem_background_04,
                 exemplo_imagem_background_card,
                 new Doacao('dinheiro', 'R$', 160.0, 50.0, [
-                    new HistoricoDoacao(true, 10.0, true, "Jorgin", "20/11/2021"),
-                    new HistoricoDoacao(false, 20.0, true, "Cleber", "20/11/2021"),
-                    new HistoricoDoacao(true, 30.0, false, "Ricardo", "20/11/2021"),
-                    new HistoricoDoacao(true, 100.0, true, "Rafaella", "20/11/2021"),
-                    new HistoricoDoacao(false, 10.0, false, "Jorgin", "20/11/2021"),
-                    new HistoricoDoacao(true, 55.0, true, "Julio", "20/11/2021"),
-                    new HistoricoDoacao(true, 200.0, true, "Jackson", "20/11/2021"),
+                    new HistoricoDoacao(true, 10.0, true, "Jorgin", "20/11/2021", null),
+                    new HistoricoDoacao(false, 20.0, true, "Cleber", "20/11/2021", null),
+                    new HistoricoDoacao(true, 30.0, false, "Ricardo", "20/11/2021", null),
+                    new HistoricoDoacao(true, 100.0, true, "Rafaella", "20/11/2021", null),
+                    new HistoricoDoacao(false, 10.0, false, "Jorgin", "20/11/2021", null),
+                    new HistoricoDoacao(true, 55.0, true, "Julio", "20/11/2021", null),
+                    new HistoricoDoacao(true, 200.0, true, "Jackson", "20/11/2021", null),
                 ], null, null),
                 [],
                 new SolicitacaoVoluntario(false, "")

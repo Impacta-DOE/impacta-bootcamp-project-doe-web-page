@@ -38,7 +38,7 @@ class MenuModal extends Component {
                                     <div className="menu-modal-opcao"> 
                                         <span>Planos mensais</span>
                                     </div>
-                                    <div className="menu-modal-opcao"> 
+                                    <div className="menu-modal-opcao" onClick={() => this.chamaProximaTela("/historico-doacoes")}> 
                                         <span>Histórico de doações</span>
                                     </div>
                                 </ReactBootstrap.Accordion.Body>
