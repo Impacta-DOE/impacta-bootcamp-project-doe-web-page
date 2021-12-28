@@ -1,13 +1,30 @@
 import React, { Component } from 'react';
 
 import '../css/TabelaMinhasDoacoes.css';
+import DoacaoService from '../services/DoacaoService';
 import RegistroTabelaMinhasDoacoes from './RegistroTabelaMinhasDoacoes';
 
 class TabelaMinhasDoacoes extends Component {
 
     constructor(props){
         super(props);
-        this.state = {minhasDoacoes: []};
+        this.state = {
+            doacoesService: new DoacaoService(),
+            minhasDoacoes: []
+        };
+    }
+
+    componentWillMount(){
+        this.getMinhasDoacoes();
+    }
+
+    getMinhasDoacoes(){
+        let doacoes = this.state.doacoesService.getDoacoesFromUserById(0);
+        let minhasDoacoes = [];
+        for(let i=0; i<doacoes.length; i++){
+            minhasDoacoes.push(<RegistroTabelaMinhasDoacoes doacao={doacoes[i]} />);
+        }
+        this.setState({minhasDoacoes});
     }
 
     render() {
@@ -24,18 +41,7 @@ class TabelaMinhasDoacoes extends Component {
                     <div className="vertical-line-header-minhas-doacoes"></div>
                     <p className="column-minhas-doacoes" style={{width: "15%"}}>Data da doação</p>
                 </div>
-                <RegistroTabelaMinhasDoacoes />
-                <RegistroTabelaMinhasDoacoes />
-                <RegistroTabelaMinhasDoacoes />
-                <RegistroTabelaMinhasDoacoes />
-                <RegistroTabelaMinhasDoacoes />
-                <RegistroTabelaMinhasDoacoes />
-                <RegistroTabelaMinhasDoacoes />
-                <RegistroTabelaMinhasDoacoes />
-                <RegistroTabelaMinhasDoacoes />
-                <RegistroTabelaMinhasDoacoes />
-                <RegistroTabelaMinhasDoacoes />
-                <RegistroTabelaMinhasDoacoes />
+                {this.state.minhasDoacoes}
             </div>
         );
     }

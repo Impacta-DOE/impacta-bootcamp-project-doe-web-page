@@ -1,6 +1,7 @@
 import Comentario from "./Comentario";
 import { Doacao } from "./Doacao";
-import { Organizacao } from "./Organizacao";
+//import { Organizacao } from "./Organizacao";
+import { Pessoa } from "./Pessoa";
 import { SolicitacaoVoluntario } from "./SolicitacaoVoluntario";
 
 export class Campanha {
@@ -8,7 +9,8 @@ export class Campanha {
     status : boolean;
     tipoCampanha : string;
     dataLimite : string;
-    organizacao : Organizacao;
+    //organizacao : Organizacao;
+    organizacao : Pessoa;
     //titulo : string; //nome organização
     nome_campanha : string;
     desc_campanha : string;
@@ -23,7 +25,8 @@ export class Campanha {
             status : boolean, 
             tipoCampanha : string, 
             dataLimite : string, 
-            organizacao : Organizacao, 
+            //organizacao : Organizacao, 
+            organizacao : Pessoa, 
             nome_campanha : string, 
             desc_campanha : string, 
             id_campanha : number, 

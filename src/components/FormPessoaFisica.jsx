@@ -6,6 +6,9 @@ import Select from 'react-select';
 import { PessoaFisica } from '../entities/PessoaFisica';
 import PessoaFisicaService from '../services/PessoaFisicaService';
 import { DadosContato } from '../entities/DadosContato';
+import { DadosBancario } from '../entities/DadosBancario';
+import { Endereco } from '../entities/Endereco';
+import { Nacionalidade } from '../entities/Nacionalidade';
 
 class FormPessoaFisica extends Component {
 
@@ -17,7 +20,20 @@ class FormPessoaFisica extends Component {
                         pessoaFisicaService : new PessoaFisicaService(),
                         estados : [],
                         cidades : [],
-                        pessoaFisica : new PessoaFisica(),
+                        pessoaFisica : new PessoaFisica(
+                            new DadosContato(),
+                            new DadosBancario(),
+                            new Endereco(),
+                            "",
+                            Object,
+                            Object,
+                            "",
+                            "",
+                            "",
+                            null,
+                            "",
+                            new Nacionalidade()
+                        ),
                         passwordCheck : ""
                     };
         this.handleChange = this.handleChange.bind(this);
@@ -42,7 +58,7 @@ class FormPessoaFisica extends Component {
     handleChange(event){
         switch (event.target.name) {
             case "nome-completo":
-                this.state.pessoaFisica.nomeCompleto = event.target.value;
+                this.state.pessoaFisica.nome = event.target.value;
                 break; 
             case "data-nascimento":
                 this.state.pessoaFisica.dataNasc = event.target.value;
@@ -97,6 +113,7 @@ class FormPessoaFisica extends Component {
         this.state.pessoaFisicaService.save(this.state.pessoaFisica)
                                         .then(() => alert("Cadastro realizado!!!"))
                                         .catch((err) => alert("Erro: " + err));
+        console.log(this.state.pessoaFisicaService.getAll());
     }
 
     render() {
