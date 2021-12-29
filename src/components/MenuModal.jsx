@@ -32,7 +32,7 @@ class MenuModal extends Component {
                             <ReactBootstrap.Accordion.Item eventKey="0">
                                 <ReactBootstrap.Accordion.Header>Área do doador</ReactBootstrap.Accordion.Header>
                                 <ReactBootstrap.Accordion.Body id="accordion-body">
-                                    <div className="menu-modal-opcao"> 
+                                    <div className="menu-modal-opcao" onClick={() => this.chamaProximaTela("/trabalhos-voluntarios")}> 
                                         <span>Trabalhos voluntários</span>
                                     </div>
                                     <div className="menu-modal-opcao"> 

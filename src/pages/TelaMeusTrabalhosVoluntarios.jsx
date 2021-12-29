@@ -1,32 +1,34 @@
 import React, { Component } from 'react';
 import { Col, Row } from 'react-bootstrap';
 import MenuTop from '../components/MenuTop';
-import TabelaMinhasDoacoes from '../components/TabelaMinhasDoacoes';
+import TabelaMeusTrabalhosVoluntarios from '../components/TabelaMeusTrabalhosVoluntarios';
 
-class TelaHistoricoDoacoes extends Component {
+import '../css/TelaMeusTrabalhosVoluntarios.css';
+
+class TelaMeusTrabalhosVoluntarios extends Component {
 
     componentDidMount(){
-        document.title = "Histórico de doações";
+        document.title = "Trabalhos Voluntarios";
     }
 
     render() {
         return (
             <div>
                 <MenuTop />
-                <div id="div-content" style={{paddingBottom: "3em"}}>
+                <div id="div-content">
                     <Row>
                         <Col>
-                            <p className="titulo-minhas-campanhas">Histórico de doações</p>
+                            <p className="titulo-meus-trabalhos-voluntarios">Trabalhos Voluntarios</p>
                         </Col>
                     </Row>
                     <Row>
                         <Col>
-                            <hr className="hr-titulo-minhas-campanhas"></hr>
+                            <hr className="hr-titulo-meus-trabalhos-voluntarios"></hr>
                         </Col>
                     </Row>
                     <Row>
                         <Col>
-                            <TabelaMinhasDoacoes />
+                            <TabelaMeusTrabalhosVoluntarios />
                         </Col>
                     </Row>
                 </div>
@@ -35,4 +37,4 @@ class TelaHistoricoDoacoes extends Component {
     }
 }
 
-export default TelaHistoricoDoacoes;
+export default TelaMeusTrabalhosVoluntarios;

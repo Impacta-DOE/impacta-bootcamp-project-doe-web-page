@@ -18,7 +18,7 @@ class RegistroTabelaMinhasDoacoes extends Component {
                     <div className="vertical-line-registry-minhas-doacoes"></div>
                     <p className="column-registry-minhas-doacoes" style={{width: "27%"}}>{this.props.doacao.campanha.nome_campanha}</p>
                     <div className="vertical-line-registry-minhas-doacoes"></div>
-                    <p className="column-registry-minhas-doacoes" style={{width: "14%"}}>{this.props.doacao.valorDoado}</p>
+                    <p className="column-registry-minhas-doacoes" style={{width: "14%"}}>R$ {this.props.doacao.valorDoado.toFixed(2).replace('.', ',')}</p>
                     <div className="vertical-line-registry-minhas-doacoes"></div>
                     <p className="column-registry-minhas-doacoes" style={{width: "15%"}}>{this.props.doacao.dataDoacao}</p>
                 </div>

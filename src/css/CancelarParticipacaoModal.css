@@ -1,0 +1,38 @@
+.modal-cancelar-participacao {
+    min-width: 30%;
+}
+
+#p-cancelar-participacao {
+    font-size: 17px;
+    font-family: 'Roboto';
+}
+
+#btn-confirmar {
+    width: 50%;
+    height: 4em;
+    font-size: 14px;
+    font-family: 'Roboto';
+    color: white;
+    background-color: #03A654;
+    border: none;
+    border-radius: 0 0 0 .2em;
+}
+
+#btn-confirmar:hover {
+    background-color: #038b47;
+}
+
+#btn-cancelar {
+    width: 50%;
+    height: 4em;
+    font-size: 14px;
+    font-family: 'Roboto';
+    color: white;
+    background-color: #F52424;
+    border: none;
+    border-radius: 0 0 .2em 0;
+}
+
+#btn-cancelar:hover {
+    background-color: #d42121;
+}

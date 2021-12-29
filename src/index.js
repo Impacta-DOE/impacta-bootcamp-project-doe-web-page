@@ -15,6 +15,7 @@ import OrgPage from './pages/OrgPage';
 import TelaCampanha from './pages/TelaCampanha';
 import TelaMinhasCampanhas from './pages/TelaMinhasCampanhas';
 import TelaHistoricoDoacoes from './pages/TelaHistoricoDoacoes';
+import TelaMeusTrabalhosVoluntarios from './pages/TelaMeusTrabalhosVoluntarios';
 
 
 ReactDOM.render(
@@ -28,6 +29,7 @@ ReactDOM.render(
           <Route path="/campanha/:urlAmigavel" component={TelaCampanha}/>
           <Route path="/campanhas" component={TelaMinhasCampanhas}/>
           <Route path="/historico-doacoes" component={TelaHistoricoDoacoes}/>
+          <Route path="/trabalhos-voluntarios" component={TelaMeusTrabalhosVoluntarios}/>
       </Switch>
   </Router>,
   document.getElementById('root')

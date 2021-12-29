@@ -1,0 +1,38 @@
+#registry-meus-trabalhos-voluntarios {
+    width: 100%;
+    height: 3em;
+    background-color: #DCDCDC;
+    color: black;
+    margin-top:1px;
+    padding-top: .6em;
+}
+
+.column-registry-meus-trabalhos-voluntarios {
+    float: left;
+    text-align: center;
+    font-size: 17px;
+    font-family: 'Roboto';
+}
+
+.vertical-line-registry-meus-trabalhos-voluntarios {
+    border-right: 1px solid black;
+    height: 70%;
+    width: .05px;
+    float: left;
+}
+
+#btn-cancelar-participacao {
+    border: none;
+    background-color: #F52424;
+    color: white;
+    font-family: 'Roboto';
+    font-size: 14px;
+    border-radius: 3px;
+    padding: .5em 2em;
+    margin-top: -.5em;
+    margin-left: 4%;
+}
+
+#btn-cancelar-participacao:hover {
+    background-color: #d82222;
+}
