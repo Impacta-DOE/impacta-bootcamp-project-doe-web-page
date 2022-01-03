@@ -46,7 +46,7 @@ class MenuModal extends Component {
                             <ReactBootstrap.Accordion.Item eventKey="1">
                                 <ReactBootstrap.Accordion.Header>Área do receptor</ReactBootstrap.Accordion.Header>
                                 <ReactBootstrap.Accordion.Body id="accordion-body">
-                                    <div className="menu-modal-opcao"> 
+                                    <div className="menu-modal-opcao" onClick={() => this.chamaProximaTela("/gerenciamento-planos-mensais")}> 
                                         <span>Gerenciamento de planos mensais</span>
                                     </div>
                                     <div className="menu-modal-opcao" onClick={() => this.chamaProximaTela("/campanhas")}> 
