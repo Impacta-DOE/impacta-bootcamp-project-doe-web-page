@@ -35,7 +35,7 @@ class MenuModal extends Component {
                                     <div className="menu-modal-opcao" onClick={() => this.chamaProximaTela("/trabalhos-voluntarios")}> 
                                         <span>Trabalhos voluntários</span>
                                     </div>
-                                    <div className="menu-modal-opcao"> 
+                                    <div className="menu-modal-opcao" onClick={() => this.chamaProximaTela("/meus-planos-mensais")}> 
                                         <span>Planos mensais</span>
                                     </div>
                                     <div className="menu-modal-opcao" onClick={() => this.chamaProximaTela("/historico-doacoes")}> 

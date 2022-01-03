@@ -16,6 +16,7 @@ import TelaCampanha from './pages/TelaCampanha';
 import TelaMinhasCampanhas from './pages/TelaMinhasCampanhas';
 import TelaHistoricoDoacoes from './pages/TelaHistoricoDoacoes';
 import TelaMeusTrabalhosVoluntarios from './pages/TelaMeusTrabalhosVoluntarios';
+import TelaMeusPlanosMensais from './pages/TelaMeusPlanosMensais';
 
 
 ReactDOM.render(
@@ -30,6 +31,7 @@ ReactDOM.render(
           <Route path="/campanhas" component={TelaMinhasCampanhas}/>
           <Route path="/historico-doacoes" component={TelaHistoricoDoacoes}/>
           <Route path="/trabalhos-voluntarios" component={TelaMeusTrabalhosVoluntarios}/>
+          <Route path="/meus-planos-mensais" component={TelaMeusPlanosMensais}/>
       </Switch>
   </Router>,
   document.getElementById('root')

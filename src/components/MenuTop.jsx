@@ -53,7 +53,7 @@ class MenuTop extends React.Component {
                                 <img src={logo} className="logo" onClick={() => this.chamaProximaTela("/")}/>
                             </ReactBootstrap.Nav>
                             <ReactBootstrap.Nav>
-                                <img src={campanha} className="campanha"/>
+                                <img src={campanha} className="campanha" onClick={() => this.chamaProximaTela("/campanhas")}/>
                                 <MenuPerfil />
                             </ReactBootstrap.Nav>
                         </ReactBootstrap.Container>

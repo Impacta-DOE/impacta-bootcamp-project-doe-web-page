@@ -1,0 +1,13 @@
+.titulo-meus-planos-mensais {
+    color: #4380BD;
+    font-size: 24px;
+    font-family: 'Roboto';
+    float: left;
+    margin-top: .6em;
+}
+
+.hr-titulo-meus-planos-mensais {
+    background-color: #4380BD;
+    border: .1px solid #4380BD;
+    margin-top: -1em;
+}
