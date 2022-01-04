@@ -11,6 +11,7 @@ class TabelaRecompensasPlanoMensal extends Component {
         this.state = {
             atualizarTabela: true,
             recompensas: [],
+            listObjRecompensas: [],
             recompensa: ""
         };
         this.adicionarRecompensa = this.adicionarRecompensa.bind(this);
@@ -19,17 +20,27 @@ class TabelaRecompensasPlanoMensal extends Component {
     }
 
     adicionarRecompensa(){
+        let listObjRecompensas = this.state.listObjRecompensas;
         let recompensa = new PlanoMensalRecompensa(0, true, this.state.recompensa);
         let recompensas = (this.state.recompensas != null) ? this.state.recompensas : [];
         recompensas.push(<RegistroRecompensa recompensa={recompensa} removerRecompensa={this.removerRecompensa}/>);
+        listObjRecompensas.push(recompensa);
         this.setState({recompensas});
+        this.setState({listObjRecompensas});
     }
 
     removerRecompensa(recompensa){
-        let recompensas = (this.state.recompensas != null) ? this.state.recompensas : [];
-        let index = recompensas.indexOf(recompensa);
-        if (index > -1) {
-            recompensas.splice(index, 1);
+        let recompensasObj = this.state.listObjRecompensas;
+        for(let i=0; i<recompensasObj.length; i++){
+            if(recompensasObj[i].descricaoRecompensa === recompensa.descricaoRecompensa){
+                recompensasObj.splice(i, 1);
+            }
+        }
+        this.setState({listObjRecompensas: recompensasObj});
+
+        let recompensas = [];
+        for(let i=0; i<recompensasObj.length; i++){
+            recompensas.push(<RegistroRecompensa recompensa={recompensasObj[i]} removerRecompensa={this.removerRecompensa}/>);
         }
         this.setState({recompensas});
     }
@@ -53,6 +64,7 @@ class TabelaRecompensasPlanoMensal extends Component {
         if(this.props.atualizarTabela && this.state.atualizarTabela){
             this.listAllRecompensas();
             this.setState({atualizarTabela: false});
+            this.setState({listObjRecompensas: this.props.recompensas});
         }
         return (
             <div style={{width: "100%", height: "auto"}}>
