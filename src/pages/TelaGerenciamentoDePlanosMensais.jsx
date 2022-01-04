@@ -11,7 +11,7 @@ class TelaGerenciamentoDePlanosMensais extends Component {
 
     constructor(props){
         super(props);
-        this.state = {showModal: false, plano: PlanoMensal, modoTelaPlano: "cadastro", atualizarTabela: false, showPlanosInativos: false};
+        this.state = {showModal: false, plano: null, modoTelaPlano: "cadastro", atualizarTabela: false, showPlanosInativos: false};
         this.showModal = this.showModal.bind(this);
         this.abrirTelaAlteraçãoPlano = this.abrirTelaAlteraçãoPlano.bind(this);
         this.handleChange = this.handleChange.bind(this);

@@ -15,9 +15,9 @@ class PlanoMensalService extends Component {
                 "Plano A",
                 100.0,
                 [
-                    new PlanoMensalRecompensa("Recompensa A"),
-                    new PlanoMensalRecompensa("Recompensa B"),
-                    new PlanoMensalRecompensa("Recompensa C"),
+                    new PlanoMensalRecompensa(0, true, "Recompensa A"),
+                    new PlanoMensalRecompensa(1, true, "Recompensa B"),
+                    new PlanoMensalRecompensa(2, true, "Recompensa C")
                 ],
                 new PessoaJuridica(
                     null,
@@ -30,17 +30,19 @@ class PlanoMensalService extends Component {
                     "ACNUR",
                     "987654321",
                     "Agência da ONU para Refugiados"
-                )
+                ),
+                new Date("2022-01-04")
             ),
             new PlanoMensal(
                 1,
-                true,
+                false,
                 "Plano B",
                 200.0,
                 [
-                    new PlanoMensalRecompensa("Recompensa A"),
-                    new PlanoMensalRecompensa("Recompensa B"),
-                    new PlanoMensalRecompensa("Recompensa C"),
+                    new PlanoMensalRecompensa(0, true, "Recompensa A"),
+                    new PlanoMensalRecompensa(1, true, "Recompensa B"),
+                    new PlanoMensalRecompensa(2, true, "Recompensa C"),
+                    new PlanoMensalRecompensa(2, true, "Recompensa D")
                 ],
                 new PessoaJuridica(
                     null,
@@ -53,17 +55,20 @@ class PlanoMensalService extends Component {
                     "ACNUR",
                     "987654321",
                     "Agência da ONU para Refugiados"
-                )
+                ),
+                new Date("2022-01-04")
             ),
             new PlanoMensal(
                 2,
-                false,
+                true,
                 "Plano C",
                 300.0,
                 [
-                    new PlanoMensalRecompensa("Recompensa A"),
-                    new PlanoMensalRecompensa("Recompensa B"),
-                    new PlanoMensalRecompensa("Recompensa C"),
+                    new PlanoMensalRecompensa(0, true, "Recompensa A"),
+                    new PlanoMensalRecompensa(1, true, "Recompensa B"),
+                    new PlanoMensalRecompensa(2, true, "Recompensa C"),
+                    new PlanoMensalRecompensa(2, true, "Recompensa D"),
+                    new PlanoMensalRecompensa(2, true, "Recompensa E")
                 ],
                 new PessoaJuridica(
                     null,
@@ -76,7 +81,8 @@ class PlanoMensalService extends Component {
                     "ACNUR",
                     "987654321",
                     "Agência da ONU para Refugiados"
-                )
+                ),
+                new Date("2022-01-04")
             ),
             new PlanoMensal(
                 3,
@@ -84,9 +90,12 @@ class PlanoMensalService extends Component {
                 "Plano D",
                 400.0,
                 [
-                    new PlanoMensalRecompensa("Recompensa A"),
-                    new PlanoMensalRecompensa("Recompensa B"),
-                    new PlanoMensalRecompensa("Recompensa C"),
+                    new PlanoMensalRecompensa(0, true, "Recompensa A"),
+                    new PlanoMensalRecompensa(1, true, "Recompensa B"),
+                    new PlanoMensalRecompensa(2, true, "Recompensa C"),
+                    new PlanoMensalRecompensa(2, true, "Recompensa D"),
+                    new PlanoMensalRecompensa(2, true, "Recompensa E"),
+                    new PlanoMensalRecompensa(2, true, "Recompensa F")
                 ],
                 new PessoaJuridica(
                     null,
@@ -99,7 +108,8 @@ class PlanoMensalService extends Component {
                     "ACNUR",
                     "987654321",
                     "Agência da ONU para Refugiados"
-                )
+                ),
+                new Date("2022-01-04")
             )
         ];
     }
@@ -116,6 +126,10 @@ class PlanoMensalService extends Component {
             new PlanoMensalDoador(true, new Date("2022-01-03"), this.planosMensais[3])
         ];
         return planosMensaisDoador;
+    }
+
+    getQntdAssinaturasPlanoMensalById(id){
+        return 10;
     }
 
 }

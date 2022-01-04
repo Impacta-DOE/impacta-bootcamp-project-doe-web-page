@@ -4,7 +4,6 @@ import crossButton from '../images/cross.png';
 
 import '../css/ManterPlanoMensalModal.css';
 import TabelaRecompensasPlanoMensal from './TabelaRecompensasPlanoMensal';
-import { Recompensa } from '../entities/Recompensa';
 
 class ManterPlanoMensalModal extends Component {
 
@@ -13,12 +12,8 @@ class ManterPlanoMensalModal extends Component {
         this.state = {
             nomePlano: "",
             valorMensal: "",
-            recompensas: [
-                new Recompensa(0, "Recompensa A"),
-                new Recompensa(0, "Recompensa B"),
-                new Recompensa(0, "Recompensa C"),
-                new Recompensa(0, "Recompensa D")
-            ]
+            recompensas: [],
+            inicializeFields: true
         };
         this.onInputChange = this.onInputChange.bind(this);
     }
@@ -76,7 +71,7 @@ class ManterPlanoMensalModal extends Component {
                                 {
                                     (this.props.modoTelaPlano==="cadastro") ? 
                                     "Criar plano" : 
-                                    "Alterar plano"
+                                    "Editar plano"
                                 }
                             </p>
                             <hr className="hr-titulo-plano-mensal"></hr>
@@ -97,7 +92,7 @@ class ManterPlanoMensalModal extends Component {
                                 type="number" 
                                 step=".01"
                                 placeholder="Valor mensal" 
-                                value={this.state.metaDoacao} 
+                                value={this.state.valorMensal} 
                                 id="input-valor-mensal"
                                 onChange={this.onInputChange}
                             />
@@ -114,7 +109,14 @@ class ManterPlanoMensalModal extends Component {
                     </Row>
                     <Row>
                         <Col>
-                            <TabelaRecompensasPlanoMensal recompensas={this.state.recompensas}/>
+                            <TabelaRecompensasPlanoMensal recompensas={(this.props.plano != null) ? this.props.plano.recompensas : []} atualizarTabela/>
+                        </Col>
+                    </Row>
+                    <Row style={{marginTop: "3em"}}>
+                        <Col>
+                            <div style={{width : "28em", height : "3.3em", margin : "0 auto"}}>
+                                <input type="button" value={(this.props.modoTelaPlano==="cadastro") ? "Salvar plano" : "Editar plano"} className="btn-criar-campanha"/>
+                            </div>
                         </Col>
                     </Row>
                 </Modal.Body>
