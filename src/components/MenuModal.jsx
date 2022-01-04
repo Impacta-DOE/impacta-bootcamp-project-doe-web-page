@@ -52,7 +52,7 @@ class MenuModal extends Component {
                                     <div className="menu-modal-opcao" onClick={() => this.chamaProximaTela("/campanhas")}> 
                                         <span>Campanhas e ações</span>
                                     </div>
-                                    <div className="menu-modal-opcao"> 
+                                    <div className="menu-modal-opcao" onClick={() => this.chamaProximaTela("/gerenciamento-voluntarios")}> 
                                         <span>Gerenciamento de voluntarios</span>
                                     </div>
                                 </ReactBootstrap.Accordion.Body>

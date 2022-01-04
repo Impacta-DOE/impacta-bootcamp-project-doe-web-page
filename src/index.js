@@ -18,6 +18,7 @@ import TelaHistoricoDoacoes from './pages/TelaHistoricoDoacoes';
 import TelaMeusTrabalhosVoluntarios from './pages/TelaMeusTrabalhosVoluntarios';
 import TelaMeusPlanosMensais from './pages/TelaMeusPlanosMensais';
 import TelaGerenciamentoDePlanosMensais from './pages/TelaGerenciamentoDePlanosMensais';
+import TelaGerenciamentoDeVoluntarios from './pages/TelaGerenciamentoDeVoluntarios';
 
 
 ReactDOM.render(
@@ -34,6 +35,7 @@ ReactDOM.render(
           <Route path="/trabalhos-voluntarios" component={TelaMeusTrabalhosVoluntarios}/>
           <Route path="/meus-planos-mensais" component={TelaMeusPlanosMensais}/>
           <Route path="/gerenciamento-planos-mensais" component={TelaGerenciamentoDePlanosMensais}/>
+          <Route path="/gerenciamento-voluntarios" component={TelaGerenciamentoDeVoluntarios}/>
       </Switch>
   </Router>,
   document.getElementById('root')

@@ -1,0 +1,35 @@
+.checkbox-selecionar-todos {
+    font-size: 15px;
+    font-family: 'Roboto';
+}
+
+.selector-status {
+    margin-left: .5em;
+    width: 13em;
+    height: 2.35em;
+    font-size: 15px;
+    font-family: 'Roboto';
+    border: 2px solid #4380BD;
+    border-radius: 4px;
+    float: right;
+}
+
+.selector-status:focus {
+    outline: none;
+}
+
+#btn-extrair-lista-voluntario {
+    float: right;
+    font-size: 14px;
+    color: white;
+    border: none;
+    background-color: #03A654;
+    padding: .5em 2em;
+    border-radius: .3em;
+    font-family: 'Roboto';
+    margin-right: .4em;
+}
+
+#btn-extrair-lista-voluntario:hover {
+    background-color: #028845;
+}
