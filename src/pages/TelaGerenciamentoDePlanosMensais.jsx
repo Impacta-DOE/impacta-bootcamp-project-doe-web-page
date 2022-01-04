@@ -90,7 +90,7 @@ class TelaGerenciamentoDePlanosMensais extends Component {
                         </Col>
                     </Row>
                 </div>
-                <ManterPlanoMensalModal showModal={this.state.showModal} setShowModal={this.showModal}/>
+                <ManterPlanoMensalModal plano={this.state.plano} modoTelaPlano={this.state.modoTelaPlano} showModal={this.state.showModal} setShowModal={this.showModal}/>
             </div>
         );
     }

@@ -1,3 +1,48 @@
 .modal-plano {
-    min-width: 30%;
+    min-width: 45%;
+}
+
+.titulo-plano-mensal {
+    color: #4380BD;
+    font-size: 24px;
+    font-family: 'Roboto';
+    margin-top: .01em;
+}
+
+.hr-titulo-plano-mensal {
+    background-color: #4380BD;
+    border: .1px solid #4380BD;
+    margin-top: -1em;
+}
+
+#input-nome-plano {
+    height: 2.5em;
+    width: 100%;
+    font-family: 'Roboto';
+    border: 2px solid #4380BD;
+    border-radius: 4px;
+    float: left;
+}
+
+#input-valor-mensal {
+    height: 2.5em;
+    width: 80%;
+    float: right;
+    margin-left: .5em;
+    font-family: 'Roboto';
+    border: 2px solid #4380BD;
+    border-radius: 4px;
+}
+
+.titulo-recompensas {
+    color: #4380BD;
+    font-size: 18px;
+    font-family: 'Roboto';
+    margin-top: .01em;
+}
+
+.hr-titulo-recompensas {
+    background-color: #4380BD;
+    border: .1px solid #4380BD;
+    margin-top: -1em;
 }

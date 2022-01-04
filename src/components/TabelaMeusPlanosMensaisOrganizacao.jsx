@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PlanoMensalService from '../services/PlanoMensalService';
 
 import '../css/TabelaMeusPlanosMensaisOrganizacao.css';
+import RegistroTabelaMeusPlanosMensaisOrg from './RegistroTabelaMeusPlanosMensaisOrg';
 
 class TabelaMeusPlanosMensaisOrganizacao extends Component {
 
@@ -15,7 +16,7 @@ class TabelaMeusPlanosMensaisOrganizacao extends Component {
     }
 
     componentWillMount(){
-        //this.getMeusPlanos(false);
+        this.getMeusPlanos(false);
     }
 
     getMeusPlanos(showPlanosInativos){
@@ -23,7 +24,7 @@ class TabelaMeusPlanosMensaisOrganizacao extends Component {
         let meusPlanos = [];
         for(let i=0; i<planos.length; i++){
             if(planos[i].status || (planos[i].status === false && showPlanosInativos)){
-                //meusPlanos.push(<RegistroTabelaMinhasCampanhas campanha={campanhas[i]} abrirTelaAlteraçãoCampanha={this.props.abrirTelaAlteraçãoCampanha} />);
+                meusPlanos.push(<RegistroTabelaMeusPlanosMensaisOrg plano={planos[i]} abrirTelaAlteraçãoPlanoMensal={this.props.abrirTelaAlteraçãoPlano} />);
             }
         }
         this.setState({meusPlanos});
@@ -52,7 +53,7 @@ class TabelaMeusPlanosMensaisOrganizacao extends Component {
                     <div className="vertical-line-header-meus-planos-mensais"></div>
                     <p className="column-meus-planos-mensais" style={{width: "15%"}}>Inativar plano</p>
                 </div>
-                {/*this.state.meusPlanos*/}
+                {this.state.meusPlanos}
             </div>
         );
     }

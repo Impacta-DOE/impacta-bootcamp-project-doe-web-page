@@ -40,7 +40,7 @@ class RegistroTabelaMeusPlanosMensais extends Component {
                                                                                             />
                     </p>
                 </div>
-                <CancelarPlanoMensalModal showModal={this.state.showModalCancelarPlanoMensal} setShowModalCancelarPlanoMensal={this.setShowModalCancelarPlanoMensal} plano={this.props.plano} />
+                <CancelarPlanoMensalModal showModal={this.state.showModalCancelarPlanoMensal} setShowModalCancelarPlanoMensal={this.setShowModalCancelarPlanoMensal} tipoPlano="doador" plano={this.props.plano} />
             </>
         );
     }

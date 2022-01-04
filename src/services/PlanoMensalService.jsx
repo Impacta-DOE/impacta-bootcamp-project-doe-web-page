@@ -57,7 +57,7 @@ class PlanoMensalService extends Component {
             ),
             new PlanoMensal(
                 2,
-                true,
+                false,
                 "Plano C",
                 300.0,
                 [
@@ -102,6 +102,10 @@ class PlanoMensalService extends Component {
                 )
             )
         ];
+    }
+
+    getAll(){
+        return this.planosMensais;
     }
 
     getPlanosMensaisDoadorByUserID(id){

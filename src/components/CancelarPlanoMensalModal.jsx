@@ -19,7 +19,9 @@ class CancelarPlanoMensalModal extends Component {
                 </div>
                 <Modal.Body style={{width: "100%", height: "auto", textAlign: "center", padding: "0", marginTop: ".8em"}}>
                     <div style={{width: "100%", height: "4%", paddingLeft: "1.1em", paddingRight: "1.1em"}}>
-                        <p id="p-cancelar-plano-mensal">Deseja realmente cancelar sua assinatura no plano {this.props.plano.planoMensal.nomePlano}?</p>
+                        <p id="p-cancelar-plano-mensal">Deseja realmente cancelar sua assinatura no plano 
+                                                         {(this.props.tipoPlano === "doador") ? " " + this.props.plano.planoMensal.nomePlano :
+                                                         " " + this.props.plano.nomePlano}?</p>
                     </div>
                     <div style={{width: "100%", height: "auto"}}>
                         <input type="button" value="Confirmar" id="btn-confirmar"/>

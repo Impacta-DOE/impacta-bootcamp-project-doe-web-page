@@ -1,0 +1,25 @@
+#desc-recompensa {
+    float: left;
+    margin-top: 1%;
+    padding-left: .5em;
+    font-size: 18px;
+    font-family: 'Roboto';
+    color: #8F8F8F;
+}
+
+#btn-remover-recompensa {
+    width: 7.8%;
+    height: 100%;
+    background-image: url("../images/erase.png");
+    background-position: center;
+    background-size: 50%;
+    background-repeat: no-repeat;
+    background-color: #F52424;
+    margin-right: -.01em;
+    float: right;
+    border: none;
+}
+
+#btn-remover-recompensa:hover {
+    background-color: #cf1f1f;
+}

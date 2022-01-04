@@ -1,0 +1,44 @@
+#tabela-recompensas {
+    width: 100%;
+    height: 15em;
+    margin-bottom: .5em;
+    border: 3px solid #4380BD;
+    position: relative;
+    z-index: 1;
+    background-color: #DCDCDC;
+    border-top: 0px;
+    overflow-y: auto;
+}
+
+#input-desc-recompensa{
+    width: 92%;
+    height: 100%;
+    float: left;
+    border: 3px solid #4380BD;
+    font-size: 18px;
+    font-family: 'Roboto';
+    padding-left: .5em;
+    border-right: 0px;
+    border-radius: .3em 0em 0em 0em;
+}
+
+#input-desc-recompensa:focus{
+    outline: none;
+}
+
+#btn-add-recompensa{
+    width: 8%;
+    height: 100%;
+    float: left;
+    border: none;
+    background: url("../images/add.png");
+    background-size: 45%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #03A654;
+    border-radius: 0em .3em 0em 0em;
+}
+
+#btn-add-recompensa:hover{
+    background-color: #058a47;
+}
