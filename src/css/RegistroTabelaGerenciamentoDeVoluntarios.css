@@ -1,0 +1,38 @@
+#registry-gerenciamento-voluntario {
+    width: 150em;
+    height: 3em;
+    background-color: #DCDCDC;
+    color: black;
+    margin-top:1px;
+    padding-top: .6em;
+}
+
+.column-registry-gerenciamento-voluntario {
+    float: left;
+    text-align: center;
+    font-size: 17px;
+    font-family: 'Roboto';
+}
+
+.vertical-line-registry-gerenciamento-voluntario {
+    border-right: 1px solid black;
+    height: 70%;
+    width: .05px;
+    float: left;
+}
+
+#btn-aceitar-voluntario {
+    border: none;
+    background-color: #55A5F4;
+    color: white;
+    font-family: 'Roboto';
+    font-size: 14px;
+    border-radius: 3px;
+    padding: .6em 1.9em;
+    margin-top: -.5em;
+    margin-left: 4%;
+}
+
+#btn-aceitar-voluntario:hover {
+    background-color: #478acc;
+}

@@ -12,6 +12,8 @@
     border: 2px solid #4380BD;
     border-radius: 4px;
     float: right;
+    color: #8F8F8F;
+    padding-left: .3em;
 }
 
 .selector-status:focus {
