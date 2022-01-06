@@ -55,9 +55,7 @@ class DoacaoModal extends Component {
                     <p className="titulo-desc-campanha">Área de doação</p>
                     <hr className="hr-titulo-desc-campanha"></hr>
                     {
-                        (this.props.tipoArrecadacao === "item") ?
-                            <DoacaoPontosDeColeta />
-                        :                             
+                        (this.props.tipoArrecadacao === "dinheiro") ?
                             <>
                                 <select 
                                     name="tipo-pagamento" 
@@ -72,6 +70,9 @@ class DoacaoModal extends Component {
                                 </select>
                                 {this.state.formSelecionado}
                             </>
+                        :          
+                            <DoacaoPontosDeColeta />                   
+
                     }
                 </Modal.Body>
             </Modal>

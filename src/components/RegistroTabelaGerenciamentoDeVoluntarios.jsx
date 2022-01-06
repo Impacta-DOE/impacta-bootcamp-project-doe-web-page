@@ -16,6 +16,7 @@ class RegistroTabelaGerenciamentoDeVoluntarios extends Component {
             showModalAceitarVoluntario: false
         };
         this.setShowModalAceitarVoluntario = this.setShowModalAceitarVoluntario.bind(this);
+        this.handleChange = this.handleChange.bind(this);
     }
 
     componentDidMount(){
@@ -31,6 +32,18 @@ class RegistroTabelaGerenciamentoDeVoluntarios extends Component {
         this.setState({showModalAceitarVoluntario : !this.state.showModalAceitarVoluntario});
     }
 
+    handleChange(event) {
+        switch (event.target.name) {
+            case "checkbox-selecionar":
+                if(event.target.checked){
+                    this.props.adicionarContratoSelecionado(this.props.contrato);
+                } else {
+                    this.props.removerContratoSelecionado(this.props.contrato);
+                }
+                break;   
+        }
+    }
+
     render() {
         return (
             <>
@@ -40,7 +53,8 @@ class RegistroTabelaGerenciamentoDeVoluntarios extends Component {
                             active
                             type={'checkbox'}
                             id={'selecionar-check'}
-                            className="checkbox-selecionar"                                
+                            className="checkbox-selecionar"     
+                            defaultChecked={this.props.contratoSelecionado}                           
                             onChange={this.handleChange}
                             name="checkbox-selecionar"
                             value="selecionar"
@@ -53,7 +67,7 @@ class RegistroTabelaGerenciamentoDeVoluntarios extends Component {
                                                                                             "#F52424"}}>{(this.props.contrato.status === 0) ? "Pendente" :
                                                                                             (this.props.contrato.status === 1) ? "Ativo" :
                                                                                             "Inativo"}</p>
-                    <div className="vertical-line-registry-gerenciamento-voluntario"></div>
+                    <div className="vertical-line-registry-gerenciamento-voluntario"></div>                       
                     <p className="column-registry-gerenciamento-voluntario" style={{width: "14%"}}>{this.props.contrato.voluntario.nome}</p>
                     <div className="vertical-line-registry-gerenciamento-voluntario"></div>
                     <p className="column-registry-gerenciamento-voluntario" style={{width: "13%"}}>{this.props.contrato.campanhaSelecionada}</p>

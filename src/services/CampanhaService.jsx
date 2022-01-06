@@ -303,8 +303,7 @@ class CampanhaService extends Component {
                 0,
                 exemplo_imagem_background_02,
                 exemplo_imagem_background_card_02,
-                new Doacao('item', 'unidades', 200.0, 100.0, [], 
-                "brinquedos",
+                new Doacao('item', 'unidades', 200.0, 120.0, null, "brinquedos",
                 [
                     new PontosColeta(1, "08370190", "Rua de exemplo 01", 20, "A", "Bairro de exemplo 01", 35, 3500105, "Roberto", false),
                     new PontosColeta(2, "08370190", "Rua de exemplo 02", 20, "A", "Bairro de exemplo 02", 35, 3500105, "Julio", false),

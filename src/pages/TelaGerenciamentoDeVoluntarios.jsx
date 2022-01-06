@@ -13,10 +13,55 @@ class TelaGerenciamentoDeVoluntarios extends Component {
         this.state = {
             trabalhoVoluntarioService: new TrabalhoVoluntarioService(),
             atualizarTabelaDeVoluntarios: true,
-            filtrarStatus: 3
+            filtrarStatus: 3,
+            contratosSelecionados: [],
+            selecionarTodos: false,
+            atualizarContratosSelecionados: false
         };
         this.handleChange = this.handleChange.bind(this);
         this.setAtualizarTabelaDeVoluntarios = this.setAtualizarTabelaDeVoluntarios.bind(this);
+        this.adicionarContratoSelecionado = this.adicionarContratoSelecionado.bind(this);
+        this.removerContratoSelecionado = this.removerContratoSelecionado.bind(this);
+        this.setSelecionarTodos = this.setSelecionarTodos.bind(this);
+        this.adicionarTodos = this.adicionarTodos.bind(this);
+        this.removerTodos = this.removerTodos.bind(this);
+        this.setAtualizarContratosSelecionados = this.setAtualizarContratosSelecionados.bind(this);
+    }
+
+    setSelecionarTodos(selecionarTodos){
+        this.setState({selecionarTodos});
+        this.setState({atualizarContratosSelecionados: true});
+    }
+
+    setAtualizarContratosSelecionados(atualizarContratosSelecionados){
+        this.setState({atualizarContratosSelecionados});
+    }
+
+    adicionarContratoSelecionado(contrato){
+        let contratosSelecionados = this.state.contratosSelecionados;
+        contratosSelecionados.push(contrato);
+        this.setState({contratosSelecionados});
+    }
+
+    removerContratoSelecionado(contrato){
+        let contratosSelecionados = this.state.contratosSelecionados;
+        let index = contratosSelecionados.indexOf(contrato);
+        if(index != -1){
+            contratosSelecionados.splice(index, 1);
+        }
+        this.setState({contratosSelecionados});
+    }
+
+    removerTodos(){
+        this.setState({contratosSelecionados: []});
+    }
+
+    adicionarTodos(contratos){
+        let contratosSelecionados = [];
+        for(let i=0; i<contratos.length; i++){
+            contratosSelecionados.push(contratos);
+        }
+        this.setState({contratosSelecionados});
     }
 
     setAtualizarTabelaDeVoluntarios(status){
@@ -29,6 +74,9 @@ class TelaGerenciamentoDeVoluntarios extends Component {
                 this.setState({filtrarStatus: event.target.value});
                 this.setAtualizarTabelaDeVoluntarios(true);
                 break;   
+            case "checkbox-selecionar-todos":
+                this.setSelecionarTodos(event.target.checked);
+                break;
         }
     }
 
@@ -77,6 +125,13 @@ class TelaGerenciamentoDeVoluntarios extends Component {
                                 filtrarStatus={this.state.filtrarStatus}
                                 setAtualizarTabelaDeVoluntarios={this.setAtualizarTabelaDeVoluntarios} 
                                 atualizarTabelaDeVoluntarios={this.state.atualizarTabelaDeVoluntarios}
+                                adicionarContratoSelecionado={this.adicionarContratoSelecionado}
+                                removerContratoSelecionado={this.removerContratoSelecionado}
+                                adicionarTodos={this.adicionarTodos}
+                                removerTodos={this.removerTodos}
+                                atualizarContratosSelecionados={this.state.atualizarContratosSelecionados}
+                                selecionarTodos={this.state.selecionarTodos}
+                                setAtualizarContratosSelecionados={this.setAtualizarContratosSelecionados}
                             />
                         </Col>
                     </Row>

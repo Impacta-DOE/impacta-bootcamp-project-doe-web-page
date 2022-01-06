@@ -153,7 +153,7 @@ class TelaCampanha extends Component {
                         habilitarComentario 
                         habilitarSalvamentoCartao
                         isLogged={localStorage.getItem("isLoggedIn")}
-                        tipoArrecadacao={this.props.location.state.campanha.doacao.tipoArrecadacao}
+                        tipoArrecadacao={this.props.location.state.campanha.doacao.tipoDoacao}
                 />
                 <Footer />
             </div>

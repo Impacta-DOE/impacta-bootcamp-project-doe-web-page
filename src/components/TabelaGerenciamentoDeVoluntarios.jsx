@@ -10,27 +10,50 @@ class TabelaGerenciamentoDeVoluntarios extends Component {
         super(props);
         this.state = {
             trabalhoVoluntarioService: new TrabalhoVoluntarioService(),
-            meusContratosVoluntario: []
+            meusContratosVoluntario: [],
+            contratosVoluntarioObj: [],
+            selecionarTodos: false,
         };
         this.getContratosVoluntario = this.getContratosVoluntario.bind(this);
     }
 
-    getContratosVoluntario(){
+    getContratosVoluntario(estadoSelecao){
         let contratosVoluntario = this.state.trabalhoVoluntarioService.getVoluntariadosByOrgID("");
         let meusContratosVoluntario = [];
         for(let i=0; i<contratosVoluntario.length; i++){
             if(contratosVoluntario[i].status == this.props.filtrarStatus || this.props.filtrarStatus == 3){
-                meusContratosVoluntario.push(<RegistroTabelaGerenciamentoDeVoluntarios contrato={contratosVoluntario[i]}/>);
+                meusContratosVoluntario.push(<RegistroTabelaGerenciamentoDeVoluntarios 
+                                                contrato={contratosVoluntario[i]}
+                                                contratoSelecionado={this.props.selecionarTodos}
+                                                adicionarContratoSelecionado={this.props.adicionarContratoSelecionado}
+                                                removerContratoSelecionado={this.props.removerContratoSelecionado}
+                                            />);
             }
         }
         this.setState({meusContratosVoluntario});
+        this.setState({contratosVoluntarioObj: contratosVoluntario});
+    }
+
+    atualizarSelecaoDeContratos(){
+        if(this.props.selecionarTodos){
+            this.props.adicionarTodos(this.state.contratosVoluntarioObj);
+            this.getContratosVoluntario(1);
+        } else {
+            this.props.removerTodos();
+            this.getContratosVoluntario(0);
+        }
+        this.props.setAtualizarContratosSelecionados(false);
     }
 
     render() {
         if(this.props.atualizarTabelaDeVoluntarios){
             this.setState({meusContratosVoluntario: []});
             this.props.setAtualizarTabelaDeVoluntarios(false);
-            this.getContratosVoluntario();
+            this.getContratosVoluntario(0);
+        }
+        if(this.props.atualizarContratosSelecionados){
+            this.setState({meusContratosVoluntario: []});
+            this.atualizarSelecaoDeContratos();
         }
         return (
             <div id="tabela-gerenciamento-voluntarios">
