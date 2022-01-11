@@ -20,70 +20,98 @@ class ManterCampanhaModal extends Component {
     constructor(props){
         super(props);
         this.state = { 
-                        type : 'text', 
-                        //precisaVoluntario : false,
-                        tipoDoacaoInputs : null, 
-                        showModalPontosColeta : false,
-                        item_campanha: new Campanha(
-                            true, 
-                            "campanha", 
-                            "2021-12-17", 
-                            new Organizacao(
-                                "Exemplo Card",
-                                "Este é um exemplo de como ficara o card",
-                                null,
-                                "",
-                                [],[],[]
-                            ),
-                            "Exemplo Card",
-                            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. " +
-                            "Aenean pellentesque dolor ante, at convallis turpis euismod a. Sed finibus nisl " +
-                            "eros, vitae cursus nunc pellentesque a. Integer tempor turpis et dui feugiat, " +
-                            "vitae gravida nisi maximus. Integer mollis finibus condimentum...",
-                            0,
-                            null,
-                            null,
-                            new Doacao('dinheiro', 'R$', 0, 0, [
-                                new HistoricoDoacao(true, 0.0001, true, "", "00/00/0000")
-                            ]), []
-                        ),
-                        tipoCampanha: "",
-                        tituloCampanha: "",
-                        dataCampanha: "",
-                        descCampanha: "",
-                        tipoDoacao: "",
-                        tipoArrecadacao: "",
-                        metaArrecadacao: "",
-                        metaDoacao: "",
-                        tipoUnidadeMedida: "",
-                        descVoluntario: "",
-                        image: null, 
-                        imageCard: sample_card,
-                        pontosColeta : [],
-                        mostrarDescricaoVoluntario: "none",
-                        solicitacaoVoluntario: new SolicitacaoVoluntario(false, ""),
-                        inicializeFields: true
-                    };
+            type : 'text', 
+            //precisaVoluntario : false,
+            tipoDoacaoInputs : null, 
+            showModalPontosColeta : false,
+            item_campanha: new Campanha(
+                true, 
+                "campanha", 
+                "2021-12-17", 
+                new Organizacao(
+                    "Exemplo Card",
+                    "Este é um exemplo de como ficara o card",
+                    null,
+                    "",
+                    [],[],[]
+                ),
+                "Exemplo Card",
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. " +
+                "Aenean pellentesque dolor ante, at convallis turpis euismod a. Sed finibus nisl " +
+                "eros, vitae cursus nunc pellentesque a. Integer tempor turpis et dui feugiat, " +
+                "vitae gravida nisi maximus. Integer mollis finibus condimentum...",
+                0,
+                null,
+                null,
+                new Doacao('dinheiro', 'R$', 0, 0, [
+                    new HistoricoDoacao(true, 0.0001, true, "", "00/00/0000")
+                ]), []
+            ),
+            tipoCampanha: "",
+            tituloCampanha: "",
+            dataCampanha: "",
+            descCampanha: "",
+            tipoDoacao: "",
+            tipoArrecadacao: "",
+            metaArrecadacao: "",
+            metaDoacao: "",
+            tipoUnidadeMedida: "",
+            descVoluntario: "",
+            image: null, 
+            imageCard: sample_card,
+            pontosColeta : [],
+            mostrarDescricaoVoluntario: "none",
+            solicitacaoVoluntario: new SolicitacaoVoluntario(false, ""),
+            inicializeFields: true
+        };
         //this.setPrecisaVoluntario = this.setPrecisaVoluntario.bind(this);
         this.onImageChange = this.onImageChange.bind(this);
         this.onImageCardChange = this.onImageCardChange.bind(this);
         this.setShowModalPontosColeta = this.setShowModalPontosColeta.bind(this);
         this.atualizarPontosColeta = this.atualizarPontosColeta.bind(this);
         this.onInputChange = this.onInputChange.bind(this);
+        this.criarCampanha = this.criarCampanha.bind(this);
     }
 
     changeInputType(newType) {
         this.setState({type : newType});
     }
 
-    /*setPrecisaVoluntario(event) {
-        this.state.precisaVoluntario.status = event.target.checked 
-        //this.setState({precisaVoluntario : event.target.checked});
-    }*/
-
     setShowModalPontosColeta(){
         this.setState({showModalPontosColeta : !this.state.showModalPontosColeta});
         this.props.setShowModal();
+    }
+
+    criarCampanha(event){
+
+        let campanha = new Campanha(
+            true, 
+            this.state.tipoCampanha, 
+            this.state.dataCampanha, 
+            null, 
+            this.state.tituloCampanha, 
+            this.state.descCampanha, 
+            0, 
+            this.state.image, 
+            this.state.imageCard, 
+            new Doacao(
+                this.state.tipoDoacao, 
+                this.state.tipoUnidadeMedida, 
+                (this.state.tipoDoacao === "dinheiro") ? this.state.metaDoacao : this.state.tipoArrecadacao, 
+                0, 
+                null,
+                this.state.tipoArrecadacao,
+                this.state.pontosColeta
+            ), 
+            null,
+            this.state.solicitacaoVoluntario
+        );
+
+        if (event.target.value === "Criar campanha") {
+            alert("criar campanha");
+        } else {
+            alert("alterar campanha");
+        }
     }
 
     onInputChange(event){
@@ -117,6 +145,9 @@ class ManterCampanhaModal extends Component {
                 break;
             case "textarea-desc-voluntario":
                 this.setState({descVoluntario : event.target.value});
+                let solicitacaoVoluntario = this.state.solicitacaoVoluntario;
+                solicitacaoVoluntario.descricaoVaga = event.target.value;
+                this.setState({solicitacaoVoluntario});
                 break;
             case "precisase-voluntario-check":
                 this.state.solicitacaoVoluntario.status = event.target.checked;
@@ -377,7 +408,11 @@ class ManterCampanhaModal extends Component {
                             <Row style={{marginTop: "1.8em"}}>
                                 <Col>
                                     <div style={{width : "28em", height : "3.3em", margin : "0 auto"}}>
-                                        <input type="button" value={(this.props.modoTelaCampanha==="cadastro") ? "Criar campanha" : "Alterar campanha"} className="btn-criar-campanha"/>
+                                        <input type="button" 
+                                            value={(this.props.modoTelaCampanha==="cadastro") ? "Criar campanha" : "Alterar campanha"} 
+                                            className="btn-criar-campanha"
+                                            onClick={this.criarCampanha}
+                                        />
                                     </div>
                                 </Col>
                             </Row>

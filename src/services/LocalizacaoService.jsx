@@ -52,16 +52,32 @@ class LocalizacaoService extends Component {
       return resultados;
   }
 
-    async getCidadesByUF(uf){
-        let resultados;
+  async getCidadesByUF(uf){
+      let resultados;
 
-        await axios.get(this.state.URL + 'estados/' + uf + '/municipios/')
-        .then(res => {
-          resultados = res.data;
-        });
+      await axios.get(this.state.URL + 'estados/' + uf + '/municipios/')
+      .then(res => {
+        resultados = res.data;
+      });
 
-        return resultados;
-    }
+      return resultados;
+  }
+
+  getListaNacionalidades(){
+      var file = this.files[0];
+
+      var reader = new FileReader();
+      reader.onload = function(progressEvent){
+
+        console.log(this.result);
+
+        var lines = this.result.split('\n');
+        for(var line = 0; line < lines.length; line++){
+          console.log(lines[line]);
+        }
+      };
+      reader.readAsText(file);
+  }
 }
 
 export default LocalizacaoService;

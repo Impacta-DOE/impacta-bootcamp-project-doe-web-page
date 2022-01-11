@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Campanha } from '../entities/Campanha';
+import axios from 'axios';
 
 import exemplo_imagem_background from '../images/doacao_exemplo.png';
 import exemplo_imagem_background_01 from '../images/doacao_exemplo_01.jpg';
@@ -34,6 +35,8 @@ class CampanhaService extends Component {
     constructor(props) {
 
         super(props);
+
+        this.state = {url: "https://impacta-doe-campanhas-api.herokuapp.com/campanhas"};
 
         this.itensCarousel = [
 
@@ -765,6 +768,41 @@ class CampanhaService extends Component {
 
     getAll(){
         return this.itensCarousel;
+    }
+
+    async createCampanha(campanha){
+        await axios({
+            method: 'post',
+            url: this.state.URL + '/create',
+            data: {
+                titulo: campanha.nome_campanha,
+                descricao: campanha.desc_campanha,
+                tipoCampanhaId: (campanha.tipoCampanha === "campanha") ? 0 : 1,
+                tipoArrecadacaoId: campanha.doacao.tipoArrecadacao,
+                "imageCapaBase64": "string",
+                "metaArrecadacao": 0,
+                "unidadeMedidaId": 0,
+                "dataLimite": "string",
+                "pontosColeta": [
+                {
+                    "cep": "string",
+                    "logradouro": "string",
+                    "numero": 0,
+                    "bairro": "string",
+                    "cidade": "string",
+                    "uf": "string",
+                    "id": 0,
+                    "campanhaId": 0
+                }
+                ]
+            }
+        }).then(result => {
+            localStorage.setItem('idPessoa', result.data.idPessoa);
+            localStorage.setItem('username', result.data.userName);
+            localStorage.setItem('token', result.data.token);
+            //setCookie("username", result.data.userName, { path: "/" });
+            //setCookie("token", result.data.userName, { path: "/" });
+        });
     }
 
 }

@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import { Row, Col, Form, Button } from 'react-bootstrap';
+import { Redirect } from 'react-router';
 import '../css/FormPessoaFisica.css';
 import LocalizacaoService from '../services/LocalizacaoService';
 import Select from 'react-select';
 import { PessoaFisica } from '../entities/PessoaFisica';
 import PessoaFisicaService from '../services/PessoaFisicaService';
+import AuthenticationService from '../services/AuthenticationService';
 import { DadosContato } from '../entities/DadosContato';
 import { DadosBancario } from '../entities/DadosBancario';
 import { Endereco } from '../entities/Endereco';
@@ -18,6 +20,7 @@ class FormPessoaFisica extends Component {
                         type : 'text', 
                         localizacaoService : new LocalizacaoService(),
                         pessoaFisicaService : new PessoaFisicaService(),
+                        authService : new AuthenticationService(),
                         estados : [],
                         cidades : [],
                         pessoaFisica : new PessoaFisica(
@@ -30,11 +33,13 @@ class FormPessoaFisica extends Component {
                             "",
                             "",
                             "",
-                            null,
+                            new Date(),
                             "",
                             new Nacionalidade()
                         ),
-                        passwordCheck : ""
+                        passwordCheck : "",
+                        redirect: false, 
+                        page: "/"
                     };
         this.handleChange = this.handleChange.bind(this);
     }
@@ -61,13 +66,15 @@ class FormPessoaFisica extends Component {
                 this.state.pessoaFisica.nome = event.target.value;
                 break; 
             case "data-nascimento":
-                this.state.pessoaFisica.dataNasc = event.target.value;
+                let date = event.target.value.split("-");
+                this.state.pessoaFisica.dataNasc.setFullYear(date[0], date[1], date[2]);
+                //this.state.pessoaFisica.dataNasc = event.target.value;
                 break;
             case "sexo":
                 this.state.pessoaFisica.sexo = event.target.value;
                 break;
             case "nacionalidade":
-                this.state.pessoaFisica.nacionalidade = event.target.value;
+                this.state.pessoaFisica.nacionalidade.descricao = event.target.value;
                 break;
             case "registro":
                 this.state.pessoaFisica.registro = event.target.value;
@@ -111,12 +118,23 @@ class FormPessoaFisica extends Component {
 
     save() {
         this.state.pessoaFisicaService.save(this.state.pessoaFisica)
-                                        .then(() => alert("Cadastro realizado!!!"))
-                                        .catch((err) => alert("Erro: " + err));
-        console.log(this.state.pessoaFisicaService.getAll());
+                                        .then(() => {
+                                            alert("Cadastro realizado!!!");
+                                            this.state.authService.login(this.state.pessoaFisica.dadosContato.email, this.state.pessoaFisica.senha)
+                                                .then(() => {
+                                                    localStorage.setItem("isLoggedIn", true);
+                                                    this.setState({redirect: true});
+                                                    window.location.reload();
+                                                })
+                                        })
+                                        .catch((err) => alert("Erro: " + err.message));
     }
 
     render() {
+        if(this.state.redirect){
+            this.setState({redirect : false});
+            return <Redirect to={this.state.page} />
+        }
         return (
             <div>
                 <Form>
@@ -160,10 +178,10 @@ class FormPessoaFisica extends Component {
                             <Col sm="5" className="col-form">
                                 <select name="nacionalidade" id="nascionalidade" id="input01" className="selector" onChange={this.handleChange}>
                                     <option value="" disabled selected>Nacionalidade</option>
-                                    <option value="nasc01">Nascionalidade 01</option>
-                                    <option value="nasc02">Nascionalidade 02</option>
-                                    <option value="nasc03">Nascionalidade 03</option>
-                                    <option value="nasc04">Nascionalidade 04</option>
+                                    <option value="nacionalidade 01">Nacionalidade 01</option>
+                                    <option value="nacionalidade 02">Nacionalidade 02</option>
+                                    <option value="nacionalidade 03">Nacionalidade 03</option>
+                                    <option value="nacionalidade 04">Nacionalidade 04</option>
                                 </select>
                             </Col>
                             <Col sm="5" className="col-form">

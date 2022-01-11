@@ -12,7 +12,6 @@ class FormEdicaoPessoaJuridica extends Component {
             estados : [],
             cidades : []
         };
-        this.handleChange = this.handleChange.bind(this);
     }
 
     componentDidMount(){
@@ -25,14 +24,6 @@ class FormEdicaoPessoaJuridica extends Component {
         this.state.localizacaoService.getCidadesByUF(uf).then(cidades => {  
             this.setState({cidades});
         })
-    }
-
-    handleChange(event){
-        switch (event.target.name) {
-            case "estado":
-                this.changeCidades(event.target.value);
-                break;   
-        }
     }
 
     render() {

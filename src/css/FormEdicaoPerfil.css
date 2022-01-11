@@ -21,12 +21,15 @@
     height: 20em;
     background-color: #C4C4C4;
     border-radius: 1em 1em 0em 0em;
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: 100% 130%; /* Resize the background image to cover the entire container */
 }
 
 .btn-ft-capa{
     float: right;
     margin-right: 0.5em;
-    margin-top:17em;
+    margin-top:34%;
     background-color: #EDEDED;
     color: black;
     border-color: #EDEDED;
@@ -54,7 +57,7 @@
     height: 60px;
     width: 100%;
     box-shadow: 0px 4px 4px rgba(85, 165, 244, 0.17);
-    cursor:pointer;
+    
 }
 
 .logo-organizacao{
@@ -69,6 +72,28 @@
     background: #A7A7A7;
     border: 2px solid #4380BD;
     box-sizing: border-box;
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: 100% 100%; /* Resize the background image to cover the entire container */
+}
+
+.logo-organizacao:hover {
+    cursor: pointer;
+}
+
+.avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 60px;
+    text-align: center;
+
+    position: absolute;
+    top: -2%;
+    left: -2%;
+}
+
+.avatar:hover {
+    cursor: pointer;
 }
 
 .txt-alterar-foto{
@@ -77,8 +102,7 @@
     line-height: 14px;
     text-align: center;
 
-    position: relative;
-    top: 30px;
+    margin-top: 25%;
 
     color: #FEFEFE;
 }

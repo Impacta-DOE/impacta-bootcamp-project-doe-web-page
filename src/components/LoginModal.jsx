@@ -42,7 +42,9 @@ class LoginModal extends Component {
                                     }).catch(() => {
                                         this.setState({loading : false})
                                         alert("Usuário não encontrado");
-                                        localStorage.setItem("isLoggedIn", false);
+                                        //localStorage.setItem("isLoggedIn", false);
+                                        //alert(localStorage.getItem("isLoggedIn"));
+                                        localStorage.clear();
                                     });
     }
     
