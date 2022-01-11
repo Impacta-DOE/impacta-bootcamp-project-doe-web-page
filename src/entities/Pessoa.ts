@@ -15,6 +15,7 @@ export class Pessoa{
     descricao: string;
     nome: string;
     registro: string;
+    id: number;
 
     constructor(
         dadosContato: DadosContato,

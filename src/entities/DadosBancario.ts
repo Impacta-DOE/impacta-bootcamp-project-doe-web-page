@@ -5,5 +5,6 @@ export class DadosBancario {
     agencia: string;
     codigoBanco: string;
     banco: string;
+    id: number;
 
 }

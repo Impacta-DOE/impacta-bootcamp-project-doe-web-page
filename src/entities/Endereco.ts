@@ -8,6 +8,7 @@ export class Endereco {
     bairro: string;
     idEstado: number;
     idCidade: number;
+    id: number;
 
     constructor(
         cep: string,
@@ -16,7 +17,8 @@ export class Endereco {
         complemento: string,
         bairro: string,
         idEstado: number,
-        idCidade: number
+        idCidade: number,
+        id: number
     ){
         this.cep = cep;
         this.rua = rua;
@@ -25,6 +27,7 @@ export class Endereco {
         this.bairro = bairro;
         this.idEstado = idEstado;
         this.idCidade = idCidade;
+        this.id = id;
     }
 
 }

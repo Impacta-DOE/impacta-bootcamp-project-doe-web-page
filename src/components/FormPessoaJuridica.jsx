@@ -160,11 +160,11 @@ class FormPessoaJuridica extends Component {
                             </Col>
                             <Col sm="8" className="col-form">
                                 <select name="banco" id="estado" id="input-cod-banco" className="selector" onChange={this.handleChange}>
-                                    <option value="" disabled selected>Código/Banco</option>
-                                    <option value="01/Banco01">01/Banco01</option>
-                                    <option value="02/Banco02">02/Banco02</option>
-                                    <option value="03/Banco03">03/Banco03</option>
-                                    <option value="04/Banco04">04/Banco04</option>
+                                <option value="" disabled selected>Cód / Banco</option>
+                                    <option value="001">001 - Banco do Brasil</option>
+                                    <option value="237">237 - Banco Bradesco</option>
+                                    <option value="077">077 - Banco Inter</option>
+                                    <option value="033">033 - Banco Santander</option>
                                 </select>
                             </Col>
                         </Row>

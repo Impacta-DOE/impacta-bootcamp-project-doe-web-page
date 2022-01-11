@@ -15,6 +15,7 @@ import { DadosBancario } from '../entities/DadosBancario';
 import { Endereco } from '../entities/Endereco';
 import { Nacionalidade } from '../entities/Nacionalidade';
 import { PessoaJuridica } from '../entities/PessoaJuridica';
+import PessoaJuridicaService from '../services/PessoaJuridicaService';
 
 
 class FormEdicaoPerfil extends Component {
@@ -22,8 +23,9 @@ class FormEdicaoPerfil extends Component {
     constructor(props){
         super(props);
         this.state = {
-            tipoPessoa : "juridica",
+            //tipoPessoa : "juridica",
             pessoaFisicaService : new PessoaFisicaService(),
+            pessoaJuridicaService: new PessoaJuridicaService(),
             pessoaFisica : new PessoaFisica(
                 new DadosContato(),
                 new DadosBancario(),
@@ -54,13 +56,15 @@ class FormEdicaoPerfil extends Component {
             image: null, 
             imageAvatar: null,
             displayIconAvatar: "none"
+            //pessoa: null
         };
-        this.handleChangeFisica = this.handleChangeFisica.bind(this);
-        this.handleChangeJuridica = this.handleChangeJuridica.bind(this);
-        this.updatePessoaFisicaFields = this.updatePessoaFisicaFields.bind(this);
+        //this.handleChangeFisica = this.handleChangeFisica.bind(this);
+        //this.handleChangeJuridica = this.handleChangeJuridica.bind(this);
+        //this.updatePessoaFisicaFields = this.updatePessoaFisicaFields.bind(this);
         this.onImageChange = this.onImageChange.bind(this);
         this.onImageAvatarChange = this.onImageAvatarChange.bind(this);
         this.setDisplayIconAvatar = this.setDisplayIconAvatar.bind(this);
+        this.atualizarDadosUsuario = this.atualizarDadosUsuario.bind(this);
     }
 
     onImageChange(event){
@@ -81,32 +85,73 @@ class FormEdicaoPerfil extends Component {
         }
     }
 
-    componentDidMount(){
-        if(this.state.tipoPessoa === "fisica"){
-            this.updatePessoaFisicaFields();
-        } else {
+    /*componentDidMount(){
+        if(localStorage.getItem('tipoPessoa') === "FISICA"){
+            this.state.pessoaFisicaService.getPessoaFisicaByLoggedIdUser()
+                                            .then(result => {
+                                                this.setState({pessoa: result});
+                                            }).catch(err => {
+                                                alert(err);
+                                            });
+        }
+    }*/
 
+    atualizarDadosUsuario(pessoa){
+
+        pessoa.img_avatar = this.state.imageAvatar;
+        pessoa.img_background = this.state.image;
+        pessoa.id = localStorage.getItem('idPessoa');
+
+        if(localStorage.getItem('tipoPessoa') === "FISICA"){
+            this.state.pessoaFisicaService.updateDadosUsuario(pessoa);
+        } else {
+            this.state.pessoaJuridicaService.updateDadosUsuario(pessoa);
+                                            /*.then(() => {
+                                                this.state.pessoaJuridicaService.updateImagesFromUsuario(
+                                                    localStorage.getItem('idPessoa', 
+                                                    pessoa.img_avatar, 
+                                                    pessoa.img_background)
+                                                )
+                                            });*/
         }
     }
 
-    updatePessoaFisicaFields(){
-        this.state.pessoaFisicaService.getPessoaFisicaByLoggedIdUser()
-                                        .then(result => {
-                                            console.log(result);
-                                        }).catch(err => {
-                                            alert(err);
-                                        });
-    }
+    /*updatePessoaFisicaFields(result){
+        this.state.pessoaFisica.dadosBancario.conta = result.dadosBancarios.conta;
+        this.state.pessoaFisica.dadosBancario.agencia = result.dadosBancarios.agencia;
+        this.state.pessoaFisica.dadosBancario.codigoBanco = result.dadosBancarios.codigoBanco;
+        this.state.pessoaFisica.dadosBancario.banco = result.dadosBancarios.banco;
+        this.state.pessoaFisica.dadosContato.email = result.dadosContato.email;
+        this.state.pessoaFisica.dadosContato.telefone = result.dadosContato.telefone;
+        let data = result.dataNascimento.split("-");
+        this.state.pessoaFisica.dataNasc = new Date(data[0], data[1], data[2]);
+        this.state.pessoaFisica.descricao = result.descricao;
+        this.state.pessoaFisica.endereco.cep = result.endereco.cep;
+        this.state.pessoaFisica.endereco.rua = result.endereco.rua;
+        this.state.pessoaFisica.endereco.numero = result.endereco.numero;
+        this.state.pessoaFisica.endereco.complemento = result.endereco.complemento;
+        this.state.pessoaFisica.endereco.bairro = result.endereco.bairro;
+        this.state.pessoaFisica.endereco.idEstado = result.endereco.idEstado;
+        this.state.pessoaFisica.endereco.idCidade = result.endereco.idCidade;
+        this.state.image = result.img_background_url;
+        this.state.imageAvatar = result.img_avatar_url;
+        this.state.pessoaFisica.nacionalidade.descricao = result.nacionalidade.descricao;
+        this.state.pessoaFisica.nome = result.nomeCompleto;
+        this.state.pessoaFisica.registro = result.registro;
+        this.state.pessoaFisica.senha = result.senha;
+        this.state.pessoaFisica.sexo = result.sexo;
+    }*/
 
     getFormTipoPessoaEdicaoPerfil(){
-        if(this.state.tipoPessoa === "fisica"){
-            return <FormEdicaoPessoaFisica handleChange={this.handleChangeFisica}/>
+        if(localStorage.getItem('tipoPessoa') === "FISICA"){
+            return <FormEdicaoPessoaFisica atualizarDadosUsuario={this.atualizarDadosUsuario}/>
         } else {
-            return <FormEdicaoPessoaJuridica handleChange={this.handleChangeJuridica}/>
+            return <FormEdicaoPessoaJuridica atualizarDadosUsuario={this.atualizarDadosUsuario}/>
         }
     }
 
-    handleChangeFisica(event){
+    /*handleChangeFisica(event){
+        alert("teste");
         switch (event.target.name) {
             case "nome-completo":
                 this.state.pessoaFisica.nome = event.target.value;
@@ -171,9 +216,9 @@ class FormEdicaoPerfil extends Component {
                 this.state.pessoaFisica.dadosBancario.banco = event.target.value;
                 break;
         }
-    }
+    }*/
 
-    handleChangeJuridica(event){
+    /*handleChangeJuridica(event){
         switch (event.target.name) {
             case "estado":
                 this.changeCidades(event.target.value);
@@ -228,7 +273,7 @@ class FormEdicaoPerfil extends Component {
                 this.setState({passwordCheck: event.target.value});
                 break;
         }
-    }
+    }*/
 
     setDisplayIconAvatar(){
         if(this.state.displayIconAvatar === "block"){

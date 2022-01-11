@@ -64,14 +64,72 @@ class PessoaFisicaService extends Component {
     }
     
     async getPessoaFisicaByLoggedIdUser(){
-      alert(localStorage.getItem('idPessoa'));
       const pessoaFisica = await axios({
         method: 'get',
-        url: 'https://impacta-doe-api.herokuapp.com/pessoa/usuario/' + localStorage.getItem('idPessoa') + '/pessoa',
+        url: 'https://impacta-doe-api.herokuapp.com/pessoa/usuario/' + localStorage.getItem('idUsuario') + '/pessoa',
         data: {}
       })
       .then((result) => result.data);
       return pessoaFisica;
+    }
+
+    async updateDadosUsuario(pessoa){
+
+      let img_avatar = btoa(pessoa.img_avatar);
+      let img_background = btoa(pessoa.img_background);
+
+      let dia = (pessoa.dataNasc.getDate() < 10) ? '0' + pessoa.dataNasc.getDate() : pessoa.dataNasc.getDate();
+      let mes = (pessoa.dataNasc.getMonth() < 10) ? '0' +  pessoa.dataNasc.getMonth() : pessoa.dataNasc.getMonth();
+      let ano = pessoa.dataNasc.getFullYear();
+      let data = ano + '-' + mes + '-' + dia + 'T00:00';
+
+      const usuarioFisico = {
+        dadosBancarios: {
+          agencia: '' + pessoa.dadosBancario.agencia + '',
+          banco: '' + pessoa.dadosBancario.banco + '',
+          codigoBanco: '' + pessoa.dadosBancario.codigoBanco + '',
+          conta: '' + pessoa.dadosBancario.conta + '',
+          id: '' + pessoa.dadosBancario.id + ''
+        },
+        dadosContato: {
+          email: '' + pessoa.dadosContato.email + '',
+          id: '' + pessoa.dadosContato.id + '',
+          telefone: '' + pessoa.dadosContato.telefone + ''
+        },
+        dataNascimento: data,
+        descricao: '' + pessoa.descricao + '',
+        endereco: {
+          bairro: '' + pessoa.endereco.bairro + '',
+          cep: '' + pessoa.endereco.cep + '',
+          complemento: '' + pessoa.endereco.complemento + '',
+          id: '' + pessoa.endereco.id + '',
+          idDaCidade: '' + pessoa.endereco.idCidade + '',
+          idDoEstado: '' + pessoa.endereco.idEstado + '',
+          logradouro: '' + pessoa.endereco.rua + '',
+          numero: '' + pessoa.endereco.numero + '',
+          uf: '' + pessoa.endereco.idEstado + ''
+        },
+        id: '' + pessoa.id + '',
+        img_avatar_url: '' + img_avatar + '',
+        img_background_url: '' + img_background + '',
+        nacionalidade: {
+          descricao: '' + pessoa.nacionalidade.descricao + '',
+          id: '' + pessoa.id + ''
+        },
+        nomeCompleto: '' + pessoa.nome + '',
+        registro: '' + pessoa.registro + '',
+        senha: '' + pessoa.senha + '',
+        sexo: '' + pessoa.sexo + '',
+        username: '' + pessoa.dadosContato.email + ''
+      };
+
+      await axios({
+        method: 'put',
+        url: this.state.URL + '' + localStorage.getItem('idPessoa'),
+        data: usuarioFisico
+      })
+      .then((result) => alert("Perfil modificado com sucesso"))
+      .catch(err => alert(err));
     }
 
 }

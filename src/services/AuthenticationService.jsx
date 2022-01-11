@@ -21,9 +21,10 @@ class AuthenticationService extends Component {
             }
         }).then(result => {
             localStorage.setItem('idPessoa', result.data.idPessoa);
+            localStorage.setItem('idUsuario', result.data.idUsuario);
             localStorage.setItem('username', result.data.userName);
             localStorage.setItem('token', result.data.token);
-            //localStorage.setItem('tipoPessoa', "juridica");
+            localStorage.setItem('tipoPessoa', result.data.tipoDaPessoa);
             //setCookie("username", result.data.userName, { path: "/" });
             //setCookie("token", result.data.userName, { path: "/" });
         });
