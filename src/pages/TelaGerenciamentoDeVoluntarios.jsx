@@ -26,6 +26,7 @@ class TelaGerenciamentoDeVoluntarios extends Component {
         this.adicionarTodos = this.adicionarTodos.bind(this);
         this.removerTodos = this.removerTodos.bind(this);
         this.setAtualizarContratosSelecionados = this.setAtualizarContratosSelecionados.bind(this);
+        this.gerarArquivoCSV = this.gerarArquivoCSV.bind(this);
     }
 
     setSelecionarTodos(selecionarTodos){
@@ -80,6 +81,27 @@ class TelaGerenciamentoDeVoluntarios extends Component {
         }
     }
 
+    gerarArquivoCSV(){
+        var csv = 'status;nome;campanha;email;telefone;cidade;estado\n';
+ 
+        this.state.contratosSelecionados.forEach(function(contrato) {
+                csv += contrato.status;
+                csv += ';'+ contrato.voluntario.nome;
+                csv += ';'+ contrato.campanhaSelecionada;
+                csv += ';'+ contrato.voluntario.dadosContato.email;
+                csv += ';'+ contrato.voluntario.dadosContato.telefone;
+                csv += ';'+ contrato.voluntario.endereco.idCidade;
+                csv += ';'+ contrato.voluntario.endereco.idEstado;
+                csv += '\n';
+        });
+    
+        var hiddenElement = document.createElement('a');
+        hiddenElement.href = 'data:text/csv;charset=utf-8,' + encodeURI(csv);
+        hiddenElement.target = '_blank';
+        hiddenElement.download = 'voluntarios.csv';
+        hiddenElement.click();
+    }
+
     render() {
         return (
             <div>
@@ -116,7 +138,7 @@ class TelaGerenciamentoDeVoluntarios extends Component {
                                 <option value="2">Inativos</option>
                                 <option value="3">Todos</option>
                             </select>
-                            <input type="button" value="Extrair lista de voluntarios" id="btn-extrair-lista-voluntario" />
+                            <input type="button" value="Extrair lista de voluntarios" id="btn-extrair-lista-voluntario" onClick={() => this.gerarArquivoCSV()} />
                         </Col>
                     </Row>
                     <Row>

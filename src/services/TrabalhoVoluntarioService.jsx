@@ -16,9 +16,10 @@ class TrabalhoVoluntarioService extends Component {
         this.contratosVoluntarios = [
             new ContratoVoluntario(
                 0,
-                "Campanha do agasalho 01",
+                "Campanha do agasalho",
                 new PessoaFisica(
                     new DadosContato(
+                        0,
                         "raphael.victor203@gmail.com",
                         "(11) 98694-8060"
                     ),
@@ -30,7 +31,8 @@ class TrabalhoVoluntarioService extends Component {
                         "A",
                         "Jardim São Gonçalo",
                         35, 
-                        3500105
+                        3500105,
+                        0
                     ),
                     "",
                     null,
@@ -45,11 +47,12 @@ class TrabalhoVoluntarioService extends Component {
             ),
             new ContratoVoluntario(
                 0,
-                "Campanha do agasalho 02",
+                "Arrecadação de ração",
                 new PessoaFisica(
                     new DadosContato(
-                        "raphael.victor203@gmail.com",
-                        "(11) 98694-8060"
+                        0,
+                        "ricardo.calixto@gmail.com",
+                        "(11) 95426-5487"
                     ),
                     null,
                     new Endereco(
@@ -59,13 +62,14 @@ class TrabalhoVoluntarioService extends Component {
                         "A",
                         "Jardim São Gonçalo",
                         35, 
-                        3500105
+                        3500105,
+                        0
                     ),
                     "",
                     null,
                     null,
                     "",
-                    "Raphael Victor Mendes Silva",
+                    "Ricardo Junior Leite Calixto",
                     "",
                     null,
                     "",
@@ -74,11 +78,12 @@ class TrabalhoVoluntarioService extends Component {
             ),
             new ContratoVoluntario(
                 1,
-                "Campanha do agasalho 03",
+                "Arrecadação de materias escolares",
                 new PessoaFisica(
                     new DadosContato(
-                        "raphael.victor203@gmail.com",
-                        "(11) 98694-8060"
+                        0,
+                        "jonass255@gmail.com",
+                        "(11) 95446-4567"
                     ),
                     null,
                     new Endereco(
@@ -88,13 +93,14 @@ class TrabalhoVoluntarioService extends Component {
                         "A",
                         "Jardim São Gonçalo",
                         35, 
-                        3500105
+                        3500105,
+                        0
                     ),
                     "",
                     null,
                     null,
                     "",
-                    "Raphael Victor Mendes Silva",
+                    "Jonas da Silva",
                     "",
                     null,
                     "",
@@ -103,11 +109,12 @@ class TrabalhoVoluntarioService extends Component {
             ),
             new ContratoVoluntario(
                 2,
-                "Campanha do agasalho 04",
+                "Arrecadação de alimentos",
                 new PessoaFisica(
                     new DadosContato(
-                        "raphael.victor203@gmail.com",
-                        "(11) 98694-8060"
+                        0,
+                        "joao.ozuna@gmail.com",
+                        "(11) 98449-6577"
                     ),
                     null,
                     new Endereco(
@@ -117,13 +124,14 @@ class TrabalhoVoluntarioService extends Component {
                         "A",
                         "Jardim São Gonçalo",
                         35, 
-                        3500105
+                        3500105,
+                        0
                     ),
                     "",
                     null,
                     null,
                     "",
-                    "Raphael Victor Mendes Silva",
+                    "João Henrique Ozuna",
                     "",
                     null,
                     "",
@@ -132,11 +140,12 @@ class TrabalhoVoluntarioService extends Component {
             ),
             new ContratoVoluntario(
                 1,
-                "Campanha do agasalho 05",
+                "Arrecadação de computadores",
                 new PessoaFisica(
                     new DadosContato(
-                        "raphael.victor203@gmail.com",
-                        "(11) 98694-8060"
+                        0,
+                        "guilherme.natividade@gmail.com",
+                        "(11) 93226-5677"
                     ),
                     null,
                     new Endereco(
@@ -146,13 +155,14 @@ class TrabalhoVoluntarioService extends Component {
                         "A",
                         "Jardim São Gonçalo",
                         35, 
-                        3500105
+                        3500105,
+                        0
                     ),
                     "",
                     null,
                     null,
                     "",
-                    "Raphael Victor Mendes Silva",
+                    "Guilherme Natividade",
                     "",
                     null,
                     "",

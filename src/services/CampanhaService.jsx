@@ -36,7 +36,7 @@ class CampanhaService extends Component {
 
         super(props);
 
-        this.state = {url: "https://impacta-doe-campanhas-api.herokuapp.com/campanhas"};
+        this.state = {URL: "https://impacta-doe-campanhas-api.herokuapp.com/campanhas"};
 
         this.itensCarousel = [
 
@@ -770,7 +770,46 @@ class CampanhaService extends Component {
         return this.itensCarousel;
     }
 
+    async getAllCampanhasFromUser(){
+        let resultados = [];
+
+        
+        
+        await axios.get(this.state.URL + '/getall/')
+        .then(res => {
+          resultados = res.data;
+        });
+
+        return resultados;
+    }
+
     async createCampanha(campanha){
+
+        let img_background = btoa(campanha.img_background);
+        let img_card = btoa(campanha.img_card);
+
+        let pontosColeta = [];
+        for(let i=0; i<campanha.doacao.pontosColeta.length; i++){
+            pontosColeta.push(
+                {
+                    cep: campanha.doacao.pontosColeta[i].cep,
+                    logradouro: campanha.doacao.pontosColeta[i].rua,
+                    numero: campanha.doacao.pontosColeta[i].numero,
+                    bairro: campanha.doacao.pontosColeta[i].bairro,
+                    cidade: campanha.doacao.pontosColeta[i].idCidade,
+                    uf: campanha.doacao.pontosColeta[i].idEstado,
+                    complemento: campanha.doacao.pontosColeta[i].complemento,
+                    responsavel: campanha.doacao.pontosColeta[i].responsavel
+                }
+            );
+        }
+
+        const config = {
+            headers: { Authorization: "Bearer " + localStorage.getItem('token')}
+        };
+
+        axios.defaults.headers.common = {'Authorization': "Bearer " + localStorage.getItem('token')}
+
         await axios({
             method: 'post',
             url: this.state.URL + '/create',
@@ -779,29 +818,22 @@ class CampanhaService extends Component {
                 descricao: campanha.desc_campanha,
                 tipoCampanhaId: (campanha.tipoCampanha === "campanha") ? 0 : 1,
                 tipoArrecadacaoId: campanha.doacao.tipoArrecadacao,
-                "imageCapaBase64": "string",
-                "metaArrecadacao": 0,
-                "unidadeMedidaId": 0,
-                "dataLimite": "string",
-                "pontosColeta": [
-                {
-                    "cep": "string",
-                    "logradouro": "string",
-                    "numero": 0,
-                    "bairro": "string",
-                    "cidade": "string",
-                    "uf": "string",
-                    "id": 0,
-                    "campanhaId": 0
+                imageCardBase64: img_card,
+                imageCapaBase64: img_background,
+                metaArrecadacao: campanha.doacao.valorTotal,
+                unidadeMedidaId: campanha.doacao.unidadeMedida,
+                dataLimite: campanha.dataLimite,
+                pontosColeta: pontosColeta,
+                voluntario: {
+                    precisaVoluntario: campanha.solicitacaoVoluntario.status,
+                    descricao: campanha.solicitacaoVoluntario.descricaoVaga
                 }
-                ]
-            }
+            },
+            config: config
         }).then(result => {
-            localStorage.setItem('idPessoa', result.data.idPessoa);
-            localStorage.setItem('username', result.data.userName);
-            localStorage.setItem('token', result.data.token);
-            //setCookie("username", result.data.userName, { path: "/" });
-            //setCookie("token", result.data.userName, { path: "/" });
+            alert("Cadastro realizado com sucesso");
+        }).catch(err => {
+            alert("Erro: " + err);
         });
     }
 

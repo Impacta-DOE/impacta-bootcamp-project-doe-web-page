@@ -14,6 +14,7 @@ import { Organizacao } from '../entities/Organizacao';
 import { Doacao } from '../entities/Doacao';
 import { HistoricoDoacao } from '../entities/HistoricoDoacao';
 import { SolicitacaoVoluntario } from '../entities/SolicitacaoVoluntario';
+import CampanhaService from '../services/CampanhaService';
 
 class ManterCampanhaModal extends Component {
 
@@ -23,6 +24,7 @@ class ManterCampanhaModal extends Component {
             type : 'text', 
             //precisaVoluntario : false,
             tipoDoacaoInputs : null, 
+            campanhaService: new CampanhaService(),
             showModalPontosColeta : false,
             item_campanha: new Campanha(
                 true, 
@@ -52,10 +54,10 @@ class ManterCampanhaModal extends Component {
             dataCampanha: "",
             descCampanha: "",
             tipoDoacao: "",
-            tipoArrecadacao: "",
+            tipoArrecadacao: "10",
             metaArrecadacao: "",
             metaDoacao: "",
-            tipoUnidadeMedida: "",
+            tipoUnidadeMedida: "2",
             descVoluntario: "",
             image: null, 
             imageCard: sample_card,
@@ -108,7 +110,7 @@ class ManterCampanhaModal extends Component {
         );
 
         if (event.target.value === "Criar campanha") {
-            alert("criar campanha");
+            this.state.campanhaService.createCampanha(campanha);
         } else {
             alert("alterar campanha");
         }
@@ -352,24 +354,22 @@ class ManterCampanhaModal extends Component {
                                     </div>
                                     <div style={{width: "100%", display: (this.state.tipoDoacao === "item") ? "block" : "none"}}>
                                         <select name="tipo-arrecadacao" value={this.state.tipoArrecadacao} id="tipoArrecadacao" className="selector-tipo-arrecadacao" onChange={this.onInputChange}>
-                                            <option value="" disabled selected>Tipo arrecadação</option>
-                                            <option value="sangue" >Doação de sangue</option>
-                                            <option value="brinquedo" >Doação de brinquedo</option>
-                                            <option value="roupas" >Doação de roupas</option>
-                                            <option value="alimentos" >Doação de alimentos</option>
-                                            <option value="mobilia" >Doação de mobilias</option>
-                                            <option value="eletronicos" >Doação de eletroeletronicos</option>
-                                            <option value="outros" >Outros</option>
+                                            <option value="10" disabled selected>Tipo arrecadação</option>
+                                            <option value="1" >Agasalhos</option>
+                                            <option value="2" >Alimentos</option>
+                                            <option value="3" >Fraldas</option>
+                                            <option value="4" >Equipamentos Hospitalares</option>
+                                            <option value="5" >Vestuario Hospitalar</option>
+                                            <option value="6" >Luvas Hospitalares</option>
+                                            <option value="7" >Respiradores</option>
+                                            <option value="8" >Rações</option>
+                                            <option value="9" >Brinquedos</option>
                                         </select>
                                         <Form.Control type="number" step=".01" placeholder="Meta de arrecadação (Opcional)" value={this.state.metaArrecadacao} id="input-meta-arrecadacao" onChange={this.onInputChange}/>
                                         <select name="unidade-medida" id="tipoUnidadeMedida" value={this.state.tipoUnidadeMedida} className="selector-unidade-medida" onChange={this.onInputChange}>
                                             <option value="" disabled selected>Unidade de medida</option>
-                                            <option value="kilo" >Kilogramas</option>
-                                            <option value="unidades" >Unidades</option>
-                                            <option value="litros" >Litros</option>
-                                            <option value="bolsas" >Bolsas</option>
-                                            <option value="peças" >Peças</option>
-                                            <option value="quantidades" >Quantidades</option>
+                                            <option value="1" >Kilogramas</option>
+                                            <option value="3" >Unidades</option>
                                         </select>
                                         <Button variant="success" id="btn-gerenciar-pontos" onClick={() => this.setShowModalPontosColeta()}>Gerenciar pontos de coleta</Button>
                                     </div>
