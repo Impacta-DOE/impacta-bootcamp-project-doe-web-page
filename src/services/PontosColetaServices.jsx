@@ -29,30 +29,31 @@ class PontosColetaServices extends Component {
         
         let uf = "";
 
-        this.state.localizacaoService.getEstadoById(pontoColeta.idEstado).then(estado => {
-            
-            console.log(pontoColeta);
-            console.log(estado.sigla);
+        const config = {
+            headers: { Authorization: "Bearer " + localStorage.getItem('token')}
+        };
 
-            const config = {
-                headers: { Authorization: "Bearer " + localStorage.getItem('token')}
+        axios.defaults.headers.common = {'Authorization': "Bearer " + localStorage.getItem('token')}
+
+        this.state.localizacaoService.getEstadoById(pontoColeta.idEstado).then(estado => {
+
+            let novoPontoColeta = {
+                cep: '' + pontoColeta.cep + '',
+                logradouro: '' + pontoColeta.rua + '',
+                numero: pontoColeta.numero,
+                bairro: '' + pontoColeta.bairro + '',
+                cidade: '' + pontoColeta.idCidade + '',
+                uf: '' + estado.sigla + '',
+                complemento: '' + pontoColeta.complemento + '',
+                responsavel: '' + pontoColeta.responsavel + ''  
             };
-    
-            axios.defaults.headers.common = {'Authorization': "Bearer " + localStorage.getItem('token')}
+
+            console.log(novoPontoColeta);
 
             axios({
                 method: 'post',
                 url: this.state.URL + '/create',
-                data: {
-                    cep: '' + pontoColeta.cep + '',
-                    logradouro: '' + pontoColeta.rua + '',
-                    numero: '' + pontoColeta.numero + '',
-                    bairro: '' + pontoColeta.bairro + '',
-                    cidade: 'São Paulo',
-                    uf: '' + estado.sigla + '',
-                    complemento: '' + pontoColeta.complemento + '',
-                    responsavel: '' + pontoColeta.responsavel + ''            
-                },
+                data: novoPontoColeta,
                 config: config
             }).then(result => {
                 alert("Ponto de coleta cadastrado.");

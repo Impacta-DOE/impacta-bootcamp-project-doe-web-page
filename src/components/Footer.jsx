@@ -37,7 +37,11 @@ class Footer extends Component {
                         </Row>
                     </div>
                 </footer>
-                <DoacaoModal showModal={this.state.showModal} setShowModal={this.setShowModal}/>
+                <DoacaoModal 
+                    showModal={this.state.showModal} 
+                    setShowModal={this.setShowModal}
+                    tipoArrecadacao={"dinheiro"}
+                />
             </>
         );
     }

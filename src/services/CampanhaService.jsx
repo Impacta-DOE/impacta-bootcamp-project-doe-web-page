@@ -789,19 +789,23 @@ class CampanhaService extends Component {
         let img_card = btoa(campanha.img_card);
 
         let pontosColeta = [];
-        for(let i=0; i<campanha.doacao.pontosColeta.length; i++){
-            pontosColeta.push(
-                {
-                    cep: campanha.doacao.pontosColeta[i].cep,
-                    logradouro: campanha.doacao.pontosColeta[i].rua,
-                    numero: campanha.doacao.pontosColeta[i].numero,
-                    bairro: campanha.doacao.pontosColeta[i].bairro,
-                    cidade: campanha.doacao.pontosColeta[i].idCidade,
-                    uf: campanha.doacao.pontosColeta[i].idEstado,
-                    complemento: campanha.doacao.pontosColeta[i].complemento,
-                    responsavel: campanha.doacao.pontosColeta[i].responsavel
-                }
-            );
+        if(campanha.campanha.doacao.tipoArrecadacao != "10"){
+            for(let i=0; i<campanha.doacao.pontosColeta.length; i++){
+                this.state.localizacaoService.getEstadoById(campanha.doacao.pontosColeta[i].idEstado).then(estado => {
+                    pontosColeta.push(
+                        {
+                            cep: campanha.doacao.pontosColeta[i].cep,
+                            logradouro: campanha.doacao.pontosColeta[i].rua,
+                            numero: campanha.doacao.pontosColeta[i].numero,
+                            bairro: campanha.doacao.pontosColeta[i].bairro,
+                            cidade: campanha.doacao.pontosColeta[i].idCidade,
+                            uf: estado.sigla,
+                            complemento: campanha.doacao.pontosColeta[i].complemento,
+                            responsavel: campanha.doacao.pontosColeta[i].responsavel
+                        }
+                    );
+                });
+            }
         }
 
         const config = {
