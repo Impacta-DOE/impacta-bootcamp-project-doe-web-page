@@ -17,16 +17,10 @@ class DoacaoCartao extends Component {
             nomeDoador: "",
             dataDoacao: "",
             comentario: "", 
-            iniciais: "",
-            showModal: false
+            iniciais: ""
         };
         this.handleChange = this.handleChange.bind(this);
         this.cadastrarDoacao = this.cadastrarDoacao.bind(this);
-        this.setShowModal = this.setShowModal.bind(this);
-    }
-
-    setShowModal(){
-        this.setState({showModal: !this.state.showModal});
     }
 
     componentDidMount(){
@@ -86,8 +80,8 @@ class DoacaoCartao extends Component {
 
         this.props.addDoacaoListaDoacoes(historicoDoacao);
         this.props.addComentarioListaComentario(comentario);
-        this.props.closeModal();
-        this.setShowModal();
+        this.props.setShowModalConfirmacaoDoacao();
+        //this.props.closeModal();
 
     }
 
@@ -226,7 +220,6 @@ class DoacaoCartao extends Component {
                         </Col>
                     </Row>
                 </Form>
-                <ConfirmacaoDoacaoModal closeModal={this.props.closeModal} setShowModal={this.setShowModal} showModal={this.state.showModal} />
             </div>
         );
     }

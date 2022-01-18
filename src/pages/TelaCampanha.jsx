@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router';
 import Comentario from '../components/Comentario';
+import ConfirmacaoDoacaoModal from '../components/ConfirmacaoDoacaoModal';
 import DoacaoModal from '../components/DoacaoModal';
 import Footer from '../components/Footer';
 import MenuTop from '../components/MenuTop';
@@ -21,11 +22,13 @@ class TelaCampanha extends Component {
                         showModal: false,
                         porcetagemDoacoes: 0,
                         valoresArrecadados: "",
-                        campanhaService: new CampanhaService()
+                        campanhaService: new CampanhaService(),
+                        showModalConfirmacaoDoacao: false
                     };
         this.setShowModal = this.setShowModal.bind(this);
         this.addDoacaoListaDoacoes = this.addDoacaoListaDoacoes.bind(this);
         this.addComentarioListaComentario = this.addComentarioListaComentario.bind(this);
+        this.showModalConfirmacaoDoacao = this.showModalConfirmacaoDoacao.bind(this);
     }
 
     componentDidMount(){
@@ -91,6 +94,11 @@ class TelaCampanha extends Component {
 
     setShowModal() {
         this.setState({showModal : !this.state.showModal});
+    }
+
+    showModalConfirmacaoDoacao(){
+        this.setState({showModal : false});
+        this.setState({showModalConfirmacaoDoacao: !this.state.showModalConfirmacaoDoacao});
     }
 
     addDoacaoListaDoacoes(doacao){
@@ -200,8 +208,10 @@ class TelaCampanha extends Component {
                         isLogged={localStorage.getItem("isLoggedIn")}
                         addDoacaoListaDoacoes={this.addDoacaoListaDoacoes}
                         addComentarioListaComentario={this.addComentarioListaComentario}
+                        setShowModalConfirmacaoDoacao={this.showModalConfirmacaoDoacao}
                         tipoArrecadacao={this.props.location.state.campanha.doacao.tipoDoacao}
                 />
+                <ConfirmacaoDoacaoModal showModalConfirmacaoDoacao={this.state.showModalConfirmacaoDoacao} setShowModalConfirmacaoDoacao={this.showModalConfirmacaoDoacao}/>
                 <Footer />
             </div>
         );

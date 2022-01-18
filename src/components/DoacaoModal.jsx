@@ -34,6 +34,7 @@ class DoacaoModal extends Component {
                                                 habilitarSalvamentoCartao={this.props.habilitarSalvamentoCartao}
                                                 closeModal={this.props.setShowModal}
                                                 addDoacaoListaDoacoes={this.props.addDoacaoListaDoacoes}
+                                                setShowModalConfirmacaoDoacao={this.props.setShowModalConfirmacaoDoacao}
                                                 addComentarioListaComentario={this.props.addComentarioListaComentario}
                                             />
                         });
