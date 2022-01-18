@@ -79,7 +79,10 @@ class DoacaoModal extends Component {
                                 {this.state.formSelecionado}
                             </>
                         :          
-                            <DoacaoPontosDeColeta />                   
+                            <DoacaoPontosDeColeta
+                                addComentarioListaComentario={this.props.addComentarioListaComentario}
+                                closeModal={this.props.setShowModal}
+                            />                   
 
                     }
                 </Modal.Body>
