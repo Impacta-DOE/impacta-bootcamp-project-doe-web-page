@@ -29,7 +29,14 @@ class DoacaoModal extends Component {
 
     handleChange(event){
         if(event.target.value === "ctCredito"){
-            this.setState({formSelecionado: <DoacaoCartao habilitarComentario={this.props.habilitarComentario} habilitarSalvamentoCartao={this.props.habilitarSalvamentoCartao}/>});
+            this.setState({formSelecionado: <DoacaoCartao 
+                                                habilitarComentario={this.props.habilitarComentario} 
+                                                habilitarSalvamentoCartao={this.props.habilitarSalvamentoCartao}
+                                                closeModal={this.props.setShowModal}
+                                                addDoacaoListaDoacoes={this.props.addDoacaoListaDoacoes}
+                                                addComentarioListaComentario={this.props.addComentarioListaComentario}
+                                            />
+                        });
         } else {
             this.setState({formSelecionado: <DoacaoPIX 
                                                     setDisplayComboTpPagamento={this.setDisplayComboTpPagamento} 

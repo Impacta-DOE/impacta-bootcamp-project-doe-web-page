@@ -18,7 +18,7 @@ export default class Comentario {
 
     private gerarIniciais(nomeCompleto : string){
         let nomes = nomeCompleto.split(" ");
-        return (nomes.length > 1) ? nomes[0].charAt(0) + "" + nomes[1].charAt(0) : nomes[0].charAt(0);
+        return (nomes.length > 1) ? nomes[0].charAt(0).toUpperCase() + "" + nomes[1].charAt(0).toUpperCase() : nomes[0].charAt(0).toUpperCase();
     }
 
 }

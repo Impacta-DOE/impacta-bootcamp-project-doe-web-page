@@ -201,7 +201,7 @@ class CampanhaService extends Component {
                 "Aenean pellentesque dolor ante, at convallis turpis euismod a. Sed finibus nisl " +
                 "eros, vitae cursus nunc pellentesque a. Integer tempor turpis et dui feugiat, " +
                 "vitae gravida nisi maximus. Integer mollis finibus condimentum...",
-                0,
+                1,
                 exemplo_imagem_background_01,
                 exemplo_imagem_background_card_01,
                 new Doacao('item', 'peças', 100.0, 50.0, null, "roupas", [
@@ -303,7 +303,7 @@ class CampanhaService extends Component {
                 "Aenean pellentesque dolor ante, at convallis turpis euismod a. Sed finibus nisl " +
                 "eros, vitae cursus nunc pellentesque a. Integer tempor turpis et dui feugiat, " +
                 "vitae gravida nisi maximus. Integer mollis finibus condimentum...",
-                0,
+                2,
                 exemplo_imagem_background_02,
                 exemplo_imagem_background_card_02,
                 new Doacao('item', 'unidades', 200.0, 120.0, null, "brinquedos",
@@ -397,7 +397,7 @@ class CampanhaService extends Component {
                 "Aenean pellentesque dolor ante, at convallis turpis euismod a. Sed finibus nisl " +
                 "eros, vitae cursus nunc pellentesque a. Integer tempor turpis et dui feugiat, " +
                 "vitae gravida nisi maximus. Integer mollis finibus condimentum...",
-                0,
+                3,
                 exemplo_imagem_background_03,
                 exemplo_imagem_background_card_03,
                 new Doacao('item', 'KG', 300.0, 400.0, null, "alimentos", [
@@ -476,7 +476,7 @@ class CampanhaService extends Component {
                 "Aenean pellentesque dolor ante, at convallis turpis euismod a. Sed finibus nisl " +
                 "eros, vitae cursus nunc pellentesque a. Integer tempor turpis et dui feugiat, " +
                 "vitae gravida nisi maximus. Integer mollis finibus condimentum...",
-                0,
+                4,
                 exemplo_imagem_background_04,
                 exemplo_imagem_background_card_04,
                 new Doacao('dinheiro', 'R$', 160.0, 130.0, [
@@ -547,7 +547,7 @@ class CampanhaService extends Component {
                 "Aenean pellentesque dolor ante, at convallis turpis euismod a. Sed finibus nisl " +
                 "eros, vitae cursus nunc pellentesque a. Integer tempor turpis et dui feugiat, " +
                 "vitae gravida nisi maximus. Integer mollis finibus condimentum...",
-                0,
+                5,
                 exemplo_imagem_background,
                 exemplo_imagem_background_card_05,
                 new Doacao('dinheiro', 'R$', 100.0, 50.0, [
@@ -606,7 +606,7 @@ class CampanhaService extends Component {
                 "Aenean pellentesque dolor ante, at convallis turpis euismod a. Sed finibus nisl " +
                 "eros, vitae cursus nunc pellentesque a. Integer tempor turpis et dui feugiat, " +
                 "vitae gravida nisi maximus. Integer mollis finibus condimentum...",
-                0,
+                6,
                 exemplo_imagem_background_01,
                 exemplo_imagem_background_card,
                 new Doacao('dinheiro', 'R$', 100.0, 50.0, [
@@ -653,7 +653,7 @@ class CampanhaService extends Component {
                 "Aenean pellentesque dolor ante, at convallis turpis euismod a. Sed finibus nisl " +
                 "eros, vitae cursus nunc pellentesque a. Integer tempor turpis et dui feugiat, " +
                 "vitae gravida nisi maximus. Integer mollis finibus condimentum...",
-                0,
+                7,
                 exemplo_imagem_background_02,
                 exemplo_imagem_background_card,
                 new Doacao('dinheiro', 'R$', 200.0, 100.0, [
@@ -700,7 +700,7 @@ class CampanhaService extends Component {
                 "Aenean pellentesque dolor ante, at convallis turpis euismod a. Sed finibus nisl " +
                 "eros, vitae cursus nunc pellentesque a. Integer tempor turpis et dui feugiat, " +
                 "vitae gravida nisi maximus. Integer mollis finibus condimentum...",
-                0,
+                8,
                 exemplo_imagem_background_03,
                 exemplo_imagem_background_card,
                 new Doacao('dinheiro', 'R$', 300.0, 150.0, [
@@ -748,7 +748,7 @@ class CampanhaService extends Component {
                 "Aenean pellentesque dolor ante, at convallis turpis euismod a. Sed finibus nisl " +
                 "eros, vitae cursus nunc pellentesque a. Integer tempor turpis et dui feugiat, " +
                 "vitae gravida nisi maximus. Integer mollis finibus condimentum...",
-                0,
+                9,
                 exemplo_imagem_background_04,
                 exemplo_imagem_background_card,
                 new Doacao('dinheiro', 'R$', 160.0, 50.0, [
@@ -839,6 +839,24 @@ class CampanhaService extends Component {
         }).catch(err => {
             alert("Erro: " + err);
         });
+    }
+
+    updateDoacoesDeCampanhaById(id, doacao){
+        for(let i=0; this.itensCarousel.length; i++){
+            if(this.itensCarousel[i].id_campanha == id){
+                this.itensCarousel[i].doacao.historicoDoacoes.unshift(doacao);
+                break;
+            }
+        }
+    }
+
+    updateComentariosDeCampanhaById(id, comentario){
+        for(let i=0; this.itensCarousel.length; i++){
+            if(this.itensCarousel[i].id_campanha == id){
+                this.itensCarousel[i].comentarios.unshift(comentario);
+                break;
+            }
+        }
     }
 
 }

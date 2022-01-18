@@ -2,9 +2,94 @@ import React, { Component } from 'react';
 import { Col, Form, Row } from 'react-bootstrap';
 
 import "../css/DoacaoCartao.css";
+import Comentario from '../entities/Comentario';
+import { HistoricoDoacao } from '../entities/HistoricoDoacao';
+import ConfirmacaoDoacaoModal from './ConfirmacaoDoacaoModal';
 
 class DoacaoCartao extends Component {
 
+    constructor(props){
+        super(props);
+        this.state = {
+            esconderValorDoado: false,
+            valorDoado: null,
+            esconderNomeDoador: false,
+            nomeDoador: "",
+            dataDoacao: "",
+            comentario: "", 
+            iniciais: "",
+            showModal: false
+        };
+        this.handleChange = this.handleChange.bind(this);
+        this.cadastrarDoacao = this.cadastrarDoacao.bind(this);
+        this.setShowModal = this.setShowModal.bind(this);
+    }
+
+    setShowModal(){
+        this.setState({showModal: !this.state.showModal});
+    }
+
+    componentDidMount(){
+        let iniciais = this.gerarIniciais();
+        this.setState({iniciais});
+    }
+
+    gerarIniciais(){
+        let nomes = localStorage.getItem('nomePessoa').split(" ");
+        return (nomes.length > 1) ? nomes[0].charAt(0).toUpperCase() + "" + nomes[1].charAt(0).toUpperCase() : nomes[0].charAt(0).toUpperCase();
+    }
+
+    handleChange(event){
+        switch (event.target.name) {
+            case "nome-completo":
+                this.setState({nomeDoador : event.target.value});
+                break; 
+            case "valor-doacao":
+                this.setState({valorDoado : event.target.value});
+                break;
+            case "comentario":
+                this.setState({comentario : event.target.value});
+                break; 
+            case "checkbox-doacao-anonima":
+                this.setState({esconderNomeDoador: event.target.value});
+                break;
+            case "checkbox-esconder-valor":
+                this.setState({esconderValorDoado: event.target.value});
+                break;
+        }
+    }
+
+    cadastrarDoacao(){
+
+        var today = new Date();
+        var dd = String(today.getDate()).padStart(2, '0');
+        var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+        var yyyy = today.getFullYear();
+        var date = dd + "/" + mm + "/" + yyyy;
+
+        let historicoDoacao = new HistoricoDoacao(
+            !this.state.esconderValorDoado,
+            Number(this.state.valorDoado),
+            !this.state.esconderNomeDoador,
+            localStorage.getItem('nomePessoa'),
+            date,
+            null
+        );
+        
+
+        let comentario = new Comentario(
+            localStorage.getItem('nomePessoa'),
+            null,
+            this.state.comentario,
+            !this.state.esconderNomeDoador
+        );
+
+        this.props.addDoacaoListaDoacoes(historicoDoacao);
+        this.props.addComentarioListaComentario(comentario);
+        this.props.closeModal();
+        this.setShowModal();
+
+    }
 
     render() {
         return (
@@ -13,7 +98,7 @@ class DoacaoCartao extends Component {
                     <Form.Group style={{marginBottom : "1.5em"}}>
                         <Row >
                             <Col sm="6" className="col-form">
-                                <Form.Control type="text" placeholder="Nome completo" id="input-nome"/>
+                                <Form.Control type="text" name="nome-completo" value={this.state.nomeDoador} placeholder="Nome completo" id="input-nome" onChange={this.handleChange}/>
                             </Col>
                             <Col sm="6" className="col-form">
                                 <Form.Control type="text" placeholder=" N° Cartão xxxx.xxxx.xxxx.xxxx" id="input-ncartao"/>
@@ -41,7 +126,15 @@ class DoacaoCartao extends Component {
                         </Row>
                         <Row >
                             <Col>
-                                <Form.Control type="text" placeholder="Valor Doação" id="input-valor-doado"/>
+                                <Form.Control 
+                                    type="number" 
+                                    step=".01"
+                                    placeholder="Valor Doação" 
+                                    value={this.state.valorDoado} 
+                                    id="input-valor-doado"
+                                    name="valor-doacao"
+                                    onChange={this.handleChange}
+                                />
                             </Col>
                         </Row>
                     </Form.Group>
@@ -71,18 +164,19 @@ class DoacaoCartao extends Component {
                                     <Col>
                                         <Form.Check
                                             active
+                                            checked={this.state.esconderNomeDoador}
                                             type={'checkbox'}
                                             label={'Doar como anônimo'}
                                             id={'doacao-anonima-check'}
                                             className="checkbox-doacao"
                                             style={{marginTop : ".1em"}}
-                                            onClick={() => this.onCheck("cidade")}
                                             onChange={this.handleChange}
                                             name="checkbox-doacao-anonima"
                                             value="doacao-anonima"
                                         />
                                         <Form.Check
                                             active
+                                            checked={this.state.esconderValorDoado}
                                             type={'checkbox'}
                                             label={'Esconder valor doado'}
                                             id={'esconder-valor-check'}
@@ -112,13 +206,13 @@ class DoacaoCartao extends Component {
                                                             borderRadius: "15em",
                                                             paddingTop: ".65em"
                                                         }}>
-                                                    <p>NU</p>
+                                                    <p>{this.state.iniciais}</p>
                                                 </div>
                                             </div>
                                         </div>
                                         <div id="div-comentario" style={{width: "94%", float: "right"}}>
-                                            <p id="comentario-nome-usuario">Nome usuario</p>
-                                            <textarea id="textarea-comentario" name="comentario" cols="50" placeholder="Escrever um comentario...">
+                                            <p id="comentario-nome-usuario">{localStorage.getItem('nomePessoa')}</p>
+                                            <textarea id="textarea-comentario" name="comentario" value={this.state.comentario} cols="50" placeholder="Escrever um comentario..." onChange={this.handleChange}>
                                             </textarea>
                                         </div>
                                     </Col>
@@ -128,10 +222,11 @@ class DoacaoCartao extends Component {
                     }
                     <Row>
                         <Col style={{display: "flex", justifyContent: "center", alignItems: "center"}}>
-                            <input type="button" value="Realizar doação" id="btn-realizar-doacao" align="center"/>
+                            <input type="button" value="Realizar doação" id="btn-realizar-doacao" align="center" onClick={() => this.cadastrarDoacao()} />
                         </Col>
                     </Row>
                 </Form>
+                <ConfirmacaoDoacaoModal closeModal={this.props.closeModal} setShowModal={this.setShowModal} showModal={this.state.showModal} />
             </div>
         );
     }

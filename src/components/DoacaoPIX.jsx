@@ -9,7 +9,17 @@ class DoacaoPIX extends Component {
 
     constructor(props){
         super(props);
-        this.state = {showQRCForm: false};
+        this.state = {showQRCForm: false, iniciais: ""};
+    }
+
+    componentDidMount(){
+        let iniciais = this.gerarIniciais();
+        this.setState({iniciais});
+    }
+
+    gerarIniciais(){
+        let nomes = localStorage.getItem('nomePessoa').split(" ");
+        return (nomes.length > 1) ? nomes[0].charAt(0).toUpperCase() + "" + nomes[1].charAt(0).toUpperCase() : nomes[0].charAt(0).toUpperCase();
     }
 
     showQRCForm(){
@@ -88,12 +98,12 @@ class DoacaoPIX extends Component {
                                                                 borderRadius: "15em",
                                                                 paddingTop: ".65em"
                                                             }}>
-                                                        <p>NU</p>
+                                                        <p>{this.state.iniciais}</p>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div id="div-comentario" style={{width: "94%", float: "right"}}>
-                                                <p id="comentario-nome-usuario">Nome usuario</p>
+                                                <p id="comentario-nome-usuario">{localStorage.getItem('nomePessoa')}</p>
                                                 <textarea id="textarea-comentario" name="comentario" cols="50" placeholder="Escrever um comentario...">
                                                 </textarea>
                                             </div>
