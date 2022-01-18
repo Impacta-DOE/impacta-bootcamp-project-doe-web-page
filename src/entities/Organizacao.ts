@@ -30,7 +30,7 @@ export class Organizacao {
         this.campanhas = campanhas;
         this.voluntarios = voluntarios;
         this.acoes = acoes;
-        backgroundPaginaOrg = backgroundPaginaOrg;
+        this.backgroundPaginaOrg = backgroundPaginaOrg;
     }
 
     public getQntdCampanhas(){

@@ -30,6 +30,8 @@ import Comentario from '../entities/Comentario';
 import { PontosColeta } from '../entities/PontosColeta';
 import { SolicitacaoVoluntario } from '../entities/SolicitacaoVoluntario';
 
+import back_acnur from '../images/back_acnur.jpg';
+
 class CampanhaService extends Component {
     
     constructor(props) {
@@ -65,9 +67,9 @@ class CampanhaService extends Component {
                             null,
                             new Doacao('dinheiro', 'R$', 100.0, 50.0, [], null, null),[])
     
-                    ],[],[]
+                    ],[],[], back_acnur
                 ),
-                "Campanha do agasalho 01",
+                "Campanha do brinquedo",
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit. " +
                 "Aenean pellentesque dolor ante, at convallis turpis euismod a. Sed finibus nisl " +
                 "eros, vitae cursus nunc pellentesque a. Integer tempor turpis et dui feugiat, " +
@@ -196,7 +198,7 @@ class CampanhaService extends Component {
             
                     ],[],[]
                 ),
-                "Campanha do agasalho 02",
+                "Campanha do agasalho",
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit. " +
                 "Aenean pellentesque dolor ante, at convallis turpis euismod a. Sed finibus nisl " +
                 "eros, vitae cursus nunc pellentesque a. Integer tempor turpis et dui feugiat, " +
@@ -298,7 +300,7 @@ class CampanhaService extends Component {
                             new Doacao('dinheiro', 'R$', 100.0, 50.0, [])),
                     ],[],[]
                 ),
-                "Campanha do agasalho 03",
+                "Campanha ajude um aluno",
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit. " +
                 "Aenean pellentesque dolor ante, at convallis turpis euismod a. Sed finibus nisl " +
                 "eros, vitae cursus nunc pellentesque a. Integer tempor turpis et dui feugiat, " +
@@ -392,7 +394,7 @@ class CampanhaService extends Component {
     
                     ],[],[]
                 ),
-                "Campanha do agasalho 04",
+                "Arrecadação de ração",
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit. " +
                 "Aenean pellentesque dolor ante, at convallis turpis euismod a. Sed finibus nisl " +
                 "eros, vitae cursus nunc pellentesque a. Integer tempor turpis et dui feugiat, " +
@@ -471,7 +473,7 @@ class CampanhaService extends Component {
     
                     ],[],[]
                 ),
-                "Campanha do agasalho 05",
+                "Compra de uma cadeira de rodas",
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit. " +
                 "Aenean pellentesque dolor ante, at convallis turpis euismod a. Sed finibus nisl " +
                 "eros, vitae cursus nunc pellentesque a. Integer tempor turpis et dui feugiat, " +
@@ -542,7 +544,7 @@ class CampanhaService extends Component {
     
                     ],[],[]
                 ),
-                "Campanha do agasalho 06",
+                "Arrecadação de alimentos",
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit. " +
                 "Aenean pellentesque dolor ante, at convallis turpis euismod a. Sed finibus nisl " +
                 "eros, vitae cursus nunc pellentesque a. Integer tempor turpis et dui feugiat, " +
@@ -601,7 +603,7 @@ class CampanhaService extends Component {
     
                     ],[],[]
                 ),
-                "Campanha do agasalho 07",
+                "Campanha do brinquedo",
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit. " +
                 "Aenean pellentesque dolor ante, at convallis turpis euismod a. Sed finibus nisl " +
                 "eros, vitae cursus nunc pellentesque a. Integer tempor turpis et dui feugiat, " +
@@ -648,7 +650,7 @@ class CampanhaService extends Component {
     
                     ],[],[]
                 ),
-                "Campanha do agasalho 08",
+                "Campanha do brinquedo",
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit. " +
                 "Aenean pellentesque dolor ante, at convallis turpis euismod a. Sed finibus nisl " +
                 "eros, vitae cursus nunc pellentesque a. Integer tempor turpis et dui feugiat, " +
@@ -695,7 +697,7 @@ class CampanhaService extends Component {
     
                     ],[],[]
                 ),
-                "Campanha do agasalho 09",
+                "Campanha do brinquedo",
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit. " +
                 "Aenean pellentesque dolor ante, at convallis turpis euismod a. Sed finibus nisl " +
                 "eros, vitae cursus nunc pellentesque a. Integer tempor turpis et dui feugiat, " +
@@ -743,7 +745,7 @@ class CampanhaService extends Component {
     
                     ],[],[]
                 ),
-                "Campanha do agasalho 10",
+                "Campanha do brinquedo",
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit. " +
                 "Aenean pellentesque dolor ante, at convallis turpis euismod a. Sed finibus nisl " +
                 "eros, vitae cursus nunc pellentesque a. Integer tempor turpis et dui feugiat, " +
@@ -788,8 +790,10 @@ class CampanhaService extends Component {
         let img_background = btoa(campanha.img_background);
         let img_card = btoa(campanha.img_card);
 
-        let pontosColeta = [];
-        if(campanha.campanha.doacao.tipoArrecadacao != "10"){
+        console.log(campanha);
+
+        /*let pontosColeta = [];
+        if(campanha.doacao.tipoArrecadacao != "10"){
             for(let i=0; i<campanha.doacao.pontosColeta.length; i++){
                 this.state.localizacaoService.getEstadoById(campanha.doacao.pontosColeta[i].idEstado).then(estado => {
                     pontosColeta.push(
@@ -806,13 +810,32 @@ class CampanhaService extends Component {
                     );
                 });
             }
-        }
+        }*/
 
         const config = {
             headers: { Authorization: "Bearer " + localStorage.getItem('token')}
         };
 
         axios.defaults.headers.common = {'Authorization': "Bearer " + localStorage.getItem('token')}
+
+        let teste = {
+            titulo: campanha.nome_campanha,
+            descricao: campanha.desc_campanha,
+            tipoCampanhaId: (campanha.tipoCampanha === "campanha") ? 0 : 1,
+            tipoArrecadacaoId: Number(campanha.doacao.tipoArrecadacao),
+            imageCardBase64: img_card,
+            imageCapaBase64: img_background,
+            metaArrecadacao: Number(campanha.doacao.valorTotal),
+            unidadeMedidaId: Number(campanha.doacao.unidadeMedida),
+            dataLimite: campanha.dataLimite,
+            pontosColeta: [],
+            voluntario: {
+                precisaVoluntario: campanha.solicitacaoVoluntario.status,
+                descricao: campanha.solicitacaoVoluntario.descricaoVaga
+            }
+        };
+
+        console.log(teste);
 
         await axios({
             method: 'post',
@@ -821,13 +844,24 @@ class CampanhaService extends Component {
                 titulo: campanha.nome_campanha,
                 descricao: campanha.desc_campanha,
                 tipoCampanhaId: (campanha.tipoCampanha === "campanha") ? 0 : 1,
-                tipoArrecadacaoId: campanha.doacao.tipoArrecadacao,
+                tipoArrecadacaoId: Number(campanha.doacao.tipoArrecadacao),
                 imageCardBase64: img_card,
                 imageCapaBase64: img_background,
-                metaArrecadacao: campanha.doacao.valorTotal,
-                unidadeMedidaId: campanha.doacao.unidadeMedida,
+                metaArrecadacao: Number(campanha.doacao.valorTotal),
+                unidadeMedidaId: Number(campanha.doacao.unidadeMedida),
                 dataLimite: campanha.dataLimite,
-                pontosColeta: pontosColeta,
+                pontosColeta: [
+                    {
+                        cep: "string",
+                        logradouro: "string",
+                        numero: 0,
+                        bairro: "string",
+                        cidade: "string",
+                        uf: "string",
+                        id: 0,
+                        campanhaId: 0
+                    }
+                ],
                 voluntario: {
                     precisaVoluntario: campanha.solicitacaoVoluntario.status,
                     descricao: campanha.solicitacaoVoluntario.descricaoVaga

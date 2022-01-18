@@ -11,6 +11,7 @@ import logo_crami from '../images/logo_crami.png';
 import { Doacao } from '../entities/Doacao';
 import { Campanha } from '../entities/Campanha';
 
+import back_acnur from '../images/back_acnur.jpg';
 
 class OrganizacaoService extends Component {
     
@@ -164,7 +165,7 @@ class OrganizacaoService extends Component {
                     new Acao(),
                     new Acao(),
                 ],
-                null
+                back_acnur
             ),
             new Organizacao(
                 "Cáritas Brasileira",
@@ -275,7 +276,7 @@ class OrganizacaoService extends Component {
                     new Acao(),
                     new Acao(),
                 ],
-                null
+                back_acnur
             ),
             new Organizacao(
                 "ADUS",
@@ -373,7 +374,7 @@ class OrganizacaoService extends Component {
                     new Acao(),
                     new Acao(),
                 ],
-                null
+                back_acnur
             ),
             new Organizacao(
                 "Cedeca",
@@ -460,7 +461,7 @@ class OrganizacaoService extends Component {
                     new Acao(),
                     new Acao(),
                 ],
-                null
+                back_acnur
             ),
             new Organizacao(
                 "CRAMI",
@@ -535,7 +536,7 @@ class OrganizacaoService extends Component {
                     new Acao(),
                     new Acao(),
                 ],
-                null
+                back_acnur
             ),
             new Organizacao(
                 "ACNUR",
@@ -598,7 +599,7 @@ class OrganizacaoService extends Component {
                     new Acao(),
                     new Acao(),
                 ],
-                null
+                back_acnur
             ),
             new Organizacao(
                 "ACNUR",
@@ -649,7 +650,7 @@ class OrganizacaoService extends Component {
                     new Acao(),
                     new Acao(),
                 ],
-                null
+                back_acnur
             ),
             new Organizacao(
                 "ACNUR",
@@ -688,7 +689,7 @@ class OrganizacaoService extends Component {
                     new Acao(),
                     new Acao(),
                 ],
-                null
+                back_acnur
             ),
             new Organizacao(
                 "ACNUR",
@@ -727,7 +728,7 @@ class OrganizacaoService extends Component {
                     new Acao(),
                     new Acao(),
                 ],
-                null
+                back_acnur
             ),
             new Organizacao(
                 "ACNUR",
@@ -766,7 +767,7 @@ class OrganizacaoService extends Component {
                     new Acao(),
                     new Acao(),
                 ],
-                null
+                back_acnur
             )
 
         ];
