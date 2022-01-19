@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Col, Form, Modal, Row } from 'react-bootstrap';
+import { Button, Col, Form, Modal, Row, Spinner } from 'react-bootstrap';
 
 import '../css/ManterCampanhaModal.css';
 import { PontosColeta } from '../entities/PontosColeta';
@@ -64,7 +64,8 @@ class ManterCampanhaModal extends Component {
             pontosColeta : [],
             mostrarDescricaoVoluntario: "none",
             solicitacaoVoluntario: new SolicitacaoVoluntario(false, ""),
-            inicializeFields: true
+            inicializeFields: true,
+            loading : false
         };
         //this.setPrecisaVoluntario = this.setPrecisaVoluntario.bind(this);
         this.onImageChange = this.onImageChange.bind(this);
@@ -109,8 +110,16 @@ class ManterCampanhaModal extends Component {
             this.state.solicitacaoVoluntario
         );
 
+        this.setState({loading : true})
         if (event.target.value === "Criar campanha") {
-            this.state.campanhaService.createCampanha(campanha);
+            this.state.campanhaService.createCampanha(campanha)
+                                        .then(response => {
+                                            this.setState({loading : false});
+                                            this.closeModal();
+                                        })
+                                        .catch(err => {
+                                            this.setState({loading : false});
+                                        });
         } else {
             alert("alterar campanha");
         }
@@ -411,7 +420,18 @@ class ManterCampanhaModal extends Component {
                                         <input type="button" 
                                             value={(this.props.modoTelaCampanha==="cadastro") ? "Criar campanha" : "Alterar campanha"} 
                                             className="btn-criar-campanha"
+                                            disabled={this.state.loading}
+                                            style={{'display' : ((this.state.loading) ? 'none' : 'block')}}
                                             onClick={this.criarCampanha}
+                                        />
+                                        <Spinner 
+                                            animation="border" 
+                                            variant="primary"
+                                            style={{
+                                                    'margin' : '0 auto',
+                                                    'marginTop' : '1em',
+                                                    'marginBottom' : '0',
+                                                    'display' : ((!this.state.loading) ? 'none' : 'block')}} 
                                         />
                                     </div>
                                 </Col>

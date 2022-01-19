@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Row, Col, Form, Button } from 'react-bootstrap';
+import { Row, Col, Form, Button, Spinner } from 'react-bootstrap';
 import { Redirect } from 'react-router';
 
 import '../css/FormPessoaJuridica.css';
@@ -35,7 +35,8 @@ class FormPessoaJuridica extends Component {
                         ),
                         passwordCheck : "",
                         redirect: false, 
-                        page: "/"
+                        page: "/",
+                        loading : false
                     };
         this.handleChange = this.handleChange.bind(this);
     }
@@ -110,6 +111,7 @@ class FormPessoaJuridica extends Component {
     }
 
     save() {
+        this.setState({loading : true});
         this.state.pessoaJuridicaService.save(this.state.pessoaJuridica)
                                         .then(() => {
                                             alert("Cadastro realizado!!!")
@@ -117,10 +119,14 @@ class FormPessoaJuridica extends Component {
                                             .then(() => {
                                                 localStorage.setItem("isLoggedIn", true);
                                                 this.setState({redirect: true});
+                                                this.setState({loading : false});
                                                 window.location.reload();
                                             })
                                         })
-                                        .catch((err) => alert("Erro: " + err.message));
+                                        .catch((err) => {
+                                            alert("Erro: " + err.message);
+                                            this.setState({loading : false});
+                                        });
     }
 
     render() {
@@ -236,7 +242,15 @@ class FormPessoaJuridica extends Component {
                             </Col>
                         </Row>
                     </Form.Group>
-                    <Button variant="success" id="btn-cadastrar-pessoa-juridica" onClick={() => this.save()}>CADASTRAR</Button>
+                    <Button variant="success" id="btn-cadastrar-pessoa-juridica" onClick={() => this.save()} style={{'display' : ((this.state.loading) ? 'none' : 'block')}}>CADASTRAR</Button>
+                    <Spinner 
+                        animation="border" 
+                        variant="primary"
+                        style={{
+                                'margin' : '0 auto',
+                                'marginTop' : '8.5%',
+                                'display' : ((!this.state.loading) ? 'none' : 'block')}} 
+                    />
                 </Form>
             </div>
         );

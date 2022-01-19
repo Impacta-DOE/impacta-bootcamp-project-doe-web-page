@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Row, Col, Form, Button } from 'react-bootstrap';
+import { Row, Col, Form, Button, Spinner } from 'react-bootstrap';
 import { Redirect } from 'react-router';
 import '../css/FormPessoaFisica.css';
 import LocalizacaoService from '../services/LocalizacaoService';
@@ -39,7 +39,8 @@ class FormPessoaFisica extends Component {
                         ),
                         passwordCheck : "",
                         redirect: false, 
-                        page: "/"
+                        page: "/",
+                        loading : false
                     };
         this.handleChange = this.handleChange.bind(this);
     }
@@ -117,6 +118,7 @@ class FormPessoaFisica extends Component {
     }
 
     save() {
+        this.setState({loading : true});
         this.state.pessoaFisicaService.save(this.state.pessoaFisica)
                                         .then(() => {
                                             alert("Cadastro realizado!!!");
@@ -124,10 +126,14 @@ class FormPessoaFisica extends Component {
                                                 .then(() => {
                                                     localStorage.setItem("isLoggedIn", true);
                                                     this.setState({redirect: true});
+                                                    this.setState({loading : false});
                                                     window.location.reload();
                                                 })
                                         })
-                                        .catch((err) => alert("Erro: " + err.message));
+                                        .catch((err) => {
+                                            this.setState({loading : false});
+                                            alert("Erro: " + err.message)
+                                        });
     }
 
     render() {
@@ -256,7 +262,17 @@ class FormPessoaFisica extends Component {
                             </Col>
                         </Row>
                     </Form.Group>
-                    <Button variant="success" id="btn-cadastrar" onClick={() => this.save()}>CADASTRAR</Button>
+                    <Col>
+                        <Button variant="success" id="btn-cadastrar" onClick={() => this.save()} style={{'display' : ((this.state.loading) ? 'none' : 'block')}}>CADASTRAR</Button>
+                        <Spinner 
+                            animation="border" 
+                            variant="primary"
+                            style={{
+                                    'margin' : '0 auto',
+                                    'marginTop' : '15%',
+                                    'display' : ((!this.state.loading) ? 'none' : 'block')}} 
+                        />
+                    </Col>
                 </Form>
             </div>
         );
