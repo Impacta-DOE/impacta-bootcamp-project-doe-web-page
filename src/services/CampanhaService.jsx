@@ -821,14 +821,14 @@ class CampanhaService extends Component {
         let teste = {
             titulo: campanha.nome_campanha,
             descricao: campanha.desc_campanha,
-            tipoCampanhaId: (campanha.tipoCampanha === "campanha") ? 0 : 1,
+            tipoCampanhaId: (campanha.tipoCampanha === "campanha") ? 1 : 2,
             tipoArrecadacaoId: Number(campanha.doacao.tipoArrecadacao),
-            imageCardBase64: img_card,
+            imageCardBase64: img_background,
             imageCapaBase64: img_background,
             metaArrecadacao: Number(campanha.doacao.valorTotal),
             unidadeMedidaId: Number(campanha.doacao.unidadeMedida),
             dataLimite: campanha.dataLimite,
-            pontosColeta: [],
+            pontosColeta: null,
             voluntario: {
                 precisaVoluntario: campanha.solicitacaoVoluntario.status,
                 descricao: campanha.solicitacaoVoluntario.descricaoVaga
@@ -843,25 +843,14 @@ class CampanhaService extends Component {
             data: {
                 titulo: campanha.nome_campanha,
                 descricao: campanha.desc_campanha,
-                tipoCampanhaId: (campanha.tipoCampanha === "campanha") ? 0 : 1,
+                tipoCampanhaId: (campanha.tipoCampanha === "campanha") ? 1 : 2,
                 tipoArrecadacaoId: Number(campanha.doacao.tipoArrecadacao),
                 imageCardBase64: img_card,
                 imageCapaBase64: img_background,
                 metaArrecadacao: Number(campanha.doacao.valorTotal),
                 unidadeMedidaId: Number(campanha.doacao.unidadeMedida),
                 dataLimite: campanha.dataLimite,
-                pontosColeta: [
-                    {
-                        cep: "string",
-                        logradouro: "string",
-                        numero: 0,
-                        bairro: "string",
-                        cidade: "string",
-                        uf: "string",
-                        id: 0,
-                        campanhaId: 0
-                    }
-                ],
+                pontosColeta: null,
                 voluntario: {
                     precisaVoluntario: campanha.solicitacaoVoluntario.status,
                     descricao: campanha.solicitacaoVoluntario.descricaoVaga
@@ -871,6 +860,7 @@ class CampanhaService extends Component {
         }).then(result => {
             alert("Cadastro realizado com sucesso");
         }).catch(err => {
+            console.log(err.response);
             alert("Erro: " + err);
         });
     }
