@@ -31,6 +31,10 @@ import { PontosColeta } from '../entities/PontosColeta';
 import { SolicitacaoVoluntario } from '../entities/SolicitacaoVoluntario';
 
 import back_acnur from '../images/back_acnur.jpg';
+import back_caritas from '../images/back_caritas.jpg';
+import back_adus from '../images/back_adus.jpg';
+import back_cadeca from '../images/back_cadeca.png';
+import back_crami from '../images/back_crami.png';
 
 class CampanhaService extends Component {
     
@@ -196,7 +200,7 @@ class CampanhaService extends Component {
                             null,
                             new Doacao('dinheiro', 'R$', 100.0, 50.0, [])),
             
-                    ],[],[]
+                    ],[],[], back_caritas
                 ),
                 "Campanha do agasalho",
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit. " +
@@ -298,7 +302,7 @@ class CampanhaService extends Component {
                             null,
                             null,
                             new Doacao('dinheiro', 'R$', 100.0, 50.0, [])),
-                    ],[],[]
+                    ],[],[], back_adus
                 ),
                 "Campanha ajude um aluno",
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit. " +
@@ -392,7 +396,7 @@ class CampanhaService extends Component {
                             null,
                             new Doacao('dinheiro', 'R$', 160.0, 130.0, [])),
     
-                    ],[],[]
+                    ],[],[], back_cadeca
                 ),
                 "Arrecadação de ração",
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit. " +
@@ -471,7 +475,7 @@ class CampanhaService extends Component {
                             null,
                             new Doacao('item', 'KG', 300.0, 400.0, null)),
     
-                    ],[],[]
+                    ],[],[], back_crami
                 ),
                 "Compra de uma cadeira de rodas",
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit. " +
@@ -542,7 +546,7 @@ class CampanhaService extends Component {
                             null,
                             new Doacao('item', 'unidades', 200.0, 100.0, null)),
     
-                    ],[],[]
+                    ],[],[], back_acnur
                 ),
                 "Arrecadação de alimentos",
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit. " +
@@ -601,7 +605,7 @@ class CampanhaService extends Component {
                             null,
                             new Doacao('item', 'peças', 100.0, 50.0, null)),
     
-                    ],[],[]
+                    ],[],[], back_acnur
                 ),
                 "Campanha do brinquedo",
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit. " +
@@ -648,7 +652,7 @@ class CampanhaService extends Component {
                             null,
                             new Doacao('dinheiro', 'R$', 100.0, 50.0, [])),
     
-                    ],[],[]
+                    ],[],[], back_acnur
                 ),
                 "Campanha do brinquedo",
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit. " +
@@ -695,7 +699,7 @@ class CampanhaService extends Component {
                             null,
                             new Doacao('dinheiro', 'R$', 100.0, 50.0, [])),
     
-                    ],[],[]
+                    ],[],[], back_acnur
                 ),
                 "Campanha do brinquedo",
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit. " +
@@ -743,7 +747,7 @@ class CampanhaService extends Component {
                             new Doacao('dinheiro', 'R$', 100.0, 50.0, [], null, null)
                         ),
     
-                    ],[],[]
+                    ],[],[], back_acnur
                 ),
                 "Campanha do brinquedo",
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit. " +

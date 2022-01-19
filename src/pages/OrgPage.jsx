@@ -43,7 +43,7 @@ class OrgPage extends Component {
                 {/*this.renderMenuTop()*/}
                 <MenuTop showBtnCadastrar showBtnLogin/>
                 <div id="container-org">
-                    <div id="div-titulo" style={{backgroundImage : "url(" + this.props.location.state.organizacao.backgroundPaginaOrg + ")"}}>
+                    <div id="div-titulo-org" style={{backgroundImage : "url(" + this.props.location.state.organizacao.backgroundPaginaOrg + ")"}}>
                         
                     </div>
                     <div id="div-info-org">
