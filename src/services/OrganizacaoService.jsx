@@ -12,6 +12,10 @@ import { Doacao } from '../entities/Doacao';
 import { Campanha } from '../entities/Campanha';
 
 import back_acnur from '../images/back_acnur.jpg';
+import back_caritas from '../images/back_caritas.jpg';
+import back_adus from '../images/back_adus.jpg';
+import back_cadeca from '../images/back_cadeca.png';
+import back_crami from '../images/back_crami.png';
 
 class OrganizacaoService extends Component {
     
@@ -276,7 +280,7 @@ class OrganizacaoService extends Component {
                     new Acao(),
                     new Acao(),
                 ],
-                back_acnur
+                back_caritas
             ),
             new Organizacao(
                 "ADUS",
@@ -374,7 +378,7 @@ class OrganizacaoService extends Component {
                     new Acao(),
                     new Acao(),
                 ],
-                back_acnur
+                back_adus
             ),
             new Organizacao(
                 "Cedeca",
@@ -461,7 +465,7 @@ class OrganizacaoService extends Component {
                     new Acao(),
                     new Acao(),
                 ],
-                back_acnur
+                back_cadeca
             ),
             new Organizacao(
                 "CRAMI",
@@ -536,7 +540,7 @@ class OrganizacaoService extends Component {
                     new Acao(),
                     new Acao(),
                 ],
-                back_acnur
+                back_crami
             ),
             new Organizacao(
                 "ACNUR",
